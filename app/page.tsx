@@ -180,14 +180,14 @@ export default function Home() {
       <LicenseFooter id="licenca">
         <SectionTitle>Licença</SectionTitle>
         <p>
-          Open Game License (OGL): texto completo e identificação em{" "}
+          Open Game License (OGL): texto completo e identificação{" "}
           <a
             href={OGL_OFFICIAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Abrir Open Game License no site oficial (nova aba)"
           >
-            site oficial
+            aqui
           </a>
           .
         </p>
