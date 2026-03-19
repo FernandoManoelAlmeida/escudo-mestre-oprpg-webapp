@@ -1,6 +1,11 @@
 "use client";
 
 import styled from "styled-components";
+import Image from "next/image";
+import { assetUrl } from "@/lib/basePath";
+
+const GITHUB_README_URL =
+  "https://github.com/FernandoManoelAlmeida/nerogrado-rpg-repo/blob/master/README.md";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
@@ -11,13 +16,26 @@ const Page = styled.div`
 const TitleRow = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0;
   margin: 0 0 ${({ theme }) => theme.spacing.lg};
 `;
 
-const Title = styled.h1`
-  font-size: ${({ theme }) => theme.typography.fontSize["2xl"]};
-  margin: 0;
+const TitleLink = styled.a`
+  display: block;
+  line-height: 0;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: opacity 0.2s;
+  margin: 0 auto;
+  max-width: min(291px, 100%);
+
+  &:hover {
+    opacity: 0.9;
+  }
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline-offset: 4px;
+  }
 `;
 
 const Description = styled.div`
@@ -38,7 +56,21 @@ export default function Home() {
   return (
     <Page>
       <TitleRow>
-        <Title>Ordem Paranormal RPG</Title>
+        <TitleLink
+          href={GITHUB_README_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Abrir repositório no GitHub (README)"
+        >
+          <Image
+            src={assetUrl("/logo-ordem-paranormal-desespero.png")}
+            alt="Ordem Paranormal Desespero"
+            width={720}
+            height={240}
+            priority
+            style={{ width: "100%", height: "auto" }}
+          />
+        </TitleLink>
       </TitleRow>
       <Description>
         <p>
