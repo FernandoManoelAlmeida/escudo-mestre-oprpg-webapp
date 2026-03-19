@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components";
 const fallback = {
   typography: { fontFamily: '"Inter", system-ui, sans-serif' },
   colors: { background: "#080c10", text: "#e8ecf0", primary: "#00c8e6", primaryHover: "#00e5ff" },
-  headerHeight: "48px",
+  headerHeight: "124px",
   bottomNavHeight: "56px",
 };
 
@@ -34,8 +34,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme?.colors?.primaryHover ?? fallback.colors.primaryHover};
   }
   main {
-    min-height: calc(100vh - ${({ theme }) => theme?.headerHeight ?? fallback.headerHeight} - ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight});
+    padding-top: var(--header-height, 124px);
     padding-bottom: ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight};
-    padding-top: ${({ theme }) => theme?.headerHeight ?? fallback.headerHeight};
+    min-height: calc(100vh - var(--header-height, 124px) - ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight});
   }
 `;

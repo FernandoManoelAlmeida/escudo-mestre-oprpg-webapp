@@ -43,7 +43,7 @@ export const theme = {
     },
   },
   bottomNavHeight: "56px",
-  headerHeight: "48px",
+  headerHeight: "124px",
   borderRadius: "4px",
 } as const;
 

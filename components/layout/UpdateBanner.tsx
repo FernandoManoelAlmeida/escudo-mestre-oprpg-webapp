@@ -8,7 +8,7 @@ const APP_VERSION_KEY = "app-version";
 
 const Bar = styled.div`
   position: fixed;
-  top: calc(${({ theme }) => theme.headerHeight} + ${({ theme }) => theme.spacing.xs});
+  top: calc(var(--header-height, 124px) + ${({ theme }) => theme.spacing.xs});
   left: ${({ theme }) => theme.spacing.sm};
   right: ${({ theme }) => theme.spacing.sm};
   max-width: 400px;
@@ -59,7 +59,12 @@ export default function UpdateBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
+    if (
+      typeof window === "undefined" ||
+      !("serviceWorker" in navigator) ||
+      process.env.NODE_ENV === "development"
+    )
+      return;
 
     const checkVersion = async () => {
       try {
