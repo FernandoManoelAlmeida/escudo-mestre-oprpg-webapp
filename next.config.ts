@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
+const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const withPWA = require("@ducanh2912/next-pwa").default({
@@ -33,7 +34,7 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
-  ...(buildForCapacitor && {
+  ...((buildForCapacitor || buildForGitHubPages) && {
     output: "export",
     images: { unoptimized: true },
     trailingSlash: true,
