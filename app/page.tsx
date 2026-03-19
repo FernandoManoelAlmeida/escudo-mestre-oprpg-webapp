@@ -99,6 +99,26 @@ const RegraDescricao = styled.p`
   line-height: 1.6;
 `;
 
+const LicenseFooter = styled.footer`
+  margin-top: ${({ theme }) => theme.spacing.xl};
+  padding-top: ${({ theme }) => theme.spacing.lg};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  color: ${({ theme }) => theme.colors.textMuted};
+  line-height: 1.5;
+
+  a {
+    color: ${({ theme }) => theme.colors.primary};
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+const OGL_OFFICIAL_URL = "https://www.opengamingfoundation.org/ogl.html";
+
 export default function Home() {
   return (
     <Page>
@@ -151,6 +171,22 @@ export default function Home() {
           </RegraItem>
         ))}
       </RegrasList>
+
+      <LicenseFooter id="licenca">
+        <SectionTitle>Licença</SectionTitle>
+        <p>
+          Open Game License (OGL): texto completo e identificação em{" "}
+          <a
+            href={OGL_OFFICIAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir Open Game License no site oficial (nova aba)"
+          >
+            site oficial
+          </a>
+          .
+        </p>
+      </LicenseFooter>
     </Page>
   );
 }
