@@ -139,6 +139,9 @@ export default function Home() {
           />
         </TitleLink>
       </TitleRow>
+
+      <br />
+
       <Description>
         <p>
           Este é o <strong>Escudo do Mestre</strong>: uma referência rápida para
