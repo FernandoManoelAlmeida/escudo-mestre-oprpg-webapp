@@ -1016,7 +1016,7 @@
       "habilidades": [
         {
           "nome": "REGENERAÇÃO DE SANGUE",
-          "descricao": "Fera Clerical possui Cura Acelerada 5. Se ela ficar inconsciente ou sofrer dano de Energia, esta habilidade deixa de funcionar até o fim da cena."
+          "descricao": "Fera Clerical possui Cura Acelerada 10. Se ela ficar inconsciente ou sofrer dano de Energia, esta habilidade deixa de funcionar até o fim da cena."
         }
       ],
       "acoes": [
@@ -1061,13 +1061,13 @@
           "tipo": "COMPLETA",
           "nome": "UIVO DE CLAMOR",
           "ataques": null,
-          "descricao": "Fera Clerical se prostra em posição de oração e começa a uivar até sua próxima rodada, isso causa 1d8+2 de dano mental a todos os seres que não sejam licantropos em alcance médio. Fera Clerical passa a se curar 5 de seu PV por ser na linha de iniciativa até seu próximo turno. Caso seja atacada três vezes antes de chegar ao seu próximo turno o efeito termina."
+          "descricao": "Fera Clerical se prostra em posição de oração e começa a uivar até sua próxima rodada, isso causa 1d8+2 de dano mental a todos os seres que não sejam licantropos em alcance médio. Fera Clerical passa a se curar 10 de seu PV por ser na linha de iniciativa até seu próximo turno. Caso seja atacada três vezes antes de chegar ao seu próximo turno o efeito termina."
         },
         {
           "tipo": "COMPLETA",
           "nome": "UIVO DE ÓDIO",
           "ataques": null,
-          "descricao": "Fera Clerical uiva em frenesi até sua próxima rodada, isso causa 1d8+2 de dano mental a todos os seres que não sejam licantropos ou lupinos em alcance médio. Seres que são licantropos entram no efeito do ritual Ódio Incontrolável, porém só atacam seres que não sejam outros licantropos ou lupinos."
+          "descricao": "Fera Clerical uiva em frenesi até sua próxima rodada, isso causa 1d8+2 de dano mental a todos os seres que não sejam licantropos, lupinos e caninos em alcance médio. Seres que são destes tipos entram no efeito do ritual Ódio Incontrolável, porém só atacam seres que não sejam destes tipos."
         }
       ],
       "enigmaMedo": null,

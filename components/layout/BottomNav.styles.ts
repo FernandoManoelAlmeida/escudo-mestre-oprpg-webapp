@@ -39,6 +39,7 @@ export const Tooltip = styled.span<{ $visible?: boolean }>`
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   pointer-events: none;
   transition: opacity 0.15s ease;
+  z-index: 10;
 `;
 
 export const NavItemWrap = styled.span`
@@ -85,4 +86,40 @@ export const NavIcon = styled.img<{ $active?: boolean }>`
   filter: invert(1);
   opacity: ${({ $active }) => ($active ? 1 : 0.7)};
   transition: opacity 0.15s;
+`;
+
+/** Botão central (Início) em estilo FAB: círculo maior que sobressai da barra */
+const FAB_SIZE = 56;
+const FAB_RAISE = 18;
+
+export const CentralButtonWrap = styled.span`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -${FAB_RAISE}px;
+  width: ${FAB_SIZE}px;
+  height: ${FAB_SIZE}px;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.colors.primary};
+  box-shadow:
+    0 0 0 3px ${({ theme }) => theme.colors.primaryGlow},
+    0 4px 12px ${({ theme }) => theme.colors.primaryGlow};
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  z-index: 1;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.primaryHover};
+    box-shadow:
+      0 0 0 3px ${({ theme }) => theme.colors.primaryGlow},
+      0 6px 16px ${({ theme }) => theme.colors.primaryGlow};
+  }
+`;
+
+export const CentralButtonIcon = styled.img`
+  width: 28px;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 `;

@@ -4,11 +4,19 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { assetUrl } from "@/lib/basePath";
-import { Nav, NavLink, NavIcon, NavItemWrap, Tooltip } from "./BottomNav.styles";
+import {
+  Nav,
+  NavLink,
+  NavIcon,
+  NavItemWrap,
+  Tooltip,
+  CentralButtonWrap,
+  CentralButtonIcon,
+} from "./BottomNav.styles";
 
 const items = [
-  { href: "/", label: "Início", iconSrc: assetUrl("/icons/home-icon.png") },
   { href: "/regras", label: "Regras", iconSrc: assetUrl("/icons/regras-icon.png") },
+  { href: "/", label: "Início", iconSrc: assetUrl("/icons/home-icon.png") },
   { href: "/ameacas", label: "Ameaças", iconSrc: assetUrl("/icons/ameacas-icon.png") },
 ];
 
@@ -71,6 +79,27 @@ export default function BottomNav() {
       {items.map(({ href, label, iconSrc }) => {
         const active = pathname === href || (href !== "/" && pathname.startsWith(href));
         const isCurrentTooltip = visibleTooltip === href;
+        const isCentral = href === "/";
+
+        if (isCentral) {
+          return (
+            <Link
+              key={href}
+              href={href}
+              aria-label={label}
+              title={label}
+            >
+              <NavItemWrap>
+                <CentralButtonWrap>
+                  {iconSrc && (
+                    <CentralButtonIcon src={iconSrc} alt={label} title={label} />
+                  )}
+                </CentralButtonWrap>
+              </NavItemWrap>
+            </Link>
+          );
+        }
+
         return (
           <Link
             key={href}
