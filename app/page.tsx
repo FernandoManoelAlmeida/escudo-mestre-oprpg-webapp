@@ -19,7 +19,7 @@ const TitleRow = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0;
-  margin: 0;
+  margin: ${({ theme }) => theme.spacing.md} 0;
 `;
 
 const TitleLink = styled.a`
@@ -59,6 +59,10 @@ const SectionTitle = styled.h2`
   margin: 0 0 ${({ theme }) => theme.spacing.md};
   padding-bottom: ${({ theme }) => theme.spacing.xs};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+const RegrasSection = styled.section`
+  margin-top: ${({ theme }) => theme.spacing.md};
 `;
 
 const RegrasList = styled.ul`
@@ -140,8 +144,6 @@ export default function Home() {
         </TitleLink>
       </TitleRow>
 
-      <br />
-
       <Description>
         <p>
           Este é o <strong>Escudo do Mestre</strong>: uma referência rápida para
@@ -162,20 +164,20 @@ export default function Home() {
         </p>
       </Description>
 
-      <br />
-
-      <SectionTitle id="regras-em-uso">Regras em uso</SectionTitle>
-      <RegrasList aria-label="Resumo das regras da casa e do Suplemento">
-        {REGRAS_CASA_RESUMO.map((regra, index) => (
-          <RegraItem key={index}>
-            <RegraTitulo>
-              {regra.titulo}
-              {regra.referencia && <RegraRef>({regra.referencia})</RegraRef>}
-            </RegraTitulo>
-            <RegraDescricao>{regra.descricao}</RegraDescricao>
-          </RegraItem>
-        ))}
-      </RegrasList>
+      <RegrasSection aria-labelledby="regras-em-uso">
+        <SectionTitle id="regras-em-uso">Regras em uso</SectionTitle>
+        <RegrasList aria-label="Resumo das regras da casa e do Suplemento">
+          {REGRAS_CASA_RESUMO.map((regra, index) => (
+            <RegraItem key={index}>
+              <RegraTitulo>
+                {regra.titulo}
+                {regra.referencia && <RegraRef>({regra.referencia})</RegraRef>}
+              </RegraTitulo>
+              <RegraDescricao>{regra.descricao}</RegraDescricao>
+            </RegraItem>
+          ))}
+        </RegrasList>
+      </RegrasSection>
 
       <LicenseFooter id="licenca">
         <SectionTitle>Licença</SectionTitle>
