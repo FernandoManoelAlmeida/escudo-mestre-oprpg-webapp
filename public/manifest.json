@@ -1,0 +1,28 @@
+{
+  "id": "/",
+  "name": "Escudo do Mestre — Ordem Paranormal",
+  "short_name": "Escudo Mestre",
+  "description": "Consulta de regras, rolagens e ameaças do Escudo do Mestre (Ordem Paranormal RPG).",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone"],
+  "background_color": "#080c10",
+  "theme_color": "#0e1419",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

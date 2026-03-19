@@ -1,0 +1,2607 @@
+{
+  "ameacas": [
+    {
+      "id": "predador",
+      "nome": "Predador",
+      "vd": 140,
+      "caracteristicas": [
+        "MEDO",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 25,
+        "dano": "4d8 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "2d20",
+        "Iniciativa": "4d20+10",
+        "Fortitude": "3d20+10",
+        "Reflexos": "4d20+10",
+        "Vontade": "2d20+5"
+      },
+      "defesa": 28,
+      "pv": 240,
+      "machucado": 120,
+      "resistencias": "Corte, impacto, perfuração e Sangue 10",
+      "imunidades": "Condições de medo, dano.",
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 4,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "IMITADOR",
+          "descricao": "O Predador pode imitar qualquer som que tenha ouvido, incluindo vozes. Uma criatura que ouve os sons deve realizar um teste de Vontade DT 20, caso falhe irá se sentir tentada a seguir a voz."
+        },
+        {
+          "nome": "CAÇADOR",
+          "descricao": "Se o Predador se mover pelo menos 6m em linha reta em direção a um ser e atacá-lo com suas GARRAS no mesmo turno, esse alvo deve obter sucesso em um teste de resistência Fortitude DT 20, ou será derrubado. Caso o alvo não passe, o Predador faz um ataque de MORDIDA contra ele como uma ação livre."
+        },
+        {
+          "nome": "CAMUFLAGEM",
+          "descricao": "Como um camaleão (ou talvez até além), o Predador tem uma pele camuflável, que assume as cores e padrões do ambiente, podendo se confundir com o local que habita. Ao olhar para onde o predador está, é possível tentar perceber sua presença com um teste de Percepção DT 20."
+        },
+        {
+          "nome": "REJEITAR PARANORMAL",
+          "descricao": "Sempre que o Predador acerta um ataque utilizando suas GARRAS ou MORDIDA a um ser, anula todos os efeitos paranormais que estiverem ativos nele ou que ele ativou em seus arredores por três rodadas, não acumulativo."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "3d20+15",
+              "dano": "4d8+8 perfuração",
+              "obs": null
+            },
+            {
+              "nome": "GARRAS",
+              "teste": "3d20+15",
+              "dano": "4d6+6 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "GRITO DO MEDO",
+          "ataques": null,
+          "descricao": "Ao ser atacado o Predador pode liberar um grito ensurdecedor para impedir o ataque, como um bloqueio. Este grito é capaz de atordoar seres no raio de 6m ao redor do monstros, suas vítimas podem fazer um teste de Fortitude DT 20, caso falhe, irá receber a condição Atordoado e 1d6+1 de dano mental."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRÃO",
+          "ataques": null,
+          "descricao": "Se o Predador acerta um ataque com suas GARRAS em um ser Médio ou menor, pode tentar agarrar o alvo. O alvo pode fazer um teste contra o monstro (teste 3d20+10) para se libertar."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "GARRA DO MEDO",
+          "ataques": null,
+          "descricao": "As garras do Predador manifestam uma aparência impossível, que pode ser descrita apenas como uma “fenda na Realidade”, no qual golpeia um alvo que esteja agarrado. O alvo sofre 4d6+6 pontos de dano de Medo (ignora todas as Resistências). Também deve fazer um teste de Fortitude DT 20, se falhar fica apavorado por uma rodada. Sempre que usa essa habilidade sua garra usada cai no chão e uma nova cresce no lugar."
+        }
+      ],
+      "enigmaMedo": "O Predador de Marduk é um ser muito poderoso e antigo, pouca coisa pode realmente o ferir além de seus próprios dentes e garras. Caso seja ferido por suas armas animalescas, o Predador perde as habilidades IMITADOR, CAMUFLAGEM, GARRA DO MEDO e sua imunidade a dano. Este é o efeito da habilidade REJEITAR PARANORMAL, então irá durar por apenas três rodadas. Como alternativa, o ritual Rejeitar Névoa pode ser usado para anular as habilidades do Predador enquanto o animal estiver dentro do raio de 6m do ritual.",
+      "dadosMedios": {
+        "Iniciativa": "18",
+        "Presença Perturbadora": "12 mental*",
+        "Agredir - Mordida": "24/40/56 perfuração",
+        "Agredir - Garras": "18/30/42 corte",
+        "Reação - Grito do Medo": "4 mental*",
+        "Padrão - Garra do Medo": "18/30/42 medo"
+      }
+    },
+    {
+      "id": "zumbi-de-sangue",
+      "nome": "Zumbi de Sangue",
+      "vd": 20,
+      "caracteristicas": [
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "2d20+5",
+        "Reflexos": "2d20+5",
+        "Vontade": "d20+5"
+      },
+      "defesa": 17,
+      "pv": 45,
+      "machucado": 22,
+      "resistencias": "Balístico, impacto e perfuração 5, Sangue 10",
+      "imunidades": null,
+      "vulnerabilidades": "Morte",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GARRAS",
+              "teste": "2d20+5",
+              "dano": "1d6+5 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "9",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Garras": "8/11/14"
+      }
+    },
+    {
+      "id": "dissociado",
+      "nome": "Dissociado",
+      "vd": 10,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20",
+        "Reflexos": "2d20+5",
+        "Vontade": "d20"
+      },
+      "defesa": 15,
+      "pv": 10,
+      "machucado": 5,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "SOMATIZAÇÃO PARANORMAL",
+          "descricao": "Um dissociado pode somatizar seus traumas, adquirindo mutações corporais. No início de cada cena envolvendo um ou mais dissociados, role 1d6 para determinar se eles terão mutações. Faça uma única rolagem para todos os dissociados da cena.\n 1) Sem Mutação. Use apenas as estatísticas básicas.\n 2) Garras. As unhas do dissociado são extremamente longas e afiadas. O ataque corpo a corpo dele causa um dado extra de dano (por exemplo, de 1d4+1 para 2d4+1) e passa a causar dano de corte (caso ainda não causasse).\n 3) Vulto. O dissociado anda de sombra em sombra, sendo difícil enxergá-lo — ou talvez sua própria pele de alguma forma evite a luz? Em termos de jogo, ele possui camuflagem (ataques contra ele possuem 20% de chance de falha). Se estiver em um ambiente escuro, que normalmente forneceria camuflagem, em vez disso ele recebe camuflagem total (50% de chance de falha).\n 4) Mandíbula Distendida. A boca do dissociado consegue se abrir num ângulo exagerado, permitindo que ele desfira mordidas destroçadoras. Se isso é uma mutação paranormal ou se ele simplesmente abriu sua boca com tanta força a ponto de rasgar a própria pele, ninguém sabe... Caso o dissociado faça um acerto crítico com um ataque corpo a corpo, causa +1d8 pontos de dano de corte.\n 5) Silencioso. O dissociado não vocaliza (não grunhe, grita, rosna...), respira extremamente baixo e, quando caminha, desliza pelo chão. Ele recebe Furtividade (2d20+10) e, no início da cena, tentará se aproximar do grupo — faça um teste oposto da Furtividade do dissociado contra a Percepção dos personagens. Se o dissociado vencer, começa o combate adjacente a um personagem, e o grupo como um todo começa surpreendido.\n 6) Sem Dor. O dissociado é extremamente resistente a ferimentos. Consequência de um simples surto de adrenalina ou de algo mais sinistro? Seja como for, ele possui resistência a dano 5.\n 7) Murmúrios. O dissociado fica repetindo as últimas palavras que proferiu antes de ter sua mente destroçada. Normalmente, são lamentos como “Não quero morrer”, “Por favor, não me machuquem”, “Minhas crenças estavam todas erradas”, “Estou com frio, tanto frio”… Ouvir esses lamentos pode ser traumático. Na primeira vez em cada cena que um personagem ficar em alcance curto do dissociado, deve fazer um teste de Vontade (DT 15). Se falhar, perde 1 ponto de Sanidade.\n 8) Mutação Dupla. Role 2d8, rolando novamente quaisquer resultados 1, 8 ou que já tenham sido rolados."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "d20+5",
+              "dano": "1d4+1 impacto",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "9",
+        "Agredir - Pancada": "3/6/9",
+        "Somatização Paranormal": "5/9/13"
+      }
+    },
+    {
+      "id": "discernido",
+      "nome": "Discernido",
+      "vd": 320,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "MEDO",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 35,
+        "dano": "7d8 mental",
+        "nexImune": 90
+      },
+      "pericias": {
+        "Percepção": "5d20+30",
+        "Iniciativa": "4d20+20",
+        "Fortitude": "3d20+15",
+        "Reflexos": "4d20+20",
+        "Vontade": "5d20+20",
+        "Ciências": "5d20+15",
+        "Crime": "4d20+15",
+        "Diplomacia": "5d20+20",
+        "Enganação": "5d20+25",
+        "Furtividade": "4d20+15",
+        "Ocultismo": "5d20+25"
+      },
+      "defesa": 45,
+      "pv": 700,
+      "machucado": 350,
+      "resistencias": null,
+      "imunidades": "Conhecimento, dano (exceto pelo causado por quem possa vê-lo)",
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 4,
+        "FOR": 4,
+        "INT": 5,
+        "PRE": 5,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "DELÍRIO VIVO",
+          "descricao": "O Discernido pode se transformar fisicamente em qualquer ser que ele tenha observado por 1 dia, as suas estatísticas permanecem as mesmas mas ele poderá falar e agir como o ser em que ele se transformou. Ele pode manter-se nessa forma pelo tempo que quiser, o ser em que ele se transformou sempre irá aparecer de óculos ou com algo que oculte seus inúmeros olhos, pois é a única parte da sua forma original que ainda permanece. O Discernido assume a sua forma natural caso ele ataque, seja atacado ou morra."
+        },
+        {
+          "nome": "DISCERNIMENTO",
+          "descricao": "O Discernido é naturalmente invisível, porém, somente mentes já abaladas são capazes de vê-lo, para ver o Discernido, é necessário que o ser esteja com metade de sua Sanidade total e ter esquecido no mínimo 48 horas de sua vida."
+        },
+        {
+          "nome": "CONFUNDIR",
+          "descricao": "Qualquer ser que olhe nos olhos do Discernido enquanto ele estiver na sua forma de Delírio Vivo, sofre 1d6 pontos de dano mental e esquecerá das últimas 24 horas (Vontade DT 30 reduz à metade e evita a perda de memória)."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "COLISÃO ASTRAL",
+              "teste": "4d20+20",
+              "dano": "3d8+10 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "RAIO OCULAR distância extremo 3x",
+              "teste": "5d20+25",
+              "dano": "2d10+10 conhecimento",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "REMOVER JUÍZO",
+          "ataques": null,
+          "descricao": "Uma vez por rodada, o Discernido faz suas centenas de olhos focarem em um alvo em alcance médio, adentrando em sua mente e tentando lhe enlouquecer, levando a mente dele e a do ser para uma Alucinação Astral. O Alvo deve passar em um teste de Vontade (DT 30) ou então entrará na condição Paralisado. Seres com Intelecto 4 ou mais são imunes a essa habilidade. O Discernido não ataca fisicamente os seres paralisados."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "FORMA DISTINTA",
+          "ataques": null,
+          "descricao": "O Discernido pode se transformar em outro ser que já tenha se transformado antes ou reduzir o seu tamanho como preferir para passar em espaços pequenos, diminuindo e aumentando o seu tamanho quando achar adequado. Nessa forma, a Defesa do Discernido aumenta em +5. ALUCINAÇÃO ASTRAL O ser que tenha sido vítima do Remover Juízo irá acordar em uma alucinação, cada alvo irá despertar em um local diferente, baseado nas suas memórias e maiores medos, o seu maior medo irá persegui-lo e tentar lhe ataca"
+        }
+      ],
+      "enigmaMedo": "O Motivo da criação do Discernido ainda é uma incógnita, registros afirmam que a única maneira de combatê-lo seria fazendo as suas vontades e aceitando ter a sua mente desmantelada e aguentar, fazendo com que assim, ele se torne visível a olho nu, já outros dizem que percebê-lo enquanto ele está transformado em outro ser já seria o suficiente para enfrentá-lo sem a sua Invisibilidade. Seja qual for a forma, a perda de sanidade ou saber quando ele está com outra aparência ou até mesmo descobrir quem o criou, o Discernido perde a sua Imunidade a dano (mas continua sendo imune a Conhecimento), perde 5 pontos de Defesa e não pode usar a Forma Distinta e nem a ação Roubar Mente.",
+      "dadosMedios": {
+        "Iniciativa": "48",
+        "Presença Perturbadora": "21 mental*",
+        "Agredir - Colisão Astral": "32/44/56 impacto",
+        "Agredir - Raio Ocular": "20/30/40 conhecimento",
+        "Alucinação": "3 mental*",
+        "Reter corpo e mente - Impacto Distinto": "26/46/66 impacto",
+        "Reter corpo e mente - Roubar Mente": "7 mental*",
+        "Reter corpo e mente - Tortura Discernida": "16 mental*",
+        "Confundir": "2 mental*"
+      }
+    },
+    {
+      "id": "cacador-de-gente",
+      "nome": "Caçador de Gente",
+      "vd": 80,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "3d20+10",
+        "Reflexos": "2d20+10",
+        "Vontade": "d20+5",
+        "Atletismo": "3d20+10",
+        "Sobrevivência": "d20+10"
+      },
+      "defesa": 23,
+      "pv": 80,
+      "machucado": 40,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "ABRUTALHADO",
+          "descricao": "Caçadores de gente são capazes de feitos físicos assustadores e, muitas vezes, considerados sobrenaturais. Um caçador pode usar itens que exigem as duas mãos com uma só, além de usar objetos para criaturas de tamanho Grande sem sofrer penalidades. Além disso, recebem resistência a dano 10/paranormal enquanto estão machucados."
+        },
+        {
+          "nome": "ÁREA DE CAÇA",
+          "descricao": "O caçador de gente é extremamente eficaz no ambiente isolado onde vive e caça. Determine a área de caça desse assassino. Nessa área, ele recebe +d20 em testes de perícia."
+        },
+        {
+          "nome": "FARO PARA HUMANOS",
+          "descricao": "Este assassino recebe +2d20 em testes de Sobrevivência envolvendo pessoas. Além disso, pode perceber a presença de humanos pelo olfato, como se tivesse faro."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "3d20+15",
+              "dano": "1d4+15 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "MACHADO",
+              "teste": "3d20+15",
+              "dano": "2d8+15 corte",
+              "obs": "x2"
+            },
+            {
+              "nome": "MOTOSSERRA",
+              "teste": "3d20+15",
+              "dano": "3d6+15 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "ATAQUE FURTIVO",
+          "ataques": null,
+          "descricao": "Uma vez por rodada, o caçador de gente causa +4d6 pontos de dano com ataques corpo a corpo, ou à distância em alcance curto, contra alvos desprevenidos ou que esteja flanqueando."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "IMPARÁVEL",
+          "ataques": null,
+          "descricao": "O caçador de gente nunca para de caçar. Ele anula qualquer efeito que esteja reduzindo seu deslocamento. Se esse efeito tiver outras consequências, elas continuam se aplicando."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "ASSUSTAR",
+          "ataques": null,
+          "descricao": "O caçador faz um movimento assustador (como gritar, gargalhar, fazer sua motosserra roncar…). Ele causa 4d6 pontos de dano mental em todas as pessoas e animais que possam vê-lo ou ouvi-lo em alcance curto (Vontade DT 20 reduz à metade)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "FATALIDADE",
+          "ataques": null,
+          "descricao": "O caçador executa um único ataque de pancada. Se acertar, além do dano, o alvo também sofre um ferimento debilitante (p. 105). Um ser só pode ser afetado por essa habilidade uma vez por cena."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "22",
+        "Agredir - Pancada": "17/19/21 impacto",
+        "Agredir - Machado": "23/31/39 corte",
+        "Agredir - Motosserra": "24/33/42 corte"
+      }
+    },
+    {
+      "id": "fazendeiro-isolado",
+      "nome": "Fazendeiro Isolado",
+      "vd": 20,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "d20",
+        "Fortitude": "2d20+5",
+        "Reflexos": "d20",
+        "Vontade": "2d20+5",
+        "Profissão (fazendeiro)": "d20+10"
+      },
+      "defesa": 16,
+      "pv": 16,
+      "machucado": 8,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 1,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "DE SOL A SOL",
+          "descricao": "O fazendeiro isolado não fica inconsciente por ter seus pontos de vida reduzidos à 0."
+        },
+        {
+          "nome": "HISTÓRIAS DE PESCADOR",
+          "descricao": "Sendo uma fonte infinita de causos e histórias da região onde vive, o fazendo pode ajudar os personagens, se estiver disposto. Se os personagens compartilharem sua investigação com o fazendeiro, ele pode, a critério do mestre, fazer um teste de revisar o caso (OPRPG, p. 93) usando Profissão (fazendeiro). Se passar, fornece uma pista para o caso usando sua vivência no mato ou histórias de antepassados para explicá-la."
+        },
+        {
+          "nome": "RESILIÊNCIA DO CAMPO",
+          "descricao": "Acostumado a resolver os perrengues do dia a dia com as próprias mãos e com a paciência exigida pela natureza, o fazendeiro pode usar Profissão (fazendeiro) no lugar de ### Perícias baseadas em Força ou Presença."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PEIXEIRA",
+              "teste": "2d20+5",
+              "dano": "1d8+5 corte",
+              "obs": null
+            },
+            {
+              "nome": "ESPINGARDA",
+              "teste": "d20+5",
+              "dano": "4d6 balístico",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "ATIÇAR OS CÃES",
+          "ataques": null,
+          "descricao": "O fazendeiro comanda seus cães de guarda para avançar sobre um alvo em alcance curto. Os animais investem com ferocidade, cercando o alvo e esperando a melhor oportunidade para atacar. O próximo ataque que o fazendeiro acertar causa +1d8 pontos de dano de perfuração e deixa o alvo caído (Luta DT 15 evita a condição)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "10",
+        "Agredir - Peixeira": "9/13/17 corte",
+        "Agredir - Espingarda": "12/24/36 balístico"
+      }
+    },
+    {
+      "id": "soldado-de-aluguel",
+      "nome": "Soldado de Aluguel",
+      "vd": 40,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "2d20+5",
+        "Reflexos": "2d20+5",
+        "Vontade": "d20"
+      },
+      "defesa": 18,
+      "pv": 25,
+      "machucado": 12,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MACHETE",
+              "teste": "2d20+10",
+              "dano": "1d6+9 corte",
+              "obs": null
+            },
+            {
+              "nome": "FUZIL",
+              "teste": "2d20+10",
+              "dano": "2d8+9 balístico",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "ATAQUE EM MOVIMENTO",
+          "ataques": null,
+          "descricao": "O soldado de aluguel pode percorrer seu deslocamento e atacar em qualquer ponto durante o movimento."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "22",
+        "Agredir - Machete": "12/15/18 corte",
+        "Agredir - Fuzil": "17/25/33 balístico"
+      }
+    },
+    {
+      "id": "prole-de-lobo",
+      "nome": "Prole de Lobo",
+      "vd": 40,
+      "caracteristicas": [
+        "MORTE",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "3d6 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "3d20+5",
+        "Fortitude": "2d20+5",
+        "Reflexos": "3d20+5",
+        "Vontade": "d20",
+        "Sobrevivência": "d20+5",
+        "Furtividade": "3d20+5"
+      },
+      "defesa": 19,
+      "pv": 60,
+      "machucado": 30,
+      "resistencias": "Morte 5",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "TÁTICAS DE ALCATEIA",
+          "descricao": "Quando flanqueia um inimigo, a Prole recebe +d20 no teste de ataque (além do bônus normal por flanquear, para um total de +2d20) e causa +1d6 pontos de dano em seus ataques."
+        },
+        {
+          "nome": "REGENERAÇÃO PELO SANGUE",
+          "descricao": "A criatura possui Cura Acelerada 5. Se ficar inconsciente ou sofrer dano de Morte, esta habilidade deixa de funcionar até o fim da cena."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GARRAS",
+              "teste": "3d20+10",
+              "dano": "1d6+3 corte",
+              "obs": "x2"
+            },
+            {
+              "nome": "MORDIDA",
+              "teste": "3d20+5",
+              "dano": "1d6+4 corte",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "MORDER",
+          "ataques": null,
+          "descricao": "Se a Prole de Lobo acerta os dois ataques de garras em um mesmo ser na mesma rodada, ele faz um ataque extra neste ser com sua mordida."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "DERRUBAR",
+          "ataques": null,
+          "descricao": "Se o lobo acerta um ataque de mordida, pode fazer a manobra derrubar (teste 3d20+5)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "19",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Garras": "6/9/12 lorem",
+        "Agredir - Mordida": "7/10/13 lorem"
+      }
+    },
+    {
+      "id": "aracnasita",
+      "nome": "Aracnasita",
+      "vd": 80,
+      "caracteristicas": [
+        "MORTE",
+        "MEDO",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5",
+        "Reflexos": "3d20+10",
+        "Vontade": "d20+5",
+        "Furtividade": "3d20+8"
+      },
+      "defesa": 23,
+      "pv": 140,
+      "machucado": 70,
+      "resistencias": null,
+      "imunidades": "Dano",
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "PERCEPÇÃO TÁTIL",
+          "descricao": "A aracnasita percebe tudo que está em contato com sua teia. Ela ignora penalidades por visão ou condições de sentidos para objetos e seres em contato com a teia."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "2d20+15",
+              "dano": "2d10+10 perfuração",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "ESTACAR",
+          "ataques": null,
+          "descricao": "Quando causa dano com sua mordida, a aracnasita pode usar seu Lodo da Morte para prender o alvo no lugar. A vítima sofre +1d10 pontos de dano de Morte e fica agarrada. Ela pode se soltar gastando uma ação padrão e um teste de Atletismo (DT 20). Personagens adjacentes podem gastar uma ação padrão para soltá-la com o mesmo teste (ou ajudá-la em seu próprio teste)."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "DESOVAR ARANHAS",
+          "ataques": null,
+          "descricao": "Uma vez por cena, quando ficar machucada, a aracnasita desova diversas aranhas menores, que se espalham em sua volta gerando efeitos diversos. No início de cada turno da aracnasita após isso, ela executa um dos seguintes efeitos, nesta ordem. 1. No primeiro turno, as aranhas se espalham ao redor da aracnasita. Até o fim da cena, um personagem que inicie seu turno em alcance curto da criatura sofre 2d6 pontos de dano mental (Vontade DT 15 reduz à metade). 2. A partir do segundo turno, as aranhas "
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "DISPARAR TEIA",
+          "ataques": null,
+          "descricao": "A aracnasita dispara uma teia em alcance curto. A teia ocupa uma área quadrada com 3m de lado. Personagens na área ou que entrem nela, ficam agarrados (Reflexos DT 20 evita). A teia é tomada pelo Lodo da Morte, fazendo com que qualquer personagem que inicie seu turno agarrado por ela sofra 2d8+10 pontos de dano de Morte. Um personagem pode escapar da teia causando 15 pontos de dano de corte a ela ou gastando uma ação padrão para rasgá-la (Atletismo DT 20). A teia dura até fim da cena."
+        }
+      ],
+      "enigmaMedo": "A aracnasita se forma a partir de uma aranha que entra em contato com o Lodo da Morte através de um símbolo poderoso e cresce quando captura um ser humano para paristar. Por isso, ela continua a manifestar esse Lodo por todo seu corpo e guarda uma grande quantidade em seu abdômem, onde fica a vítima que está sendo parasitada. O Lodo serve como uma proteção paranormal e faz com que seu corpo seja impossível de ser ferido. Ainda assim, existe uma forma de derrota-la. O Lodo da Morte em seu corpo procura fugir do fogo e do calor, movimentando-se lentamente para longe da fonte quente. Caso sofra dano de fogo, a aracnasita perde sua imunidade a dano até o início do próximo turno.",
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Mordida": "20/30/40 perfuração",
+        "Reação - Desovar aranhas 1": "4 mental*",
+        "Reação - Desovar aranhas 2": "20/30/40 perfuração"
+      }
+    },
+    {
+      "id": "lobo",
+      "nome": "Lobo",
+      "vd": 20,
+      "caracteristicas": [
+        "ANIMAL",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "3d20+5",
+        "Fortitude": "2d20+5",
+        "Reflexos": "3d20+5",
+        "Vontade": "d20",
+        "Sobrevivência": "d20+5"
+      },
+      "defesa": 18,
+      "pv": 18,
+      "machucado": 9,
+      "resistencias": "Morte 5",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "TÁTICAS DE ALCATEIA",
+          "descricao": "Quando flanqueia um inimigo, a Prole recebe +d20 no teste de ataque (além do bônus normal por flanquear, para um total de +2d20) e causa +1d6 pontos de dano em seus ataques."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "3d20+5",
+              "dano": "1d6+4 corte",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "DERRUBAR",
+          "ataques": null,
+          "descricao": "Se o lobo acerta um ataque de mordida, pode fazer a manobra derrubar (teste 3d20+5)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "19",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Garras": "6/9/12 lorem",
+        "Agredir - Mordida": "7/10/13 lorem"
+      }
+    },
+    {
+      "id": "nidere",
+      "nome": "Nidere",
+      "vd": 320,
+      "caracteristicas": [
+        "MORTE",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 35,
+        "dano": "8d6 mental",
+        "nexImune": 95
+      },
+      "pericias": {
+        "Percepção": "4d20+25",
+        "Iniciativa": "5d20+25",
+        "Fortitude": "5d20+25",
+        "Reflexos": "5d20+25",
+        "Vontade": "4d20+15",
+        "Furtividade": "7d20+23",
+        "Sobrevivência": "6d20+20"
+      },
+      "defesa": 50,
+      "pv": 800,
+      "machucado": 400,
+      "resistencias": "Corte, impacto, perfuração e Morte 20",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 5,
+        "FOR": 5,
+        "INT": 3,
+        "PRE": 4,
+        "VIG": 5
+      },
+      "deslocamento": "24m | 18",
+      "habilidades": [
+        {
+          "nome": "CAÇADOR VELOZ",
+          "descricao": "O nidere pode se mover em seu deslocamento normal sem penalidade em Furtividade."
+        },
+        {
+          "nome": "REGENERAÇÃO ACELERADA",
+          "descricao": "O nidere possui Cura Acelerada 50. Ele perde esta habilidade se resolverem seu ### Enigma de Medo."
+        },
+        {
+          "nome": "SENSO DE DIREÇÃO PERFEITO",
+          "descricao": "Nideres nunca se perdem e recebem +d20d20 em Percepção e Sobrevivência (já contabilizados na ficha). A criatura perde esta habilidade caso seu ### Enigma de Medo seja resolvido."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GARRA INVERTIDA",
+              "teste": "5d20+35",
+              "dano": "4d10+40 Morte",
+              "obs": "x2"
+            },
+            {
+              "nome": "MORDIDA INVERTIDA",
+              "teste": "5d20+35",
+              "dano": "4d12+40 Morte",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "REVERTER",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano das garras invertidas é afetado por um surto temporal capaz de apodrecer a carne. Ele fica enjoado até o final do seu próximo turno."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "RASTREAR E ABATER",
+          "ataques": null,
+          "descricao": "O nidere causa +6d6 pontos de dano contra seres desprevenidos."
+        }
+      ],
+      "enigmaMedo": "Para enfrentar um nidere, é preciso primeiro encontrar seu covil, que muitas vezes é formado por cavernas naturais nas profundezas da floresta, enquanto ele não estiver lá. Se o nidere enfrentar os personagens dentro do seu covil, a afinidade com seu lar labiríntico o tornará ainda mais mortal. Para acessar a origem da sua manifestação, é primeiro necessário entender a lógica distorcida por trás dos padrões misteriosos dos restos ósseos de suas vítimas deixados pendurados no lar pelo nidere. Estes ossos formam uma espécie de engenhoca bizarra criada pela própria criatura. É como se a criatura preparasse uma armadilha para atrair e distrair seus caçadores, com uma lógica que sempre tem uma conexão com as identidades das vítimas que devora, como um desafio. Quando a origem for destruída, a criatura entrará em uma fúria incontrolável. Ela sofre -10 na Defesa e -2d20 em testes de resistência, e perde suas habilidades Regeneração Acelerada e Senso de Direção Perfeito, o que a torna suscetível a cair em armadilhas que seriam facilmente evitadas em seu estado original, possibilitando a sua captura e morte.",
+      "dadosMedios": {
+        "Iniciativa": "43",
+        "Presença Perturbadora": "16 mental*",
+        "Agredir - Garra Invertida": "60/80/100 Morte",
+        "Agredir - Mordida Invertida": "64/88/112 Morte"
+      }
+    },
+    {
+      "id": "sempiternal-enfraquecido",
+      "nome": "Sempiternal Enfraquecido",
+      "vd": 100,
+      "caracteristicas": [
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "3d20+5",
+        "Iniciativa": "3d20+5",
+        "Fortitude": "2d20+5",
+        "Reflexos": "3d20+10",
+        "Vontade": "3d20+10"
+      },
+      "defesa": 23,
+      "pv": 200,
+      "machucado": 100,
+      "resistencias": "Corte, impacto e perfuração 10",
+      "imunidades": "Condições lento e de paralisia, e dano e efeitos de Morte",
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 2,
+        "PRE": 3,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "TOQUE ACELERADOR",
+          "descricao": "Sempre que um ser sofre dano dos dedos alongados, envelhece 1d4 anos. Se a vítima envelhecer 8 anos ou mais desta forma, fica fraca até o fim da cena. Se envelhecer 40 anos ou mais, fica debilitada até o fim da cena. E se envelhecer 60 anos ou mais, morre. Seres com afinidade com a Morte são imunes a este efeito."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "DEDOS ALONGADOS",
+              "teste": "3d20+15",
+              "dano": "4d4 Morte mais envelhecimento (veja Toque Acelerador)",
+              "obs": "x4"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "CORRENTES DE LODO",
+          "ataques": null,
+          "descricao": "O sempiternal projeta vinhas de Lodo pelo chão, ocupando toda a área em alcance médio. Todos os seres na área sofrem 6d6 pontos de dano de Morte (Fortitude DT 25 reduz à metade). Um ser que fique machucado devido a este dano é infectado com o Lodo e recebe vulnerabilidade a Morte até o fim da cena. Um ser reduzido a 0 PV se torna um esqueleto de lodo."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "19",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Dedos alongados": "8/16/24 morte",
+        "Movimento - Correntes de lodo": "18 morte"
+      }
+    },
+    {
+      "id": "fera-clerical",
+      "nome": "Fera Clerical",
+      "vd": 120,
+      "caracteristicas": [
+        "MORTE",
+        "CONHECIMENTO",
+        "SANGUE",
+        "CRIATURA",
+        "ENORME"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20+5",
+        "Reflexos": "2d20+5",
+        "Vontade": "3d20+10",
+        "Religião": "3d20+10",
+        "Ocultismo": "3d20+10"
+      },
+      "defesa": 22,
+      "pv": 200,
+      "machucado": 100,
+      "resistencias": "Corte, impacto e perfuração 10, Morte 20",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 3,
+        "PRE": 3,
+        "VIG": 1
+      },
+      "deslocamento": "6m | 4",
+      "habilidades": [
+        {
+          "nome": "REGENERAÇÃO DE SANGUE",
+          "descricao": "Fera Clerical possui Cura Acelerada 5. Se ela ficar inconsciente ou sofrer dano de Energia, esta habilidade deixa de funcionar até o fim da cena."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "2d20+15",
+              "dano": "2d6+10 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "MORDIDA",
+              "teste": "2d20+15",
+              "dano": "2d12+10 perfuração",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRÃO",
+          "ataques": null,
+          "descricao": "Se o Fera Clerical acertar um ataque de pancada em um ser pode tentar agarrar o alvo (teste 2d20+15). Ela só pode agarrar um ser por vez. Quando estiver agarrado a um ser, só pode usar a ação pancada uma vez por turno."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "ESMAGAR",
+          "ataques": null,
+          "descricao": "Um alvo que permanece agarrado até o próximo turno de Fera Clerical sofre 1d6 de dano de impacto e não pode fazer nenhuma ação além de tentar se libertar."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "AVANÇO SELVAGEM",
+          "ataques": null,
+          "descricao": "Com um salto direcionado, Fera Clerical pode se locomover 12m (8 ❏), quem estiver a alcance curto do local onde ela pousa recebe 1d12 de dano de impacto."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "UIVO DE CLAMOR",
+          "ataques": null,
+          "descricao": "Fera Clerical se prostra em posição de oração e começa a uivar até sua próxima rodada, isso causa 1d8+2 de dano mental a todos os seres que não sejam licantropos em alcance médio. Fera Clerical passa a se curar 5 de seu PV por ser na linha de iniciativa até seu próximo turno. Caso seja atacada três vezes antes de chegar ao seu próximo turno o efeito termina."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "UIVO DE ÓDIO",
+          "ataques": null,
+          "descricao": "Fera Clerical uiva em frenesi até sua próxima rodada, isso causa 1d8+2 de dano mental a todos os seres que não sejam licantropos ou lupinos em alcance médio. Seres que são licantropos entram no efeito do ritual Ódio Incontrolável, porém só atacam seres que não sejam outros licantropos ou lupinos."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "17",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Pancada": "16/22/28 impacto",
+        "Agredir - Mordida": "22/34/46 perfuração",
+        "Movimento - Avanço selvagem": "6 impacto",
+        "Completa - Uivo de clamor e ódio": "5 mental*"
+      }
+    },
+    {
+      "id": "cerebro-de-jour",
+      "nome": "Cérebro de Jour",
+      "vd": 120,
+      "caracteristicas": [
+        "ENERGIA",
+        "CONHECIMENTO",
+        "SANGUE",
+        "CRIATURA",
+        "ENORME"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d8 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "4d20+10",
+        "Fortitude": "3d20+5",
+        "Vontade": "4d20+10",
+        "Ciências": "4d20+10",
+        "Intimidação": "4d20+10",
+        "Ocultismo": "4d20+10"
+      },
+      "defesa": 10,
+      "pv": 250,
+      "machucado": 125,
+      "resistencias": "Corte, impacto e perfuração 10, Morte 20",
+      "imunidades": "Condições mentais",
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 0,
+        "FOR": 0,
+        "INT": 4,
+        "PRE": 4,
+        "VIG": 3
+      },
+      "deslocamento": "0m | 0",
+      "habilidades": [
+        {
+          "nome": "RETRIBUIÇÃO DO EMINENTE",
+          "descricao": "Um ser que esteja com Ódio Incontrolável causado por Frenesi e esteja atacando o Cérebro de Jour, sempre que acertar um ataque recebe o mesmo dano causado de volta, entretanto convertido em metade dano de energia e metade dano de conhecimento."
+        },
+        {
+          "nome": "REGENERAÇÃO ENERGÉTICA",
+          "descricao": "A criatura possui Cura Acelerada 10. Se ficar inconsciente ou sofrer dano de conhecimento, esta habilidade deixa de funcionar até o fim da cena."
+        },
+        {
+          "nome": "CEGO DE CONHECIMENTO",
+          "descricao": "Se o alvo do Frenesi causado pelo Cérebro de Jour passar mais de 10 rodadas nesse efeito adquire permanentemente a condição Cego e o Poder Paranormal Visão do Oculto."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "OLHAR DO FRENESI",
+          "ataques": null,
+          "descricao": "A cada rodada sendo visto pelo Cérebro sofre 1d8+2 de dano mental e adquire a condição Fascinado. Deve fazer um teste de Vontade DT 20 para parar de olhar a criatura, se falhar na próxima rodada recebe condições em sequência por rodada: Esmorecido e efeito do ritual Ódio Incontrolável. Para se recuperar das condições adquiridas é necessário sair da vista do emissor, perdendo imediatamente a condição Fascinado e Esmorecido, porém o efeito de Ódio Incontrolável segue a regra de duração de cena."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "PRESENÇA DO FRENESI",
+          "ataques": null,
+          "descricao": "Quando mais de um ser está a uma distância média do Cérebro de Jour ele pode intensificar o efeito de seu Frenesi e usar seus múltiplos olhos para olhar para todos esses ao mesmo tempo causando o dano de Frenesi em todos que desejar, mudando o dano mental para 1d6."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "FRENESI CONCENTRADO",
+          "ataques": null,
+          "descricao": "Quando um ser está a uma distância média do Cérebro de Jour ele pode intensificar o efeito de seu Frenesi para 4d8+2."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "CUSPIR PARASITA",
+          "ataques": null,
+          "descricao": "Ao custo de 25 de PV o Cérebro de Jour pode produzir um Parasita do Eminente, um item que causa transformações em quem o usar. Assim que produzido o parasita tem 25 de PV, 5 de RD, 18m (10 ❏) de movimentação e pode fazer um ataque que causa 1d4 de Energia usado apenas para se proteger. Caso o PV do Cérebro chegue a menos de 50, ele produz um Parasita Especial (pode-se mudar a cor dele ou alguma característica para ficar evidente isso) com as mesmas estatísticas, em que ele transfere sua consciên"
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "10",
+        "Presença Perturbadora": "12 mental*",
+        "Padrão - Olhar do Frenesi": "5 mental*",
+        "Reação - Presença do Frenesi": "2 mental*",
+        "Reação - Frenesi concentrado": "14 mental*",
+        "Movimento - Cuspir parasita": "2/4/6 energia"
+      }
+    },
+    {
+      "id": "desperto-brutamontes",
+      "nome": "Desperto Brutamontes",
+      "vd": 60,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "3d6 mental",
+        "nexImune": 35
+      },
+      "pericias": {
+        "Percepção": "3d20+5",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "3d20+10",
+        "Reflexos": "2d20+5",
+        "Vontade": "3d20+10",
+        "Atletismo": "4d20+10"
+      },
+      "defesa": 21,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": "Balístico, corte e impacto 10, Conhecimento 20",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 4,
+        "INT": 0,
+        "PRE": 3,
+        "VIG": 3
+      },
+      "deslocamento": "6m | 4",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA VIOLENTA",
+              "teste": "4d20+10",
+              "dano": "3d12 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRÃO",
+          "ataques": null,
+          "descricao": "Se o Brutamontes acertar um ataque de pancada violenta em um ser pode tentar agarrar o alvo (teste 4d20+12). Ele só pode agarrar um ser por vez. Quando estiver agarrado a um ser, só pode usar a ação pancada violenta uma vez por turno."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "ESMAGAR",
+          "ataques": null,
+          "descricao": "Um alvo que permanece agarrado até o próximo turno do Brutamontes sofre 1d12 de dano de impacto e não pode fazer nenhuma ação além de tentar se libertar."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "ARREMESSO",
+          "ataques": null,
+          "descricao": "Um alvo que permanece agarrado até o próximo turno do Brutamontes pode ser arremessado causando 1d12 de dano de impacto. Caso acerte outro ser, este deve fazer um teste de Reflexos (DT 20), caso falhe recebe 1d6 de dano de impacto."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "AVANÇO DESCONTROLADO",
+          "ataques": null,
+          "descricao": "O Brutamontes avança até 12m (8 ❏) descontroladamente em uma direção e tudo que estiver em seu caminho sofre 4d12 de dano de impacto, porém se o Brutamontes bater em um obstáculo do tamanho enorme ele não consegue atravessar e toma o mesmo dano que causou. Quem estiver no caminho deve fazer um teste de Reflexos (DT 20) para evitar."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "17",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Pancada violenta": "18/36/54 impacto",
+        "Reação - Esmagar": "6 impacto",
+        "Reação - Arremesso": "6 impacto / 3 impacto",
+        "Completa - Avanço descontrolado": "24 impacto"
+      }
+    },
+    {
+      "id": "parasita-de-culpa",
+      "nome": "Parasita de Culpa",
+      "vd": 60,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "SANGUE",
+        "MORTE",
+        "MEDO",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "2d6 mental",
+        "nexImune": 35
+      },
+      "pericias": {
+        "Percepção": "4d20",
+        "Iniciativa": "2d20",
+        "Fortitude": "d20+10",
+        "Reflexos": "2d20+10",
+        "Vontade": "4d20+10"
+      },
+      "defesa": 15,
+      "pv": 90,
+      "machucado": 45,
+      "resistencias": null,
+      "imunidades": "Dano (exceto causado pelo hospedeiro)",
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 0,
+        "INT": 4,
+        "PRE": 4,
+        "VIG": 1
+      },
+      "deslocamento": "6m | 4",
+      "habilidades": [
+        {
+          "nome": "DEVORAR CULPA",
+          "descricao": "O parasita se alimenta da culpa e dos traumas de um hospedeiro. Caso se fixe em um personagem dormindo, o parasita expande sua influência. Todos os personagens dormindo em alcance médio ficarão presos em um sonho compartilhado (veja ### Enigma de Medo) até que o parasita seja derrotado ou o hospedeiro morra ou enlouqueça."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "d20",
+              "dano": "1d4 impacto",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "FIXAR",
+          "ataques": null,
+          "descricao": "O parasita se aproxima de um personagem dormindo. O personagem tem direito a um teste de Percepção (com penalidade de -2d20, por estar dormindo), oposto ao teste de Furtividade do parasita (2O+15). Se passar, desperta antes que o parasita se fixe nele, fazendo com que a criatura fuja. Se falhar, torna-se hospedeiro do parasita (veja Devorar Culpa)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "ATORMENTAR",
+          "ataques": null,
+          "descricao": "Se estiver fixado a um hospedeiro, o parasita atormenta a mente do personagem e de todos que ele estiver mantendo inconscientes. No início de cada cena do sonho, todos os personagens dentro do sonho sofrem 2d6 pontos de dano mental (Vontade DT 20 reduz à metade)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "CÓPIAS DO HOSPEDEIRO",
+          "ataques": null,
+          "descricao": "Se estiver fixado a um hospedeiro, o parasita manifesta uma cópia feita de Conhecimento desse personagem. A cópia possui as mesmas estatísticas do original, mas tem 20 PV e todo dano que causa é de Conhecimento. O parasita pode manifestar no máximo quatro cópias por vez. Se manifestar uma cópia dentro do sonho, ela usa o valor de Presença do parasita no lugar dos seus atributos e causa dano mental em vez do normal."
+        }
+      ],
+      "enigmaMedo": "Para derrotar o parasita de culpa, os personagens devem perceber que estão vivendo um sonho compartilhado, e identificar qual personagem dentro do sonho é o hospedeiro do parasita. Após descobrir isso, o hospedeiro deve confrontar as manifest### Ações e derrotá-las dentro do sonho, sozinho. Um sonho compartilhado é uma sequência de cenas que ocorrem na mente dos personagens. Com exceção dos próprios personagens, tudo que existe no sonho é um construto de Conhecimento. Enquanto estiverem dentro do sonho, os agentes agem normalmente, conforme o tipo de cena que o sonho está simulando. O mestre determina como os personagens podem descobrir que estão em um sonho, e quais ameaças enfrentarão nele.",
+      "dadosMedios": {
+        "Iniciativa": "12",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Pancada": "2/4/6 lorem",
+        "Completa - Atormentar": "6 mental*"
+      }
+    },
+    {
+      "id": "cacadores",
+      "nome": "Caçadores",
+      "vd": 60,
+      "caracteristicas": [
+        "MORTE",
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "d20+5",
+        "Reflexos": "3d20+10",
+        "Vontade": "3d20+10",
+        "Profissão": "2d20+10",
+        "Intimidação": "3d20+5",
+        "Religião": "3d20+5",
+        "Sobrevivência": "2d20+5"
+      },
+      "defesa": 20,
+      "pv": 80,
+      "machucado": 40,
+      "resistencias": "Corte, impacto, balístico e perfuração 10, Morte 20",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 2,
+        "PRE": 3,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "A ESPIRAL EM PRIMEIRO LUGAR",
+          "descricao": "Os Luzidios são comumente pacíficos, porém em situações onde o Parasita de Dimensões é ferido, o Luzidio começa a chorar lágrimas negras e se torna mais agressivo e territorialista. Os atributos de Força e Vigor aumentam em 1 e eles se tornam capazes de conjurar de maneira inata o ritual Amaldiçoar Arma de Morte.\n\nBEM VINDO A...\nPersonagens que passam muito tempo próximo aos Luzidios ou a sua terra natal, tendem a lentamente se tornar conectados inconscientemente ao elemento da Morte. A critério do Mestre, os personagens podem assumir temporariamente uma forma semelhante aos Luzidios, tendo olhos completamente negros, pele acinzentada e marcas espalhadas de maneira aleatória pelo rosto."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PISTOLA DE PRESSÃO DO CAÇADOR",
+              "teste": "3d20+10",
+              "dano": "1d12+11 fogo",
+              "obs": null
+            },
+            {
+              "nome": "BENGALA ROSQUEADA",
+              "teste": "3d20+5",
+              "dano": "2d6+11 corte",
+              "obs": "x2"
+            },
+            {
+              "nome": "CUTELO SERRA",
+              "teste": "3d20+5",
+              "dano": "1d10+11 corte",
+              "obs": "x2"
+            },
+            {
+              "nome": "MACHADO DE CAÇADOR",
+              "teste": "3d20+5",
+              "dano": "1d10+11 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "APARAR COM PRESSÃO",
+          "ataques": null,
+          "descricao": "Caso esteja corpo à corpo pode ser sacada com uma ação livre e usada como uma reação. Caso acerte causa 1 de dano de fogo e faz o alvo ficar Atordoado por uma rodada. Caso falhe o dano do inimigo se torna crítico."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "TRANSFORMAR ARMA DE TRUQUE",
+          "ataques": null,
+          "descricao": "As armas dos caçadores são conhecidas por se transformar em meio ao combate ganhando novos valores. Transformar a arma gasta uma ação de movimento."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Agredir - Pistola de pressão do caçador": "17/23/29 fogo",
+        "Agredir - Bengala rosqueada": "17/29/47 corte",
+        "Agredir - Bengala rosqueada truque": "15/27/43 corte",
+        "Agredir - Cutelo serra": "16/26/41 corte",
+        "Agredir - Cutelo serra truque": "15/23/35 corte",
+        "Agredir - Machado de caçador": "16/26/41 corte",
+        "Agredir - Machado de caçador truque": "15/27/43 corte"
+      }
+    },
+    {
+      "id": "varn",
+      "nome": "Varn",
+      "vd": 60,
+      "caracteristicas": [
+        "ENERGIA",
+        "MEDO",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 25,
+        "dano": "2d6 mental",
+        "nexImune": 35
+      },
+      "pericias": {
+        "Iniciativa": "2d20+10",
+        "Reflexos": "2d20+5",
+        "Vontade": "4d20+5"
+      },
+      "defesa": 17,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": null,
+      "imunidades": "Dano e todas as condições",
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 0,
+        "INT": 4,
+        "PRE": 4,
+        "VIG": 0
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "LIVRE",
+          "nome": "ABRIR E FECHAR",
+          "ataques": null,
+          "descricao": "No final do turno do Varn se manifestará em um outro lugar utilizando a habilidade CAUSAR ESTRANHEZA. Se alguém destruir o ser coberto de luz onde o Varn estiver, ele automaticamente usa a habilidade ABRIR E FECHAR para aparecer em outro lugar."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "CAUSAR ESTRANHEZA",
+          "ataques": null,
+          "descricao": "No início do turno do Varn, quem estiver olhando direta ou indiretamente para ele se torna alvo de suas ondas cerebrais. A vítima sofre 2d6 pontos de dano mental (Vontade DT 20 reduz à metade) e, se enlouquecer devido a este dano, é possuída por ele, se transformado aleatoriamente em um monstro. Caso a vitima seja um jogador, este deve resistir a três turnos com testes de sanidade para não enlouquecer. O mestre deve escolher ou criar criaturas de acordo com o contexto da investigação, da persona"
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "TRANSFORMAÇÃO",
+          "ataques": null,
+          "descricao": "Após consumir três seres vivos, Varn se torna uma criatura caótica em formato aracnídeo de energia plasmática, ganhando as ações TOQUE DESINTEGRADOR, AGARRAR E ESTRANGULAR e CONSUMIR CORPOS, perdendo as habilidades CAUSAR ESTRANHEZA e ABRIR E FECHAR."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "TOQUE DESINTEGRADOR",
+              "teste": "4d20+5",
+              "dano": "1d4 Energia",
+              "obs": "x8"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "CONSUMIR CORPOS",
+          "ataques": null,
+          "descricao": "O Varn consegue consumir corpos mortos ou Monstros, recuperando 4d8 pontos de vida."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRAR E ESTRANGULAR",
+          "ataques": null,
+          "descricao": "Se o Varn acertar um ataque de TOQUE ESINTEGRADOR em um personagem Médio ou menor, ele pode tentar agarrar o alvo (teste 2d20). Enquanto estiver agarrado desta forma, o personagem também fica asfixiado. O Varn pode manter até duas criaturas agarradas por vez. Utilizável após transformação."
+        }
+      ],
+      "enigmaMedo": "O Varn se manifesta através de seres orgânicos não humanos através de focos de luz roxa, a cada rodada ele vai aparecer em um local específico que possa emitir luz, aleatoriamente. Ele se manifesta através de uma luz as vezes sutil, as vezes forte em tons de roxo, rosa, amarelo esverdeado e verde musgo. Seres vivos não-humanos em volta dele tendem a alterar suas realidades se transformando de forma grotesca e alheia. Os lugares onde Varn se manifesta tendem a com o tempo mudarem suas cores originais para a paleta de cores do Varn. A única forma de derrotar o Varn é fazer com que ele possua três seres vivos transformando em monstros tangíveis, matando três possuídos forçará a criatura a mostrar sua verdadeira forma, desta forma podendo ser atacada diretamente. Seres não humanos se transformam em criaturas inofensíveis chamadas de Energizados (seres catatônicos que não reagem ao mundo a sua volta, perdidos em caos interno), humanos com menos de 5% de NEX são abduzidos e substituídos por Doppelgangers. Seres com mais de 5% de NEX transformam em criaturas ofensivas. Se todas as três criaturas forem inofensivas, ele tentará uma ultima vez, se nessa ultima estiver mais uma vez em uma criatura inofensiva o Varn morre sem ter necessidade de ter um combate.",
+      "dadosMedios": {
+        "Iniciativa": "22",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Toque desintegrador": "2/4/6 energia"
+      }
+    },
+    {
+      "id": "escutado-controlado",
+      "nome": "Escutado Controlado",
+      "vd": 80,
+      "caracteristicas": [
+        "MORTE",
+        "ENERGIA",
+        "MEDO",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5",
+        "Reflexos": "3d20+10",
+        "Vontade": "d20+5"
+      },
+      "defesa": 20,
+      "pv": 140,
+      "machucado": 70,
+      "resistencias": null,
+      "imunidades": "Dano",
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "MULTIPLICAÇÃO MELÓDICA",
+          "descricao": "No início do turno do escutado, se ele estiver ouvindo a melodia de sua criação, manifesta uma cópia sua em um ponto a sua escolha em alcance curto. A cópia possui 140 PV, não tem imunidade a dano e age junto com o escutado original, a partir do próximo turno dele. As cópias também possuem essa habilidade, gerando novas cópias caso aplicável. O escutado e suas cópias tentarão eliminar o ser que estiver tocando a melodia."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "2d20+15",
+              "dano": "2d10+10 perfuração",
+              "obs": "X2"
+            },
+            {
+              "nome": "CABEÇA ARREMESSADA",
+              "teste": "3d20+10",
+              "dano": "1d8+10 impacto",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "VOMITAR LODO",
+          "ataques": null,
+          "descricao": "Uma vez por cena, na primeira rodada após ser manifestada, cada cópia do escutado despeja um jorro de Lodo em um ser em alcance curto. O alvo sofre 3d8+10 pontos de dano de Morte e fica lento até o fim da cena (Reflexos DT 20 reduz o dano à metade e evita condição)."
+        }
+      ],
+      "enigmaMedo": "Tocar a melodia do escutado exige gastar uma ação padrão e passar em um teste de Artes (DT 25) por rodada, ou ligar um aparelho como rádio ou celular que possua essa música. Enquanto a melodia estiver tocando, o escutado ficará se multiplicando. Porém, se escutar a melodia por 4 rodadas ininterruptas, perde sua imunidade a dano até o fim da cena e pode enfim ser derrotado. Como o escutado precisa escutar a melodia por 4 rodadas, terá a chance de se multiplicar quatro vezes. Isso significa que, se nenhuma cópia for destruída, no fim da quarta rodada haverá 16 criaturas (o original mais 15 cópias)! Para ter alguma chance de sobreviver, os agentes devem tentar destruir as cópias enquanto tocam a melodia, para impedir que elas também se multipliquem - e, obviamente, parar de tocar a música assim que as 4 rodadas passarem e o escutado perder sua imunidade a dano.",
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Mordida": "20/30/40 perfurante",
+        "Agredir - Cabeça arremessada": "14/18/22 impacto",
+        "Movimento - Vomitar lodo": "22 morte"
+      }
+    },
+    {
+      "id": "carente-enfraquecido",
+      "nome": "Carente Enfraquecido",
+      "vd": 40,
+      "caracteristicas": [
+        "SANGUE",
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "d20",
+        "Iniciativa": "3d20+5",
+        "Fortitude": "d20+10",
+        "Reflexos": "3d20+10",
+        "Vontade": "d20+5",
+        "Atletismo": "3d20+5",
+        "Enganação": "d20+5"
+      },
+      "defesa": 19,
+      "pv": 70,
+      "machucado": 35,
+      "resistencias": "Balístico, impacto e perfuração 5,",
+      "imunidades": null,
+      "vulnerabilidades": "Morte",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "CARÊNCIA",
+          "descricao": "Qualquer ser que já esteve envolvido na gestação de outro ser recebe +1d20 em ataques contra o carente, porém o carente também recebe +1d20 em ataques contra esse ser."
+        },
+        {
+          "nome": "REGENERAÇÃO DE SANGUE",
+          "descricao": "O carente possui Cura Acelerada 5. Se o carente ficar inconsciente ou sofrer dano de Energia, esta habilidade deixa de funcionar até o fim da cena."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GARRAS DE SANGUE",
+              "teste": "3d20+10",
+              "dano": "2d8+12 sangue",
+              "obs": "x2"
+            },
+            {
+              "nome": "FERRÃO DE SANGUE",
+              "teste": "3d20+10",
+              "dano": "2d12+12 sangue",
+              "obs": null
+            },
+            {
+              "nome": "TENTÁCULO",
+              "teste": "3d20+10",
+              "dano": "2d8+12 sangue",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "19",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Garras de sangue": "20/28/38 sangue",
+        "Agredir - Ferrão de sangue": "24/36/48 sangue",
+        "Agredir - Tentáculo": "20/28/38 sangue"
+      }
+    },
+    {
+      "id": "succ",
+      "nome": "Succ",
+      "vd": 40,
+      "caracteristicas": [
+        "MORTE",
+        "ENERGIA",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "3d6 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "4d20+5",
+        "Fortitude": "d20",
+        "Reflexos": "4d20+10",
+        "Vontade": "d20+5"
+      },
+      "defesa": 20,
+      "pv": 65,
+      "machucado": 32,
+      "resistencias": "Corte, impacto e perfuração 5, Morte 10",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 4,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "4d20+10",
+              "dano": "2d8+2 perfuração",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "SUCÇÃO",
+          "ataques": null,
+          "descricao": "Se acertar um personagem com sua mordida, o succ prende seus dentes no rosto da vítima e então tira o ar de seus pulmões. O personagem deve fazer um teste de Fortitude (DT 17). Se passar, consegue se soltar. Se falhar, fica inconsciente e, no início do próximo turno do succ, será reduzido a 0 PV e ficará morrendo. Enquanto estiver prendendo um personagem dessa forma, o succ não pode realizar ### Ações, exceto re### Ações, e seu deslocamento é reduzido para 3m. Se o succ sofrer 10 pontos de dano "
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "21",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Mordida": "10/18/26 perfuração"
+      }
+    },
+    {
+      "id": "cavalo-de-lodo",
+      "nome": "Cavalo de Lodo",
+      "vd": 40,
+      "caracteristicas": [
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "3d6 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5"
+      },
+      "defesa": 19,
+      "pv": 65,
+      "machucado": 32,
+      "resistencias": "Corte, impacto e perfuração 5, Morte 10",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "TENTÁCULOS DE LODO",
+              "teste": "3d20+10",
+              "dano": "2d6+5 morte",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "COICE",
+          "ataques": null,
+          "descricao": "A criatura irá dar um coice em um ser adjacente a suas costas, o alvo sofre 2d6+5 impacto, sendo arremessado em até 6 metros para trás e ficando debilitado por 1d4 rodadas. Reflexo (DT 20) evita o ataque e, caso não seja evitado, Fortitude (DT 15) evita condição."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "GALOPE EMPOEIRADO",
+          "ataques": null,
+          "descricao": "Ao localizar um ser que esteja em até alcance médio, o Cavalo de Lodo irá galopar em alta velocidade em direção ao alvo o atropelando causando 2d6+5 impacto, e o alvo será derrubado. Reflexos (DT 15) evita."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "PISOTEAMENTO",
+          "ataques": null,
+          "descricao": "Caso um ser esteja caído adjacente a criatura ela pode o pisotear causando 2d4+3 de dano de impacto. Reflexos (DT 15) evita, podendo se levantar com uma ação livre."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Tentáculos": "11/17/23 lorem",
+        "Completa - Coice": "11impacto",
+        "Movimento - Galope empoeirado": "11 impacto",
+        "Reação - Pisoteamento": "7 impacto"
+      }
+    },
+    {
+      "id": "luzidio",
+      "nome": "Luzidio",
+      "vd": 40,
+      "caracteristicas": [
+        "MORTE",
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "2d20",
+        "Iniciativa": "3d20+5",
+        "Fortitude": "2d20",
+        "Reflexos": "2d20+5",
+        "Vontade": "3d20+10",
+        "Profissão": "d20+10",
+        "Enganação": "3d20+5",
+        "Religião": "3d20+5",
+        "Sobrevivência": "d20+5"
+      },
+      "defesa": 13,
+      "pv": 30,
+      "machucado": 15,
+      "resistencias": "Morte 10",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 3,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "A ESPIRAL EM PRIMEIRO LUGAR",
+          "descricao": "Os Luzidios são comumente pacíficos, porém em situações onde o Parasita de Dimensões é ferido, o Luzidio começa a chorar lágrimas negras e se torna mais agressivo e territorialista. Os atributos de Força e Vigor aumentam em 1 e eles se tornam capazes de conjurar de maneira inata o ritual Amaldiçoar Arma de Morte.\n\nBEM VINDO A...\nPersonagens que passam muito tempo próximo aos Luzidios ou a sua terra natal, tendem a lentamente se tornar conectados inconscientemente ao elemento da Morte. A critério do Mestre, os personagens podem assumir temporariamente uma forma semelhante aos Luzidios, tendo olhos completamente negros, pele acinzentada e marcas espalhadas de maneira aleatória pelo rosto."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "FERRAMENTA",
+              "teste": "3d20+5",
+              "dano": "2d6+3 corte, impacto ou perfurante",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "CRISTAL VERDE",
+          "ataques": null,
+          "descricao": "Duas vezes por cena, o Luzidio pode curar em 2d8+2 um alvo adjacente com esse crital que possui um suposto poder regenerativo, sendo capaz de fechar e cicatrizar grandes feridas externas ou internas em um instante (funciona exatamente como o ritual Cicatrização)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "CRISTAL VERMELHO",
+          "ataques": null,
+          "descricao": "O Luzidio arremessa de um reservatório diversos cristais de cor vermelho-virbrante que emanam uma forte luz e exalam certa quantidade de fumaça. Todos os seres em alcance curto sofrem 2d10 dano de fogo (reflexos DT 15 evita)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "19",
+        "Agredir - Ferramenta": "6/9/12 corte, impacto ou perfurante",
+        "Padrão - Cristais Verde": "10 PV",
+        "Padrão - Cristais Vermelho": "10 fogo"
+      }
+    },
+    {
+      "id": "desperto-sugador",
+      "nome": "Desperto Sugador",
+      "vd": 40,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d6 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "3d20+5",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "2d20+5",
+        "Reflexos": "2d20+5",
+        "Vontade": "3d20+10",
+        "Ciências": "4d20+10",
+        "Ocultismo": "3d20+10"
+      },
+      "defesa": 19,
+      "pv": 60,
+      "machucado": 30,
+      "resistencias": "Balístico, corte e impacto 5, Conhecimento 10",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 4,
+        "PRE": 3,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "2d20+10",
+              "dano": "2d6 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "REMOVER JUÍZO",
+          "ataques": null,
+          "descricao": "Uma vez por rodada, o Desperto faz seus olhos focarem em um alvo em alcance curto, adentrando em sua mente e tentando lhe enlouquecer. O Alvo deve passar em um teste de Vontade (DT 20) ou então entrará na condição Paralisado até sua próxima ação assim podendo repetir o teste diminuindo em 5 a DT. Seres com Intelecto 3 ou mais são imunes a essa habilidade. O Discernido não ataca fisicamente os seres paralisados."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "SUGAR JUÍZO",
+          "ataques": null,
+          "descricao": "Se seu alvo foi paralisado pela ação remover juízo, o Desperto pode avançar em direção ao alvo e agarrá-lo, o alvo precisa fazer teste de Fortitude (DT 20), caso falhe sofre 2d6 dano mental e 2d6 dano de conhecimento (e caso esteja usando a regra \"NEX e Experiência\" perde 2% de NEX)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "17",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Pancada": "6/12/18 impacto",
+        "Completa - Sugar juízo": "6 conhecimento"
+      }
+    },
+    {
+      "id": "desperto",
+      "nome": "Desperto",
+      "vd": 20,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 14,
+        "dano": "1d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "d20+5",
+        "Fortitude": "2d20",
+        "Reflexos": "d20",
+        "Vontade": "3d20+10",
+        "Ciências": "3d20+10",
+        "Ocultismo": "3d20+10"
+      },
+      "defesa": 13,
+      "pv": 36,
+      "machucado": 18,
+      "resistencias": "Balístico, corte e impacto 5, Conhecimento 10",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 1,
+        "FOR": 1,
+        "INT": 3,
+        "PRE": 3,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "d20+5",
+              "dano": "1d4+1 impacto",
+              "obs": null
+            },
+            {
+              "nome": "RAIO OCULAR distância médio 3x",
+              "teste": "3d20+5",
+              "dano": "1d4+4 conhecimento",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "FORTALECIMENTO EMINENTE",
+          "ataques": null,
+          "descricao": "O Desperto brilha em verde e se carrega de poder vindo dos Eminentes recebendo +d20 em todos os testes e seus ataques causam +2d4 pontos de dano de Energia, porém não pode se mover nessa rodada, além disso para esse efeito continuar, ele deve ativar novamente na sua próxima rodada."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "15",
+        "Presença Perturbadora": "2 mental*",
+        "Agredir - Pancada": "3/5/7 impacto",
+        "Agredir - Raio Ocular": "6/8/10 conhecimento"
+      }
+    },
+    {
+      "id": "morcegosa",
+      "nome": "Morcegosa",
+      "vd": 20,
+      "caracteristicas": [
+        "MORTE",
+        "CRIATURA",
+        "PEQUENO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "d20",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20",
+        "Reflexos": "2d20+5",
+        "Vontade": "d20+5"
+      },
+      "defesa": 13,
+      "pv": 30,
+      "machucado": 15,
+      "resistencias": "Corte, impacto e perfuração 5, Morte 10",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 1,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "4m | 2",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "2d20+5",
+              "dano": "1d8+3 perfuração",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "HEMATOFAGIA",
+          "ataques": null,
+          "descricao": "Após acertar uma mordida ou quando estiver em alcance curto de um alvo, a Morcegosa poderá realizar a ação de avançar no alvo, os tentáculos de sua boca penetram a pele e carne para se alimentar, causando 2d4 pontos de dano de morte. Enquanto estiver presa no ser, o mesmo continuará sofrendo 1d4 de dano de morte por rodada até que a criatura seja retirada com um teste de Força (DT 13), a cada rodada se alimentando a Morcegosa irá recuperar 1d4+2 de PV."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "17",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Mordida": "7/11/15 perfuração",
+        "Reação - Hematofagia": "4 morte"
+      }
+    },
+    {
+      "id": "infecticidio",
+      "nome": "Infecticídio",
+      "vd": 280,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "ENORME"
+      ],
+      "presencaPerturbadora": {
+        "dt": 35,
+        "dano": "8d6 mental",
+        "nexImune": 85
+      },
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "3d20+15",
+        "Fortitude": "6d20+20",
+        "Reflexos": "3d20+15",
+        "Vontade": "d20+15"
+      },
+      "defesa": 25,
+      "pv": 600,
+      "machucado": 600,
+      "resistencias": "Balístico, corte, perfuração e Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 5,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 5
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "HORDA",
+          "descricao": "O infecticídio é uma horda de criaturas infectadas por um vírus de Energia. Ele sofre apenas metade do dano de ataques e habilidades que afetem apenas um ser, mas sofre o dobro do dano de efeitos de área. Além disso, sempre que erra um ataque, ainda causa metade do dano (exceto se o defensor usou uma reação para se esquivar)."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADAS INFECTADAS",
+              "teste": "5d20+30",
+              "dano": "4d12+20 energia",
+              "obs": "x3"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "INFECÇÃO",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano das pancadas é infectado pelo vírus do infecticídio (Fortitude DT 30 evita; veja página 292). Um ser que passe no teste de resistência fica imune a essa doença até final da cena."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "CONSUMAÇÃO INSIDIOSA",
+          "ataques": null,
+          "descricao": "Se reduzir um ser a 0 PV com suas pancadas infectadas, o infecticídio consome a vítima, recuperando 50 PV."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "ATROPELAR",
+          "ataques": null,
+          "descricao": "O infecticídio percorre até o dobro do seu deslocamento, podendo passar pelo espaço de outros seres. Durante esse deslocamento, ele faz um ataque de pancada infectada contra cada ser nos espaços pelos quais passar."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "29",
+        "Presença Perturbadora": "16 mental*",
+        "Agredir - Pancadas infectadas": "44/68/92 energia"
+      }
+    },
+    {
+      "id": "amalgama-infectada",
+      "nome": "Amalgama Infectada",
+      "vd": 100,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 45
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "3d20+15",
+        "Reflexos": "3d20+10",
+        "Vontade": "d20+5"
+      },
+      "defesa": 22,
+      "pv": 180,
+      "machucado": 90,
+      "resistencias": "Balístico, corte, perfuração e Energia 10",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento, Frio",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 4,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "NOMOFOBIA",
+          "descricao": "Ao ser exposto a alguma fonte de energia em alcance curto, a amálgama infectada perde o seu próximo turno se aproximando dela e absorvendo-a. Ao fazer isso ela recupera 5 PV."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADAS INFECTADAS",
+              "teste": "4d20+15",
+              "dano": "2d12+10 impacto",
+              "obs": "x3"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "INFECTAR",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano das pancadas fica infectado com a doença vírus do I-413 (Fortitude DT 15 evita). Um ser que passe no teste de resistência fica imune a essa doença até final da cena."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "CONSUMAÇÃO INSIDIOSA",
+          "ataques": null,
+          "descricao": "Se reduzir um ser a 0 PV com suas pancadas infectadas, a amálgama infectada consome a vítima, recuperando 25 PV."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Pancadas infectas": "22/34/44 impacto"
+      }
+    },
+    {
+      "id": "paciente-zero",
+      "nome": "Paciente Zero",
+      "vd": 60,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d8 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+10",
+        "Reflexos": "3d20+5",
+        "Vontade": "d20+5",
+        "Furtividade": "3d20+10"
+      },
+      "defesa": 21,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": "Balístico, corte, perfuração 10, e Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento, Frio",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "NOMOFOBIA",
+          "descricao": "Ao ser exposto a alguma fonte de energia em alcance curto, a o Paciente Zero perde o seu próximo turno se aproximando dela e absorvendo-a. Ao fazer isso ela recupera 10 PV."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADAS INFECTADAS",
+              "teste": "2d20+10",
+              "dano": "2d8+10 energia",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "INFECTAR",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano das pancadas fica infectado com a doença vírus do I-413 (Fortitude DT 15 evita). Um ser que passe no teste de resistência fica imune a essa doença até final da cena."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "ESCONDER",
+          "ataques": null,
+          "descricao": "Se move para a escuridão e se oculta, todos presentes devem fazer um teste de Percepção contra o teste de Furtividade da criatura (3d20+10), caso passem, sabem exatamente onde ela esta."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "BATE E FOGE",
+          "ataques": null,
+          "descricao": "Caso ninguém passe no teste de Percepção da ação esconder, a criatura irá executar um ataque com vantagem no um ser em alcance curto e volta a se esconder ou inicia uma fuga. Caso a criatura tente fujir, os jogadores podem tentar a perseguir (considere utilizar a mecânica de Perseguição do suplemento Sobrevivendo ao Horror)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "REI DOS RATOS",
+          "ataques": null,
+          "descricao": "Ao encontrar outros Infectados conduz eles a se unirem em uma nova forma mais poderosa: três Infectados se tornam uma Amalgama Infectada, três Amalgamas Infectadas se transformam em um Infecticídio, no caso desse ultimo o Paciente Zero se torna o núcleo da criatura, sendo essa sua ação final."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Pancadas infectas": "22/34/44 impacto"
+      }
+    },
+    {
+      "id": "infectado",
+      "nome": "Infectado",
+      "vd": 20,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5",
+        "Reflexos": "3d20+10",
+        "Vontade": "d20"
+      },
+      "defesa": 19,
+      "pv": 40,
+      "machucado": 20,
+      "resistencias": "Energia 5",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento, Frio",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "NOMOFOBIA",
+          "descricao": "Ao ser exposto a alguma fonte de energia em alcance curto, o infectado perde o seu próximo turno se aproximando dela e absorvendo-a. Ao fazer isso ela recupera 5 PV."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADAS INFECTADAS",
+              "teste": "2d20+5",
+              "dano": "2d6+2 impacto",
+              "obs": "x3"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "INFECTAR",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano das pancadas fica infectado com a doença vírus do I-413 (Fortitude DT 15 evita). Um ser que passe no teste de resistência fica imune a essa doença até final da cena."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Pancadas infectas": "8/14/20 impacto"
+      }
+    },
+    {
+      "id": "enxame-de-ratos-infectados",
+      "nome": "Enxame de Ratos Infectados",
+      "vd": 20,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA (ENXAME)",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "1d6 mental",
+        "nexImune": 10
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "d20+5",
+        "Fortitude": "d20+5",
+        "Reflexos": "d20+5",
+        "Vontade": "d20"
+      },
+      "defesa": 13,
+      "pv": 15,
+      "machucado": 7,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento, Frio",
+      "atributos": {
+        "AGI": 1,
+        "FOR": 0,
+        "INT": 0,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6",
+      "habilidades": [
+        {
+          "nome": "ENXAME",
+          "descricao": "Um enxame é uma aglomeração de criaturas que agem em conjunto. Em termos de regras, pode entrar no espaço ocupado por um ser. No fim do seu turno, o enxame causa 2d6 pontos de dano de perfuração a qualquer ser em seu espaço, automaticamente. Um enxame é imune a manobras de combate e efeitos que afetam apenas uma criatura e não causam dano e sofre apenas metade do dano de ataques com armas. Porém, sofre 50% a mais de dano por efeitos de área."
+        },
+        {
+          "nome": "DOENÇA",
+          "descricao": "Um ser que sofra dano do enxame de ratos contrai a doença febre vírus do I-413 (Fortitude DT 15 evita). Um ser que passe no teste de resistência fica imune a essa doença até final da cena.\n\n### Dados Médios\n\nIniciativa: 15\nPresença Perturbadora: 2 mental*\nEnxame: 6 perfuração"
+        }
+      ],
+      "acoes": [],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "15",
+        "Presença Perturbadora": "2 mental*",
+        "Enxame": "6 perfuração"
+      }
+    },
+    {
+      "id": "carnical-preto-da-morte",
+      "nome": "Carniçal Preto da Morte",
+      "vd": 200,
+      "caracteristicas": [
+        "MORTE",
+        "CONHECIMENTO",
+        "CRIATURA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": {
+        "dt": 30,
+        "dano": "6d6 mental",
+        "nexImune": 65
+      },
+      "pericias": {
+        "Percepção": "3d20+15",
+        "Iniciativa": "4d20+15",
+        "Fortitude": "3d20+15",
+        "Reflexos": "4d20+15",
+        "Vontade": "3d20+15",
+        "Atletismo": "4d20+15"
+      },
+      "defesa": 38,
+      "pv": 400,
+      "machucado": 200,
+      "resistencias": "Corte, impacto e perfuração 10, Morte 20",
+      "imunidades": "Dano balístico",
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 4,
+        "FOR": 4,
+        "INT": 3,
+        "PRE": 3,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "FÍSICO PARANORMAL",
+          "descricao": "O carniçal possui um porte físico poderoso e pode saltar o dobro do deslocamento normal."
+        },
+        {
+          "nome": "INSTINTO MORTAL",
+          "descricao": "O carniçal age de maneira precisa e quase calculista, mas isso muda quando está machucado (com 200 PV ou menos). Nessa condição, ele usa a Hipnose como ação livre no começo de cada um de seus turnos e pode fazer um ataque adicional de garra da morte se atacar o mesmo alvo com suas duas garras."
+        },
+        {
+          "nome": "CORPO FECHADO",
+          "descricao": "Um ser que use a ação mirar para disparar na cabeça do carniçal ignora sua imunidade a dano balístico."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GARRA DA MORTE",
+              "teste": "4d20+25",
+              "dano": "4d10+20 morte",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "PANCADA PODEROSA",
+          "ataques": null,
+          "descricao": "Quando desfere um acerto crítico com sua garra da Morte, o carniçal pode empurrar seu alvo 6m em qualquer direção. Se colidir com um objeto resistente, como uma parede ou um carro, a vítima sofre 4d6 pontos de dano de impacto. Se o objeto for outro ser, ambos sofrem esse dano."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "COMANDO",
+          "ataques": null,
+          "descricao": "O carniçal dá um comando para um ser em alcance curto, que deve obedecer da forma mais eficiente possível (Vontade DT 29 evita). Em termos de regras, isso gera um dos efeitos básicos do ritual Perturbação."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "HIPNOSE",
+          "ataques": null,
+          "descricao": "O carniçal domina a mente de um ser em alcance curto (Vontade DT 29 evita). A vítima fica sob controle telepático total do carniçal, e fará tudo que ele mandar, exceto tirar sua própria vida — em termos de jogo, fica sob controle do mestre. No final de cada turno do ser hipnotizado, ele pode repetir o teste de Vontade, com um bônus cumulativo de +1 por teste já realizado. Se passar, sai do comando do carniçal. O carniçal pode ter até três seres hipnotizados por vez. Caso o carniçal use essa habi"
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "REANIMAR CORPOS",
+          "ataques": null,
+          "descricao": "Uma vez por cena, o carniçal usa a Morte para fazer com que até 2d4+2 corpos em alcance médio sejam reanimados. Os reanimados agem de maneira violenta e bestial, atacando o ser mais próximo até serem destruídos. Use a ficha do esqueleto de Lodo para esses corpos reanimados."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "31",
+        "Presença Perturbadora": "12 mental*",
+        "Agredir - Garra da morte": "40/60/80 morte",
+        "Reação - Pancada Poderosa": "12 impacto"
+      }
+    }
+  ],
+  "caracteristicasUnicas": [
+    "ANIMAL",
+    "CONHECIMENTO",
+    "CRIATURA",
+    "CRIATURA (ENXAME)",
+    "ENERGIA",
+    "ENORME",
+    "GRANDE",
+    "MÉDIA",
+    "MEDO",
+    "MORTE",
+    "PEQUENO",
+    "PESSOA",
+    "SANGUE"
+  ]
+}
