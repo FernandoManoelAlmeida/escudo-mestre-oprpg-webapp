@@ -61,7 +61,8 @@ export type FiltrosAmeacas = {
   caracteristicas?: string[];
 };
 
-const AMEACAS_URL = "/data/ameacas.json";
+const AMEACAS_URL =
+  (process.env.NEXT_PUBLIC_BASE_PATH || "") + "/data/ameacas.json";
 
 let cached: AmeacasData | null = null;
 

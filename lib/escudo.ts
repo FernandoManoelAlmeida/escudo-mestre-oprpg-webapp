@@ -45,7 +45,8 @@ export type EscudoData = {
   glossary: GlossaryItem[];
 };
 
-const ESCUDO_URL = "/data/escudo-mestre-casa.json";
+const ESCUDO_URL =
+  (process.env.NEXT_PUBLIC_BASE_PATH || "") + "/data/escudo-mestre-casa.json";
 
 let cached: EscudoData | null = null;
 

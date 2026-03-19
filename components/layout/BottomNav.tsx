@@ -3,12 +3,13 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { assetUrl } from "@/lib/basePath";
 import { Nav, NavLink, NavIcon, NavItemWrap, Tooltip } from "./BottomNav.styles";
 
 const items = [
-  { href: "/", label: "Início", iconSrc: "/icons/home-icon.png" },
-  { href: "/regras", label: "Regras", iconSrc: "/icons/regras-icon.png" },
-  { href: "/ameacas", label: "Ameaças", iconSrc: "/icons/ameacas-icon.png" },
+  { href: "/", label: "Início", iconSrc: assetUrl("/icons/home-icon.png") },
+  { href: "/regras", label: "Regras", iconSrc: assetUrl("/icons/regras-icon.png") },
+  { href: "/ameacas", label: "Ameaças", iconSrc: assetUrl("/icons/ameacas-icon.png") },
 ];
 
 const TOOLTIP_VISIBLE_MS = 5000;

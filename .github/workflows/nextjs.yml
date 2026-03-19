@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: "1"
+      NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
     defaults:
       run:
         working-directory: ${{ env.APP_DIR }}

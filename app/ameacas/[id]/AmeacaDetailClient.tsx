@@ -15,6 +15,7 @@ import type { Ameaca, Ataque } from "@/lib/ameacas";
 import { useRollToast } from "@/context/RollToastContext";
 import { D20RollButton } from "@/components/ui/D20RollButton";
 import { AmeacaDetailSkeleton } from "@/components/skeletons";
+import { assetUrl } from "@/lib/basePath";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
@@ -223,35 +224,35 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
           </SheetHeaderText>
           {elemento === "ENERGIA" && (
             <ElementIcon
-              src="/icons/elemento-energia-icon.png"
+              src={assetUrl("/icons/elemento-energia-icon.png")}
               alt=""
               role="presentation"
             />
           )}
           {elemento === "CONHECIMENTO" && (
             <ElementIcon
-              src="/icons/elemento-conhecimento-icon.png"
+              src={assetUrl("/icons/elemento-conhecimento-icon.png")}
               alt=""
               role="presentation"
             />
           )}
           {elemento === "MORTE" && (
             <ElementIcon
-              src="/icons/elemento-morte-icon.png"
+              src={assetUrl("/icons/elemento-morte-icon.png")}
               alt=""
               role="presentation"
             />
           )}
           {elemento === "SANGUE" && (
             <ElementIcon
-              src="/icons/elemento-sangue-icon.png"
+              src={assetUrl("/icons/elemento-sangue-icon.png")}
               alt=""
               role="presentation"
             />
           )}
           {elemento === "MEDO" && (
             <ElementIcon
-              src="/icons/elemento-medo-icon.png"
+              src={assetUrl("/icons/elemento-medo-icon.png")}
               alt=""
               role="presentation"
             />

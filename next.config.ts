@@ -39,6 +39,9 @@ const nextConfig: NextConfig = {
     images: { unoptimized: true },
     trailingSlash: true,
   }),
+  ...(buildForGitHubPages && {
+    basePath: process.env.NEXT_PUBLIC_BASE_PATH || "/escudo-mestre-oprpg-webapp",
+  }),
   // Silencia o aviso Turbopack vs webpack no dev (PWA está desativado em desenvolvimento)
   turbopack: {},
   async headers() {

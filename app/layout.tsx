@@ -1,20 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import StyledComponentsRegistry from "@/components/layout/Registry";
 import ClientLayout from "@/components/layout/ClientLayout";
+import { assetUrl } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Ordem Paranormal RPG",
   description:
     "Consulta de regras, tabelas, rolagens e ameaças do Escudo do Mestre.",
-  manifest: "/manifest.json",
+  manifest: assetUrl("/manifest.json"),
   appleWebApp: {
     capable: true,
     title: "Escudo Mestre",
     statusBarStyle: "black-translucent",
   },
   icons: {
-    icon: "/icons/header-icon.png",
-    apple: "/icons/icon-192.png",
+    icon: assetUrl("/icons/header-icon.png"),
+    apple: assetUrl("/icons/icon-192.png"),
   },
 };
 

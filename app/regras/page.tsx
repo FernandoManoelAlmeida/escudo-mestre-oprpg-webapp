@@ -5,6 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { getEscudo, filterRegrasIndex } from "@/lib/escudo";
 import type { EscudoData, EscudoIndexItem } from "@/lib/escudo";
+import { assetUrl } from "@/lib/basePath";
 import { RegrasPageSkeleton } from "@/components/skeletons";
 
 const Page = styled.div`
@@ -123,7 +124,7 @@ function FeedbackBlock({
   return (
     <FeedbackWrapper>
       {showIcon && (
-        <FeedbackIcon src="/icons/icon-exception.png" alt="" role="presentation" />
+        <FeedbackIcon src={assetUrl("/icons/icon-exception.png")} alt="" role="presentation" />
       )}
       <FeedbackText>{children}</FeedbackText>
     </FeedbackWrapper>
