@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { assetUrl } from "@/lib/basePath";
 
 const APP_VERSION_KEY = "app-version";
 
@@ -62,7 +63,7 @@ export default function UpdateBanner() {
 
     const checkVersion = async () => {
       try {
-        const res = await fetch("/version.json", { cache: "no-store" });
+        const res = await fetch(assetUrl("/version.json"), { cache: "no-store" });
         if (!res.ok) return;
         const data: VersionJson = await res.json();
         const serverBuildId = data.buildId ?? data.generatedAt ?? null;
@@ -83,7 +84,7 @@ export default function UpdateBanner() {
 
     let registration: ServiceWorkerRegistration | undefined;
 
-    navigator.serviceWorker.register("/sw.js").then((reg) => {
+    navigator.serviceWorker.register(assetUrl("/sw.js")).then((reg) => {
       registration = reg;
       reg.update();
       checkVersion();
@@ -100,7 +101,11 @@ export default function UpdateBanner() {
     };
   }, []);
 
-  const handleReload = () => {
+  const handleReload = async () => {
+    // Desregistra o SW para que o reload busque a nova versão na rede em vez do cache
+    const reg = await navigator.serviceWorker.getRegistration();
+    if (reg) await reg.unregister();
+    localStorage.removeItem(APP_VERSION_KEY);
     window.location.reload();
   };
 
