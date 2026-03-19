@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { assetUrl } from "@/lib/basePath";
+import { REGRAS_CASA_RESUMO } from "@/lib/regrasCasaResumo";
 
 const GITHUB_README_URL =
   "https://github.com/FernandoManoelAlmeida/nerogrado-rpg-repo/blob/master/README.md";
@@ -18,16 +19,15 @@ const TitleRow = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0;
-  margin: 0 0 ${({ theme }) => theme.spacing.lg};
+  margin: 0;
 `;
 
 const TitleLink = styled.a`
   display: block;
+  width: 100%;
   line-height: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: opacity 0.2s;
-  margin: 0 auto;
-  max-width: min(291px, 100%);
 
   &:hover {
     opacity: 0.9;
@@ -50,6 +50,53 @@ const Description = styled.div`
   p:last-child {
     margin-bottom: 0;
   }
+`;
+
+const SectionTitle = styled.h2`
+  font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.text};
+  margin: 0 0 ${({ theme }) => theme.spacing.md};
+  padding-bottom: ${({ theme }) => theme.spacing.xs};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+const RegrasList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const RegraItem = styled.li`
+  margin: 0 0 ${({ theme }) => theme.spacing.md};
+  padding: 0 0 ${({ theme }) => theme.spacing.md};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+`;
+
+const RegraTitulo = styled.strong`
+  display: block;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  margin-bottom: ${({ theme }) => theme.spacing.xs};
+`;
+
+const RegraRef = styled.span`
+  font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  color: ${({ theme }) => theme.colors.textMuted};
+  margin-left: ${({ theme }) => theme.spacing.xs};
+`;
+
+const RegraDescricao = styled.p`
+  margin: 0;
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  color: ${({ theme }) => theme.colors.textMuted};
+  line-height: 1.6;
 `;
 
 export default function Home() {
@@ -91,6 +138,19 @@ export default function Home() {
           Paranormal.
         </p>
       </Description>
+
+      <SectionTitle id="regras-em-uso">Regras em uso</SectionTitle>
+      <RegrasList aria-label="Resumo das regras da casa e do Suplemento">
+        {REGRAS_CASA_RESUMO.map((regra, index) => (
+          <RegraItem key={index}>
+            <RegraTitulo>
+              {regra.titulo}
+              {regra.referencia && <RegraRef>({regra.referencia})</RegraRef>}
+            </RegraTitulo>
+            <RegraDescricao>{regra.descricao}</RegraDescricao>
+          </RegraItem>
+        ))}
+      </RegrasList>
     </Page>
   );
 }
