@@ -159,6 +159,8 @@ export default function Home() {
         </p>
       </Description>
 
+      <br />
+
       <SectionTitle id="regras-em-uso">Regras em uso</SectionTitle>
       <RegrasList aria-label="Resumo das regras da casa e do Suplemento">
         {REGRAS_CASA_RESUMO.map((regra, index) => (
