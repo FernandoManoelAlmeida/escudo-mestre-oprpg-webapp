@@ -1,8 +1,8 @@
 # Build and deploy Next.js (static export) to GitHub Pages.
 # next.config uses output: 'export' when GITHUB_PAGES=1 so the build produces ./out.
-# APP_DIR: path to the Next app (e.g. monorepo: "Apps/escudo-mestre-oprpg-webapp"; app at repo root: ".")
+# APP_DIR: path to the Next app (monorepo: "Apps/escudo-mestre-oprpg-webapp"; app at repo root: ".")
 env:
-  APP_DIR: Apps/escudo-mestre-oprpg-webapp
+  APP_DIR: .
 
 name: Deploy Next.js site to Pages
 
