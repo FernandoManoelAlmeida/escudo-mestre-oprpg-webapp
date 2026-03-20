@@ -6,8 +6,6 @@ import { useRollToast } from "@/context/RollToastContext";
 import type { RollResult } from "@/lib/dice";
 import { theme as appTheme } from "@/lib/theme";
 
-/** Auto-dismiss só ao adicionar nova rolagem (mais recente no topo) */
-const AUTO_DISMISS_MS = 5500;
 const SWIPE_THRESHOLD_PX = 56;
 
 const toastEnter = keyframes`
@@ -36,7 +34,9 @@ const totalPulse = keyframes`
 
 const Container = styled.div`
   position: fixed;
-  bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.sm});
+  bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.sm}
+  );
   right: ${({ theme }) => theme.spacing.md};
   left: ${({ theme }) => theme.spacing.md};
   max-width: min(360px, 100%);
@@ -72,7 +72,11 @@ const ClearAllBtn = styled.button`
   color: ${({ theme }) => theme.colors.text};
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  transition: color 0.15s, border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  transition:
+    color 0.15s,
+    border-color 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
@@ -128,7 +132,9 @@ const ToastCard = styled.article<{ $isNewest: boolean }>`
   animation: ${toastEnter} 0.38s ease forwards;
   touch-action: pan-y;
   cursor: pointer;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease;
 
   &:hover {
     background: ${({ theme }) => theme.colors.surfaceHover};
@@ -212,9 +218,13 @@ function RollDetailText({
   const modToShow =
     chosenD20 != null && total !== chosenD20 ? total - chosenD20 : modifier;
   const modStr =
-    modToShow !== 0 ? (modToShow >= 0 ? `+${modToShow}` : String(modToShow)) : "";
+    modToShow !== 0
+      ? modToShow >= 0
+        ? `+${modToShow}`
+        : String(modToShow)
+      : "";
   const rollsPart = rolls.map((r, i) =>
-    r === chosenD20 ? <Highlight key={i}>{r}</Highlight> : r
+    r === chosenD20 ? <Highlight key={i}>{r}</Highlight> : r,
   );
   const suffixPart = suffix ? ` ${suffix}` : "";
   return (
@@ -225,7 +235,7 @@ function RollDetailText({
         acc.push(node);
         return acc;
       }, [])}
-      ]{modStr && <> {modStr} </>}= {total}
+      ]{modStr && <>{modStr}</>} = {total}
       {suffixPart}
     </>
   );
@@ -240,7 +250,14 @@ type ToastItemProps = {
   onRemove: (id: number) => void;
 };
 
-function ToastItem({ entryId, label, result, suffix, isNewest, onRemove }: ToastItemProps) {
+function ToastItem({
+  entryId,
+  label,
+  result,
+  suffix,
+  isNewest,
+  onRemove,
+}: ToastItemProps) {
   const touchStartX = useRef<number | null>(null);
 
   const onTouchStart = useCallback((e: React.TouchEvent) => {
@@ -256,7 +273,7 @@ function ToastItem({ entryId, label, result, suffix, isNewest, onRemove }: Toast
         onRemove(entryId);
       }
     },
-    [entryId, onRemove]
+    [entryId, onRemove],
   );
 
   const { total } = result;
@@ -270,7 +287,7 @@ function ToastItem({ entryId, label, result, suffix, isNewest, onRemove }: Toast
         dismiss();
       }
     },
-    [dismiss]
+    [dismiss],
   );
 
   return (
@@ -302,18 +319,6 @@ function ToastItem({ entryId, label, result, suffix, isNewest, onRemove }: Toast
 export default function RollToaster() {
   const { rolls, removeRoll, clearRolls } = useRollToast();
   const listRef = useRef<HTMLDivElement>(null);
-  const prevRollsLengthRef = useRef(0);
-
-  useEffect(() => {
-    const len = rolls.length;
-    if (len > prevRollsLengthRef.current && rolls[0]) {
-      const id = rolls[0].id;
-      const timer = window.setTimeout(() => removeRoll(id), AUTO_DISMISS_MS);
-      prevRollsLengthRef.current = len;
-      return () => window.clearTimeout(timer);
-    }
-    prevRollsLengthRef.current = len;
-  }, [rolls.length, rolls, removeRoll]);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -347,11 +352,7 @@ export default function RollToaster() {
           </ClearAllBtn>
         </Toolbar>
       )}
-      <List
-        ref={listRef}
-        aria-live="polite"
-        aria-relevant="additions removals"
-      >
+      <List ref={listRef} aria-live="polite" aria-relevant="additions removals">
         {rolls.map((entry, index) => (
           <ToastItem
             key={entry.id}

@@ -49,8 +49,16 @@ describe("parseFormula", () => {
   });
 
   it("aceita count negativo para d20 (usar o menor valor): -2d20", () => {
-    expect(parseFormula("-2d20")).toEqual({ count: -2, sides: 20, modifier: 0 });
-    expect(parseFormula("-3d20+5")).toEqual({ count: -3, sides: 20, modifier: 5 });
+    expect(parseFormula("-2d20")).toEqual({
+      count: -2,
+      sides: 20,
+      modifier: 0,
+    });
+    expect(parseFormula("-3d20+5")).toEqual({
+      count: -3,
+      sides: 20,
+      modifier: 5,
+    });
   });
 
   it("remove espaços antes de parsear", () => {
@@ -194,7 +202,11 @@ describe("extractAllDiceFormulas", () => {
   it("deduplica 2d20 e 2D20 como mesma fórmula", () => {
     const list = extractAllDiceFormulas("2d20 e 2D20");
     expect(list.length).toBe(1);
-    expect(parseFormula(list[0]!)).toEqual({ count: 2, sides: 20, modifier: 0 });
+    expect(parseFormula(list[0]!)).toEqual({
+      count: 2,
+      sides: 20,
+      modifier: 0,
+    });
   });
 });
 

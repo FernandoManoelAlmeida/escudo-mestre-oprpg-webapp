@@ -35,9 +35,7 @@ export function parseFormula(
   if (!match) return null;
   const countRaw = match[1];
   const count =
-    countRaw === "" || countRaw === undefined
-      ? 1
-      : parseInt(countRaw, 10);
+    countRaw === "" || countRaw === undefined ? 1 : parseInt(countRaw, 10);
   const sides = parseInt(match[2], 10);
   const modifier = match[3] ? parseInt(match[3], 10) : 0;
   if (Number.isNaN(count) || count === 0 || Math.abs(count) > 100) return null;
