@@ -31,6 +31,22 @@ function slug(nome) {
     .replace(/^-+|-+$/g, "");
 }
 
+/**
+ * Preserva quebras de linha na descrição de ações (ex.: ações que não são Agredir).
+ * Colapsa apenas espaços/tabs na mesma linha; normaliza \r\n e limita linhas em branco consecutivas.
+ */
+function normalizarDescricaoAcao(text) {
+  if (!text || typeof text !== "string") return "";
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .split("\n")
+    .map((line) => line.replace(/[ \t]+/g, " ").trimEnd())
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function parseBlock(content) {
   const lines = content.split("\n").map((l) => l.trim());
   const getLine = (pat) => lines.find((l) => l.match(pat));
@@ -183,8 +199,9 @@ function parseBlock(content) {
         .replace(tipo + " - " + nomeAcao, "")
         .replace(tipo + " – " + nomeAcao, "")
         .trim();
+      const descNormalizada = normalizarDescricaoAcao(descMatch);
       const descricao =
-        descMatch.length > 20 ? descMatch.replace(/\s+/g, " ").substring(0, 500) : undefined;
+        descNormalizada.length > 20 ? descNormalizada.slice(0, 8000) : undefined;
       acoes.push({
         tipo,
         nome: nomeAcao,

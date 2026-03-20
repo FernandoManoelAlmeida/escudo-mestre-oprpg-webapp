@@ -194,7 +194,7 @@
       "habilidades": [
         {
           "nome": "SOMATIZAÇÃO PARANORMAL",
-          "descricao": "Um dissociado pode somatizar seus traumas, adquirindo mutações corporais. No início de cada cena envolvendo um ou mais dissociados, role 1d6 para determinar se eles terão mutações. Faça uma única rolagem para todos os dissociados da cena.\n 1) Sem Mutação. Use apenas as estatísticas básicas.\n 2) Garras. As unhas do dissociado são extremamente longas e afiadas. O ataque corpo a corpo dele causa um dado extra de dano (por exemplo, de 1d4+1 para 2d4+1) e passa a causar dano de corte (caso ainda não causasse).\n 3) Vulto. O dissociado anda de sombra em sombra, sendo difícil enxergá-lo — ou talvez sua própria pele de alguma forma evite a luz? Em termos de jogo, ele possui camuflagem (ataques contra ele possuem 20% de chance de falha). Se estiver em um ambiente escuro, que normalmente forneceria camuflagem, em vez disso ele recebe camuflagem total (50% de chance de falha).\n 4) Mandíbula Distendida. A boca do dissociado consegue se abrir num ângulo exagerado, permitindo que ele desfira mordidas destroçadoras. Se isso é uma mutação paranormal ou se ele simplesmente abriu sua boca com tanta força a ponto de rasgar a própria pele, ninguém sabe... Caso o dissociado faça um acerto crítico com um ataque corpo a corpo, causa +1d8 pontos de dano de corte.\n 5) Silencioso. O dissociado não vocaliza (não grunhe, grita, rosna...), respira extremamente baixo e, quando caminha, desliza pelo chão. Ele recebe Furtividade (2d20+10) e, no início da cena, tentará se aproximar do grupo — faça um teste oposto da Furtividade do dissociado contra a Percepção dos personagens. Se o dissociado vencer, começa o combate adjacente a um personagem, e o grupo como um todo começa surpreendido.\n 6) Sem Dor. O dissociado é extremamente resistente a ferimentos. Consequência de um simples surto de adrenalina ou de algo mais sinistro? Seja como for, ele possui resistência a dano 5.\n 7) Murmúrios. O dissociado fica repetindo as últimas palavras que proferiu antes de ter sua mente destroçada. Normalmente, são lamentos como “Não quero morrer”, “Por favor, não me machuquem”, “Minhas crenças estavam todas erradas”, “Estou com frio, tanto frio”… Ouvir esses lamentos pode ser traumático. Na primeira vez em cada cena que um personagem ficar em alcance curto do dissociado, deve fazer um teste de Vontade (DT 15). Se falhar, perde 1 ponto de Sanidade.\n 8) Mutação Dupla. Role 2d8, rolando novamente quaisquer resultados 1, 8 ou que já tenham sido rolados."
+          "descricao": "Um dissociado pode somatizar seus traumas, adquirindo mutações corporais. No início de cada cena envolvendo um ou mais dissociados, role 1d8 para determinar se eles terão mutações. Faça uma única rolagem para todos os dissociados da cena.\n 1) Sem Mutação. Use apenas as estatísticas básicas.\n 2) Garras. As unhas do dissociado são extremamente longas e afiadas. O ataque corpo a corpo dele causa um dado extra de dano (por exemplo, de 1d4+1 para 2d4+1) e passa a causar dano de corte (caso ainda não causasse).\n 3) Vulto. O dissociado anda de sombra em sombra, sendo difícil enxergá-lo — ou talvez sua própria pele de alguma forma evite a luz? Em termos de jogo, ele possui camuflagem (ataques contra ele possuem 20% de chance de falha). Se estiver em um ambiente escuro, que normalmente forneceria camuflagem, em vez disso ele recebe camuflagem total (50% de chance de falha).\n 4) Mandíbula Distendida. A boca do dissociado consegue se abrir num ângulo exagerado, permitindo que ele desfira mordidas destroçadoras. Se isso é uma mutação paranormal ou se ele simplesmente abriu sua boca com tanta força a ponto de rasgar a própria pele, ninguém sabe... Caso o dissociado faça um acerto crítico com um ataque corpo a corpo, causa +1d8 pontos de dano de corte.\n 5) Silencioso. O dissociado não vocaliza (não grunhe, grita, rosna...), respira extremamente baixo e, quando caminha, desliza pelo chão. Ele recebe Furtividade (2d20+10) e, no início da cena, tentará se aproximar do grupo — faça um teste oposto da Furtividade do dissociado contra a Percepção dos personagens. Se o dissociado vencer, começa o combate adjacente a um personagem, e o grupo como um todo começa surpreendido.\n 6) Sem Dor. O dissociado é extremamente resistente a ferimentos. Consequência de um simples surto de adrenalina ou de algo mais sinistro? Seja como for, ele possui resistência a dano 5.\n 7) Murmúrios. O dissociado fica repetindo as últimas palavras que proferiu antes de ter sua mente destroçada. Normalmente, são lamentos como “Não quero morrer”, “Por favor, não me machuquem”, “Minhas crenças estavam todas erradas”, “Estou com frio, tanto frio”… Ouvir esses lamentos pode ser traumático. Na primeira vez em cada cena que um personagem ficar em alcance curto do dissociado, deve fazer um teste de Vontade (DT 15). Se falhar, perde 1 ponto de Sanidade.\n 8) Mutação Dupla. Role 2d8, rolando novamente quaisquer resultados 1, 8 ou que já tenham sido rolados."
         }
       ],
       "acoes": [
@@ -306,7 +306,19 @@
           "tipo": "MOVIMENTO",
           "nome": "FORMA DISTINTA",
           "ataques": null,
-          "descricao": "O Discernido pode se transformar em outro ser que já tenha se transformado antes ou reduzir o seu tamanho como preferir para passar em espaços pequenos, diminuindo e aumentando o seu tamanho quando achar adequado. Nessa forma, a Defesa do Discernido aumenta em +5. ALUCINAÇÃO ASTRAL O ser que tenha sido vítima do Remover Juízo irá acordar em uma alucinação, cada alvo irá despertar em um local diferente, baseado nas suas memórias e maiores medos, o seu maior medo irá persegui-lo e tentar lhe ataca"
+          "descricao": "O Discernido pode se transformar em outro ser que já tenha se transformado antes ou reduzir o seu tamanho como preferir para passar em espaços pequenos, diminuindo e aumentando o seu tamanho quando achar adequado. Nessa forma, a Defesa do Discernido aumenta em +5."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "ALUCINAÇÃO ASTRAL",
+          "ataques": null,
+          "descricao": "O ser que tenha sido vítima do Remover Juízo irá acordar em uma alucinação, cada alvo irá despertar em um local diferente, baseado nas suas memórias e maiores medos, o seu maior medo irá persegui-lo e tentar lhe atacar-lo, um teste de Vontade deve ser feito (DT 15 + 5 por teste) e se falhar, causa 1d8 pontos de dano mental, na alucinação, será como se o maior medo do alvo tivesse lhe causado um ataque. Se o ser passar no teste duas vezes consecutivas, será como se ele tivesse escapado do seu maior medo, a alucinação acaba e o ser volta à realidade e fica imune a esta habilidade até o fim da cena."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RETER CORPO E MENTE",
+          "ataques": null,
+          "descricao": "O Discernido pode usar até dois de seus seis braços e usá-los para agarrar seres em um alcance longo (Teste 4d20 + 15). Com dois seres agarrados, o Discernido fica com -5 em sua defesa.\n- Visão Ofuscada. Um dos inúmeros olhos do Discernido saem da sua cabeça e tentam se acoplar nos olhos do ser agarrado, tentando manipular sua visão, se o ser falhar num teste de Vontade (DT 30), ele irá ficar ofuscado durante a cena.\n- Impacto Distinto. Caso o Discernido tenha dois seres agarrados em suas mãos, ele pode fazer os dois se colidirem e ficarem caídos em seguida, causando 4d10 + 6 impacto (Reflexos DT 30 reduz à metade e evita a condição).\n- Roubar Mente. O Discernido se foca na imensidão de pensamentos do alvo agarrado, tentando roubar suas memórias e sua capacidade de compreender a realidade, o ser sofre 2d10 + 6 pontos de dano mental (Vontade DT 30 reduz à metade), o Discernido recupera PV igual ao dano causado. Um ser reduzido a 0 pontos de sanidade dessa maneira se tornará um Lembrado na próxima rodada.\n- Tortura Discernida. O Discernido faz com que o alvo recupere 8d6 pontos de sanidade e fique apavorado até o fim da cena. Caso a sanidade atual do ser chegue a mais da metade, ele ainda continuará vendo o Discernido, porém, todo dano mental que ele sofrer de agora em diante será dobrado permanentemente."
         }
       ],
       "enigmaMedo": "O Motivo da criação do Discernido ainda é uma incógnita, registros afirmam que a única maneira de combatê-lo seria fazendo as suas vontades e aceitando ter a sua mente desmantelada e aguentar, fazendo com que assim, ele se torne visível a olho nu, já outros dizem que percebê-lo enquanto ele está transformado em outro ser já seria o suficiente para enfrentá-lo sem a sua Invisibilidade. Seja qual for a forma, a perda de sanidade ou saber quando ele está com outra aparência ou até mesmo descobrir quem o criou, o Discernido perde a sua Imunidade a dano (mas continua sendo imune a Conhecimento), perde 5 pontos de Defesa e não pode usar a Forma Distinta e nem a ação Roubar Mente.",
@@ -727,7 +739,7 @@
           "tipo": "REAÇÃO",
           "nome": "DESOVAR ARANHAS",
           "ataques": null,
-          "descricao": "Uma vez por cena, quando ficar machucada, a aracnasita desova diversas aranhas menores, que se espalham em sua volta gerando efeitos diversos. No início de cada turno da aracnasita após isso, ela executa um dos seguintes efeitos, nesta ordem. 1. No primeiro turno, as aranhas se espalham ao redor da aracnasita. Até o fim da cena, um personagem que inicie seu turno em alcance curto da criatura sofre 2d6 pontos de dano mental (Vontade DT 15 reduz à metade). 2. A partir do segundo turno, as aranhas "
+          "descricao": "Uma vez por cena, quando ficar machucada, a aracnasita desova diversas aranhas menores, que se espalham em sua volta gerando efeitos diversos. No início de cada turno da aracnasita após isso, ela executa um dos seguintes efeitos, nesta ordem.\n1. No primeiro turno, as aranhas se espalham ao redor da aracnasita. Até o fim da cena, um personagem que inicie seu turno em alcance curto da criatura sofre 2d6 pontos de dano mental (Vontade DT 15 reduz à metade).\n2. A partir do segundo turno, as aranhas atacam os personagens ao redor da aracnasita. Até o fim da cena, um personagem que inicie seu turno em alcance curto da criatura sofre 2d8 pontos de dano de Morte (Fortitude DT 15 reduz à metade).\n3. No terceiro turno, as aranhas menores se espalham ainda mais. Os dois efeitos acima agora afetam personagens que iniciem seu turno em alcance médio da aracnasita.\n4. A partir do quarto turno, caso um personagem morra em alance médio da aracnasita, será consumido por uma aranha, que irá se transformar em uma nova aracnasita com 70 PV e sem a habilidade Desovar Aranhas."
         },
         {
           "tipo": "MOVIMENTO",
@@ -1155,7 +1167,7 @@
           "tipo": "MOVIMENTO",
           "nome": "CUSPIR PARASITA",
           "ataques": null,
-          "descricao": "Ao custo de 25 de PV o Cérebro de Jour pode produzir um Parasita do Eminente, um item que causa transformações em quem o usar. Assim que produzido o parasita tem 25 de PV, 5 de RD, 18m (10 ❏) de movimentação e pode fazer um ataque que causa 1d4 de Energia usado apenas para se proteger. Caso o PV do Cérebro chegue a menos de 50, ele produz um Parasita Especial (pode-se mudar a cor dele ou alguma característica para ficar evidente isso) com as mesmas estatísticas, em que ele transfere sua consciên"
+          "descricao": "Ao custo de 25 de PV o Cérebro de Jour pode produzir um Parasita do Eminente, um item que causa transformações em quem o usar. Assim que produzido o parasita tem 25 de PV, 5 de RD, 18m (10 ❏) de movimentação e pode fazer um ataque que causa 1d4 de Energia usado apenas para se proteger. Caso o PV do Cérebro chegue a menos de 50, ele produz um Parasita Especial (pode-se mudar a cor dele ou alguma característica para ficar evidente isso) com as mesmas estatísticas, em que ele transfere sua consciência e foge para se reproduzir. Quando este Parasita Especial parasitar algum outro ser inicia um processo para criar um novo Cérebro, porém este processo pode durar muito tempo para se concretizar, fica a critério do Mestre de como isso acontecerá."
         }
       ],
       "enigmaMedo": null,
@@ -1484,7 +1496,7 @@
           "tipo": "COMPLETA",
           "nome": "CAUSAR ESTRANHEZA",
           "ataques": null,
-          "descricao": "No início do turno do Varn, quem estiver olhando direta ou indiretamente para ele se torna alvo de suas ondas cerebrais. A vítima sofre 2d6 pontos de dano mental (Vontade DT 20 reduz à metade) e, se enlouquecer devido a este dano, é possuída por ele, se transformado aleatoriamente em um monstro. Caso a vitima seja um jogador, este deve resistir a três turnos com testes de sanidade para não enlouquecer. O mestre deve escolher ou criar criaturas de acordo com o contexto da investigação, da persona"
+          "descricao": "No início do turno do Varn, quem estiver olhando direta ou indiretamente para ele se torna alvo de suas ondas cerebrais. A vítima sofre 2d6 pontos de dano mental (Vontade DT 20 reduz à metade) e, se enlouquecer devido a este dano, é possuída por ele, se transformado aleatoriamente em um monstro.\nCaso a vitima seja um jogador, este deve resistir a três turnos com testes de sanidade para não enlouquecer.\nO mestre deve escolher ou criar criaturas de acordo com o contexto da investigação, da personagem ou do NEX da mesma. O VD do monstro deve ser igual ou menor que o NEX do alvo vezes 4. Se o NEX do alvo é menos de 5% este é abduzido e substituído por um um Doppelganger.\nExemplo: Se a pessoa possuída pelo Varn é um ocultista de NEX 25% com afinidade a morte, o mestre deve escolher uma criatura VD igual ou menor a 100 do elemento Morte.\nIndependente da criatura utilizada, o PV do possuído permanece as originais do Varn. Enquanto possuir um ser, o Varn não pode mais usar a habilidade ABRIR E FECHAR. Quando perder um terço da sua PV ele sairá do monstro e procurará um novo hospedeiro. O monstro possuído continua a agir permanecendo com os PVs restantes."
         },
         {
           "tipo": "COMPLETA",
@@ -1743,7 +1755,7 @@
           "tipo": "LIVRE",
           "nome": "SUCÇÃO",
           "ataques": null,
-          "descricao": "Se acertar um personagem com sua mordida, o succ prende seus dentes no rosto da vítima e então tira o ar de seus pulmões. O personagem deve fazer um teste de Fortitude (DT 17). Se passar, consegue se soltar. Se falhar, fica inconsciente e, no início do próximo turno do succ, será reduzido a 0 PV e ficará morrendo. Enquanto estiver prendendo um personagem dessa forma, o succ não pode realizar ### Ações, exceto re### Ações, e seu deslocamento é reduzido para 3m. Se o succ sofrer 10 pontos de dano "
+          "descricao": "Se acertar um personagem com sua mordida, o succ\nprende seus dentes no rosto da vítima e então tira o ar de seus pulmões. O personagem deve fazer um teste de Fortitude (DT 17). Se passar, consegue se soltar. Se\nfalhar, fica inconsciente e, no início do próximo turno do succ, será reduzido a 0 PV e ficará morrendo. Enquanto estiver prendendo um personagem dessa forma, o succ não pode realizar ### Ações, exceto re### Ações, e seu deslocamento é reduzido para 3m. Se o succ sofrer 10 pontos de dano ou mais na mesma rodada, solta qualquer vítima que estiver prendendo."
         }
       ],
       "enigmaMedo": null,
@@ -2571,7 +2583,7 @@
           "tipo": "PADRÃO",
           "nome": "HIPNOSE",
           "ataques": null,
-          "descricao": "O carniçal domina a mente de um ser em alcance curto (Vontade DT 29 evita). A vítima fica sob controle telepático total do carniçal, e fará tudo que ele mandar, exceto tirar sua própria vida — em termos de jogo, fica sob controle do mestre. No final de cada turno do ser hipnotizado, ele pode repetir o teste de Vontade, com um bônus cumulativo de +1 por teste já realizado. Se passar, sai do comando do carniçal. O carniçal pode ter até três seres hipnotizados por vez. Caso o carniçal use essa habi"
+          "descricao": "O carniçal domina a mente de um ser em alcance curto (Vontade DT 29 evita). A vítima fica sob controle telepático total do carniçal, e fará tudo que ele mandar, exceto tirar sua própria vida — em termos de jogo, fica sob controle do mestre. No final de cada turno do ser hipnotizado, ele pode repetir o teste de Vontade, com um bônus cumulativo de +1 por teste já realizado. Se passar, sai do comando do carniçal. O carniçal pode ter até três seres hipnotizados por vez. Caso o carniçal use essa habilidade em um alvo enlouquecendo, o ser falha automaticamente e fica sob domínio permanente do carniçal (até que o carniçal seja destruído). Um ser nesta condição pode até mesmo tirar a própria vida, se assim for comandado."
         },
         {
           "tipo": "COMPLETA",
@@ -2586,6 +2598,76 @@
         "Presença Perturbadora": "12 mental*",
         "Agredir - Garra da morte": "40/60/80 morte",
         "Reação - Pancada Poderosa": "12 impacto"
+      }
+    },
+    {
+      "id": "vulto",
+      "nome": "Vulto",
+      "vd": 40,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "3d6 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "4d20+5",
+        "Fortitude": "d20",
+        "Reflexos": "4d20+5",
+        "Vontade": "2d20+5",
+        "Furtividade": "4d20+10"
+      },
+      "defesa": 19,
+      "pv": 60,
+      "machucado": 30,
+      "resistencias": "Balístico, corte e perfuração 5, Conhecimento 10",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 4,
+        "FOR": 2,
+        "INT": 2,
+        "PRE": 2,
+        "VIG": 1
+      },
+      "deslocamento": "12m | 8",
+      "habilidades": [
+        {
+          "nome": "AURA TANGÍVEL",
+          "descricao": "O vulto procura pessoas assustadas para que possa se alimentar dos sentimentos disparados pelos sustos. Seus ataques contra pessoas sob efeito de qualquer condição de medo causam +2d6 pontos de dano de Conhecimento."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "TOQUE MACABRO",
+              "teste": "4d20+10",
+              "dano": "2d6 conhecimento",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "PLANTAR PARANOIA",
+          "ataques": null,
+          "descricao": "O vulto procura implantar medo e paranoia na mente de suas vítimas ao chacoalhar a Membrana e fazer aparecer coisas que não estão lá de verdade. Cada personagem em alcance médio fica abalado (Vontade DT 15 evita). Se o personagem já estiver abalado, ficará apavorado. Se o vulto estiver escondido ao usar essa habilidade, cada personagem sofre –d20 no teste de Vontade."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "21",
+        "Presença Perturbadora": "6 mental*",
+        "Agredir - Mordida": "6/12/18 lorem"
       }
     }
   ],
