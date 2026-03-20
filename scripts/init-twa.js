@@ -8,21 +8,34 @@ const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 
-const rootDir = path.join(__dirname, "..");
-const androidTwaDir = path.join(rootDir, "android-twa");
+/**
+ * @param {{ execSyncImpl?: typeof execSync, env?: NodeJS.ProcessEnv, rootDir?: string }} deps
+ */
+function runInitTwa(deps = {}) {
+  const exec = deps.execSyncImpl ?? execSync;
+  const env = deps.env ?? process.env;
+  const rootDir = deps.rootDir ?? path.join(__dirname, "..");
+  const androidTwaDir = path.join(rootDir, "android-twa");
 
-if (!fs.existsSync(androidTwaDir)) {
-  fs.mkdirSync(androidTwaDir, { recursive: true });
+  if (!fs.existsSync(androidTwaDir)) {
+    fs.mkdirSync(androidTwaDir, { recursive: true });
+  }
+
+  const manifestUrl = env.MANIFEST_URL;
+  const args = ["@bubblewrap/cli", "init"];
+  if (manifestUrl) {
+    args.push("--manifest=" + manifestUrl);
+  }
+
+  exec("npx " + args.join(" "), {
+    cwd: androidTwaDir,
+    stdio: "inherit",
+    shell: true,
+  });
 }
 
-const manifestUrl = process.env.MANIFEST_URL;
-const args = ["@bubblewrap/cli", "init"];
-if (manifestUrl) {
-  args.push("--manifest=" + manifestUrl);
+if (require.main === module) {
+  runInitTwa();
 }
 
-execSync("npx " + args.join(" "), {
-  cwd: androidTwaDir,
-  stdio: "inherit",
-  shell: true,
-});
+module.exports = { runInitTwa };

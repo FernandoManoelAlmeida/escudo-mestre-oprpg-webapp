@@ -90,7 +90,7 @@ export const ELEMENTOS_FICHA = [
 export type ElementoFicha = (typeof ELEMENTOS_FICHA)[number];
 
 function normalizarParaElemento(s: string): string {
-  return s.trim().toUpperCase().normalize("NFD").replace(/\u0300-\u036f/g, "");
+  return s.trim().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 /** Retorna o elemento que define a ficha: a primeira característica que for um dos 5 elementos. */
@@ -110,7 +110,7 @@ function textoParaBusca(a: Ameaca): string {
     a.id,
     a.nome,
     String(a.vd),
-    ...a.caracteristicas,
+    ...(a.caracteristicas ?? []),
     String(a.defesa),
     String(a.pv),
     a.deslocamento,
@@ -189,6 +189,7 @@ export function filterAmeacas(
    * [ENERGIA, CONHECIMENTO] → ENERGIA 1ª e CONHECIMENTO 2ª primeiro). */
   const selecaoNorm = cars?.map((c) => normalizarCaracteristica(c)) ?? [];
   function prefixMatchCount(a: Ameaca): number {
+    /* v8 ignore next -- o ramo ?? não é exercitado após o filtro por característica */
     const arr = (a.caracteristicas ?? []).map((c) => normalizarCaracteristica(c));
     let i = 0;
     while (i < selecaoNorm.length && i < arr.length && arr[i] === selecaoNorm[i]) i++;

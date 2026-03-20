@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { getEscudo, filterRegrasIndex } from "@/lib/escudo";
-import type { EscudoData, EscudoIndexItem } from "@/lib/escudo";
+import type { EscudoData } from "@/lib/escudo";
 import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
 import { RegrasPageSkeleton } from "@/components/skeletons";
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { getEscudo, getSection, getTable } from "@/lib/escudo";
-import type { EscudoData, EscudoSection } from "@/lib/escudo";
+import type { EscudoData } from "@/lib/escudo";
 import MarkdownContent from "@/components/ui/MarkdownContent";
 import { ResponsiveTable } from "@/components/ui/ResponsiveTable";
 import { Accordion } from "@/components/ui/Accordion";

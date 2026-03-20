@@ -1,0 +1,98 @@
+import { describe, it, expect, vi } from "vitest";
+import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "./utils/render-theme";
+import Home from "@/app/page";
+import AmeacasPage from "@/app/ameacas/page";
+import RolagensPage from "@/app/rolagens/page";
+import RegrasPage from "@/app/regras/page";
+import RegrasTabelasPage from "@/app/regras/tabelas/page";
+import RegrasGlossarioPage from "@/app/regras/glossario/page";
+import { AmeacaDetailClient } from "@/app/ameacas/[id]/AmeacaDetailClient";
+import { RegrasSectionClient } from "@/app/regras/[sectionId]/RegrasSectionClient";
+import { escudoFixture } from "./fixtures/escudo-data";
+import { ameacasFixture, ameacaMinimal } from "./fixtures/ameacas-data";
+import React from "react";
+
+function stubFetchJson(data: unknown) {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () => ({
+      ok: true,
+      json: async () => data,
+      text: async () => "",
+    })) as typeof fetch,
+  );
+}
+
+describe("páginas client", () => {
+  it("Home renderiza regras em uso e licença", () => {
+    renderWithTheme(<Home />);
+    expect(screen.getByRole("heading", { name: /regras em uso/i })).toBeInTheDocument();
+    expect(screen.getByText(/Este é o/)).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /abrir open game license/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("Ameaças lista após carregar dados", async () => {
+    stubFetchJson(ameacasFixture);
+    renderWithTheme(<AmeacasPage />);
+    await waitFor(() => {
+      expect(screen.getByText(ameacaMinimal.nome)).toBeInTheDocument();
+    });
+  });
+
+  it("Rolagens renderiza seções de teste", () => {
+    renderWithTheme(<RolagensPage />, { withToast: true });
+    expect(screen.getByRole("heading", { name: /rolagens/i })).toBeInTheDocument();
+  });
+
+  it("Regras índice após carregar escudo", async () => {
+    stubFetchJson(escudoFixture);
+    renderWithTheme(<RegrasPage />);
+    await waitFor(() => {
+      expect(screen.getByText(/§ 1 — Mecânica/)).toBeInTheDocument();
+    });
+  });
+
+  it("Regras tabelas após carregar", async () => {
+    stubFetchJson(escudoFixture);
+    renderWithTheme(<RegrasTabelasPage />);
+    await waitFor(() => {
+      expect(screen.getByRole("heading", { name: "Tabelas" })).toBeInTheDocument();
+    });
+  });
+
+  it("Glossário após carregar", async () => {
+    stubFetchJson(escudoFixture);
+    renderWithTheme(<RegrasGlossarioPage />);
+    await waitFor(() => {
+      expect(screen.getByRole("heading", { name: "Glossário" })).toBeInTheDocument();
+      expect(screen.getByText("AGI")).toBeInTheDocument();
+    });
+  });
+
+  it("AmeacaDetailClient mostra ficha quando id existe", async () => {
+    stubFetchJson(ameacasFixture);
+    renderWithTheme(<AmeacaDetailClient id="teste-ameaca" />, { withToast: true });
+    await waitFor(() => {
+      expect(screen.getByRole("heading", { name: ameacaMinimal.nome })).toBeInTheDocument();
+    });
+  });
+
+  it("AmeacaDetailClient mostra não encontrada", async () => {
+    stubFetchJson(ameacasFixture);
+    renderWithTheme(<AmeacaDetailClient id="inexistente" />, { withToast: true });
+    await waitFor(() => {
+      expect(screen.getByText(/Ameaça não encontrada/i)).toBeInTheDocument();
+    });
+  });
+
+  it("RegrasSectionClient renderiza seção", async () => {
+    stubFetchJson(escudoFixture);
+    renderWithTheme(<RegrasSectionClient sectionId="1" />);
+    await waitFor(() => {
+      expect(screen.getByText(/Mecânica básica/i)).toBeInTheDocument();
+    });
+  });
+});

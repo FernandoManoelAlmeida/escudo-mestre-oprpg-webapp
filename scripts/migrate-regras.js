@@ -316,4 +316,12 @@ function main() {
   console.log("  Glossário:", outGlossary.length, "termos");
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  slug,
+  anchor,
+  parseMeta,
+};

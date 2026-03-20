@@ -110,10 +110,10 @@ export function filterRegrasIndex(
   });
 
   const result = [...matching];
-  if (glossaryMatch && !result.some((i) => i.id === "__glossario")) {
+  if (glossaryMatch && !result.some((i) => i.id === "glossario")) {
     result.push({ id: "glossario", title: "Glossário", anchor: "glossario" });
   }
-  if (tablesMatch && !result.some((i) => i.id === "__tabelas")) {
+  if (tablesMatch && !result.some((i) => i.id === "tabelas")) {
     result.push({ id: "tabelas", title: "Tabelas", anchor: "tabelas" });
   }
 

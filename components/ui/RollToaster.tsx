@@ -35,7 +35,7 @@ const totalPulse = keyframes`
 const Container = styled.div`
   position: fixed;
   bottom: calc(
-    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.sm}
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.md}
   );
   right: ${({ theme }) => theme.spacing.md};
   left: ${({ theme }) => theme.spacing.md};

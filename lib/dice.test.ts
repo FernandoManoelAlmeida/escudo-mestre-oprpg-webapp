@@ -8,7 +8,6 @@ import {
   isAllowedDiceSides,
   rollTesteAtributo,
   rollTestePericia,
-  type RollResult,
 } from "./dice";
 
 describe("isAllowedDiceSides", () => {
@@ -124,6 +123,12 @@ describe("rollDice", () => {
     expect(r.display).toContain(String(r.total));
   });
 
+  it("melhor de 2d20 sem modifier: display sem trecho de modifier", () => {
+    const r = rollDice(2, 20, 0);
+    expect(r.total).toBe(Math.max(...r.rolls));
+    expect(r.display).toMatch(/\[[\d, ]+\]\s+=\s+\d+/);
+  });
+
   it("cada roll está entre 1 e sides", () => {
     const r = rollDice(5, 8, 2);
     r.rolls.forEach((n) => {
@@ -148,6 +153,13 @@ describe("rollDice", () => {
     const worst = Math.min(...r.rolls);
     expect(r.total).toBe(worst + 5);
     expect(r.display).toContain("use o pior");
+  });
+
+  it("dados que não são d20: modifier negativo aparece no display", () => {
+    const r = rollDice(2, 8, -3);
+    const sum = r.rolls[0]! + r.rolls[1]!;
+    expect(r.total).toBe(sum - 3);
+    expect(r.display).toContain("-3");
   });
 });
 
@@ -190,6 +202,10 @@ describe("extractAllDiceFormulas", () => {
   it("retorna array vazio para texto vazio ou só espaços", () => {
     expect(extractAllDiceFormulas("")).toEqual([]);
     expect(extractAllDiceFormulas("   ")).toEqual([]);
+  });
+
+  it("retorna array vazio quando não há padrão de dados no texto", () => {
+    expect(extractAllDiceFormulas("apenas texto sem números")).toEqual([]);
   });
 
   it("não inclui fórmulas inválidas (ex: 0d20)", () => {
@@ -280,5 +296,12 @@ describe("rollTestePericia", () => {
     const r = rollTestePericia(2, 0);
     const best = Math.max(...r.rolls);
     expect(r.total).toBe(best);
+  });
+
+  it("bônus negativo: usa String(bonus) no display", () => {
+    const r = rollTestePericia(3, -2);
+    const best = Math.max(...r.rolls);
+    expect(r.total).toBe(best - 2);
+    expect(r.display).toContain("-2");
   });
 });

@@ -330,4 +330,12 @@ function main() {
   if (updated.length) console.log("  Atualizadas a partir do MD:", updated.join(", "));
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  normalizarCaracteristica,
+  slug,
+  normalizarDescricaoAcao,
+};

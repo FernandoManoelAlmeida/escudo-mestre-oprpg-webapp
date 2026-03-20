@@ -87,10 +87,7 @@ export default function UpdateBanner() {
       }
     };
 
-    let registration: ServiceWorkerRegistration | undefined;
-
     navigator.serviceWorker.register(assetUrl("/sw.js")).then((reg) => {
-      registration = reg;
       reg.update();
       checkVersion();
     });

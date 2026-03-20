@@ -10,13 +10,14 @@
     "lint": "eslint",
     "test": "vitest",
     "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "migrate:ameacas": "node scripts/migrate-ameacas.js",
     "migrate:regras": "node scripts/migrate-regras.js",
     "build:android:twa:init": "node scripts/init-twa.js",
     "build:android:twa": "cd android-twa && npx @bubblewrap/cli build",
     "build:capacitor": "cross-env BUILD_ANDROID_CAPACITOR=1 next build --webpack",
-    "build:android:capacitor:init": "npm run build:capacitor && npx cap init \"Escudo Mestre\" \"com.escudo.mestre\" --web-dir=out && npx cap add android",
-    "build:android:capacitor": "npm run build:capacitor && npx cap sync android && npx cap build android -- --release"
+    "build:android:capacitor:init": "yarn build:capacitor && npx cap init \"Escudo Mestre\" \"com.escudo.mestre\" --web-dir=out && npx cap add android",
+    "build:android:capacitor": "yarn build:capacitor && npx cap sync android && npx cap build android -- --release"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
@@ -39,6 +40,7 @@
     "@types/react-dom": "^19",
     "@types/styled-components": "^5.1.36",
     "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/coverage-v8": "^4.1.0",
     "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",

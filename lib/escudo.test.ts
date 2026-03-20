@@ -105,6 +105,31 @@ describe("filterRegrasIndex", () => {
     expect(result.some((i) => i.id === "glossario")).toBe(true);
   });
 
+  it("busca por description do glossário adiciona Glossário", () => {
+    const result = filterRegrasIndex(fixture, { texto: "Coordenação" });
+    expect(result.some((i) => i.id === "glossario")).toBe(true);
+  });
+
+  it("não duplica Glossário quando a seção glossario já entrou pelo índice", () => {
+    const data: EscudoData = {
+      ...fixture,
+      index: [
+        ...fixture.index,
+        { id: "glossario", title: "Glossário", anchor: "glossario" },
+      ],
+      sections: [
+        ...fixture.sections,
+        {
+          id: "glossario",
+          title: "Glossário",
+          subsections: [{ id: "g.1", title: "Termos", content: "AGI e outros atributos." }],
+        },
+      ],
+    };
+    const result = filterRegrasIndex(data, { texto: "AGI" });
+    expect(result.filter((i) => i.id === "glossario")).toHaveLength(1);
+  });
+
   it("busca que bate em tabela (header ou key) adiciona item Tabelas", () => {
     const byHeader = filterRegrasIndex(fixture, { texto: "Termo" });
     expect(byHeader.some((i) => i.id === "tabelas" && i.title === "Tabelas")).toBe(true);
@@ -127,6 +152,49 @@ describe("filterRegrasIndex", () => {
     const result = filterRegrasIndex(fixture, { texto: "xyznonexistent" });
     expect(result).toHaveLength(0);
   });
+
+  it("busca em formulas declaradas na subseção", () => {
+    const data: EscudoData = {
+      ...fixture,
+      sections: fixture.sections.map((s) =>
+        s.id === "1"
+          ? {
+              ...s,
+              subsections: [
+                ...s.subsections,
+                { id: "1.9", title: "Dano", formulas: ["4d8+2 perfuração"] },
+              ],
+            }
+          : s
+      ),
+    };
+    const result = filterRegrasIndex(data, { texto: "perfuração" });
+    expect(result.some((i) => i.id === "1")).toBe(true);
+  });
+
+  it("tolera glossary ou tables ausentes em runtime", () => {
+    const partial = {
+      ...fixture,
+      glossary: undefined,
+      tables: undefined,
+    } as EscudoData;
+    const r1 = filterRegrasIndex(partial, { texto: "mecânica" });
+    expect(r1.some((i) => i.id === "1")).toBe(true);
+    expect(r1.some((i) => i.id === "glossario")).toBe(false);
+  });
+
+  it("tabela com rows não-array só casa por chave ou cabeçalho", () => {
+    const data: EscudoData = {
+      ...fixture,
+      tables: {
+        so_chave: {
+          headers: ["A"],
+          rows: { a: "1" } as unknown as EscudoData["tables"][string]["rows"],
+        },
+      },
+    };
+    expect(filterRegrasIndex(data, { texto: "so_chave" }).some((i) => i.id === "tabelas")).toBe(true);
+  });
 });
 
 describe("getEscudo", () => {
@@ -147,6 +215,17 @@ describe("getEscudo", () => {
     expect(data.sections).toHaveLength(2);
     expect(data.tables.termos_importantes).toBeDefined();
     expect(data.glossary).toHaveLength(2);
+  });
+
+  it("segunda chamada reutiliza cache (um único fetch)", async () => {
+    const { getEscudo: getEscudoFresh } = await import("./escudo");
+    (globalThis.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
+      ok: true,
+      json: async () => fixture,
+    });
+    await getEscudoFresh();
+    await getEscudoFresh();
+    expect((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls).toHaveLength(1);
   });
 
   it("lança erro quando fetch não é ok", async () => {
