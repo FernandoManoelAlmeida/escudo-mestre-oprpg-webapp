@@ -2,7 +2,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styled, { ThemeProvider } from "styled-components";
-import { getAmeacas, getAmeacaById, getElementoFromAmeaca } from "@/lib/ameacas";
+import {
+  getAmeacas,
+  getAmeacaById,
+  getElementoFromAmeaca,
+} from "@/lib/ameacas";
 import { getCreatureSheetTheme } from "@/lib/creatureSheetThemes";
 import {
   rollFormula,
@@ -215,191 +219,203 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
           className="creature-sheet-container"
           data-elemento={elemento ?? undefined}
         >
-        <SheetHeader>
-          <SheetHeaderText>
-            <Title>{ameaca.nome}</Title>
-            <Meta>
-              VD {ameaca.vd} · {ameaca.caracteristicas.join(" · ")}
-            </Meta>
-          </SheetHeaderText>
-          {elemento === "ENERGIA" && (
-            <ElementIcon
-              src={assetUrl("/icons/elemento-energia-icon.png")}
-              alt=""
-              role="presentation"
-            />
-          )}
-          {elemento === "CONHECIMENTO" && (
-            <ElementIcon
-              src={assetUrl("/icons/elemento-conhecimento-icon.png")}
-              alt=""
-              role="presentation"
-            />
-          )}
-          {elemento === "MORTE" && (
-            <ElementIcon
-              src={assetUrl("/icons/elemento-morte-icon.png")}
-              alt=""
-              role="presentation"
-            />
-          )}
-          {elemento === "SANGUE" && (
-            <ElementIcon
-              src={assetUrl("/icons/elemento-sangue-icon.png")}
-              alt=""
-              role="presentation"
-            />
-          )}
-          {elemento === "MEDO" && (
-            <ElementIcon
-              src={assetUrl("/icons/elemento-medo-icon.png")}
-              alt=""
-              role="presentation"
-            />
-          )}
-        </SheetHeader>
+          <SheetHeader>
+            <SheetHeaderText>
+              <Title>{ameaca.nome}</Title>
+              <Meta>
+                VD {ameaca.vd} · {ameaca.caracteristicas.join(" · ")}
+              </Meta>
+            </SheetHeaderText>
+            {elemento === "ENERGIA" && (
+              <ElementIcon
+                src={assetUrl("/icons/elemento-energia-icon.png")}
+                alt=""
+                role="presentation"
+              />
+            )}
+            {elemento === "CONHECIMENTO" && (
+              <ElementIcon
+                src={assetUrl("/icons/elemento-conhecimento-icon.png")}
+                alt=""
+                role="presentation"
+              />
+            )}
+            {elemento === "MORTE" && (
+              <ElementIcon
+                src={assetUrl("/icons/elemento-morte-icon.png")}
+                alt=""
+                role="presentation"
+              />
+            )}
+            {elemento === "SANGUE" && (
+              <ElementIcon
+                src={assetUrl("/icons/elemento-sangue-icon.png")}
+                alt=""
+                role="presentation"
+              />
+            )}
+            {elemento === "MEDO" && (
+              <ElementIcon
+                src={assetUrl("/icons/elemento-medo-icon.png")}
+                alt=""
+                role="presentation"
+              />
+            )}
+          </SheetHeader>
 
-        {pp && (
-          <Block>
-            <BlockTitle>Presença Perturbadora</BlockTitle>
-            <Row>
-              <Text style={{ marginBottom: 0 }}>
-                DT {pp.dt} — {pp.dano} — NEX {pp.nexImune}%+ imune
-              </Text>
-              {extractDiceFormula(pp.dano) && (
-                <D20RollButton
-                  size="small"
-                  onClick={() =>
-                    handleRollDanoText(pp.dano, "Presença Perturbadora (Dano)")
-                  }
-                  aria-label="Rolar dano da Presença Perturbadora"
-                />
-              )}
-            </Row>
-          </Block>
-        )}
-
-        <Block>
-          <BlockTitle>Estatísticas</BlockTitle>
-          <Text>DEFESA {ameaca.defesa}</Text>
-          <Text>
-            PV {ameaca.pv}
-            {ameaca.machucado != null ? ` | Machucado ${ameaca.machucado}` : ""}
-          </Text>
-          {ameaca.resistencias && (
-            <Text>Resistências: {ameaca.resistencias}</Text>
-          )}
-          {ameaca.imunidades && <Text>Imunidades: {ameaca.imunidades}</Text>}
-          {ameaca.vulnerabilidades && (
-            <Text>Vulnerabilidades: {ameaca.vulnerabilidades}</Text>
-          )}
-          {ameaca.atributos && Object.keys(ameaca.atributos).length > 0 && (
-            <Row style={{ flexWrap: "wrap" }}>
-              <Text style={{ marginBottom: 0 }}>Atributos:</Text>
-              {Object.entries(ameaca.atributos).map(([nome, valor]) => (
-                <Row key={nome} style={{ marginBottom: 0 }}>
-                  <Text style={{ marginBottom: 0 }}>{nome}</Text>
-                  <AttrButton
-                    type="button"
-                    onClick={() => handleRollAtributo(nome, valor)}
-                    aria-label={`Rolar teste de ${nome} (${valor}d20)`}
-                  >
-                    {valor}
-                  </AttrButton>
-                </Row>
-              ))}
-            </Row>
-          )}
-          <Text>Deslocamento: {ameaca.deslocamento}</Text>
-        </Block>
-
-        {hasPericias && (
-          <Block>
-            <BlockTitle>Perícias</BlockTitle>
-            {Object.entries(ameaca.pericias!).map(([nome, formula]) => (
-              <Row key={nome}>
+          {pp && (
+            <Block>
+              <BlockTitle>Presença Perturbadora</BlockTitle>
+              <Row>
                 <Text style={{ marginBottom: 0 }}>
-                  <strong>{nome}:</strong> {formula}
+                  DT {pp.dt} — {pp.dano} — NEX {pp.nexImune}%+ imune
                 </Text>
-                {parseFormula(formula) !== null && (
+                {extractDiceFormula(pp.dano) && (
                   <D20RollButton
                     size="small"
-                    onClick={() => handleRoll(formula, "", `${nome} (Teste)`)}
-                    aria-label={`Rolar ${nome}`}
+                    onClick={() =>
+                      handleRollDanoText(
+                        pp.dano,
+                        "Presença Perturbadora (Dano)",
+                      )
+                    }
+                    aria-label="Rolar dano da Presença Perturbadora"
                   />
                 )}
               </Row>
-            ))}
-          </Block>
-        )}
+            </Block>
+          )}
 
-        {ameaca.habilidades && ameaca.habilidades.length > 0 && (
           <Block>
-            <BlockTitle>Habilidades</BlockTitle>
-            {ameaca.habilidades.map((h) => (
-              <Text key={h.nome}>
-                <strong>{h.nome}</strong> — {h.descricao}
-              </Text>
-            ))}
-          </Block>
-        )}
-
-        <Block>
-          <BlockTitle>Ações</BlockTitle>
-          {ameaca.acoes.map((acao, i) => (
-            <AcaoItem key={i}>
-              <Row style={{ alignItems: "center", flexWrap: "wrap" }}>
-                <Text style={{ marginBottom: 0 }}>
-                  <strong>
-                    {acao.tipo} — {acao.nome}
-                  </strong>
-                </Text>
-                {acao.nome.toUpperCase() !== "AGREDIR" &&
-                  acao.descricao &&
-                  extractAllDiceFormulas(acao.descricao).map((formula) => (
-                    <D20RollButton
-                      key={formula}
-                      size="small"
-                      onClick={() => handleRoll(formula, "", acao.nome)}
-                      aria-label={`Rolar ${acao.nome}`}
-                    />
+            <BlockTitle>Estatísticas</BlockTitle>
+            <Text>DEFESA {ameaca.defesa}</Text>
+            <Text>
+              PV {ameaca.pv}
+              {ameaca.machucado != null
+                ? ` | Machucado ${ameaca.machucado}`
+                : ""}
+            </Text>
+            {ameaca.resistencias && (
+              <Text>Resistências: {ameaca.resistencias}</Text>
+            )}
+            {ameaca.imunidades && <Text>Imunidades: {ameaca.imunidades}</Text>}
+            {ameaca.vulnerabilidades && (
+              <Text>Vulnerabilidades: {ameaca.vulnerabilidades}</Text>
+            )}
+            {ameaca.atributos && Object.keys(ameaca.atributos).length > 0 && (
+              <>
+                <Row>
+                  <Text style={{ marginBottom: 0 }}>Atributos:</Text>
+                </Row>
+                <Row style={{ flexWrap: "nowrap" }}>
+                  {Object.entries(ameaca.atributos).map(([nome, valor]) => (
+                    <Row
+                      key={nome}
+                      style={{ marginBottom: 0, justifyContent: "center" }}
+                    >
+                      <Text style={{ marginBottom: 0 }}>{nome}</Text>
+                      <AttrButton
+                        type="button"
+                        onClick={() => handleRollAtributo(nome, valor)}
+                        aria-label={`Rolar teste de ${nome} (${valor}d20)`}
+                      >
+                        {valor}
+                      </AttrButton>
+                    </Row>
                   ))}
-              </Row>
-              {acao.ataques?.map((atk, j) => (
-                <AtaqueBlock
-                  key={j}
-                  ataque={atk}
-                  onRoll={handleRoll}
-                  onRollDanoText={(danoText, label) =>
-                    handleRollDanoText(danoText, label)
-                  }
-                />
-              ))}
-              {acao.descricao && <Text>{acao.descricao}</Text>}
-            </AcaoItem>
-          ))}
-        </Block>
-
-        {ameaca.enigmaMedo && (
-          <Block>
-            <BlockTitle>Enigma de Medo</BlockTitle>
-            <Text>{ameaca.enigmaMedo}</Text>
+                </Row>
+              </>
+            )}
+            <Text>Deslocamento: {ameaca.deslocamento}</Text>
           </Block>
-        )}
 
-        {ameaca.dadosMedios && Object.keys(ameaca.dadosMedios).length > 0 && (
-          <Block>
-            <BlockTitle>Dados médios</BlockTitle>
-            <DadosMedios>
-              {Object.entries(ameaca.dadosMedios).map(([k, v]) => (
-                <span key={k}>
-                  {k}: {String(v)}
-                </span>
+          {hasPericias && (
+            <Block>
+              <BlockTitle>Perícias</BlockTitle>
+              {Object.entries(ameaca.pericias!).map(([nome, formula]) => (
+                <Row key={nome}>
+                  <Text style={{ marginBottom: 0 }}>
+                    <strong>{nome}:</strong> {formula}
+                  </Text>
+                  {parseFormula(formula) !== null && (
+                    <D20RollButton
+                      size="small"
+                      onClick={() => handleRoll(formula, "", `${nome} (Teste)`)}
+                      aria-label={`Rolar ${nome}`}
+                    />
+                  )}
+                </Row>
               ))}
-            </DadosMedios>
+            </Block>
+          )}
+
+          {ameaca.habilidades && ameaca.habilidades.length > 0 && (
+            <Block>
+              <BlockTitle>Habilidades</BlockTitle>
+              {ameaca.habilidades.map((h) => (
+                <Text key={h.nome}>
+                  <strong>{h.nome}</strong> — {h.descricao}
+                </Text>
+              ))}
+            </Block>
+          )}
+
+          <Block>
+            <BlockTitle>Ações</BlockTitle>
+            {ameaca.acoes.map((acao, i) => (
+              <AcaoItem key={i}>
+                <Row style={{ alignItems: "center", flexWrap: "wrap" }}>
+                  <Text style={{ marginBottom: 0 }}>
+                    <strong>
+                      {acao.tipo} — {acao.nome}
+                    </strong>
+                  </Text>
+                  {acao.nome.toUpperCase() !== "AGREDIR" &&
+                    acao.descricao &&
+                    extractAllDiceFormulas(acao.descricao).map((formula) => (
+                      <D20RollButton
+                        key={formula}
+                        size="small"
+                        onClick={() => handleRoll(formula, "", acao.nome)}
+                        aria-label={`Rolar ${acao.nome}`}
+                      />
+                    ))}
+                </Row>
+                {acao.ataques?.map((atk, j) => (
+                  <AtaqueBlock
+                    key={j}
+                    ataque={atk}
+                    onRoll={handleRoll}
+                    onRollDanoText={(danoText, label) =>
+                      handleRollDanoText(danoText, label)
+                    }
+                  />
+                ))}
+                {acao.descricao && <Text>{acao.descricao}</Text>}
+              </AcaoItem>
+            ))}
           </Block>
-        )}
-      </CreatureSheetContainer>
+
+          {ameaca.enigmaMedo && (
+            <Block>
+              <BlockTitle>Enigma de Medo</BlockTitle>
+              <Text>{ameaca.enigmaMedo}</Text>
+            </Block>
+          )}
+
+          {ameaca.dadosMedios && Object.keys(ameaca.dadosMedios).length > 0 && (
+            <Block>
+              <BlockTitle>Dados médios</BlockTitle>
+              <DadosMedios>
+                {Object.entries(ameaca.dadosMedios).map(([k, v]) => (
+                  <span key={k}>
+                    {k}: {String(v)}
+                  </span>
+                ))}
+              </DadosMedios>
+            </Block>
+          )}
+        </CreatureSheetContainer>
       </ThemeProvider>
     </Page>
   );

@@ -3,7 +3,8 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
 import type { RollResult } from "@/lib/dice";
 
-const MAX_ROLLS = 5;
+/** Máximo de rolagens mantidas no histórico do toaster */
+export const ROLL_TOAST_MAX = 5;
 
 export type RollEntry = {
   id: number;
@@ -33,7 +34,7 @@ export function RollToastProvider({ children }: { children: React.ReactNode }) {
       suffix: opts?.suffix,
       label: opts?.label,
     };
-    setRolls((prev) => [entry, ...prev].slice(0, MAX_ROLLS));
+    setRolls((prev) => [entry, ...prev].slice(0, ROLL_TOAST_MAX));
   }, []);
 
   const removeRoll = useCallback((id: number) => {
