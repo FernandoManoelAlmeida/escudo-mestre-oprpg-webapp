@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { assetUrl } from "@/lib/basePath";
+import type { RasterIconName } from "@/lib/rasterIcons";
 import {
   Nav,
   NavLink,
@@ -12,10 +12,10 @@ import {
   CentralButtonIcon,
 } from "./BottomNav.styles";
 
-const items = [
-  { href: "/regras", label: "Regras", iconSrc: assetUrl("/icons/regras-icon.png") },
-  { href: "/", label: "Início", iconSrc: assetUrl("/icons/home-icon.png") },
-  { href: "/ameacas", label: "Ameaças", iconSrc: assetUrl("/icons/ameacas-icon.png") },
+const items: { href: string; label: string; iconName: RasterIconName }[] = [
+  { href: "/regras", label: "Regras", iconName: "regras-icon" },
+  { href: "/", label: "Início", iconName: "home-icon" },
+  { href: "/ameacas", label: "Ameaças", iconName: "ameacas-icon" },
 ];
 
 export default function BottomNav() {
@@ -23,7 +23,7 @@ export default function BottomNav() {
 
   return (
     <Nav role="navigation" aria-label="Menu principal">
-      {items.map(({ href, label, iconSrc }) => {
+      {items.map(({ href, label, iconName }) => {
         const active = pathname === href || (href !== "/" && pathname.startsWith(href));
         const isCentral = href === "/";
 
@@ -32,9 +32,7 @@ export default function BottomNav() {
             <Link key={href} href={href} aria-label={label}>
               <NavItemWrap>
                 <CentralButtonWrap>
-                  {iconSrc && (
-                    <CentralButtonIcon src={iconSrc} alt={label} />
-                  )}
+                  <CentralButtonIcon name={iconName} alt={label} />
                 </CentralButtonWrap>
               </NavItemWrap>
             </Link>
@@ -45,11 +43,7 @@ export default function BottomNav() {
           <Link key={href} href={href} aria-label={label}>
             <NavItemWrap>
               <NavLink as="span" $active={active}>
-                {iconSrc ? (
-                  <NavIcon src={iconSrc} alt={label} $active={active} />
-                ) : (
-                  label
-                )}
+                <NavIcon name={iconName} alt={label} $active={active} />
               </NavLink>
             </NavItemWrap>
           </Link>

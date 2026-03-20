@@ -1,8 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import Image from "next/image";
-import { assetUrl } from "@/lib/basePath";
+import { OrdemParanormalDesesperoLogo } from "@/components/branding/OrdemParanormalDesesperoLogo";
 import { REGRAS_CASA_RESUMO } from "@/lib/regrasCasaResumo";
 
 const GITHUB_README_URL =
@@ -25,6 +24,8 @@ const TitleRow = styled.div`
 const TitleLink = styled.a`
   display: block;
   width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
   line-height: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: opacity 0.2s;
@@ -36,6 +37,12 @@ const TitleLink = styled.a`
     outline: 2px solid ${({ theme }) => theme.colors.primary};
     outline-offset: 4px;
   }
+`;
+
+const HomeLogo = styled(OrdemParanormalDesesperoLogo)`
+  width: 100%;
+  height: auto;
+  display: block;
 `;
 
 const Description = styled.div`
@@ -133,14 +140,7 @@ export default function Home() {
           rel="noopener noreferrer"
           aria-label="Abrir repositório no GitHub (README)"
         >
-          <Image
-            src={assetUrl("/logo-ordem-paranormal-desespero.png")}
-            alt="Ordem Paranormal Desespero"
-            width={720}
-            height={240}
-            priority
-            style={{ width: "100%", height: "auto" }}
-          />
+          <HomeLogo alt="Ordem Paranormal Desespero" />
         </TitleLink>
       </TitleRow>
 

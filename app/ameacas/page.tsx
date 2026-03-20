@@ -5,7 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { getAmeacas, filterAmeacas, getCaracteristicasParaFiltro } from "@/lib/ameacas";
 import type { AmeacasData, Ameaca, OrdenarAmeacasPor, OrdenarSentido } from "@/lib/ameacas";
-import { assetUrl } from "@/lib/basePath";
+import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
 import { AmeacasPageSkeleton } from "@/components/skeletons";
 
 const Page = styled.div`
@@ -277,7 +277,7 @@ const FeedbackWrapper = styled.div`
   font-size: ${({ theme }) => theme.typography.fontSize.base};
 `;
 
-const FeedbackIcon = styled.img`
+const FeedbackIcon = styled(RasterIconSvg)`
   width: 80px;
   height: auto;
   display: block;
@@ -298,7 +298,7 @@ function FeedbackBlock({
   return (
     <FeedbackWrapper>
       {showIcon && (
-        <FeedbackIcon src={assetUrl("/icons/icon-exception.png")} alt="" role="presentation" />
+        <FeedbackIcon name="icon-exception" decorative />
       )}
       <FeedbackText>{children}</FeedbackText>
     </FeedbackWrapper>

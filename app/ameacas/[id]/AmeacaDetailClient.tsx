@@ -19,7 +19,8 @@ import type { Ameaca, Ataque } from "@/lib/ameacas";
 import { useRollToast } from "@/context/RollToastContext";
 import { D20RollButton } from "@/components/ui/D20RollButton";
 import { AmeacaDetailSkeleton } from "@/components/skeletons";
-import { assetUrl } from "@/lib/basePath";
+import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
+import type { RasterIconName } from "@/lib/rasterIcons";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
@@ -54,10 +55,19 @@ const SheetHeaderText = styled.div`
   min-width: 0;
 `;
 
-const ElementIcon = styled.img`
+const ELEMENTO_ICON: Record<string, RasterIconName> = {
+  ENERGIA: "elemento-energia-icon",
+  CONHECIMENTO: "elemento-conhecimento-icon",
+  MORTE: "elemento-morte-icon",
+  SANGUE: "elemento-sangue-icon",
+  MEDO: "elemento-medo-icon",
+};
+
+const ElementIcon = styled(RasterIconSvg)`
   flex-shrink: 0;
   height: 48px;
   width: auto;
+  display: block;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 `;
 
@@ -226,40 +236,8 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
                 VD {ameaca.vd} · {ameaca.caracteristicas.join(" · ")}
               </Meta>
             </SheetHeaderText>
-            {elemento === "ENERGIA" && (
-              <ElementIcon
-                src={assetUrl("/icons/elemento-energia-icon.png")}
-                alt=""
-                role="presentation"
-              />
-            )}
-            {elemento === "CONHECIMENTO" && (
-              <ElementIcon
-                src={assetUrl("/icons/elemento-conhecimento-icon.png")}
-                alt=""
-                role="presentation"
-              />
-            )}
-            {elemento === "MORTE" && (
-              <ElementIcon
-                src={assetUrl("/icons/elemento-morte-icon.png")}
-                alt=""
-                role="presentation"
-              />
-            )}
-            {elemento === "SANGUE" && (
-              <ElementIcon
-                src={assetUrl("/icons/elemento-sangue-icon.png")}
-                alt=""
-                role="presentation"
-              />
-            )}
-            {elemento === "MEDO" && (
-              <ElementIcon
-                src={assetUrl("/icons/elemento-medo-icon.png")}
-                alt=""
-                role="presentation"
-              />
+            {elemento && ELEMENTO_ICON[elemento] && (
+              <ElementIcon name={ELEMENTO_ICON[elemento]} decorative />
             )}
           </SheetHeader>
 

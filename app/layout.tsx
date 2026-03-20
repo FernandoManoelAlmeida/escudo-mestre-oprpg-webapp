@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   icons: {
-    icon: assetUrl("/icons/header-icon.png"),
-    apple: assetUrl("/icons/icon-192.png"),
+    icon: assetUrl("/icons/header-icon.webp"),
+    apple: assetUrl("/icons/icon-192.webp"),
   },
 };
 

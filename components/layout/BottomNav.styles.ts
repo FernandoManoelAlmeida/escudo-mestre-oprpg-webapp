@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
 
 export const Nav = styled.nav`
   position: fixed;
@@ -49,11 +50,13 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   }
 `;
 
-export const NavIcon = styled.img<{ $active?: boolean }>`
+export const NavIcon = styled(RasterIconSvg).withConfig({
+  shouldForwardProp: (prop) => prop !== "$active",
+})<{ $active?: boolean }>`
   width: 24px;
   height: 24px;
   display: block;
-  object-fit: contain;
+  flex-shrink: 0;
   filter: invert(1);
   opacity: ${({ $active }) => ($active ? 1 : 0.7)};
   transition: opacity 0.15s;
@@ -87,10 +90,10 @@ export const CentralButtonWrap = styled.span`
   }
 `;
 
-export const CentralButtonIcon = styled.img`
+export const CentralButtonIcon = styled(RasterIconSvg)`
   width: 28px;
   height: 28px;
   display: block;
-  object-fit: contain;
+  flex-shrink: 0;
   filter: brightness(0) invert(1);
 `;
