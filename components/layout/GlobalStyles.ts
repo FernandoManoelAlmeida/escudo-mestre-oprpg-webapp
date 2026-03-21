@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 
 const fallback = {
   typography: { fontFamily: '"Inter", system-ui, sans-serif' },
-  colors: { background: "#080c10", text: "#e8ecf0", primary: "#00c8e6", primaryHover: "#00e5ff" },
+  colors: { background: "#181f26", text: "#e8ecf0", primary: "#00c8e6", primaryHover: "#00e5ff" },
   headerHeight: "124px",
   bottomNavHeight: "56px",
 };

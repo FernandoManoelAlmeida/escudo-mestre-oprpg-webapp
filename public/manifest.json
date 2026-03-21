@@ -6,8 +6,10 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone"],
-  "background_color": "#080c10",
+  "display_override": [
+    "standalone"
+  ],
+  "background_color": "#181f26",
   "theme_color": "#0e1419",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
