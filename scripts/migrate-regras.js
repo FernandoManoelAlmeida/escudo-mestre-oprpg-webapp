@@ -32,6 +32,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { writeVersion } = require("./write-version");
 
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const OUT_PATH = path.join(PROJECT_ROOT, "public/data/escudo-mestre-casa.json");
@@ -314,6 +315,8 @@ function main() {
   console.log("  Seções:", sections.length);
   console.log("  Tabelas:", Object.keys(outTables).length);
   console.log("  Glossário:", outGlossary.length, "termos");
+
+  writeVersion(PROJECT_ROOT);
 }
 
 if (require.main === module) {

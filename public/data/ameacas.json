@@ -35,7 +35,7 @@
         "PRE": 2,
         "VIG": 3
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "IMITADOR",
@@ -137,7 +137,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -190,7 +190,7 @@
         "PRE": 1,
         "VIG": 1
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "SOMATIZAÇÃO PARANORMAL",
@@ -261,7 +261,7 @@
         "PRE": 5,
         "VIG": 3
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "DELÍRIO VIVO",
@@ -365,7 +365,7 @@
         "PRE": 1,
         "VIG": 3
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "ABRUTALHADO",
@@ -469,7 +469,7 @@
         "PRE": 2,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "DE SOL A SOL",
@@ -547,7 +547,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -620,7 +620,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "TÁTICAS DE ALCATEIA",
@@ -708,7 +708,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "PERCEPÇÃO TÁTIL",
@@ -787,7 +787,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "TÁTICAS DE ALCATEIA",
@@ -860,7 +860,7 @@
         "PRE": 4,
         "VIG": 5
       },
-      "deslocamento": "24m | 18",
+      "deslocamento": "24m | 18 ❏",
       "habilidades": [
         {
           "nome": "CAÇADOR VELOZ",
@@ -950,7 +950,7 @@
         "PRE": 3,
         "VIG": 2
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "TOQUE ACELERADOR",
@@ -1024,7 +1024,7 @@
         "PRE": 3,
         "VIG": 1
       },
-      "deslocamento": "6m | 4",
+      "deslocamento": "6m | 4 ❏",
       "habilidades": [
         {
           "nome": "REGENERAÇÃO DE SANGUE",
@@ -1106,7 +1106,7 @@
       "presencaPerturbadora": {
         "dt": 20,
         "dano": "4d8 mental",
-        "nexImune": 25
+        "nexImune": 50
       },
       "pericias": {
         "Percepção": "4d20+10",
@@ -1129,7 +1129,7 @@
         "PRE": 4,
         "VIG": 3
       },
-      "deslocamento": "0m | 0",
+      "deslocamento": "0m | 0 ❏",
       "habilidades": [
         {
           "nome": "RETRIBUIÇÃO DO EMINENTE",
@@ -1216,7 +1216,7 @@
         "PRE": 3,
         "VIG": 3
       },
-      "deslocamento": "6m | 4",
+      "deslocamento": "6m | 4 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -1304,7 +1304,7 @@
         "PRE": 4,
         "VIG": 1
       },
-      "deslocamento": "6m | 4",
+      "deslocamento": "6m | 4 ❏",
       "habilidades": [
         {
           "nome": "DEVORAR CULPA",
@@ -1386,7 +1386,7 @@
         "PRE": 3,
         "VIG": 1
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "A ESPIRAL EM PRIMEIRO LUGAR",
@@ -1483,7 +1483,7 @@
         "PRE": 4,
         "VIG": 0
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -1573,7 +1573,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "MULTIPLICAÇÃO MELÓDICA",
@@ -1653,7 +1653,7 @@
         "PRE": 1,
         "VIG": 1
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "CARÊNCIA",
@@ -1735,7 +1735,7 @@
         "PRE": 1,
         "VIG": 1
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -1797,7 +1797,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -1876,7 +1876,7 @@
         "PRE": 3,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "A ESPIRAL EM PRIMEIRO LUGAR",
@@ -1955,7 +1955,7 @@
         "PRE": 3,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -2029,7 +2029,7 @@
         "PRE": 3,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -2100,7 +2100,7 @@
         "PRE": 1,
         "VIG": 1
       },
-      "deslocamento": "4m | 2",
+      "deslocamento": "4m | 2 ❏ - Voo 9m | 6 ❏",
       "habilidades": [],
       "acoes": [
         {
@@ -2166,7 +2166,7 @@
         "PRE": 1,
         "VIG": 5
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "HORDA",
@@ -2248,7 +2248,7 @@
         "PRE": 1,
         "VIG": 3
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "NOMOFOBIA",
@@ -2325,7 +2325,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "NOMOFOBIA",
@@ -2413,7 +2413,7 @@
         "PRE": 1,
         "VIG": 2
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "NOMOFOBIA",
@@ -2483,7 +2483,7 @@
         "PRE": 1,
         "VIG": 1
       },
-      "deslocamento": "9m | 6",
+      "deslocamento": "9m | 6 ❏, escalar/nadar 6m | 4 ❏",
       "habilidades": [
         {
           "nome": "ENXAME",
@@ -2538,7 +2538,7 @@
         "PRE": 3,
         "VIG": 3
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "FÍSICO PARANORMAL",
@@ -2635,7 +2635,7 @@
         "PRE": 2,
         "VIG": 1
       },
-      "deslocamento": "12m | 8",
+      "deslocamento": "12m | 8 ❏",
       "habilidades": [
         {
           "nome": "AURA TANGÍVEL",

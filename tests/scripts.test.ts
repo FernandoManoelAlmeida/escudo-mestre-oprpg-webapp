@@ -29,7 +29,7 @@ describe("scripts/write-version", () => {
 });
 
 describe("scripts/migrate-ameacas", () => {
-  const { normalizarCaracteristica, slug, normalizarDescricaoAcao } = require("../scripts/migrate-ameacas.js");
+  const { normalizarCaracteristica, slug, normalizarDescricaoAcao, parseBlock } = require("../scripts/migrate-ameacas.js");
 
   it("normalizarCaracteristica", () => {
     expect(normalizarCaracteristica("  a b  ")).toBe("A B");
@@ -42,6 +42,26 @@ describe("scripts/migrate-ameacas", () => {
 
   it("normalizarDescricaoAcao", () => {
     expect(normalizarDescricaoAcao("  linha  \n  outra  ")).toContain("linha");
+  });
+
+  it("parseBlock correctly handles DESLOCAMENTO with ❏", () => {
+    const md = `
+## Zombi de Sangue
+VD 20
+SANGUE - MÉDIO
+### Perícias
+Luta 1d20+5
+PONTOS DE VIDA 40 | Machucado 20
+DEFESA 15
+AGI 1 | FOR 2 | INT 0 | PRE 1 | VIG 2
+DESLOCAMENTO 9m | 6 ❏
+### Ações
+PADRÃO - Mordida
+> Correr
+> TESTE 1d20+5 | DANO 1d8+2
+    `;
+    const result = parseBlock(md);
+    expect(result.deslocamento).toBe("9m | 6 ❏");
   });
 });
 

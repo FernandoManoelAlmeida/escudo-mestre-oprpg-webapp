@@ -10,6 +10,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { writeVersion } = require("./write-version");
 
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const OUT_PATH = path.join(PROJECT_ROOT, "public/data/ameacas.json");
@@ -134,10 +135,8 @@ function parseBlock(content) {
     }
   }
 
-  const deslMatch = content.match(/DESLOCAMENTO\s+(\d+m(?:\s*\|\s*\d+)?(?:\s*-\s*[^\n]+)?)/i);
-  const deslocamento = deslMatch
-    ? deslMatch[1].replace(/\s*\|\s*\d+\s*❏.*$/, "").trim()
-    : "";
+  const deslMatch = content.match(/DESLOCAMENTO\s+(.+)$/im);
+  const deslocamento = deslMatch ? deslMatch[1].trim() : "";
 
   const habilidades = [];
   const habSec = content.match(/### Habilidades\s*\n([\s\S]*?)(?=\n### Ações|\n### Enigma|$)/);
@@ -328,6 +327,8 @@ function main() {
   console.log("  Características únicas:", caracteristicasUnicas.length);
   if (added.length) console.log("  Novas:", added.join(", "));
   if (updated.length) console.log("  Atualizadas a partir do MD:", updated.join(", "));
+
+  writeVersion(PROJECT_ROOT);
 }
 
 if (require.main === module) {
@@ -338,4 +339,5 @@ module.exports = {
   normalizarCaracteristica,
   slug,
   normalizarDescricaoAcao,
+  parseBlock,
 };

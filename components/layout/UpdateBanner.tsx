@@ -98,8 +98,11 @@ export default function UpdateBanner() {
 
     navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
 
+    const intervalId = setInterval(checkVersion, 5 * 60 * 1000);
+
     return () => {
       navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
+      clearInterval(intervalId);
     };
   }, []);
 
