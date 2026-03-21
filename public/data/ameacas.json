@@ -2155,7 +2155,7 @@
       },
       "defesa": 25,
       "pv": 600,
-      "machucado": 600,
+      "machucado": 300,
       "resistencias": "Balístico, corte, perfuração e Energia 20",
       "imunidades": null,
       "vulnerabilidades": "Conhecimento",
