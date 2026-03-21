@@ -110,7 +110,7 @@ const List = styled.div`
     overflow-x: auto;
     overflow-y: visible;
     max-height: none;
-    padding-bottom: ${({ theme }) => theme.spacing.xs};
+    padding-bottom: ${({ theme }) => theme.spacing.sm};
     gap: ${({ theme }) => theme.spacing.md};
   }
 `;

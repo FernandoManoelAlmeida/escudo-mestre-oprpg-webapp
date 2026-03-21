@@ -46,4 +46,41 @@ export const GlobalStyles = createGlobalStyle`
     padding-bottom: ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight};
     min-height: calc(100vh - var(--header-height, 124px) - ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight});
   }
+
+  /* Personalização Global do Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme?.colors?.border ?? "#1a2530"}
+      ${({ theme }) => theme?.colors?.surface ?? fallback.colors.background};
+  }
+
+  &::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme?.colors?.surface ?? fallback.colors.background};
+  }
+
+  &::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme?.colors?.border ?? "#1a2530"};
+    border-radius: 20px;
+    border: 2px solid ${({ theme }) => theme?.colors?.surface ?? fallback.colors.background};
+  }
+
+  &::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme?.colors?.primary ?? fallback.colors.primary};
+  }
+
+  /* Para Firefox (garantindo que se aplique ao root) */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme?.colors?.border ?? "#1a2530"}
+      ${({ theme }) => theme?.colors?.surface ?? fallback.colors.background};
+  }
 `;
