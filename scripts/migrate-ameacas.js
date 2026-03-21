@@ -52,7 +52,7 @@ function parseBlock(content) {
   const lines = content.split("\n").map((l) => l.trim());
   const getLine = (pat) => lines.find((l) => l.match(pat));
   const getNum = (pat) => {
-    const m = getLine(pat)?.match(/(\d+)/);
+    const m = getLine(pat)?.match(/(-?\d+)/);
     return m ? parseInt(m[1], 10) : undefined;
   };
 
@@ -98,7 +98,7 @@ function parseBlock(content) {
   const pericias = {};
   const perSec = content.match(/### Perícias\s*\n([\s\S]*?)(?=\n###|\nDEFESA|\nPRESENÇA|\nPONTOS|$)/i);
   if (perSec) {
-    const formulaRegex = /\d*d\d+([+-]\d+)?/i;
+    const formulaRegex = /-?\d*d\d+([+-]\d+)?/i;
     for (const line of perSec[1].split("\n")) {
       const trimmed = line.trim();
       if (!trimmed) continue;
@@ -130,7 +130,7 @@ function parseBlock(content) {
   if (attrLine) {
     const parts = attrLine.split(/\s*\|\s*/);
     for (const p of parts) {
-      const m = p.trim().match(/^([A-Z]+)\s+(\d+)$/);
+      const m = p.trim().match(/^([A-Z]+)\s+(-?\d+)$/);
       if (m) atributos[m[1]] = parseInt(m[2], 10);
     }
   }

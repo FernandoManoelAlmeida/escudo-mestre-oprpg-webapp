@@ -2669,6 +2669,143 @@
         "Presença Perturbadora": "6 mental*",
         "Agredir - Mordida": "6/12/18 lorem"
       }
+    },
+    {
+      "id": "anarquico-descontrolado",
+      "nome": "Anárquico Descontrolado",
+      "vd": 120,
+      "caracteristicas": [
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 21,
+        "dano": "4d6 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "4d20+10",
+        "Fortitude": "3d20+10",
+        "Reflexos": "4d20+10",
+        "Vontade": "2d20+5"
+      },
+      "defesa": 28,
+      "pv": 120,
+      "machucado": 60,
+      "resistencias": "Balístico, corte e perfuração 10, Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 4,
+        "FOR": 3,
+        "INT": 2,
+        "PRE": 2,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA ENERGÉTICA",
+              "teste": "4d20+15",
+              "dano": "4d12 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "ACELERAÇÃO",
+          "ataques": null,
+          "descricao": "Sempre que um personagem sofre dano da pancada energética, entra em estado de aceleração e pode sofrer dano colateral. Em seu próximo turno, se realizar uma ação de movimento e uma ação padrão, ou uma ação completa), o personagem acelerado sofre 4d12 pontos de dano de Energia."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "AUTODESTRUIÇÃO",
+          "ataques": null,
+          "descricao": "O anárquico concentra Energia no seu corpo e se autodestrói, causando 8d12 pontos de dano de Energia em todos os personagens em alcance curto (Reflexos DT 25 reduz à metade). Personagens adjacentes ao anárquico descontrolado sofrem -2d20 neste teste de resistência. O anárquico descontrolado morre após usar essa habilidade."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "26",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Pancada energética": "24/48/72 impacto",
+        "Livre - Aceleração": "24 energia",
+        "Movimento - Autodestruição": "48 energia"
+      }
+    },
+    {
+      "id": "anarquico",
+      "nome": "Anárquico",
+      "vd": 20,
+      "caracteristicas": [
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 14,
+        "dano": "2d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "-2d20",
+        "Iniciativa": "3d20+5",
+        "Fortitude": "d20",
+        "Reflexos": "3d20+10",
+        "Vontade": "-2d20"
+      },
+      "defesa": 21,
+      "pv": 30,
+      "machucado": 15,
+      "resistencias": "Energia 5",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 0,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "COMPORTAMENTO ERRÁTICO",
+          "descricao": "No começo do seu turno, o anárquico é tomado pelo fluxo de Energia em seu corpo e age de modo aleatório. Role 1d6 para determinar o que ele faz. Se não puder realizar a ação, fica parado se contorcendo, mas recebe resistência a dano 5 até o início do seu próximo turno.\n1-2 - O anárquico pula sobre o personagem mais próximo, fazendo a ação investida (ou a ação agredir, se estiver muito próximo do personagem). Se não conseguir atacar alguém, corre na direção do personagem mais próximo.\n3-4 - O anárquico projeta uma luz prismática de dentro de si na direção de um ser em alcance médio. O alvo sofre 2d8 pontos de dano de Energia e fica atordoado por uma rodada (Fortitude DT 14 reduz o dano à metade e evita a condição).\n5 - Uma explosão de Energia emana do anárquico. Cada ser em alcance curto sofre 2d6 pontos de dano de Energia (Reflexos DT 14 reduz à metade). Seres adjacentes ao anárquico sofrem +1d6 pontos de dano.\n6 - Uma risada descontrolada toma o anárquico enquanto ele faz a ação agredir contra o personagem mais próximo. Até o final de seu próximo turno, o anárquico fica desprevenido, mas seus ataques ficam completamente imprevisíveis e o defensor não pode se esquivar deles."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA ERRÁTICA",
+              "teste": "2d20+5",
+              "dano": "2d12 impacto",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "19",
+        "Presença Perturbadora": "4 mental*",
+        "Agredir - Pancada errática": "6/12/18 impacto",
+        "Comportamento Errático - Luz prismática": "8 energia",
+        "Comportamento Errático - Explosão": "6/18 energia"
+      }
     }
   ],
   "caracteristicasUnicas": [
@@ -2680,6 +2817,7 @@
     "ENORME",
     "GRANDE",
     "MÉDIA",
+    "MÉDIO",
     "MEDO",
     "MORTE",
     "PEQUENO",
