@@ -111,7 +111,9 @@ function parseBlock(content) {
     }
   }
 
-  const defesa = getNum(/DEFESA\s+(\d+)/);
+  const defLine = getLine(/DEFESA/);
+  const defesaMatch = defLine?.match(/DEFESA\s+(\d+)/);
+  const defesa = defesaMatch ? parseInt(defesaMatch[1], 10) : (defLine?.includes("-") ? 0 : undefined);
   const pvLine = getLine(/PONTOS DE VIDA\s+(\d+)/);
   const pv = pvLine ? parseInt(pvLine.match(/(\d+)/)[1], 10) : undefined;
   const machucadoMatch = content.match(/Machucado\s+(\d+)/);
@@ -125,13 +127,16 @@ function parseBlock(content) {
   const vulnLine = getLine(/^VULNERABILIDADES?\s*[:]?\s*(.+)/i);
   if (vulnLine) vulnerabilidades = vulnLine.replace(/^VULNERABILIDADES?\s*[:]?\s*/i, "").trim();
 
-  const attrLine = getLine(/AGI\s+\d+.*FOR.*INT.*PRE.*VIG/);
+  const attrLine = getLine(/AGI\s+[\d-]+.*FOR.*INT.*PRE.*VIG/);
   const atributos = {};
   if (attrLine) {
     const parts = attrLine.split(/\s*\|\s*/);
     for (const p of parts) {
-      const m = p.trim().match(/^([A-Z]+)\s+(-?\d+)$/);
-      if (m) atributos[m[1]] = parseInt(m[2], 10);
+      const m = p.trim().match(/^([A-Z]+)\s+([-]?\d+|[-])$/);
+      if (m) {
+        const val = m[2] === "-" ? 0 : parseInt(m[2], 10);
+        atributos[m[1]] = val;
+      }
     }
   }
 

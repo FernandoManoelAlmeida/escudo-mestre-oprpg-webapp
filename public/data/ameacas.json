@@ -2806,6 +2806,76 @@
         "Comportamento Errático - Luz prismática": "8 energia",
         "Comportamento Errático - Explosão": "6/18 energia"
       }
+    },
+    {
+      "id": "anomalia",
+      "nome": "Anomalia",
+      "vd": 380,
+      "caracteristicas": [
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 45,
+        "dano": "9d8 mental",
+        "nexImune": 99
+      },
+      "pericias": {
+        "Fortitude": "5d20+15",
+        "Reflexos": "5d20+15",
+        "Vontade": "5d20+15"
+      },
+      "defesa": 0,
+      "pv": 1000,
+      "machucado": 500,
+      "resistencias": null,
+      "imunidades": "Dano e todas condições",
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 0,
+        "FOR": 0,
+        "INT": 5,
+        "PRE": 5,
+        "VIG": 0
+      },
+      "deslocamento": "0m | 0 ❏",
+      "habilidades": [
+        {
+          "nome": "IMATERIAL",
+          "descricao": "A anomalia possui um corpo físico desprezível e escondido atrás de uma imensidão de Energia paranormal. Ela é imune a dano e a todas as condições. A anomalia não faz testes e não age da mesma maneira que outras criaturas. Sua própria existência é uma impossibilidade e um confronto com ela é surreal e indescritível. A única forma de derrotá-la é resolvendo seu Enigma de Medo."
+        },
+        {
+          "nome": "EXISTÊNCIA IMPOSSÍVEL",
+          "descricao": "A anomalia não se desloca de maneira normal. Ela existe somente dentro de um objeto que possa ser aberto por uma porta. Enquanto a porta estiver aberta, a anomalia é manifestada e pode usar seus poderes. Uma vez manifestada, a anomalia ficará perseguindo aqueles que a manifestaram, surgindo sempre que abrirem uma porta ou compartimento e levando-os à loucura."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "LIVRE",
+          "nome": "ROMPER CONSCIÊNCIA",
+          "ataques": null,
+          "descricao": "No início do turno da anomalia, ela sorteia um ser que esteja em sua linha de visão e tenta romper sua razão transformando suas ondas cerebrais. A vítima sofre 10d6 pontos de dano mental (Vontade DT 41 reduz à metade) e, se ficar insana devido a este dano, é absorvida pela anomalia."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "MANIPULAR ONDAS DA EXISTÊNCIA",
+          "ataques": null,
+          "descricao": "No final do turno da anomalia, ela manipula as ondas eletromagnéticas que compõem a própria existência. Ela pode ativar, desativar ou operar até seis objetos tecnológicos em alcance médio. Como alternativa, pode sobrecarregar estes objetos, gerando uma poderosa descarga que causa 2d12 pontos de dano de Energia por objeto em todos os seres na área (Reflexos DT 30 reduz à metade)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "MANIFESTAR O IMPOSSÍVEL",
+          "ataques": null,
+          "descricao": "A anomalia invoca uma ou mais criaturas de Energia cujo VD total some até 240. As criaturas aparecem em alcance curto da anomalia e agem a partir da próxima rodada, seguindo seus impulsos caóticos."
+        }
+      ],
+      "enigmaMedo": "A anomalia não deveria existir. Ela é o próprio caos colapsando com a Realidade, e não existe lógica para defini-la. A única forma de combater essa criatura é mergulhar na anomalia para entendê-la no Outro Lado. Quando o Enigma de Medo da anomalia for resolvido, ela se transforma em um ser ou objeto aleatório por 2d4 rodadas. Durante esse tempo, ela perde sua imunidade a dano e condições e usa as estatísticas do ser ou objeto, com exceção de seus PV.",
+      "dadosMedios": {
+        "Presença Perturbadora": "27 mental*",
+        "Livre - Romper consciência": "20 mental*",
+        "Livre - Manipular ondas da existência": "12 energia"
+      }
     }
   ],
   "caracteristicasUnicas": [
