@@ -2813,6 +2813,7 @@
       "vd": 380,
       "caracteristicas": [
         "ENERGIA",
+        "MEDO",
         "CRIATURA",
         "MÉDIO"
       ],
