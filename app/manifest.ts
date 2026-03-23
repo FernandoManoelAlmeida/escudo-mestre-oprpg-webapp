@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { assetUrl } from "@/lib/basePath";
 
+export const dynamic = "force-static";
+
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function manifest(): MetadataRoute.Manifest {
