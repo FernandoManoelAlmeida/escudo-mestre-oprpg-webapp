@@ -46,13 +46,13 @@ const HomeLogo = styled(OrdemParanormalDesesperoLogo)`
 `;
 
 const Description = styled.div`
-  color: ${({ theme }) => theme.colors.textMuted};
+  color: ${({ theme }) => theme.colors.text};
   margin: 0 0 ${({ theme }) => theme.spacing.xl};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   line-height: 1.6;
 
   p {
-    margin: 0 0 ${({ theme }) => theme.spacing.sm};
+    margin: 0 0 ${({ theme }) => theme.spacing.md};
   }
   p:last-child {
     margin-bottom: 0;
@@ -149,7 +149,6 @@ export default function Home() {
           Este é um <strong>Escudo do Mestre</strong> feito de fã para fã: uma referência rápida para{" "}
           mestrar sessões de Ordem Paranormal RPG.
         </p>
-        <br />
         <p>
           As regras selecionadas neste{" "}
           escudo são as do usuário <strong>@progfernando</strong>,{" "}
@@ -160,7 +159,6 @@ export default function Home() {
           mecânicas e tabelas, glossário de termos, homebrews usados e fichas de{" "}
           ameaças — tudo em um só lugar, pensado para uso durante o jogo.
         </p>
-        <br />
         <p>
           Apoie o RPG{" "}
           oficial: compre os livros e acompanhe o conteúdo oficial de Ordem
