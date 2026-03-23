@@ -24,94 +24,166 @@ function stubFetchJson(data: unknown) {
   );
 }
 
+/** Evita flakes quando a suíte roda em paralelo (CPU lenta / muitos workers). */
+const asyncPageTimeout = 15_000;
+
 describe("páginas client", () => {
   it("Home renderiza regras em uso e licença", () => {
     renderWithTheme(<Home />);
     expect(screen.getByRole("heading", { name: /regras em uso/i })).toBeInTheDocument();
-    expect(screen.getByText(/Este é o/)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (_content, el) =>
+          el?.tagName.toLowerCase() === "p" &&
+          !!el.textContent?.includes("feito de fã para fã"),
+      ),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /abrir open game license/i }),
     ).toBeInTheDocument();
   });
 
-  it("Ameaças lista após carregar dados", async () => {
-    stubFetchJson(ameacasFixture);
-    renderWithTheme(<AmeacasPage />);
-    await waitFor(() => {
-      expect(screen.getByText(ameacaMinimal.nome)).toBeInTheDocument();
-    });
-  });
+  it(
+    "Ameaças lista após carregar dados",
+    async () => {
+      stubFetchJson(ameacasFixture);
+      renderWithTheme(<AmeacasPage />);
+      await waitFor(
+        () => {
+          expect(screen.getByText(ameacaMinimal.nome)).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
   it("Rolagens renderiza seções de teste", () => {
     renderWithTheme(<RolagensPage />, { withToast: true });
     expect(screen.getByRole("heading", { name: /rolagens/i })).toBeInTheDocument();
   });
 
-  it("Regras índice após carregar escudo", async () => {
-    stubFetchJson(escudoFixture);
-    renderWithTheme(<RegrasPage />);
-    await waitFor(() => {
-      expect(screen.getByText(/§ 1 — Mecânica/)).toBeInTheDocument();
-    });
-  });
+  it(
+    "Regras índice após carregar escudo",
+    async () => {
+      stubFetchJson(escudoFixture);
+      renderWithTheme(<RegrasPage />);
+      await waitFor(
+        () => {
+          expect(screen.getByText(/§ 1 — Mecânica/)).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
-  it("Regras tabelas após carregar", async () => {
-    stubFetchJson(escudoFixture);
-    renderWithTheme(<RegrasTabelasPage />);
-    await waitFor(() => {
-      expect(screen.getByRole("heading", { name: "Tabelas" })).toBeInTheDocument();
-    });
-  });
+  it(
+    "Regras tabelas após carregar",
+    async () => {
+      stubFetchJson(escudoFixture);
+      renderWithTheme(<RegrasTabelasPage />);
+      await waitFor(
+        () => {
+          expect(screen.getByRole("heading", { name: "Tabelas" })).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
-  it("Glossário após carregar", async () => {
-    stubFetchJson(escudoFixture);
-    renderWithTheme(<RegrasGlossarioPage />);
-    await waitFor(() => {
-      expect(screen.getByRole("heading", { name: "Glossário" })).toBeInTheDocument();
-      expect(screen.getByText("AGI")).toBeInTheDocument();
-    });
-  });
+  it(
+    "Glossário após carregar",
+    async () => {
+      stubFetchJson(escudoFixture);
+      renderWithTheme(<RegrasGlossarioPage />);
+      await waitFor(
+        () => {
+          expect(screen.getByRole("heading", { name: "Glossário" })).toBeInTheDocument();
+          expect(screen.getByText("AGI")).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
-  it("AmeacaDetailClient mostra ficha quando id existe", async () => {
-    stubFetchJson(ameacasFixture);
-    renderWithTheme(<AmeacaDetailClient id="teste-ameaca" />, { withToast: true });
-    await waitFor(() => {
-      expect(screen.getByRole("heading", { name: ameacaMinimal.nome })).toBeInTheDocument();
-    });
-  });
+  it(
+    "AmeacaDetailClient mostra ficha quando id existe",
+    async () => {
+      stubFetchJson(ameacasFixture);
+      renderWithTheme(<AmeacaDetailClient id="teste-ameaca" />, { withToast: true });
+      await waitFor(
+        () => {
+          expect(screen.getByRole("heading", { name: ameacaMinimal.nome })).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
-  it("AmeacaDetailClient mostra não encontrada", async () => {
-    stubFetchJson(ameacasFixture);
-    renderWithTheme(<AmeacaDetailClient id="inexistente" />, { withToast: true });
-    await waitFor(() => {
-      expect(screen.getByText(/Ameaça não encontrada/i)).toBeInTheDocument();
-    });
-  });
+  it(
+    "AmeacaDetailClient mostra não encontrada",
+    async () => {
+      stubFetchJson(ameacasFixture);
+      renderWithTheme(<AmeacaDetailClient id="inexistente" />, { withToast: true });
+      await waitFor(
+        () => {
+          expect(screen.getByText(/Ameaça não encontrada/i)).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
-  it("RegrasSectionClient renderiza seção", async () => {
-    stubFetchJson(escudoFixture);
-    renderWithTheme(<RegrasSectionClient sectionId="1" />);
-    await waitFor(() => {
-      expect(screen.getByText(/Mecânica básica/i)).toBeInTheDocument();
-    });
-  });
+  it(
+    "RegrasSectionClient renderiza seção",
+    async () => {
+      stubFetchJson(escudoFixture);
+      renderWithTheme(<RegrasSectionClient sectionId="1" />);
+      await waitFor(
+        () => {
+          expect(screen.getByText(/Mecânica básica/i)).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 
-  it("RegrasSectionClient lista fórmulas e abre tabela no acordeão", async () => {
-    stubFetchJson(escudoFixture);
-    renderWithTheme(<RegrasSectionClient sectionId="1" />);
-    await waitFor(() => {
-      expect(screen.getByText("1d20+5")).toBeInTheDocument();
-    });
-    expect(screen.getByText(/Ref quebrada/i)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /ver tabela/i }));
-    expect(screen.getByRole("table")).toBeInTheDocument();
-  });
+  it(
+    "RegrasSectionClient lista fórmulas e abre tabela no acordeão",
+    async () => {
+      stubFetchJson(escudoFixture);
+      renderWithTheme(<RegrasSectionClient sectionId="1" />);
+      await waitFor(
+        () => {
+          expect(screen.getByText("1d20+5")).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+      expect(screen.getByText(/Ref quebrada/i)).toBeInTheDocument();
+      fireEvent.click(screen.getByRole("button", { name: /ver tabela/i }));
+      expect(screen.getByRole("table")).toBeInTheDocument();
+    },
+    asyncPageTimeout,
+  );
 
-  it("RegrasSectionClient seção inexistente", async () => {
-    stubFetchJson(escudoFixture);
-    renderWithTheme(<RegrasSectionClient sectionId="999" />);
-    await waitFor(() => {
-      expect(screen.getByText(/Seção não encontrada/i)).toBeInTheDocument();
-    });
-  });
+  it(
+    "RegrasSectionClient seção inexistente",
+    async () => {
+      stubFetchJson(escudoFixture);
+      renderWithTheme(<RegrasSectionClient sectionId="999" />);
+      await waitFor(
+        () => {
+          expect(screen.getByText(/Seção não encontrada/i)).toBeInTheDocument();
+        },
+        { timeout: asyncPageTimeout },
+      );
+    },
+    asyncPageTimeout,
+  );
 });

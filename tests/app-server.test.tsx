@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { metadata, viewport } from "@/app/layout";
+import { pwaChromeColors } from "@/lib/pwaColors";
 import { generateStaticParams as genAmeacasParams } from "@/app/ameacas/[id]/page";
 import { generateStaticParams as genRegrasSectionParams } from "@/app/regras/[sectionId]/page";
 import AmeacaDetailPage from "@/app/ameacas/[id]/page";
@@ -12,7 +13,17 @@ import { escudoFixture } from "./fixtures/escudo-data";
 describe("app router server exports", () => {
   it("layout metadata e viewport", () => {
     expect(metadata.title).toBeTruthy();
-    expect(viewport.themeColor).toBe("#0e1419");
+    expect(viewport.colorScheme).toBe("dark");
+    expect(Array.isArray(viewport.themeColor)).toBe(true);
+    const tc = viewport.themeColor as { media: string; color: string }[];
+    expect(tc.some((x) => x.media.includes("dark") && x.color === "#0e1419")).toBe(true);
+    expect(tc.some((x) => x.media.includes("light") && x.color === "#121920")).toBe(true);
+    expect(metadata.other?.["msapplication-TileColor"]).toBe(
+      pwaChromeColors.dark.backgroundColor,
+    );
+    expect(metadata.other?.["msapplication-navbutton-color"]).toBe(
+      pwaChromeColors.dark.themeColor,
+    );
   });
 
   it("generateStaticParams ameaças retorna ids do JSON", async () => {

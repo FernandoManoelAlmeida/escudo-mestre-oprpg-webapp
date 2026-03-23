@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import StyledComponentsRegistry from "@/components/layout/Registry";
 import ClientLayout from "@/components/layout/ClientLayout";
 import { assetUrl } from "@/lib/basePath";
+import { pwaChromeColors } from "@/lib/pwaColors";
 
 export const metadata: Metadata = {
   title: "Ordem Paranormal RPG",
@@ -10,11 +11,17 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     title: "Escudo Mestre",
+    /** Barra de status escura; conteúdo pode estender por baixo (alinhado ao tema escuro). */
     statusBarStyle: "black-translucent",
   },
   icons: {
     icon: assetUrl("/icons/header-icon.webp"),
     apple: assetUrl("/icons/icon-192.webp"),
+  },
+  /** Windows / Edge legado: Live Tile e cor da barra de navegação ao fixar o site. */
+  other: {
+    "msapplication-TileColor": pwaChromeColors.dark.backgroundColor,
+    "msapplication-navbutton-color": pwaChromeColors.dark.themeColor,
   },
 };
 
@@ -23,7 +30,18 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#0e1419",
+  /** App é escuro; meta theme-color segue o modo do SO com tons escuros da identidade */
+  colorScheme: "dark",
+  themeColor: [
+    {
+      media: "(prefers-color-scheme: light)",
+      color: pwaChromeColors.light.themeColor,
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: pwaChromeColors.dark.themeColor,
+    },
+  ],
 };
 
 export default function RootLayout({
