@@ -32,10 +32,16 @@ function ChevronUp() {
 const HEADER_HEIGHT_COMPACT = "48px";
 const HEADER_HEIGHT_EXPANDED = "124px";
 
+/** Retorna um inteiro aleatório entre min e max (inclusive). */
+function randomBetween(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 export default function Header() {
   const [formula, setFormula] = useState("");
   const [mobileRollOpen, setMobileRollOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [useSpecialFont, setUseSpecialFont] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
@@ -55,12 +61,34 @@ export default function Header() {
     document.documentElement.style.setProperty("--header-height", height);
   }, [isDesktop, mobileRollOpen]);
 
+  // Rotina aleatória: aguarda tempo aleatório (≤120s) com fonte do sistema,
+  // depois exibe a fonte especial por 3s, e repete.
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    function scheduleSpecialFont() {
+      // Tempo aleatório entre 5s e 120s com a fonte do sistema
+      const waitMs = randomBetween(5_000, 120_000);
+      timeoutId = setTimeout(() => {
+        setUseSpecialFont(true);
+        // Mantém a fonte especial por 3 segundos
+        timeoutId = setTimeout(() => {
+          setUseSpecialFont(false);
+          scheduleSpecialFont(); // agenda o próximo ciclo
+        }, 3_000);
+      }, waitMs);
+    }
+
+    scheduleSpecialFont();
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <HeaderStyled $fullHeight={mobileRollVisible}>
       <HeaderTop>
         <HeaderTitleWrap>
           <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
-            <HeaderTitle>Escudo do Mestre</HeaderTitle>
+            <HeaderTitle $specialFont={useSpecialFont}>Escudo do Mestre</HeaderTitle>
           </Link>
         </HeaderTitleWrap>
 

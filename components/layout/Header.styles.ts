@@ -29,12 +29,15 @@ export const HeaderTitleWrap = styled.div`
   flex-shrink: 0;
 `;
 
-export const HeaderTitle = styled.h1`
+export const HeaderTitle = styled.h1<{ $specialFont?: boolean }>`
   margin: 0;
   font-size: ${({ theme }) => theme.typography.fontSize.lg};
-  font-weight: 600;
+  font-weight: ${({ $specialFont }) => ($specialFont ? "normal" : "500")};
   color: ${({ theme }) => theme.colors.text};
-  letter-spacing: 0.02em;
+  letter-spacing: ${({ $specialFont }) => ($specialFont ? "0.05em" : "0.02em")};
+  font-family: ${({ $specialFont }) =>
+    $specialFont ? '"SigilosDeConhecimento", serif' : "inherit"};
+  transition: font-family 0.3s ease, letter-spacing 0.3s ease;
 `;
 
 export const DesktopRollWrap = styled.div`

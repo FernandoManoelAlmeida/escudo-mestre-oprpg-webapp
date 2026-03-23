@@ -10,6 +10,14 @@ const fallback = {
 };
 
 export const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: "SigilosDeConhecimento";
+    src: url("/fonts/SigilosDeConhecimento.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   * {
     box-sizing: border-box;
   }
