@@ -2,6 +2,8 @@
 
 import { createGlobalStyle } from "styled-components";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const fallback = {
   typography: { fontFamily: '"Inter", system-ui, sans-serif' },
   colors: { background: "#181f26", text: "#e8ecf0", primary: "#00c8e6", primaryHover: "#00e5ff" },
@@ -12,7 +14,7 @@ const fallback = {
 export const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: "SigilosDeConhecimento";
-    src: url("/fonts/SigilosDeConhecimento.ttf") format("truetype");
+    src: url("${basePath}/fonts/SigilosDeConhecimento.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
