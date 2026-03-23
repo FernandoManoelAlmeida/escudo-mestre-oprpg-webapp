@@ -149,6 +149,7 @@ export default function Home() {
           Este é um <strong>Escudo do Mestre</strong> feito de fã para fã: uma referência rápida para{" "}
           mestrar sessões de Ordem Paranormal RPG.
         </p>
+        <br />
         <p>
           As regras selecionadas neste{" "}
           escudo são as do usuário <strong>@progfernando</strong>,{" "}
