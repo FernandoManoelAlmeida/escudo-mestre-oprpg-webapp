@@ -146,21 +146,29 @@ export default function Home() {
 
       <Description>
         <p>
-          Este é o <strong>Escudo do Mestre</strong>: uma referência rápida para
-          mestrar sessões de Ordem Paranormal RPG. As regras selecionadas neste
-          escudo são as do usuário <strong>@progfernando</strong>.
+          Este é um <strong>Escudo do Mestre</strong> feito de fã para fã: uma referência rápida para{" "}
+          mestrar sessões de Ordem Paranormal RPG.
         </p>
         <p>
-          Aqui você encontra rolagens de dados na hora, consulta às regras
-          mecânicas e tabelas, glossário de termos, homebrews usados e fichas de
+          As regras selecionadas neste{" "}
+          escudo são as do usuário <strong>@progfernando</strong>,{" "}
+          feito sem fins lucrativos, para que todos possam usar.
+        </p>
+        <p>
+          Aqui você encontra rolagens de dados na hora, consulta às regras{" "}
+          mecânicas e tabelas, glossário de termos, homebrews usados e fichas de{" "}
           ameaças — tudo em um só lugar, pensado para uso durante o jogo.
+        </p>
+        <br />
+        <p>
+          Apoie o RPG{" "}
+          oficial: compre os livros e acompanhe o conteúdo oficial de Ordem
+          Paranormal.
         </p>
         <p>
           Todos os direitos de conteúdo e imagem são da{" "}
           <strong>Jambo Editora</strong> e de{" "}
-          <strong>Rafael &quot;Cellbit&quot; Lange</strong>. Apoie o RPG
-          oficial: compre os livros e acompanhe o conteúdo oficial de Ordem
-          Paranormal.
+          <strong>Rafael &quot;Cellbit&quot; Lange</strong>.
         </p>
       </Description>
 

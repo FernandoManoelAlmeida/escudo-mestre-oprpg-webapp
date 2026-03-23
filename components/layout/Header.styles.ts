@@ -31,7 +31,7 @@ export const HeaderTitleWrap = styled.div`
 
 export const HeaderTitle = styled.h1<{ $specialFont?: boolean }>`
   margin: 0;
-  font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  font-size: ${({ theme, $specialFont }) => ($specialFont ? theme.typography.fontSize.xl : theme.typography.fontSize.lg)};
   font-weight: ${({ $specialFont }) => ($specialFont ? "normal" : "500")};
   color: ${({ theme }) => theme.colors.text};
   letter-spacing: ${({ $specialFont }) => ($specialFont ? "0.05em" : "0.02em")};
