@@ -66,7 +66,13 @@ PADRÃO - Mordida
 });
 
 describe("scripts/migrate-regras", () => {
-  const { slug, anchor, parseMeta } = require("../scripts/migrate-regras.js");
+  const {
+    slug,
+    anchor,
+    parseMeta,
+    parseMarkdownTable,
+    extractFirstTableBlock,
+  } = require("../scripts/migrate-regras.js");
 
   it("slug e anchor", () => {
     expect(slug("Teste A")).toBe("teste-a");
@@ -78,6 +84,37 @@ describe("scripts/migrate-regras", () => {
     const meta = parseMeta(md);
     expect(meta.title).toBe("Meu Escudo");
     expect(meta.description).toContain("Descrição");
+  });
+
+  it("parseMeta lê Fontes e sources:", () => {
+    const md = "# T\n\nFontes: A, B\n\n## 1. X";
+    const meta = parseMeta(md);
+    expect(meta.sources).toEqual(["A", "B"]);
+    const md2 = "# T\n\nsources: X; Y\n\n## 1. X";
+    expect(parseMeta(md2).sources).toEqual(["X", "Y"]);
+  });
+
+  it("parseMarkdownTable valida separador e parseia linhas", () => {
+    expect(parseMarkdownTable("| a |\n")).toBeNull();
+    const t = parseMarkdownTable(
+      "| Col | DT |\n| --- | --- |\n| x | 12 |\n",
+    );
+    expect(t?.headers).toEqual(["Col", "DT"]);
+    expect(t?.rows[0]).toMatchObject({ col: "x", dt: 12 });
+  });
+
+  it("parseMarkdownTable rejeita separador inválido", () => {
+    expect(
+      parseMarkdownTable("| a | b |\n| x | y |\n"),
+    ).toBeNull();
+  });
+
+  it("extractFirstTableBlock extrai e rest", () => {
+    const text = "Antes\n| a | b |\n| - | - |\n| 1 | 2 |\nDepois";
+    const ex = extractFirstTableBlock(text);
+    expect(ex?.tableBlock).toContain("| a | b |");
+    expect(ex?.rest).toContain("Depois");
+    expect(extractFirstTableBlock("sem tabela")).toBeNull();
   });
 });
 

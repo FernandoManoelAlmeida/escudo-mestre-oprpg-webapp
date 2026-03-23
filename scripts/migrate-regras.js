@@ -327,4 +327,6 @@ module.exports = {
   slug,
   anchor,
   parseMeta,
+  parseMarkdownTable,
+  extractFirstTableBlock,
 };

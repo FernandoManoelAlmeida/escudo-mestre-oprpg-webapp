@@ -8,11 +8,12 @@ import Header from "@/components/layout/Header";
 import { QuickRollBar } from "@/components/layout/QuickRollBar";
 import UpdateBanner from "@/components/layout/UpdateBanner";
 import RollToaster from "@/components/ui/RollToaster";
-import { mockUsePathname } from "./setup/next-mocks.tsx";
+import { mockUsePathname, serverInsertedHtmlCallbacks } from "./setup/next-mocks.tsx";
 import React from "react";
 
 describe("layout components", () => {
   beforeEach(() => {
+    serverInsertedHtmlCallbacks.length = 0;
     vi.stubEnv("NODE_ENV", "production");
     mockUsePathname.mockReturnValue("/");
     vi.stubGlobal(
@@ -47,6 +48,9 @@ describe("layout components", () => {
       </StyledComponentsRegistry>,
     );
     expect(screen.getByTestId("inner")).toHaveTextContent("dentro");
+    expect(serverInsertedHtmlCallbacks.length).toBeGreaterThanOrEqual(1);
+    const out = serverInsertedHtmlCallbacks[0]!();
+    expect(out).toBeTruthy();
   });
 
   it("ClientLayout renderiza skip link e main", () => {
@@ -77,6 +81,24 @@ describe("layout components", () => {
     });
   });
 
+  it("QuickRollBar mostra dado não permitido e Enter rola", async () => {
+    renderWithTheme(
+      <>
+        <QuickRollBar hintFloating />
+        <RollToaster />
+      </>,
+      { withToast: true },
+    );
+    const input = screen.getByRole("textbox", { name: /fórmula de dados/i });
+    fireEvent.change(input, { target: { value: "1d7" } });
+    expect(screen.getByText(/d3, d4, d6/i)).toBeInTheDocument();
+    fireEvent.change(input, { target: { value: "2d6" } });
+    fireEvent.keyDown(input, { key: "Enter" });
+    await waitFor(() => {
+      expect(screen.getByRole("region", { name: /rolagens recentes/i })).toBeInTheDocument();
+    });
+  });
+
   it("QuickRollBar rola fórmula válida", async () => {
     renderWithTheme(
       <>
@@ -92,6 +114,46 @@ describe("layout components", () => {
     await waitFor(() => {
       expect(screen.getByRole("button", { name: /total \d+/i })).toBeInTheDocument();
     });
+  });
+
+  it("UpdateBanner Recarregar desregistra SW e chama location.reload", async () => {
+    const unregister = vi.fn(() => Promise.resolve());
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => ({
+        ok: true,
+        json: async () => ({ buildId: "nova" }),
+        text: async () => "",
+      })) as typeof fetch,
+    );
+    localStorage.setItem("app-version", "velha");
+    const reload = vi.fn();
+    vi.stubGlobal("location", { ...window.location, reload });
+    const sw = globalThis.navigator.serviceWorker as {
+      getRegistration: ReturnType<typeof vi.fn>;
+    };
+    sw.getRegistration = vi.fn(() =>
+      Promise.resolve({ unregister } as unknown as ServiceWorkerRegistration),
+    );
+    renderWithTheme(<UpdateBanner />);
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: /recarregar/i })).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByRole("button", { name: /recarregar/i }));
+    await waitFor(() => {
+      expect(unregister).toHaveBeenCalled();
+      expect(reload).toHaveBeenCalled();
+    });
+  });
+
+  it("UpdateBanner ignora falha de fetch silenciosamente", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(() => Promise.reject(new Error("network"))) as typeof fetch,
+    );
+    renderWithTheme(<UpdateBanner />);
+    await new Promise((r) => setTimeout(r, 80));
+    expect(screen.queryByRole("dialog", { name: /atualização disponível/i })).not.toBeInTheDocument();
   });
 
   it("UpdateBanner pode aparecer quando buildId difere", async () => {

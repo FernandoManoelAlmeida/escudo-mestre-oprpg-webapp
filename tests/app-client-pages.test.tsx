@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { screen, waitFor } from "@testing-library/react";
+import { screen, waitFor, fireEvent } from "@testing-library/react";
 import { renderWithTheme } from "./utils/render-theme";
 import Home from "@/app/page";
 import AmeacasPage from "@/app/ameacas/page";
@@ -93,6 +93,25 @@ describe("páginas client", () => {
     renderWithTheme(<RegrasSectionClient sectionId="1" />);
     await waitFor(() => {
       expect(screen.getByText(/Mecânica básica/i)).toBeInTheDocument();
+    });
+  });
+
+  it("RegrasSectionClient lista fórmulas e abre tabela no acordeão", async () => {
+    stubFetchJson(escudoFixture);
+    renderWithTheme(<RegrasSectionClient sectionId="1" />);
+    await waitFor(() => {
+      expect(screen.getByText("1d20+5")).toBeInTheDocument();
+    });
+    expect(screen.getByText(/Ref quebrada/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /ver tabela/i }));
+    expect(screen.getByRole("table")).toBeInTheDocument();
+  });
+
+  it("RegrasSectionClient seção inexistente", async () => {
+    stubFetchJson(escudoFixture);
+    renderWithTheme(<RegrasSectionClient sectionId="999" />);
+    await waitFor(() => {
+      expect(screen.getByText(/Seção não encontrada/i)).toBeInTheDocument();
     });
   });
 });

@@ -21,6 +21,9 @@ vi.mock("next/link", () => ({
   },
 }));
 
+/** Callbacks registados por `useServerInsertedHTML` (ex.: testes do Registry). */
+export const serverInsertedHtmlCallbacks: Array<() => unknown> = [];
+
 vi.mock("next/navigation", () => ({
   usePathname: () => mockUsePathname(),
   useRouter: () => ({
@@ -28,6 +31,7 @@ vi.mock("next/navigation", () => ({
     replace: vi.fn(),
     prefetch: vi.fn(),
   }),
-  /** SSR hook; no-op em ambiente de teste (StyledComponentsRegistry). */
-  useServerInsertedHTML: vi.fn(),
+  useServerInsertedHTML: (fn: () => unknown) => {
+    serverInsertedHtmlCallbacks.push(fn);
+  },
 }));

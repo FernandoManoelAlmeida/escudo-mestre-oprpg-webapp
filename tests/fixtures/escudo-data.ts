@@ -15,8 +15,14 @@ export const escudoFixture: EscudoData = {
       id: "1",
       title: "Mecânica básica",
       subsections: [
-        { id: "1.1", title: "Testes", content: "Role 1d20." },
+        {
+          id: "1.1",
+          title: "Testes",
+          content: "Role 1d20.",
+          formulas: ["1d20+5", "2d6"],
+        },
         { id: "1.2", title: "Termos", tableRef: "termos_importantes" },
+        { id: "1.3", title: "Ref quebrada", content: "Texto.", tableRef: "tabela_inexistente" },
       ],
     },
     {

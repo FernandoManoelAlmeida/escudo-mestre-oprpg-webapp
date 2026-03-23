@@ -25,6 +25,7 @@ export default defineConfig({
         "**/*.config.{ts,mjs}",
         "next-env.d.ts",
         "capacitor.config.ts",
+        "**/components/skeletons/index.ts",
       ],
     },
   },
