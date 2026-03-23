@@ -37,7 +37,7 @@ export const HeaderTitle = styled.h1<{ $specialFont?: boolean }>`
   letter-spacing: ${({ $specialFont }) => ($specialFont ? "0.05em" : "0.02em")};
   font-family: ${({ $specialFont }) =>
     $specialFont ? '"SigilosDeConhecimento", serif' : "inherit"};
-  transition: font-family 0.3s ease, letter-spacing 0.3s ease;
+  transition: font-family 0.5s ease, letter-spacing 0.5s ease;
 `;
 
 export const DesktopRollWrap = styled.div`

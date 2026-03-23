@@ -2,13 +2,14 @@ import type { NextConfig } from "next";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   disable: process.env.NODE_ENV === "development" || buildForCapacitor,
   register: true,
-  scope: "/",
+  scope: basePath ? `${basePath}/` : "/",
   sw: "sw.js",
   cacheOnFrontEndNav: true,
   reloadOnOnline: true,

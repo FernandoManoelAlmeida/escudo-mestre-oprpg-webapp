@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "Ordem Paranormal RPG",
   description:
     "Consulta de regras, tabelas, rolagens e ameaças do Escudo do Mestre.",
-  manifest: assetUrl("/manifest.json"),
   appleWebApp: {
     capable: true,
     title: "Escudo Mestre",
