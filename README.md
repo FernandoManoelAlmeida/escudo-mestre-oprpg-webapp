@@ -38,3 +38,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## GitHub Pages (subpath)
+
+O workflow em `.github/workflows/nextjs.yml` define `GITHUB_PAGES=1` e `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`. O `next.config.ts` injeta o mesmo valor no cliente, para o **registro do service worker** (`/repo/sw.js`) e o **precache do Workbox** usarem o mesmo prefixo que o `basePath` do Next.
+
+Se após um deploy antigo você ainda vir erros como `bad-precaching-response` com URL em `github.io/_next/...` (sem o nome do repositório) ou `ServiceWorker ... script ('Unknown')`:
+
+1. Faça um **novo deploy** com o workflow atual (ou build local com `GITHUB_PAGES=1` e `NEXT_PUBLIC_BASE_PATH=/nome-do-repo`).
+2. No Chrome: **DevTools → Application → Service Workers → Unregister**, depois limpe o cache do site e recarregue (ou use uma janela anônima).

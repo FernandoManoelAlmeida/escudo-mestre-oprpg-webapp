@@ -4,6 +4,45 @@ const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
 const basePath = buildForGitHubPages ? (process.env.NEXT_PUBLIC_BASE_PATH || "/escudo-mestre-oprpg-webapp") : "";
 
+/** Precache do Workbox às vezes lista `/_next/...` ou URL absoluta sem o segmento do GitHub Pages. */
+function prefixPrecacheUrl(url: string, bp: string): string {
+  if (!bp) return url;
+  const root = bp.endsWith("/") ? bp.slice(0, -1) : bp;
+  if (url === root || url.startsWith(`${root}/`)) return url;
+
+  try {
+    const u = new URL(url);
+    const p = u.pathname;
+    if (
+      p.startsWith("/_next/") ||
+      p === "/_next" ||
+      (p.startsWith("/static/") && !p.startsWith(`${root}/`))
+    ) {
+      u.pathname = `${root}${p}`;
+      return u.href;
+    }
+    return url;
+  } catch {
+    /* URL relativa ao origin do SW */
+  }
+
+  if (url.startsWith("/_next/") || url === "/_next" || url.startsWith("/static/")) {
+    return `${root}${url}`;
+  }
+  if (url.startsWith("_next/")) {
+    return `${root}/${url}`;
+  }
+  if (url.startsWith("/") && !url.startsWith(`${root}/`)) {
+    return `${root}${url}`;
+  }
+  return url;
+}
+
+const dataCachePattern =
+  basePath !== ""
+    ? new RegExp(`^${basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/data/`)
+    : /^\/data\//;
+
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
@@ -17,11 +56,9 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   workboxOptions: {
     disableDevLogs: true,
     manifestTransforms: [
-      async (manifestEntries: any[]) => {
-        const manifest = manifestEntries.map((m: { url: string; revision?: string | null }) => {
-          if (basePath && !m.url.startsWith(basePath)) {
-            m.url = `${basePath}${m.url.startsWith("/") ? "" : "/"}${m.url}`;
-          }
+      async (manifestEntries: { url: string; revision?: string | null }[]) => {
+        const manifest = manifestEntries.map((m) => {
+          m.url = prefixPrecacheUrl(m.url, basePath);
           return m;
         });
         return { manifest, warnings: [] };
@@ -29,7 +66,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     ],
     runtimeCaching: [
       {
-        urlPattern: /^\/data\//,
+        urlPattern: dataCachePattern,
         handler: "CacheFirst",
         options: {
           cacheName: "data-cache",
@@ -45,6 +82,15 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
+  },
+  /**
+   * Em build GitHub Pages, injeta o mesmo basePath do Next no cliente (evita SW em `/sw.js` na raiz).
+   * Fora disso, repassa NEXT_PUBLIC_BASE_PATH do ambiente para não quebrar testes locais com subpath.
+   */
+  env: {
+    NEXT_PUBLIC_BASE_PATH: buildForGitHubPages
+      ? basePath
+      : (process.env.NEXT_PUBLIC_BASE_PATH ?? ""),
   },
   ...((buildForCapacitor || buildForGitHubPages) && {
     output: "export",
