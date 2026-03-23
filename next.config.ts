@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = buildForGitHubPages ? (process.env.NEXT_PUBLIC_BASE_PATH || "/escudo-mestre-oprpg-webapp") : "";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const withPWA = require("@ducanh2912/next-pwa").default({
@@ -16,6 +16,11 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   extendDefaultRuntimeCaching: true,
   workboxOptions: {
     disableDevLogs: true,
+    ...(basePath && {
+      modifyURLPrefix: {
+        "/_next/": `${basePath}/_next/`,
+      },
+    }),
     runtimeCaching: [
       {
         urlPattern: /^\/data\//,
@@ -40,15 +45,15 @@ const nextConfig: NextConfig = {
     images: { unoptimized: true },
     trailingSlash: true,
   }),
-  ...(buildForGitHubPages && {
-    basePath: process.env.NEXT_PUBLIC_BASE_PATH || "/escudo-mestre-oprpg-webapp",
+  ...(basePath && {
+    basePath,
   }),
   // Silencia o aviso Turbopack vs webpack no dev (PWA está desativado em desenvolvimento)
   turbopack: {},
   async headers() {
     return [
       {
-        source: "/manifest.json",
+        source: "/manifest.webmanifest",
         headers: [
           {
             key: "Content-Type",
