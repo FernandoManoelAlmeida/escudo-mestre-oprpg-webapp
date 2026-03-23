@@ -87,7 +87,8 @@ export default function UpdateBanner() {
       }
     };
 
-    navigator.serviceWorker.register(assetUrl("/sw.js")).then((reg) => {
+    const basePath = assetUrl("/");
+    navigator.serviceWorker.register(assetUrl("/sw.js"), { scope: basePath }).then((reg) => {
       reg.update();
       checkVersion();
     });

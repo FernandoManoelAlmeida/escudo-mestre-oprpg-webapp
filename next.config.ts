@@ -8,7 +8,7 @@ const basePath = buildForGitHubPages ? (process.env.NEXT_PUBLIC_BASE_PATH || "/e
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   disable: process.env.NODE_ENV === "development" || buildForCapacitor,
-  register: true,
+  register: false,
   scope: basePath ? `${basePath}/` : "/",
   sw: "sw.js",
   cacheOnFrontEndNav: true,
@@ -16,11 +16,17 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   extendDefaultRuntimeCaching: true,
   workboxOptions: {
     disableDevLogs: true,
-    ...(basePath && {
-      modifyURLPrefix: {
-        "/_next/": `${basePath}/_next/`,
+    manifestTransforms: [
+      async (manifestEntries: any[]) => {
+        const manifest = manifestEntries.map((m: { url: string; revision?: string | null }) => {
+          if (basePath && !m.url.startsWith(basePath)) {
+            m.url = `${basePath}${m.url.startsWith("/") ? "" : "/"}${m.url}`;
+          }
+          return m;
+        });
+        return { manifest, warnings: [] };
       },
-    }),
+    ],
     runtimeCaching: [
       {
         urlPattern: /^\/data\//,
@@ -50,24 +56,6 @@ const nextConfig: NextConfig = {
   }),
   // Silencia o aviso Turbopack vs webpack no dev (PWA está desativado em desenvolvimento)
   turbopack: {},
-  async headers() {
-    return [
-      {
-        source: "/manifest.webmanifest",
-        headers: [
-          {
-            key: "Content-Type",
-            value: "application/manifest+json",
-          },
-          // Evita cache longo para que, ao re-adicionar à tela inicial no mobile, o navegador busque o manifest atualizado (standalone)
-          {
-            key: "Cache-Control",
-            value: "public, max-age=0, must-revalidate",
-          },
-        ],
-      },
-    ];
-  },
 };
 
 export default withPWA(nextConfig);
