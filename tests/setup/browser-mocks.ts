@@ -15,7 +15,7 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-const mockRegistration = { update: vi.fn() };
+const mockRegistration = { update: vi.fn(() => Promise.resolve()) };
 
 Object.defineProperty(globalThis.navigator, "serviceWorker", {
   configurable: true,

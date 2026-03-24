@@ -35,11 +35,24 @@ function writeVersion(projectRoot = path.resolve(__dirname, ".."), opts = {}) {
     generatedAt: (opts.now ?? (() => new Date().toISOString()))(),
   };
 
+  const body = JSON.stringify(payload, null, 2) + "\n";
+
   const publicDir = path.dirname(VERSION_PATH);
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
-  fs.writeFileSync(VERSION_PATH, JSON.stringify(payload, null, 2) + "\n", "utf8");
+  fs.writeFileSync(VERSION_PATH, body, "utf8");
+
+  /**
+   * `next build` com export estático já copiou `public/version.json` antigo para `out/`
+   * antes deste script correr. Sem regravar `out/version.json`, o deploy (ex.: GitHub Pages)
+   * continua com o buildId da build anterior e o banner de atualização nunca alinha com o bundle.
+   */
+  const outVersionPath = path.join(projectRoot, "out", "version.json");
+  if (fs.existsSync(path.dirname(outVersionPath))) {
+    fs.writeFileSync(outVersionPath, body, "utf8");
+  }
+
   return payload;
 }
 

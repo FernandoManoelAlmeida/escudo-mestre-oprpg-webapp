@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { includeUrlInPrecacheManifest } from "./lib/pwaPrecacheFilter";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
@@ -48,6 +49,8 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   disable: process.env.NODE_ENV === "development" || buildForCapacitor,
   register: false,
+  /** Não precachear version.json — senão o SW devolve buildId antigo e o banner falha. */
+  publicExcludes: ["!noprecache/**/*", "!version.json"],
   scope: basePath ? `${basePath}/` : "/",
   sw: "sw.js",
   cacheOnFrontEndNav: true,
@@ -55,12 +58,28 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   extendDefaultRuntimeCaching: true,
   workboxOptions: {
     disableDevLogs: true,
+    /**
+     * Mesmos defaults do next-pwa + exclusão de chunks (se omitirmos `exclude`, perdem-se os
+     * defaults do plugin). Isto remove entradas do manifest **antes** dos transforms.
+     */
+    exclude: [
+      /\/_next\/static\/.*(?<!\.p)\.woff2/,
+      /\.map$/,
+      /^manifest.*\.js$/,
+      /^static\/chunks\//,
+      ({ asset }: { asset: { name?: string } }) =>
+        Boolean(
+          asset?.name?.includes("static/chunks") || asset?.name?.includes("static\\chunks"),
+        ),
+    ],
     manifestTransforms: [
       async (manifestEntries: { url: string; revision?: string | null }[]) => {
-        const manifest = manifestEntries.map((m) => {
-          m.url = prefixPrecacheUrl(m.url, basePath);
-          return m;
-        });
+        const manifest = manifestEntries
+          .map((m) => {
+            m.url = prefixPrecacheUrl(m.url, basePath);
+            return m;
+          })
+          .filter((m) => includeUrlInPrecacheManifest(m.url));
         return { manifest, warnings: [] };
       },
     ],

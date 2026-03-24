@@ -66,9 +66,12 @@ export default function UpdateBanner() {
     )
       return;
 
+    /** Query string evita resposta do precache/runtime do SW (fetch `no-store` não contorna o SW). */
+    const versionFetchUrl = () => `${assetUrl("/version.json")}?t=${Date.now()}`;
+
     const checkVersion = async () => {
       try {
-        const res = await fetch(assetUrl("/version.json"), { cache: "no-store" });
+        const res = await fetch(versionFetchUrl(), { cache: "no-store" });
         if (!res.ok) return;
         const data: VersionJson = await res.json();
         const serverBuildId = data.buildId ?? data.generatedAt ?? null;
@@ -77,38 +80,59 @@ export default function UpdateBanner() {
         const stored = localStorage.getItem(APP_VERSION_KEY);
         if (stored === null) {
           localStorage.setItem(APP_VERSION_KEY, serverBuildId);
+          setShowBanner(false);
           return;
         }
         if (stored !== serverBuildId) {
           setShowBanner(true);
+        } else {
+          setShowBanner(false);
         }
       } catch {
         // ignore
       }
     };
 
-    const basePath = assetUrl("/");
-    navigator.serviceWorker.register(assetUrl("/sw.js"), { scope: basePath }).then((reg) => {
-      reg.update();
-      checkVersion();
-    });
+    /** URLs absolutas evitam resolução errada do script em subpaths (ex.: GitHub Pages). */
+    const scopeUrl = new URL(assetUrl("/"), window.location.origin).href;
+    const swScriptUrl = new URL(assetUrl("/sw.js"), window.location.origin).href;
 
-    const onControllerChange = () => {
-      setShowBanner(true);
-    };
+    void navigator.serviceWorker
+      .register(swScriptUrl, { scope: scopeUrl })
+      .then(async (reg) => {
+        try {
+          await reg.update();
+        } catch {
+          /* Falha ao verificar atualização (404, rede): evita Uncaught; SW existente pode continuar. */
+        }
+        await checkVersion();
+      })
+      .catch(() => {
+        /* sw.js em falta ou contexto não seguro — não quebrar a app */
+        void checkVersion();
+      });
 
-    navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
-
+    /**
+     * Não usar `controllerchange` para abrir o banner: dispara ao registar/ativar o SW
+     * (incluindo após reload), o que faz a mensagem voltar mesmo com a versão já alinhada.
+     * A comparação com `version.json` + localStorage é a fonte de verdade.
+     */
     const intervalId = setInterval(checkVersion, 5 * 60 * 1000);
 
     return () => {
-      navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
       clearInterval(intervalId);
     };
   }, []);
 
   const handleReload = async () => {
-    // Desregistra o SW para que o reload busque a nova versão na rede em vez do cache
+    try {
+      if ("caches" in window && window.caches) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+    } catch {
+      /* ignora — ainda tentamos desregistar o SW */
+    }
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg) await reg.unregister();
     localStorage.removeItem(APP_VERSION_KEY);
