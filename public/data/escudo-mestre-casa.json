@@ -60,8 +60,13 @@
     },
     {
       "id": "11",
-      "title": "Regras da Casa (homebrew) — resumo",
-      "anchor": "11-regras-da-casa-homebrew--resumo"
+      "title": "Regras da Casa (homebrew)",
+      "anchor": "11-regras-da-casa-homebrew"
+    },
+    {
+      "id": "12",
+      "title": "Resumo das Regras",
+      "anchor": "12-resumo-das-regras"
     }
   ],
   "sections": [
@@ -379,7 +384,7 @@
     },
     {
       "id": "11",
-      "title": "Regras da Casa (homebrew) — resumo",
+      "title": "Regras da Casa (homebrew)",
       "subsections": [
         {
           "id": "11.1",
@@ -390,6 +395,17 @@
           "id": "11.2",
           "title": "Interlúdio com necessidades básicas (apenas em locais isolados)",
           "content": "**Aplicar somente quando os agentes estiverem em locais isolados e sem acesso aos recursos da Ordem** (ex.: zona de exclusão, wilderness). Em situações com acesso à Ordem ou recursos urbanos, usa-se a tabela normal de interlúdio (§ 5.8).\n\n**Água:**  \n- Consumir água: recupera PV no limite de PD por rodada e todo o PV máximo.  \n- Não consumir água: perde PV máximo no limite de PV por rodada.  \n\n**Comida:**  \n- Consumir comida: recupera PD no limite de PD por rodada e todo o PD máximo.  \n- Não consumir comida: perde PD máximo no limite de PD por rodada.  \n\n**Dormir:**  \n- **Luxuosa:** recupera PV e PD = quatro vezes o limite de PD por rodada.  \n- **Confortável:** três vezes o limite de PD por rodada.  \n- **Normal:** dobro do limite de PD por rodada.  \n- **Precária:** limite de PD por rodada.  \n- **Péssima:** infligido 1d3 de dano.  \n- **Não dormir:** condição **Fadigado**; -d20 em testes de AGI, FOR e VIG; –5 em Defesa.\n\n---"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Resumo das Regras",
+      "subsections": [
+        {
+          "id": "12.1",
+          "title": "Compilado",
+          "content": "- **Classe Sobrevivente (pg 31)**:\n\t> Mundano plus.\n- **Medo em jogo (pg 88)**:\n\t> \"Sabores\" e regras sobre perca de PD (Sanidade) de forma narrativa.\n- **Perseguições (pg 91)**:\n\t> Sistema ações, sucessos e falhas com eventos assim como em Quarentena (Nidere).\n- **Furtividade (pg 93)**:\n\t> Sistema de visibilidade e eventos assim como em Quarentena (Nidere). \n- **Progressão de NEX (com homebrew) (pg 100)**:\n\t> Alterações gerais: Mudanças visuais e em mecânicas para aumento de NEX.\n\t> Discernimento (homebrew): Tratar NEX como Discernimento como funciona em Bloodborne. Quanto mais NEX mais do \"invisível\" se vê.\n\t> Itens para subir ou descer de propósito o NEX: \"Conhecimento do Louco\" e \"Sabedoria dos Eminentes\". Adicionar mecânicas para \"gastar NEX\" através de mercadores.\n- **Jogando sem Sanidade (pg 105)**:\n\t> Dano Mental causado por criaturas: reduz dado em um passo (ex: 2d8 = 2d6) e divide dano de dado pela metade (ex: 2d6 = 1d6) sempre arredondando para cima.\n\t> Medo em jogo: reduz dado mental geral em um passo (ex: 1d6 = 1d4).\n- **Ferimentos Debilitantes (pg 106)**:\n\t> Falhar teste de fortitude ou Dano Massivo: Mestre escolhe um atributo que condiz o ferimento ou joga 1d6 e determina da sorte.\n- **Evolução por Patente (pg 109)**:\n\t> Simplificação das regras de evolução de personagem.\n- **Conjuração Complexa (com homebrew) (pg 115)**:\n\t> Etapa 1: Desenhar o simbolo, usar materiais específicos relacionado a um elemento para criar o simbolo faz ganhar bônus, porém sofre -d20 no teste de Ocultismo.\n\t> Etapa 2: Usar componentes ritualísticos adiciona +d20 no teste para conjurar, porém consome o componente. É possível acelerar a conjuração do ritual fazendo a etapa 2 e 3 em conjunto, porém sofrendo -d20 no teste de Ocultismo. \n\t> Etapa 3: Executa o ritual, deve passar num teste DT 20 + o custo em PD, caso falhe (original: não executa o ritual) (homebrew: perde o dobro de PD).\n\t> Extrapolar O Limite: Soma presença no limite de PD e assim pode ter acesso a versões aprimoradas dos rituais.\n- **Sem rolagem de Dano (pq 121)**:\n\t> Dano médio: Pegar o valor médio do dado e somar o bônus (ex: 1d6+1 = 4), críticos apenas se dobra o dano médio e não o bônus (ex: 1d6+1 = 7). Deixar previamente anotado todos os danos médios para agilizar, focar na narrativa do ataque e não no dado.\n- **Coreografia de Luta (pg 123)**:\n\t> Possibilidade de fazer até três movimentos e ir perdendo dados d20 para aumentar a complexidade do ataque, porém dobrando ou triplicando o dano do dado base (do dano médio).\n- **Ataque especial nerfado (homebrew)**:\n\t>Na classe Combatente o bônus para teste de ataque se torna +2, +4 e +6, conforme sobe NEX (Nível), a rolagem de dano permanece na original. Todas as defesas das ameaças diminuem em 3.\n- **Acerto crítico automático (homebrew)**:\n\t> Qualquer crítico é acerto automático.\n- **Desconsiderar resistências das Criaturas Paranormais (homebrew)**:\n\t> Para combate mais letal, desconsiderar todas as resistências a danos das criaturas. Avaliar se faz sentido caso a caso quando a criatura parecer fraca demais. \n- **Interlúdio com necessidades básicas (homebrew)**:\n> \t- Água Potável: É necessário consumir ao menos 1 unidade de água por dia. Se não fizer isso, os PV máximos são reduzidos no limite de PE (PD) pelo dia seguinte. Recuperar esses PV máximos exige consumir 1 unidade de água além do necessário ao final do dia seguinte.\n> \t- Comida Normal: Como água, mas se não for consumida diminui os PE (PD) máximos no limite de PE (PD).\n> \t- Comida Nutritiva (OPRPG pg 93): Se realizar a ação dormir neste interlúdio, aumenta a recuperação de PV em uma vez (recuperação confortável, ou dobrada, por exemplo, se torna triplicada).\n> \t- Comida Energética (OPRPG pg 93): Para além da Comida Normal, se dormir aumenta a recuperação de PE (PD) em uma vez (recuperação confortável, ou dobrada, por exemplo, se torna triplicada).\n> \t- Dormir:\n> \t\t- Normal: Recupera um número de PV e de PE (PD) igual ao limite de PE (PD) por rodada.\n> \t\t- Precária: Recuperação reduzida pela metade do limite de PE (PD) por rodada.\n> \t\t- Confortável: Recuperação dobrada no limite de PE/PD por rodada.\n> \t\t- Luxuosa: Recuperação triplicada no limite de PE/PD por rodada.\n> \t\t- Péssima: Inflige 1d3 de dano."
         }
       ]
     }
