@@ -2,7 +2,7 @@ import { assetUrl } from "@/lib/basePath";
 
 /**
  * Dimensões intrínsecas de cada ícone WebP em /public/icons.
- * Ícones PWA (192/512) e header: regenerar com `yarn icons:pwa` a partir de public/pwa-icon-source.png.
+ * Ícones PWA (192/512) e header: regenerar com `yarn icons:pwa` a partir de public/icons/pwa-icon-source.png.
  */
 export const RASTER_ICON_META = {
   "ameacas-icon": { w: 512, h: 512 },

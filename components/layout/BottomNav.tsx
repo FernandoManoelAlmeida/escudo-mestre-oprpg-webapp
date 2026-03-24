@@ -21,15 +21,31 @@ const items: { href: string; label: string; iconName: RasterIconName }[] = [
 export default function BottomNav() {
   const pathname = usePathname();
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <Nav role="navigation" aria-label="Menu principal">
       {items.map(({ href, label, iconName }) => {
-        const active = pathname === href || (href !== "/" && pathname.startsWith(href));
+        const active =
+          pathname === href || (href !== "/" && pathname.startsWith(href));
         const isCentral = href === "/";
 
         if (isCentral) {
           return (
-            <Link key={href} href={href} aria-label={label}>
+            <Link
+              key={href}
+              href={href}
+              aria-label={label}
+              onClick={(e) => handleNavClick(e, href)}
+            >
               <NavItemWrap>
                 <CentralButtonWrap>
                   <CentralButtonIcon name={iconName} alt={label} />
@@ -40,7 +56,12 @@ export default function BottomNav() {
         }
 
         return (
-          <Link key={href} href={href} aria-label={label}>
+          <Link
+            key={href}
+            href={href}
+            aria-label={label}
+            onClick={(e) => handleNavClick(e, href)}
+          >
             <NavItemWrap>
               <NavLink as="span" $active={active}>
                 <NavIcon name={iconName} alt={label} $active={active} />

@@ -37,7 +37,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     id: `${base}/`,
     name: "Escudo do Mestre — Ordem Paranormal",
-    short_name: "Escudo do Mestre",
+    short_name: "Escudo Mestre",
     description:
       "Consulta de regras, rolagens e ameaças do Escudo do Mestre (Ordem Paranormal RPG).",
     start_url: `${base}/`,
