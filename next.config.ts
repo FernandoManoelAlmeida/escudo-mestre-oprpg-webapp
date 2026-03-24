@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { includeUrlInPrecacheManifest } from "./lib/pwaPrecacheFilter";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
@@ -57,10 +58,12 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     disableDevLogs: true,
     manifestTransforms: [
       async (manifestEntries: { url: string; revision?: string | null }[]) => {
-        const manifest = manifestEntries.map((m) => {
-          m.url = prefixPrecacheUrl(m.url, basePath);
-          return m;
-        });
+        const manifest = manifestEntries
+          .map((m) => {
+            m.url = prefixPrecacheUrl(m.url, basePath);
+            return m;
+          })
+          .filter((m) => includeUrlInPrecacheManifest(m.url));
         return { manifest, warnings: [] };
       },
     ],
