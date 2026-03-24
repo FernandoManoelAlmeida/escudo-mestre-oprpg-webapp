@@ -87,11 +87,23 @@ export default function UpdateBanner() {
       }
     };
 
-    const basePath = assetUrl("/");
-    navigator.serviceWorker.register(assetUrl("/sw.js"), { scope: basePath }).then((reg) => {
-      reg.update();
-      checkVersion();
-    });
+    /** URLs absolutas evitam resolução errada do script em subpaths (ex.: GitHub Pages). */
+    const scopeUrl = new URL(assetUrl("/"), window.location.origin).href;
+    const swScriptUrl = new URL(assetUrl("/sw.js"), window.location.origin).href;
+
+    void navigator.serviceWorker
+      .register(swScriptUrl, { scope: scopeUrl })
+      .then(async (reg) => {
+        try {
+          await reg.update();
+        } catch {
+          /* Falha ao verificar atualização (404, rede): evita Uncaught; SW existente pode continuar. */
+        }
+        await checkVersion();
+      })
+      .catch(() => {
+        /* sw.js em falta ou contexto não seguro — não quebrar a app */
+      });
 
     const onControllerChange = () => {
       setShowBanner(true);
