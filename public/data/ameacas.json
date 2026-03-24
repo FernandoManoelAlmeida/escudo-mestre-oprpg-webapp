@@ -668,8 +668,8 @@
       "dadosMedios": {
         "Iniciativa": "19",
         "Presença Perturbadora": "6 mental*",
-        "Agredir - Garras": "6/9/12 lorem",
-        "Agredir - Mordida": "7/10/13 lorem"
+        "Agredir - Garras": "6/9/12 corte",
+        "Agredir - Mordida": "7/10/13 corte"
       }
     },
     {
@@ -819,8 +819,7 @@
       "dadosMedios": {
         "Iniciativa": "19",
         "Presença Perturbadora": "6 mental*",
-        "Agredir - Garras": "6/9/12 lorem",
-        "Agredir - Mordida": "7/10/13 lorem"
+        "Agredir - Mordida": "7/10/13 corte"
       }
     },
     {
@@ -1348,7 +1347,7 @@
       "dadosMedios": {
         "Iniciativa": "12",
         "Presença Perturbadora": "4 mental*",
-        "Agredir - Pancada": "2/4/6 lorem",
+        "Agredir - Pancada": "2/4/6 impacto",
         "Completa - Atormentar": "6 mental*"
       }
     },
@@ -1836,8 +1835,8 @@
       "dadosMedios": {
         "Iniciativa": "24",
         "Presença Perturbadora": "6 mental*",
-        "Agredir - Tentáculos": "11/17/23 lorem",
-        "Completa - Coice": "11impacto",
+        "Agredir - Tentáculos": "11/17/23 morte",
+        "Completa - Coice": "11 impacto",
         "Movimento - Galope empoeirado": "11 impacto",
         "Reação - Pisoteamento": "7 impacto"
       }
@@ -2667,7 +2666,7 @@
       "dadosMedios": {
         "Iniciativa": "21",
         "Presença Perturbadora": "6 mental*",
-        "Agredir - Mordida": "6/12/18 lorem"
+        "Agredir - Toque macabro": "6/12/18 conhecimento"
       }
     },
     {

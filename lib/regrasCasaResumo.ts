@@ -76,6 +76,11 @@ export const REGRAS_CASA_RESUMO: RegraCasaItem[] = [
       "Até três movimentos/golpes em sequência: dois golpes = ação complexa (-d20 no ataque, dano dobrado); três golpes = ação extrema (-d20d20, dano triplicado). Pode trocar dano adicional por manobra. Usável também ao ser atacado (tentativa de evitar).",
   },
   {
+    titulo: "Ataque especial nerfado (homebrew)",
+    descricao:
+      "Na classe Combatente o bônus para teste de ataque se torna +2, +4 e +6, conforme sobe NEX (Nível), a rolagem de dano permanece na original. Todas as defesas das ameaças diminuem em 3.",
+  },
+  {
     titulo: "Acerto crítico automático (homebrew)",
     descricao:
       "Qualquer resultado na margem de crítico (18–20) é acerto automático, independente da Defesa do alvo. Apenas 20 natural permanece como regra base em parte das mesas; esta campanha usa crítico = acerto automático.",

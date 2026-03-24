@@ -7,6 +7,7 @@ import { getAmeacas, filterAmeacas, getCaracteristicasParaFiltro } from "@/lib/a
 import type { AmeacasData, Ameaca, OrdenarAmeacasPor, OrdenarSentido } from "@/lib/ameacas";
 import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
 import { AmeacasPageSkeleton } from "@/components/skeletons";
+import { theme } from "@/lib/theme";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
@@ -522,17 +523,20 @@ export default function AmeacasPage() {
           <>
             <ResultCount>{filtered.length} ameaça{filtered.length !== 1 ? "s" : ""} encontrada{filtered.length !== 1 ? "s" : ""}</ResultCount>
             {filtered.map((a: Ameaca) => (
-            <Card key={a.id} href={`/ameacas/${a.id}`}>
-              <CardTitle>{a.nome}</CardTitle>
-              <CardMeta>
-                VD {a.vd}
-                {a.caracteristicas?.length ? ` · ${a.caracteristicas.join(", ")}` : ""}
-              </CardMeta>
-            </Card>
-          ))}
+              <Card key={a.id} href={`/ameacas/${a.id}`}>
+                <CardTitle>{a.nome}</CardTitle>
+                <CardMeta>
+                  VD {a.vd}
+                  {a.caracteristicas?.length ? ` · ${a.caracteristicas.join(", ")}` : ""}
+                </CardMeta>
+              </Card>
+            ))}
           </>
         )}
       </List>
+      <FeedbackText style={{ marginTop: theme.spacing.md }}>
+        <small>*dano mental dos Dados Médios leva em conta a regra "Jogando sem sanidade"</small>
+      </FeedbackText>
     </Page>
   );
 }
