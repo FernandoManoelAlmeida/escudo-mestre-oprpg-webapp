@@ -2,13 +2,21 @@ import { describe, it, expect } from "vitest";
 import { includeUrlInPrecacheManifest } from "./pwaPrecacheFilter";
 
 describe("includeUrlInPrecacheManifest", () => {
-  it("exclui chunks e manifests do Next em /_next/static/", () => {
+  it("exclui qualquer URL sob /_next/ (export estático não publica build-manifest nem server/)", () => {
     expect(
       includeUrlInPrecacheManifest("/repo/_next/static/chunks/main-abc.js"),
     ).toBe(false);
     expect(
-      includeUrlInPrecacheManifest("/repo/_next/static/xyz/_buildManifest.js"),
+      includeUrlInPrecacheManifest("/repo/_next/build-manifest.json"),
     ).toBe(false);
+    expect(
+      includeUrlInPrecacheManifest("/repo/_next/server/middleware-build-manifest.js"),
+    ).toBe(false);
+  });
+
+  it("exclui caminhos static/chunks/ do Webpack (antes do transform interno do next-pwa)", () => {
+    expect(includeUrlInPrecacheManifest("static/chunks/511-abc.js")).toBe(false);
+    expect(includeUrlInPrecacheManifest("/static/chunks/framework-dead.js")).toBe(false);
   });
 
   it("mantém dados, ícones e assets públicos", () => {

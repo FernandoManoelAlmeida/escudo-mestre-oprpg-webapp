@@ -56,6 +56,20 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   extendDefaultRuntimeCaching: true,
   workboxOptions: {
     disableDevLogs: true,
+    /**
+     * Mesmos defaults do next-pwa + exclusão de chunks (se omitirmos `exclude`, perdem-se os
+     * defaults do plugin). Isto remove entradas do manifest **antes** dos transforms.
+     */
+    exclude: [
+      /\/_next\/static\/.*(?<!\.p)\.woff2/,
+      /\.map$/,
+      /^manifest.*\.js$/,
+      /^static\/chunks\//,
+      ({ asset }: { asset: { name?: string } }) =>
+        Boolean(
+          asset?.name?.includes("static/chunks") || asset?.name?.includes("static\\chunks"),
+        ),
+    ],
     manifestTransforms: [
       async (manifestEntries: { url: string; revision?: string | null }[]) => {
         const manifest = manifestEntries
