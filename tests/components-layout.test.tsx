@@ -116,8 +116,16 @@ describe("layout components", () => {
     });
   });
 
-  it("UpdateBanner Recarregar desregistra SW e chama location.reload", async () => {
+  it("UpdateBanner Recarregar limpa caches, desregistra SW e chama location.reload", async () => {
     const unregister = vi.fn(() => Promise.resolve());
+    const cacheDelete = vi.fn(() => Promise.resolve(true));
+    vi.stubGlobal(
+      "caches",
+      {
+        keys: () => Promise.resolve(["workbox-a", "data-cache"]),
+        delete: cacheDelete,
+      } as CacheStorage,
+    );
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => ({
@@ -141,6 +149,7 @@ describe("layout components", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: /recarregar/i }));
     await waitFor(() => {
+      expect(cacheDelete).toHaveBeenCalled();
       expect(unregister).toHaveBeenCalled();
       expect(reload).toHaveBeenCalled();
     });

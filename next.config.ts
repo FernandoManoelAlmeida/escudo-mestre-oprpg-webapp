@@ -49,6 +49,8 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   disable: process.env.NODE_ENV === "development" || buildForCapacitor,
   register: false,
+  /** Não precachear version.json — senão o SW devolve buildId antigo e o banner falha. */
+  publicExcludes: ["!noprecache/**/*", "!version.json"],
   scope: basePath ? `${basePath}/` : "/",
   sw: "sw.js",
   cacheOnFrontEndNav: true,

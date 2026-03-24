@@ -26,6 +26,17 @@ describe("scripts/write-version", () => {
     const payload = writeVersion(dir);
     expect(payload.buildId).toBe("abc123");
   });
+
+  it("atualiza out/version.json quando a pasta out/ existe (export estático)", () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv3-"));
+    fs.mkdirSync(path.join(dir, "public"), { recursive: true });
+    fs.mkdirSync(path.join(dir, "out"), { recursive: true });
+    fs.writeFileSync(path.join(dir, "out", "version.json"), '{"buildId":"velho"}\n', "utf8");
+    const payload = writeVersion(dir, { now: () => "2021-01-01T00:00:00.000Z" });
+    const outRaw = fs.readFileSync(path.join(dir, "out", "version.json"), "utf8");
+    expect(JSON.parse(outRaw).buildId).toBe(payload.buildId);
+    expect(JSON.parse(outRaw).generatedAt).toBe("2021-01-01T00:00:00.000Z");
+  });
 });
 
 describe("scripts/migrate-ameacas", () => {

@@ -66,9 +66,12 @@ export default function UpdateBanner() {
     )
       return;
 
+    /** Query string evita resposta do precache/runtime do SW (fetch `no-store` não contorna o SW). */
+    const versionFetchUrl = () => `${assetUrl("/version.json")}?t=${Date.now()}`;
+
     const checkVersion = async () => {
       try {
-        const res = await fetch(assetUrl("/version.json"), { cache: "no-store" });
+        const res = await fetch(versionFetchUrl(), { cache: "no-store" });
         if (!res.ok) return;
         const data: VersionJson = await res.json();
         const serverBuildId = data.buildId ?? data.generatedAt ?? null;
@@ -120,7 +123,14 @@ export default function UpdateBanner() {
   }, []);
 
   const handleReload = async () => {
-    // Desregistra o SW para que o reload busque a nova versão na rede em vez do cache
+    try {
+      if ("caches" in window && window.caches) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+    } catch {
+      /* ignora — ainda tentamos desregistar o SW */
+    }
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg) await reg.unregister();
     localStorage.removeItem(APP_VERSION_KEY);
