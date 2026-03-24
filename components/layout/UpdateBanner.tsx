@@ -80,10 +80,13 @@ export default function UpdateBanner() {
         const stored = localStorage.getItem(APP_VERSION_KEY);
         if (stored === null) {
           localStorage.setItem(APP_VERSION_KEY, serverBuildId);
+          setShowBanner(false);
           return;
         }
         if (stored !== serverBuildId) {
           setShowBanner(true);
+        } else {
+          setShowBanner(false);
         }
       } catch {
         // ignore
@@ -106,18 +109,17 @@ export default function UpdateBanner() {
       })
       .catch(() => {
         /* sw.js em falta ou contexto não seguro — não quebrar a app */
+        void checkVersion();
       });
 
-    const onControllerChange = () => {
-      setShowBanner(true);
-    };
-
-    navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
-
+    /**
+     * Não usar `controllerchange` para abrir o banner: dispara ao registar/ativar o SW
+     * (incluindo após reload), o que faz a mensagem voltar mesmo com a versão já alinhada.
+     * A comparação com `version.json` + localStorage é a fonte de verdade.
+     */
     const intervalId = setInterval(checkVersion, 5 * 60 * 1000);
 
     return () => {
-      navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
       clearInterval(intervalId);
     };
   }, []);
