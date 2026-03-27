@@ -30,6 +30,10 @@ const TitleLink = styled.a`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: opacity 0.2s;
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    width: 50%;
+  }
+
   &:hover {
     opacity: 0.9;
   }
@@ -38,6 +42,7 @@ const TitleLink = styled.a`
     outline-offset: 4px;
   }
 `;
+
 
 const HomeLogo = styled(OrdemParanormalDesesperoLogo)`
   width: 100%;

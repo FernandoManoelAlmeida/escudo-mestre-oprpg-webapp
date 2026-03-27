@@ -56,8 +56,8 @@ export default function Header() {
   useEffect(() => {
     const height =
       isDesktop ? HEADER_HEIGHT_COMPACT
-      : mobileRollOpen ? HEADER_HEIGHT_EXPANDED
-      : HEADER_HEIGHT_COMPACT;
+        : mobileRollOpen ? HEADER_HEIGHT_EXPANDED
+          : HEADER_HEIGHT_COMPACT;
     document.documentElement.style.setProperty("--header-height", height);
   }, [isDesktop, mobileRollOpen]);
 
