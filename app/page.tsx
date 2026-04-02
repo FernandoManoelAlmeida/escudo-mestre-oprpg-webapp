@@ -9,12 +9,8 @@ const GITHUB_README_URL =
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    max-width: 1000px;
-  }
 `;
 
 const TitleRow = styled.div`

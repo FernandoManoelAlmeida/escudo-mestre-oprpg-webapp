@@ -10,7 +10,7 @@ import { RegrasPageSkeleton } from "@/components/skeletons";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
   padding-bottom: calc(
     ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
