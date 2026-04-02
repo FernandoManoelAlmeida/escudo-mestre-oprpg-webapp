@@ -22,13 +22,20 @@ export const escudoFixture: EscudoData = {
           formulas: ["1d20+5", "2d6"],
         },
         { id: "1.2", title: "Termos", tableRef: "termos_importantes" },
-        { id: "1.3", title: "Ref quebrada", content: "Texto.", tableRef: "tabela_inexistente" },
+        {
+          id: "1.3",
+          title: "Ref quebrada",
+          content: "Texto.",
+          tableRef: "tabela_inexistente",
+        },
       ],
     },
     {
       id: "2",
       title: "Criação de personagem",
-      subsections: [{ id: "2.1", title: "Passo a passo", content: "Conceito, atributos." }],
+      subsections: [
+        { id: "2.1", title: "Passo a passo", content: "Conceito, atributos." },
+      ],
     },
   ],
   tables: {
@@ -41,6 +48,10 @@ export const escudoFixture: EscudoData = {
     },
   },
   glossary: [
-    { term: "AGI", fullName: "Agilidade", description: "Coordenação e reflexos." },
+    {
+      term: "AGI",
+      fullName: "Agilidade",
+      description: "Coordenação e reflexos.",
+    },
   ],
 };

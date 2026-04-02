@@ -15,7 +15,8 @@ describe("RollToastContext", () => {
   });
 
   it("addRoll, removeRoll e clearRolls; limita histórico a ROLL_TOAST_MAX", async () => {
-    const { RollToastProvider, useRollToast, ROLL_TOAST_MAX } = await import("./RollToastContext");
+    const { RollToastProvider, useRollToast, ROLL_TOAST_MAX } =
+      await import("./RollToastContext");
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <RollToastProvider>{children}</RollToastProvider>
     );

@@ -3,12 +3,7 @@ import fs from "fs";
 import { AmeacaDetailClient } from "./AmeacaDetailClient";
 
 export async function generateStaticParams() {
-  const filePath = path.join(
-    process.cwd(),
-    "public",
-    "data",
-    "ameacas.json"
-  );
+  const filePath = path.join(process.cwd(), "public", "data", "ameacas.json");
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8")) as {
     ameacas: { id: string }[];
   };

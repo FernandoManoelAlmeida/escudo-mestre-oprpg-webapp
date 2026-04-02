@@ -57,7 +57,7 @@ const Toolbar = styled.div`
   pointer-events: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
   gap: ${({ theme }) => theme.spacing.sm};
   padding: 0 2px;
 `;

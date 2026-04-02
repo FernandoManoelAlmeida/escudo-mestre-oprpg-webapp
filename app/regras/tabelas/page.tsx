@@ -13,7 +13,9 @@ const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   max-width: 720px;
   margin: 0 auto;
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
 `;
 
 const BackLink = styled(Link)`
@@ -65,7 +67,9 @@ export default function TabelasPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getEscudo().then(setData).finally(() => setLoading(false));
+    getEscudo()
+      .then(setData)
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading || !data) return <RegrasTabelasSkeleton />;

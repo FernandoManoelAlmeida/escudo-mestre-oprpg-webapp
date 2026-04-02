@@ -74,7 +74,10 @@ export async function getAmeacas(): Promise<AmeacasData> {
   return cached;
 }
 
-export function getAmeacaById(data: AmeacasData, id: string): Ameaca | undefined {
+export function getAmeacaById(
+  data: AmeacasData,
+  id: string,
+): Ameaca | undefined {
   return data.ameacas.find((a) => a.id === id);
 }
 
@@ -90,7 +93,11 @@ export const ELEMENTOS_FICHA = [
 export type ElementoFicha = (typeof ELEMENTOS_FICHA)[number];
 
 function normalizarParaElemento(s: string): string {
-  return s.trim().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return s
+    .trim()
+    .toUpperCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 /** Retorna o elemento que define a ficha: a primeira característica que for um dos 5 elementos. */
@@ -120,7 +127,11 @@ function textoParaBusca(a: Ameaca): string {
   if (a.imunidades) partes.push(a.imunidades);
   if (a.vulnerabilidades) partes.push(a.vulnerabilidades);
   if (a.presencaPerturbadora) {
-    partes.push(String(a.presencaPerturbadora.dt), a.presencaPerturbadora.dano, String(a.presencaPerturbadora.nexImune));
+    partes.push(
+      String(a.presencaPerturbadora.dt),
+      a.presencaPerturbadora.dano,
+      String(a.presencaPerturbadora.nexImune),
+    );
   }
   if (a.atributos) {
     Object.entries(a.atributos).forEach(([k, v]) => partes.push(k, String(v)));
@@ -139,7 +150,9 @@ function textoParaBusca(a: Ameaca): string {
   });
   if (a.enigmaMedo) partes.push(a.enigmaMedo);
   if (a.dadosMedios) {
-    Object.entries(a.dadosMedios).forEach(([k, v]) => partes.push(k, String(v)));
+    Object.entries(a.dadosMedios).forEach(([k, v]) =>
+      partes.push(k, String(v)),
+    );
   }
   return partes.filter(Boolean).join(" ").toLowerCase();
 }
@@ -163,7 +176,7 @@ export function getCaracteristicasParaFiltro(data: AmeacasData): string[] {
 
 export function filterAmeacas(
   data: AmeacasData,
-  filters: FiltrosAmeacas
+  filters: FiltrosAmeacas,
 ): Ameaca[] {
   let list = [...data.ameacas];
 
@@ -177,7 +190,9 @@ export function filterAmeacas(
   if (cars?.length) {
     const normSet = new Set(cars.map((c) => normalizarCaracteristica(c)));
     list = list.filter((a) =>
-      (a.caracteristicas ?? []).some((c) => normSet.has(normalizarCaracteristica(c)))
+      (a.caracteristicas ?? []).some((c) =>
+        normSet.has(normalizarCaracteristica(c)),
+      ),
     );
   }
 
@@ -190,9 +205,16 @@ export function filterAmeacas(
   const selecaoNorm = cars?.map((c) => normalizarCaracteristica(c)) ?? [];
   function prefixMatchCount(a: Ameaca): number {
     /* v8 ignore next -- o ramo ?? não é exercitado após o filtro por característica */
-    const arr = (a.caracteristicas ?? []).map((c) => normalizarCaracteristica(c));
+    const arr = (a.caracteristicas ?? []).map((c) =>
+      normalizarCaracteristica(c),
+    );
     let i = 0;
-    while (i < selecaoNorm.length && i < arr.length && arr[i] === selecaoNorm[i]) i++;
+    while (
+      i < selecaoNorm.length &&
+      i < arr.length &&
+      arr[i] === selecaoNorm[i]
+    )
+      i++;
     return i;
   }
 
@@ -203,7 +225,9 @@ export function filterAmeacas(
       if (scoreB !== scoreA) return scoreB - scoreA;
     }
     if (ordenarPor === "nome") {
-      const cmp = a.nome.localeCompare(b.nome, "pt-BR", { sensitivity: "base" });
+      const cmp = a.nome.localeCompare(b.nome, "pt-BR", {
+        sensitivity: "base",
+      });
       return ordenarSentido === "asc" ? cmp : -cmp;
     }
     const cmp = a.vd - b.vd;

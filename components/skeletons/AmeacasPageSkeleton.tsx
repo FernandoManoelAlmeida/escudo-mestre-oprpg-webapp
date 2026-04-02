@@ -5,7 +5,9 @@ import { SkeletonBox } from "@/components/ui/Skeleton";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
   max-width: 720px;
   margin: 0 auto;
 `;
@@ -118,8 +120,18 @@ export function AmeacasPageSkeleton() {
             <FilterBlock>
               <LabelSkeleton aria-hidden />
               <OrderGroup>
-                <SkeletonBox $width="52px" $height="32px" $radius="6px" aria-hidden />
-                <SkeletonBox $width="36px" $height="32px" $radius="6px" aria-hidden />
+                <SkeletonBox
+                  $width="52px"
+                  $height="32px"
+                  $radius="6px"
+                  aria-hidden
+                />
+                <SkeletonBox
+                  $width="36px"
+                  $height="32px"
+                  $radius="6px"
+                  aria-hidden
+                />
               </OrderGroup>
             </FilterBlock>
             <FilterBlock>

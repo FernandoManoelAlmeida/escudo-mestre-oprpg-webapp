@@ -10,18 +10,26 @@ describe("includeUrlInPrecacheManifest", () => {
       includeUrlInPrecacheManifest("/repo/_next/build-manifest.json"),
     ).toBe(false);
     expect(
-      includeUrlInPrecacheManifest("/repo/_next/server/middleware-build-manifest.js"),
+      includeUrlInPrecacheManifest(
+        "/repo/_next/server/middleware-build-manifest.js",
+      ),
     ).toBe(false);
   });
 
   it("exclui caminhos static/chunks/ do Webpack (antes do transform interno do next-pwa)", () => {
-    expect(includeUrlInPrecacheManifest("static/chunks/511-abc.js")).toBe(false);
-    expect(includeUrlInPrecacheManifest("/static/chunks/framework-dead.js")).toBe(false);
+    expect(includeUrlInPrecacheManifest("static/chunks/511-abc.js")).toBe(
+      false,
+    );
+    expect(
+      includeUrlInPrecacheManifest("/static/chunks/framework-dead.js"),
+    ).toBe(false);
   });
 
   it("mantém dados, ícones e assets públicos", () => {
     expect(includeUrlInPrecacheManifest("/repo/data/ameacas.json")).toBe(true);
-    expect(includeUrlInPrecacheManifest("/repo/icons/icon-192.webp")).toBe(true);
+    expect(includeUrlInPrecacheManifest("/repo/icons/icon-192.webp")).toBe(
+      true,
+    );
     expect(includeUrlInPrecacheManifest("/repo/version.json")).toBe(true);
     expect(includeUrlInPrecacheManifest("/repo/swe-worker-abc.js")).toBe(true);
   });

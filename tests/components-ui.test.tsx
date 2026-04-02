@@ -21,11 +21,7 @@ describe("UI components", () => {
   });
 
   it("InlineBold com as customizado", () => {
-    renderWithTheme(
-      <InlineBold as="strong">
-        negrito
-      </InlineBold>,
-    );
+    renderWithTheme(<InlineBold as="strong">negrito</InlineBold>);
     expect(screen.getByText("negrito").tagName).toBe("STRONG");
   });
 
@@ -50,7 +46,9 @@ describe("UI components", () => {
   });
 
   it("RasterIconSvg referencia webp no SVG", () => {
-    const { container } = renderWithTheme(<RasterIconSvg name="home-icon" alt="Início" />);
+    const { container } = renderWithTheme(
+      <RasterIconSvg name="home-icon" alt="Início" />,
+    );
     const href = container.querySelector("image")?.getAttribute("href");
     expect(href).toContain("home-icon");
     expect(screen.getByRole("img", { name: "Início" })).toBeInTheDocument();
@@ -67,7 +65,7 @@ describe("UI components", () => {
   });
 
   it("MarkdownContent vazio retorna null", () => {
-    const { container } = renderWithTheme(<MarkdownContent>   </MarkdownContent>);
+    const { container } = renderWithTheme(<MarkdownContent> </MarkdownContent>);
     expect(container.firstChild).toBeNull();
   });
 
@@ -117,7 +115,9 @@ describe("UI components", () => {
     );
     fireEvent.click(screen.getByRole("button", { name: "rolar" }));
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /total 7/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /total 7/i }),
+      ).toBeInTheDocument();
     });
   });
 });

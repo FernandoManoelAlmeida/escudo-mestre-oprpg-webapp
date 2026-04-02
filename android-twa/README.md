@@ -5,7 +5,7 @@ Esta pasta contém o projeto Android que empacota a PWA do Escudo do Mestre como
 ## Pré-requisitos
 
 - App publicado em **HTTPS** (ex.: Vercel, Netlify).
-- **Java (JDK 11+)** — o Gradle precisa de um Java Runtime no `PATH`. Se der *"Unable to locate a Java Runtime"*, instale o JDK (ex.: `brew install openjdk@17` no macOS) ou use o JDK do Android Studio. Se der erro de certificado SSL (*"PKIX path building failed"*), use o JDK do Android Studio ou veja [Troubleshooting em docs/android-builds.md](../docs/android-builds.md#troubleshooting).
+- **Java (JDK 11+)** — o Gradle precisa de um Java Runtime no `PATH`. Se der _"Unable to locate a Java Runtime"_, instale o JDK (ex.: `brew install openjdk@17` no macOS) ou use o JDK do Android Studio. Se der erro de certificado SSL (_"PKIX path building failed"_), use o JDK do Android Studio ou veja [Troubleshooting em docs/android-builds.md](../docs/android-builds.md#troubleshooting).
 - **Android SDK** instalado (ex.: [Android Studio](https://developer.android.com/studio)).
 - Node.js (para usar o Bubblewrap via npx).
 

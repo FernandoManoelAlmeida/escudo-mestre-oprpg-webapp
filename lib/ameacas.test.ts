@@ -66,12 +66,17 @@ describe("getElementoFromAmeaca", () => {
   });
 
   it("retorna null quando não há elemento entre as características", () => {
-    expect(getElementoFromAmeaca({ ...pessoa, caracteristicas: ["PESSOA"] })).toBeNull();
+    expect(
+      getElementoFromAmeaca({ ...pessoa, caracteristicas: ["PESSOA"] }),
+    ).toBeNull();
   });
 
   it("retorna null quando caracteristicas é undefined", () => {
     expect(
-      getElementoFromAmeaca({ ...pessoa, caracteristicas: undefined } as unknown as Ameaca),
+      getElementoFromAmeaca({
+        ...pessoa,
+        caracteristicas: undefined,
+      } as unknown as Ameaca),
     ).toBeNull();
   });
 });
@@ -116,7 +121,10 @@ describe("filterAmeacas", () => {
   it("busca por característica encontra todas que têm o texto", () => {
     const list = filterAmeacas(fixture, { texto: "SANGUE" });
     expect(list).toHaveLength(2);
-    expect(list.map((a) => a.id).sort()).toEqual(["predador", "zumbi-de-sangue"]);
+    expect(list.map((a) => a.id).sort()).toEqual([
+      "predador",
+      "zumbi-de-sangue",
+    ]);
   });
 
   it("busca PESSOA retorna só Dissociado", () => {
@@ -146,23 +154,41 @@ describe("filterAmeacas", () => {
   it("filtro por uma característica retorna só ameaças com essa característica", () => {
     const list = filterAmeacas(fixture, { caracteristicas: ["SANGUE"] });
     expect(list).toHaveLength(2);
-    expect(list.map((a) => a.id).sort()).toEqual(["predador", "zumbi-de-sangue"]);
-    expect(filterAmeacas(fixture, { caracteristicas: ["MEDO"] })).toHaveLength(1);
-    expect(filterAmeacas(fixture, { caracteristicas: ["PESSOA"] })).toHaveLength(1);
+    expect(list.map((a) => a.id).sort()).toEqual([
+      "predador",
+      "zumbi-de-sangue",
+    ]);
+    expect(filterAmeacas(fixture, { caracteristicas: ["MEDO"] })).toHaveLength(
+      1,
+    );
+    expect(
+      filterAmeacas(fixture, { caracteristicas: ["PESSOA"] }),
+    ).toHaveLength(1);
   });
 
   it("filtro por múltiplas características retorna ameaças que têm pelo menos uma", () => {
-    const list = filterAmeacas(fixture, { caracteristicas: ["SANGUE", "PESSOA"] });
+    const list = filterAmeacas(fixture, {
+      caracteristicas: ["SANGUE", "PESSOA"],
+    });
     expect(list).toHaveLength(3);
-    expect(list.map((a) => a.id).sort()).toEqual(["dissociado", "predador", "zumbi-de-sangue"]);
+    expect(list.map((a) => a.id).sort()).toEqual([
+      "dissociado",
+      "predador",
+      "zumbi-de-sangue",
+    ]);
   });
 
   it("valores vazios em caracteristicas do filtro são ignorados", () => {
-    expect(filterAmeacas(fixture, { caracteristicas: ["", "   "] })).toHaveLength(3);
+    expect(
+      filterAmeacas(fixture, { caracteristicas: ["", "   "] }),
+    ).toHaveLength(3);
   });
 
   it("ameaça sem lista de características não casa filtro por característica", () => {
-    const semCar = { ...pessoa, caracteristicas: undefined } as unknown as Ameaca;
+    const semCar = {
+      ...pessoa,
+      caracteristicas: undefined,
+    } as unknown as Ameaca;
     const data: AmeacasData = { ameacas: [semCar, predador] };
     const list = filterAmeacas(data, { caracteristicas: ["SANGUE"] });
     expect(list).toHaveLength(1);
@@ -172,8 +198,18 @@ describe("filterAmeacas", () => {
   it("empate no prefixo de características desempata por ordenarPor (nome)", () => {
     const data: AmeacasData = {
       ameacas: [
-        { ...zumbi, id: "b", nome: "Beta", caracteristicas: ["SANGUE", "CRIATURA"] },
-        { ...zumbi, id: "a", nome: "Alfa", caracteristicas: ["SANGUE", "MÉDIO"] },
+        {
+          ...zumbi,
+          id: "b",
+          nome: "Beta",
+          caracteristicas: ["SANGUE", "CRIATURA"],
+        },
+        {
+          ...zumbi,
+          id: "a",
+          nome: "Alfa",
+          caracteristicas: ["SANGUE", "MÉDIO"],
+        },
       ],
     };
     const list = filterAmeacas(data, {
@@ -185,22 +221,42 @@ describe("filterAmeacas", () => {
   });
 
   it("ordenar por nome A-Z", () => {
-    const list = filterAmeacas(fixture, { ordenarPor: "nome", ordenarSentido: "asc" });
-    expect(list.map((a) => a.nome)).toEqual(["Dissociado", "Predador", "Zumbi de Sangue"]);
+    const list = filterAmeacas(fixture, {
+      ordenarPor: "nome",
+      ordenarSentido: "asc",
+    });
+    expect(list.map((a) => a.nome)).toEqual([
+      "Dissociado",
+      "Predador",
+      "Zumbi de Sangue",
+    ]);
   });
 
   it("ordenar por nome Z-A", () => {
-    const list = filterAmeacas(fixture, { ordenarPor: "nome", ordenarSentido: "desc" });
-    expect(list.map((a) => a.nome)).toEqual(["Zumbi de Sangue", "Predador", "Dissociado"]);
+    const list = filterAmeacas(fixture, {
+      ordenarPor: "nome",
+      ordenarSentido: "desc",
+    });
+    expect(list.map((a) => a.nome)).toEqual([
+      "Zumbi de Sangue",
+      "Predador",
+      "Dissociado",
+    ]);
   });
 
   it("ordenar por VD maior para menor", () => {
-    const list = filterAmeacas(fixture, { ordenarPor: "vd", ordenarSentido: "desc" });
+    const list = filterAmeacas(fixture, {
+      ordenarPor: "vd",
+      ordenarSentido: "desc",
+    });
     expect(list.map((a) => a.vd)).toEqual([140, 20, 10]);
   });
 
   it("ordenar por VD menor para maior", () => {
-    const list = filterAmeacas(fixture, { ordenarPor: "vd", ordenarSentido: "asc" });
+    const list = filterAmeacas(fixture, {
+      ordenarPor: "vd",
+      ordenarSentido: "asc",
+    });
     expect(list.map((a) => a.vd)).toEqual([10, 20, 140]);
   });
 
@@ -224,7 +280,14 @@ describe("filterAmeacas", () => {
           tipo: "Padrão",
           nome: "Golpe X",
           descricao: "Descrição da ação",
-          ataques: [{ nome: "Mordida", teste: "1d20+5", dano: "2d6", obs: "crítico duplo" }],
+          ataques: [
+            {
+              nome: "Mordida",
+              teste: "1d20+5",
+              dano: "2d6",
+              obs: "crítico duplo",
+            },
+          ],
         },
       ],
       enigmaMedo: "enigma secreto",
@@ -282,19 +345,32 @@ describe("filterAmeacas", () => {
       nome: "Criatura Sem Ações",
       acoes: undefined,
     } as unknown as Ameaca;
-    expect(filterAmeacas({ ameacas: [semAcoes] }, { texto: "Sem Ações" })).toHaveLength(1);
+    expect(
+      filterAmeacas({ ameacas: [semAcoes] }, { texto: "Sem Ações" }),
+    ).toHaveLength(1);
   });
 
   it("busca por texto funciona quando caracteristicas é undefined", () => {
-    const semCar = { ...pessoa, id: "x", caracteristicas: undefined } as unknown as Ameaca;
-    expect(filterAmeacas({ ameacas: [semCar] }, { texto: "Dissociado" })).toHaveLength(1);
+    const semCar = {
+      ...pessoa,
+      id: "x",
+      caracteristicas: undefined,
+    } as unknown as Ameaca;
+    expect(
+      filterAmeacas({ ameacas: [semCar] }, { texto: "Dissociado" }),
+    ).toHaveLength(1);
   });
 
   it("ordenar por prefixo quando a ficha tem menos características que a seleção", () => {
     const data: AmeacasData = {
       ameacas: [
         { ...zumbi, id: "curta", nome: "Curta", caracteristicas: ["SANGUE"] },
-        { ...zumbi, id: "longa", nome: "Longa", caracteristicas: ["SANGUE", "CRIATURA", "MÉDIO"] },
+        {
+          ...zumbi,
+          id: "longa",
+          nome: "Longa",
+          caracteristicas: ["SANGUE", "CRIATURA", "MÉDIO"],
+        },
       ],
     };
     const list = filterAmeacas(data, {
@@ -308,7 +384,12 @@ describe("filterAmeacas", () => {
   it("prefixo 0 quando a primeira característica não bate com a ordem da seleção", () => {
     const data: AmeacasData = {
       ameacas: [
-        { ...zumbi, id: "m", nome: "Alfa", caracteristicas: ["MEDO", "SANGUE"] },
+        {
+          ...zumbi,
+          id: "m",
+          nome: "Alfa",
+          caracteristicas: ["MEDO", "SANGUE"],
+        },
         { ...zumbi, id: "z", nome: "Zeta", caracteristicas: ["CRIATURA"] },
       ],
     };
@@ -349,17 +430,24 @@ describe("getCaracteristicasParaFiltro", () => {
     expect(lista).toContain("MÉDIO");
     expect(lista).toContain("PESSOA");
     expect(lista).toContain("GRANDE");
-    expect(lista).toEqual([...lista].sort((a, b) => a.localeCompare(b, "pt-BR")));
+    expect(lista).toEqual(
+      [...lista].sort((a, b) => a.localeCompare(b, "pt-BR")),
+    );
   });
 
   it("usa caracteristicasUnicas quando presente", () => {
-    const data: AmeacasData = { ...fixture, caracteristicasUnicas: ["A", "B", "C"] };
+    const data: AmeacasData = {
+      ...fixture,
+      caracteristicasUnicas: ["A", "B", "C"],
+    };
     expect(getCaracteristicasParaFiltro(data)).toEqual(["A", "B", "C"]);
   });
 
   it("caracteristicasUnicas vazio cai na derivação a partir das ameaças", () => {
     const data: AmeacasData = { ...fixture, caracteristicasUnicas: [] };
-    expect(getCaracteristicasParaFiltro(data)).toEqual(getCaracteristicasParaFiltro(fixture));
+    expect(getCaracteristicasParaFiltro(data)).toEqual(
+      getCaracteristicasParaFiltro(fixture),
+    );
   });
 
   it("ignora entradas só com espaços em branco", () => {
@@ -370,7 +458,10 @@ describe("getCaracteristicasParaFiltro", () => {
   });
 
   it("ameaça sem caracteristicas (undefined) não quebra a derivação", () => {
-    const semCar = { ...pessoa, caracteristicas: undefined } as unknown as Ameaca;
+    const semCar = {
+      ...pessoa,
+      caracteristicas: undefined,
+    } as unknown as Ameaca;
     const data: AmeacasData = { ameacas: [semCar] };
     expect(getCaracteristicasParaFiltro(data)).toEqual([]);
   });
@@ -394,7 +485,9 @@ describe("getAmeacas", () => {
   });
 
   it("lança erro quando fetch não é ok", async () => {
-    (globalThis.fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({ ok: false });
+    (globalThis.fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
+      ok: false,
+    });
     await expect(getAmeacas()).rejects.toThrow("Falha ao carregar ameaças");
   });
 
@@ -406,6 +499,8 @@ describe("getAmeacas", () => {
     });
     await getAmeacasFresh();
     await getAmeacasFresh();
-    expect((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls).toHaveLength(1);
+    expect(
+      (globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls,
+    ).toHaveLength(1);
   });
 });

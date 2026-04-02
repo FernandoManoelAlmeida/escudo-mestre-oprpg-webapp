@@ -4,7 +4,7 @@ O projeto suporta duas formas de gerar um APK Android, cada uma com um comando p
 
 ## Requisitos comuns
 
-- **Java (JDK)** — obrigatório para o Gradle (build Android). Se aparecer *"Unable to locate a Java Runtime"*:
+- **Java (JDK)** — obrigatório para o Gradle (build Android). Se aparecer _"Unable to locate a Java Runtime"_:
   - **macOS (Homebrew):** `brew install openjdk@17` e siga a mensagem para vincular (ex.: `sudo ln -sfn $(brew --prefix)/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk`).
   - Ou instale [Android Studio](https://developer.android.com/studio) — ele traz um JDK embutido; o Gradle costuma usá-lo automaticamente.
 - **Android SDK** — necessário para compilar o APK (instalado com o Android Studio ou só a [command-line tools](https://developer.android.com/studio#command-tools)).

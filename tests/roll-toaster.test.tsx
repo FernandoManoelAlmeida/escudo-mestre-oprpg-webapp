@@ -50,18 +50,26 @@ describe("RollToaster", () => {
 
   it("não renderiza região quando não há rolagens", () => {
     renderWithTheme(<RollToaster />, { withToast: true });
-    expect(screen.queryByRole("region", { name: /rolagens recentes/i })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("region", { name: /rolagens recentes/i }),
+    ).not.toBeInTheDocument();
   });
 
   it("mostra total e remove ao clicar", async () => {
-    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, { withToast: true });
+    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, {
+      withToast: true,
+    });
     await waitFor(() => {
-      expect(screen.getByRole("region", { name: /rolagens recentes/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("region", { name: /rolagens recentes/i }),
+      ).toBeInTheDocument();
     });
     const btn = screen.getByRole("button", { name: /total 12/i });
     fireEvent.click(btn);
     await waitFor(() => {
-      expect(screen.queryByRole("region", { name: /rolagens recentes/i })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("region", { name: /rolagens recentes/i }),
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -75,10 +83,16 @@ describe("RollToaster", () => {
       />,
       { withToast: true },
     );
-    await waitFor(() => expect(screen.getByRole("button", { name: /limpar tudo/i })).toBeInTheDocument());
+    await waitFor(() =>
+      expect(
+        screen.getByRole("button", { name: /limpar tudo/i }),
+      ).toBeInTheDocument(),
+    );
     fireEvent.click(screen.getByRole("button", { name: /limpar tudo/i }));
     await waitFor(() => {
-      expect(screen.queryByRole("region", { name: /rolagens recentes/i })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("region", { name: /rolagens recentes/i }),
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -93,42 +107,68 @@ describe("RollToaster", () => {
       />,
       { withToast: true },
     );
-    await waitFor(() => expect(screen.getByRole("button", { name: /total 9/i })).toBeInTheDocument());
+    await waitFor(() =>
+      expect(
+        screen.getByRole("button", { name: /total 9/i }),
+      ).toBeInTheDocument(),
+    );
     fireEvent.keyDown(window, { key: "Escape" });
     await waitFor(() => {
-      expect(screen.queryByRole("button", { name: /total 9/i })).not.toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /total 1/i })).toBeInTheDocument();
+      expect(
+        screen.queryByRole("button", { name: /total 9/i }),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /total 1/i }),
+      ).toBeInTheDocument();
     });
   });
 
   it("Espaço no cartão dispensa", async () => {
-    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, { withToast: true });
+    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, {
+      withToast: true,
+    });
     const card = await screen.findByRole("button", { name: /total 12/i });
     fireEvent.keyDown(card, { key: " " });
     await waitFor(() => {
-      expect(screen.queryByRole("region", { name: /rolagens recentes/i })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("region", { name: /rolagens recentes/i }),
+      ).not.toBeInTheDocument();
     });
   });
 
   it("Enter no cartão dispensa", async () => {
-    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, { withToast: true });
+    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, {
+      withToast: true,
+    });
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /total 12/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /total 12/i }),
+      ).toBeInTheDocument();
     });
     const card = screen.getByRole("button", { name: /total 12/i });
     fireEvent.keyDown(card, { key: "Enter" });
     await waitFor(() => {
-      expect(screen.queryByRole("region", { name: /rolagens recentes/i })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("region", { name: /rolagens recentes/i }),
+      ).not.toBeInTheDocument();
     });
   });
 
   it("swipe horizontal dispensa o toast", async () => {
-    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, { withToast: true });
+    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, {
+      withToast: true,
+    });
     const card = await screen.findByRole("button", { name: /total 12/i });
-    fireEvent.touchStart(card, { touches: [{ clientX: 100, clientY: 0 } as Touch] });
-    fireEvent.touchEnd(card, { changedTouches: [{ clientX: 200, clientY: 0 } as Touch] });
+    fireEvent.touchStart(card, {
+      touches: [{ clientX: 100, clientY: 0 } as Touch],
+    });
+    fireEvent.touchEnd(card, {
+      changedTouches: [{ clientX: 200, clientY: 0 } as Touch],
+    });
     await waitFor(() => {
-      expect(screen.queryByRole("region", { name: /rolagens recentes/i })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("region", { name: /rolagens recentes/i }),
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -142,7 +182,9 @@ describe("RollToaster", () => {
       chosenD20: 18,
     };
     renderWithTheme(
-      <SeedToaster items={[{ result: withChosen, label: "Teste", suffix: "vs DT" }]} />,
+      <SeedToaster
+        items={[{ result: withChosen, label: "Teste", suffix: "vs DT" }]}
+      />,
       { withToast: true },
     );
     await waitFor(() => {
@@ -161,7 +203,9 @@ describe("RollToaster", () => {
       display: "x",
       chosenD20: 14,
     };
-    renderWithTheme(<SeedToaster items={[{ result: r }]} />, { withToast: true });
+    renderWithTheme(<SeedToaster items={[{ result: r }]} />, {
+      withToast: true,
+    });
     await waitFor(() => {
       expect(screen.getByText(/-2/)).toBeInTheDocument();
       expect(screen.getByText(/= 12/)).toBeInTheDocument();
@@ -177,7 +221,9 @@ describe("RollToaster", () => {
       display: "x",
       chosenD20: 15,
     };
-    renderWithTheme(<SeedToaster items={[{ result: r }]} />, { withToast: true });
+    renderWithTheme(<SeedToaster items={[{ result: r }]} />, {
+      withToast: true,
+    });
     await waitFor(() => {
       expect(screen.getByText(/= 15/)).toBeInTheDocument();
     });
@@ -195,7 +241,13 @@ describe("RollToaster", () => {
       dispatchEvent: vi.fn(),
     })) as typeof window.matchMedia;
 
-    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, { withToast: true });
-    await waitFor(() => expect(screen.getByRole("region", { name: /rolagens recentes/i })).toBeInTheDocument());
+    renderWithTheme(<SeedToaster items={[{ result: baseRoll }]} />, {
+      withToast: true,
+    });
+    await waitFor(() =>
+      expect(
+        screen.getByRole("region", { name: /rolagens recentes/i }),
+      ).toBeInTheDocument(),
+    );
   });
 });

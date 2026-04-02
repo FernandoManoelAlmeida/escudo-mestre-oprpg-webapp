@@ -8,7 +8,10 @@ import Header from "@/components/layout/Header";
 import { QuickRollBar } from "@/components/layout/QuickRollBar";
 import UpdateBanner from "@/components/layout/UpdateBanner";
 import RollToaster from "@/components/ui/RollToaster";
-import { mockUsePathname, serverInsertedHtmlCallbacks } from "./setup/next-mocks.tsx";
+import {
+  mockUsePathname,
+  serverInsertedHtmlCallbacks,
+} from "./setup/next-mocks.tsx";
 import React from "react";
 
 describe("layout components", () => {
@@ -60,16 +63,24 @@ describe("layout components", () => {
       </ClientLayout>,
       { withToast: true },
     );
-    expect(screen.getByRole("link", { name: /pular para o conteúdo/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /pular para o conteúdo/i }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId("page")).toBeInTheDocument();
-    expect(screen.getByRole("main")).toContainElement(screen.getByTestId("page"));
+    expect(screen.getByRole("main")).toContainElement(
+      screen.getByTestId("page"),
+    );
   });
 
   it("BottomNav lista rotas", () => {
     mockUsePathname.mockReturnValue("/ameacas");
     renderWithTheme(<BottomNav />);
-    expect(screen.getByRole("navigation", { name: /menu principal/i })).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: /ameaças/i }).length).toBeGreaterThan(0);
+    expect(
+      screen.getByRole("navigation", { name: /menu principal/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole("link", { name: /ameaças/i }).length,
+    ).toBeGreaterThan(0);
   });
 
   it("Header exibe título e barra de rolagem", async () => {
@@ -95,7 +106,9 @@ describe("layout components", () => {
     fireEvent.change(input, { target: { value: "2d6" } });
     fireEvent.keyDown(input, { key: "Enter" });
     await waitFor(() => {
-      expect(screen.getByRole("region", { name: /rolagens recentes/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("region", { name: /rolagens recentes/i }),
+      ).toBeInTheDocument();
     });
   });
 
@@ -112,20 +125,19 @@ describe("layout components", () => {
     const buttons = screen.getAllByRole("button", { name: /rolar dados/i });
     fireEvent.click(buttons[0]!);
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /total \d+/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /total \d+/i }),
+      ).toBeInTheDocument();
     });
   });
 
   it("UpdateBanner Recarregar limpa caches, desregistra SW e chama location.reload", async () => {
     const unregister = vi.fn(() => Promise.resolve());
     const cacheDelete = vi.fn(() => Promise.resolve(true));
-    vi.stubGlobal(
-      "caches",
-      {
-        keys: () => Promise.resolve(["workbox-a", "data-cache"]),
-        delete: cacheDelete,
-      } as CacheStorage,
-    );
+    vi.stubGlobal("caches", {
+      keys: () => Promise.resolve(["workbox-a", "data-cache"]),
+      delete: cacheDelete,
+    } as CacheStorage);
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => ({
@@ -145,7 +157,9 @@ describe("layout components", () => {
     );
     renderWithTheme(<UpdateBanner />);
     await waitFor(() => {
-      expect(screen.getByRole("button", { name: /recarregar/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /recarregar/i }),
+      ).toBeInTheDocument();
     });
     fireEvent.click(screen.getByRole("button", { name: /recarregar/i }));
     await waitFor(() => {
@@ -162,7 +176,9 @@ describe("layout components", () => {
     );
     renderWithTheme(<UpdateBanner />);
     await new Promise((r) => setTimeout(r, 80));
-    expect(screen.queryByRole("dialog", { name: /atualização disponível/i })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("dialog", { name: /atualização disponível/i }),
+    ).not.toBeInTheDocument();
   });
 
   it("UpdateBanner pode aparecer quando buildId difere", async () => {
@@ -184,7 +200,9 @@ describe("layout components", () => {
     renderWithTheme(<UpdateBanner />);
     await waitFor(
       () => {
-        expect(screen.getByRole("button", { name: /recarregar/i })).toBeInTheDocument();
+        expect(
+          screen.getByRole("button", { name: /recarregar/i }),
+        ).toBeInTheDocument();
       },
       { timeout: 3000 },
     );

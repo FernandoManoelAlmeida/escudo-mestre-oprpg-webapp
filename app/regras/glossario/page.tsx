@@ -13,7 +13,9 @@ const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   max-width: 720px;
   margin: 0 auto;
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
 `;
 
 const BackLink = styled(Link)`
@@ -91,7 +93,9 @@ export default function GlossarioPage() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    getEscudo().then(setData).finally(() => setLoading(false));
+    getEscudo()
+      .then(setData)
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading || !data) return <RegrasGlossarioSkeleton />;
@@ -103,7 +107,7 @@ export default function GlossarioPage() {
         (g) =>
           g.term.toLowerCase().includes(q) ||
           g.fullName.toLowerCase().includes(q) ||
-          g.description.toLowerCase().includes(q)
+          g.description.toLowerCase().includes(q),
       )
     : glossary;
 
@@ -124,8 +128,16 @@ export default function GlossarioPage() {
         ) : (
           filtered.map((g: GlossaryItem) => (
             <Item key={g.term}>
-              <Term><InlineBold>{g.term}</InlineBold></Term>
-              <FullName>{g.fullName != null && g.fullName !== "" ? <>— <InlineBold>{g.fullName}</InlineBold></> : null}</FullName>
+              <Term>
+                <InlineBold>{g.term}</InlineBold>
+              </Term>
+              <FullName>
+                {g.fullName != null && g.fullName !== "" ? (
+                  <>
+                    — <InlineBold>{g.fullName}</InlineBold>
+                  </>
+                ) : null}
+              </FullName>
               {g.description && (
                 <DescWrap>
                   <MarkdownContent>{g.description}</MarkdownContent>

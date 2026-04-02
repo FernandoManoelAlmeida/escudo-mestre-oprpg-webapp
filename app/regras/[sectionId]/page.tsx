@@ -7,7 +7,7 @@ export async function generateStaticParams() {
     process.cwd(),
     "public",
     "data",
-    "escudo-mestre-casa.json"
+    "escudo-mestre-casa.json",
   );
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8")) as {
     index: { id: string }[];

@@ -69,7 +69,12 @@ function parseMeta(md) {
       const line = lines[i];
       if (line.startsWith("Fontes:") || line.startsWith("sources:")) {
         const part = line.replace(/^(Fontes|sources):\s*/i, "").trim();
-        sources.push(...part.split(/[,;]/).map((s) => s.trim()).filter(Boolean));
+        sources.push(
+          ...part
+            .split(/[,;]/)
+            .map((s) => s.trim())
+            .filter(Boolean),
+        );
       } else if (line && !line.startsWith("#")) {
         if (description) description += " ";
         description += line;
@@ -78,17 +83,33 @@ function parseMeta(md) {
     }
   }
 
-  return { title, description: description || "Referência das regras.", sources: sources.length ? sources : ["Livro base Ordem Paranormal RPG", "Suplemento Sobrevivendo ao Horror"] };
+  return {
+    title,
+    description: description || "Referência das regras.",
+    sources: sources.length
+      ? sources
+      : [
+          "Livro base Ordem Paranormal RPG",
+          "Suplemento Sobrevivendo ao Horror",
+        ],
+  };
 }
 
 /** Parse uma tabela em markdown (| a | b |). Retorna { headers, rows }. */
 function parseMarkdownTable(tableBlock) {
-  const lines = tableBlock.split("\n").map((l) => l.trim()).filter(Boolean);
+  const lines = tableBlock
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
   if (lines.length < 2) return null;
   const sep = lines[1];
   if (!/^\|?[\s\-:]+\|/.test(sep)) return null;
 
-  const toCells = (line) => line.split("|").map((c) => c.trim()).filter((c, i, arr) => i > 0 && i < arr.length - 1);
+  const toCells = (line) =>
+    line
+      .split("|")
+      .map((c) => c.trim())
+      .filter((c, i, arr) => i > 0 && i < arr.length - 1);
   const headerLabels = toCells(lines[0]);
   const headerKeys = headerLabels.map((h) => (slug(h) || h).toLowerCase());
   const rows = [];
@@ -111,21 +132,63 @@ function extractFirstTableBlock(text) {
   const m = text.match(re);
   if (!m) return null;
   const tableBlock = m[1].trim();
-  const rest = text.replace(m[0], "\n").replace(/\n{3,}/g, "\n\n").trim();
+  const rest = text
+    .replace(m[0], "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
   return { tableBlock, rest };
 }
 
 /** Glossário padrão quando o MD não tem seção Glossário nem tabela Termos importantes. */
 const GLOSSARIO_PADRAO = [
-  { term: "AGI", fullName: "Agilidade", description: "Coordenação, reflexos, destreza. Base de várias perícias." },
-  { term: "FOR", fullName: "Força", description: "Potência muscular. Base de Atletismo, Luta; soma em dano corpo a corpo." },
-  { term: "INT", fullName: "Intelecto", description: "Raciocínio, memória, educação. Define perícias treinadas e rituais." },
-  { term: "PRE", fullName: "Presença", description: "Sentidos, vontade, sociais. Concede PD por Nível (ou patente)." },
-  { term: "VIG", fullName: "Vigor", description: "Saúde, resistência. Concede PV por Nível." },
-  { term: "PV", fullName: "Pontos de Vida", description: "Saúde. Chegando a 0, o personagem começa a morrer." },
-  { term: "PD", fullName: "Pontos de Determinação", description: "Energia para habilidades e resiliência mental." },
-  { term: "DT", fullName: "Dificuldade do Teste", description: "Valor que o resultado do teste deve igualar ou superar." },
-  { term: "NEX", fullName: "Nível de Exposição Paranormal", description: "Exposição ao Outro Lado. Nível 1 = 5% NEX." },
+  {
+    term: "AGI",
+    fullName: "Agilidade",
+    description: "Coordenação, reflexos, destreza. Base de várias perícias.",
+  },
+  {
+    term: "FOR",
+    fullName: "Força",
+    description:
+      "Potência muscular. Base de Atletismo, Luta; soma em dano corpo a corpo.",
+  },
+  {
+    term: "INT",
+    fullName: "Intelecto",
+    description:
+      "Raciocínio, memória, educação. Define perícias treinadas e rituais.",
+  },
+  {
+    term: "PRE",
+    fullName: "Presença",
+    description:
+      "Sentidos, vontade, sociais. Concede PD por Nível (ou patente).",
+  },
+  {
+    term: "VIG",
+    fullName: "Vigor",
+    description: "Saúde, resistência. Concede PV por Nível.",
+  },
+  {
+    term: "PV",
+    fullName: "Pontos de Vida",
+    description: "Saúde. Chegando a 0, o personagem começa a morrer.",
+  },
+  {
+    term: "PD",
+    fullName: "Pontos de Determinação",
+    description: "Energia para habilidades e resiliência mental.",
+  },
+  {
+    term: "DT",
+    fullName: "Dificuldade do Teste",
+    description: "Valor que o resultado do teste deve igualar ou superar.",
+  },
+  {
+    term: "NEX",
+    fullName: "Nível de Exposição Paranormal",
+    description: "Exposição ao Outro Lado. Nível 1 = 5% NEX.",
+  },
 ];
 
 function main() {
@@ -134,12 +197,18 @@ function main() {
   const mdPathArg = args.find((a) => !a.startsWith("--"));
 
   if (!mdPathArg) {
-    console.error("Uso: node scripts/migrate-regras.js <caminho/para/regras.md> [--update]");
-    console.error("  --update  mescla com o JSON existente (preserva meta/tabelas/glossário não presentes no MD)");
+    console.error(
+      "Uso: node scripts/migrate-regras.js <caminho/para/regras.md> [--update]",
+    );
+    console.error(
+      "  --update  mescla com o JSON existente (preserva meta/tabelas/glossário não presentes no MD)",
+    );
     process.exit(1);
   }
 
-  const mdPath = path.isAbsolute(mdPathArg) ? mdPathArg : path.resolve(process.cwd(), mdPathArg);
+  const mdPath = path.isAbsolute(mdPathArg)
+    ? mdPathArg
+    : path.resolve(process.cwd(), mdPathArg);
 
   if (!fs.existsSync(mdPath)) {
     console.error("Arquivo não encontrado:", mdPath);
@@ -169,7 +238,7 @@ function main() {
     const firstLine = block.split("\n")[0] || "";
     const sectionMatch = firstLine.match(/^(\d+)(?:\.|)\s*(.+)$/);
     const isTabelas = /^Tabelas\s*$/i.test(firstLine.trim());
-    const isGlossario =/^Glossário\s*$/i.test(firstLine.trim());
+    const isGlossario = /^Glossário\s*$/i.test(firstLine.trim());
 
     if (isTabelas) {
       const subBlocks = block.split(/\n###\s+/);
@@ -180,7 +249,8 @@ function main() {
         const tableId = idMatch[1].trim().toLowerCase().replace(/\s+/g, "_");
         const rest = idMatch[2];
         const parsed = parseMarkdownTable(rest);
-        if (parsed) tables[tableId] = { headers: parsed.headers, rows: parsed.rows };
+        if (parsed)
+          tables[tableId] = { headers: parsed.headers, rows: parsed.rows };
       }
       continue;
     }
@@ -242,8 +312,11 @@ function main() {
       while (extracted) {
         const parsed = parseMarkdownTable(extracted.tableBlock);
         if (parsed && parsed.rows.length >= 0) {
-          const baseKey = (slug(subTitle) || `${sectionId}_${subId}`.replace(/\./g, "_")).replace(/-/g, "_");
-          const tableId = tableCount === 0 ? baseKey : `${baseKey}_${tableCount + 1}`;
+          const baseKey = (
+            slug(subTitle) || `${sectionId}_${subId}`.replace(/\./g, "_")
+          ).replace(/-/g, "_");
+          const tableId =
+            tableCount === 0 ? baseKey : `${baseKey}_${tableCount + 1}`;
           tables[tableId] = { headers: parsed.headers, rows: parsed.rows };
           if (tableCount === 0) tableRef = tableId;
         }
@@ -277,12 +350,22 @@ function main() {
 
   // Glossário: da tabela "Termos importantes" (termo/significado) ou padrão
   if (glossary.length === 0 && tables.termos_importantes) {
-    const rows = Array.isArray(tables.termos_importantes.rows) ? tables.termos_importantes.rows : [];
-    glossary = rows.map((r) => ({
-      term: String(r.termo ?? r.term ?? Object.values(r)[0] ?? "").replace(/\*\*/g, "").trim(),
-      fullName: String(r.termo ?? r.term ?? Object.values(r)[0] ?? "").replace(/\*\*/g, "").trim(),
-      description: String(r.significado ?? r.description ?? Object.values(r)[1] ?? "").trim(),
-    })).filter((g) => g.term && g.description);
+    const rows = Array.isArray(tables.termos_importantes.rows)
+      ? tables.termos_importantes.rows
+      : [];
+    glossary = rows
+      .map((r) => ({
+        term: String(r.termo ?? r.term ?? Object.values(r)[0] ?? "")
+          .replace(/\*\*/g, "")
+          .trim(),
+        fullName: String(r.termo ?? r.term ?? Object.values(r)[0] ?? "")
+          .replace(/\*\*/g, "")
+          .trim(),
+        description: String(
+          r.significado ?? r.description ?? Object.values(r)[1] ?? "",
+        ).trim(),
+      }))
+      .filter((g) => g.term && g.description);
   }
   if (glossary.length === 0) {
     glossary = [...GLOSSARIO_PADRAO];

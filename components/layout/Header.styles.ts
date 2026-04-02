@@ -7,7 +7,8 @@ export const Header = styled.header<{ $fullHeight?: boolean }>`
   top: 0;
   left: 0;
   right: 0;
-  height: ${({ theme, $fullHeight }) => ($fullHeight ? theme.headerHeight : "48px")};
+  height: ${({ theme, $fullHeight }) =>
+    $fullHeight ? theme.headerHeight : "48px"};
   background: ${({ theme }) => theme.colors.surface};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   box-shadow: 0 1px 0 0 ${({ theme }) => theme.colors.borderHighlight};
@@ -31,13 +32,16 @@ export const HeaderTitleWrap = styled.div`
 
 export const HeaderTitle = styled.h1<{ $specialFont?: boolean }>`
   margin: 0;
-  font-size: ${({ theme, $specialFont }) => ($specialFont ? theme.typography.fontSize.xl : theme.typography.fontSize.lg)};
+  font-size: ${({ theme, $specialFont }) =>
+    $specialFont ? theme.typography.fontSize.xl : theme.typography.fontSize.lg};
   font-weight: ${({ $specialFont }) => ($specialFont ? "normal" : "500")};
   color: ${({ theme }) => theme.colors.text};
   letter-spacing: ${({ $specialFont }) => ($specialFont ? "0.05em" : "0.02em")};
   font-family: ${({ $specialFont }) =>
     $specialFont ? '"SigilosDeConhecimento", serif' : "inherit"};
-  transition: font-family 0.5s ease, letter-spacing 0.5s ease;
+  transition:
+    font-family 0.5s ease,
+    letter-spacing 0.5s ease;
 `;
 
 export const DesktopRollWrap = styled.div`
@@ -78,7 +82,8 @@ export const MobileToggleButton = styled.button`
 export const HeaderRoll = styled.div<{ $visible?: boolean }>`
   display: ${({ $visible }) => ($visible ? "flex" : "none")};
   flex-direction: column;
-  padding: 0 ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.sm};
+  padding: 0 ${({ theme }) => theme.spacing.md}
+    ${({ theme }) => theme.spacing.sm};
   gap: ${({ theme }) => theme.spacing.xs};
 
   @media (min-width: ${DESKTOP_BP}) {

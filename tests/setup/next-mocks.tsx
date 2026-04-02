@@ -4,7 +4,7 @@ import React from "react";
 export const mockUsePathname = vi.fn(() => "/");
 
 vi.mock("next/link", () => ({
-  default ({
+  default({
     children,
     href,
     ...rest

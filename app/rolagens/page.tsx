@@ -132,14 +132,23 @@ export default function RolagensPage() {
           </Result>
         )}
         {formula && !parseFormula(formula) && (
-          <ResultDetail>Fórmula inválida. Use algo como 2d20+5 ou 4d8.</ResultDetail>
+          <ResultDetail>
+            Fórmula inválida. Use algo como 2d20+5 ou 4d8.
+          </ResultDetail>
         )}
       </Section>
 
       <Section>
         <SectionTitle>Teste de atributo</SectionTitle>
-        <p style={{ fontSize: "0.875rem", color: "var(--text-muted, #9a9aa5)", marginBottom: "0.5rem" }}>
-          Role 1d20 por ponto no atributo (escolha o maior). Atributo 0: 2d20, use o pior.
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "var(--text-muted, #9a9aa5)",
+            marginBottom: "0.5rem",
+          }}
+        >
+          Role 1d20 por ponto no atributo (escolha o maior). Atributo 0: 2d20,
+          use o pior.
         </p>
         <Row>
           <label>
@@ -150,7 +159,9 @@ export default function RolagensPage() {
               aria-label="Atributo"
             >
               {[0, 1, 2, 3, 4, 5].map((n) => (
-                <option key={n} value={n}>{n}</option>
+                <option key={n} value={n}>
+                  {n}
+                </option>
               ))}
             </Select>
           </label>
@@ -161,7 +172,10 @@ export default function RolagensPage() {
             onChange={(e) => setDtAtributo(e.target.value)}
             aria-label="DT"
           />
-          <D20RollButton onClick={handleRollAtributo} aria-label="Rolar teste de atributo" />
+          <D20RollButton
+            onClick={handleRollAtributo}
+            aria-label="Rolar teste de atributo"
+          />
         </Row>
         {atributoResult && (
           <Result
@@ -180,8 +194,15 @@ export default function RolagensPage() {
 
       <Section>
         <SectionTitle>Teste de perícia</SectionTitle>
-        <p style={{ fontSize: "0.875rem", color: "var(--text-muted, #9a9aa5)", marginBottom: "0.5rem" }}>
-          Xd20 (X = atributo), escolha o maior + bônus (treinado +5, veterano +10, expert +15).
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "var(--text-muted, #9a9aa5)",
+            marginBottom: "0.5rem",
+          }}
+        >
+          Xd20 (X = atributo), escolha o maior + bônus (treinado +5, veterano
+          +10, expert +15).
         </p>
         <Row>
           <label>
@@ -192,7 +213,9 @@ export default function RolagensPage() {
               aria-label="Atributo base"
             >
               {[0, 1, 2, 3, 4, 5].map((n) => (
-                <option key={n} value={n}>{n}</option>
+                <option key={n} value={n}>
+                  {n}
+                </option>
               ))}
             </Select>
           </label>
@@ -216,7 +239,10 @@ export default function RolagensPage() {
             onChange={(e) => setDtPericia(e.target.value)}
             aria-label="DT"
           />
-          <D20RollButton onClick={handleRollPericia} aria-label="Rolar teste de perícia" />
+          <D20RollButton
+            onClick={handleRollPericia}
+            aria-label="Rolar teste de perícia"
+          />
         </Row>
         {periciaResult && (
           <Result

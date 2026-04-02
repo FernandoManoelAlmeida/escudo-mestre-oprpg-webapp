@@ -73,7 +73,8 @@ export function QuickRollBar({
   hintFloating = false,
 }: QuickRollBarProps = {}) {
   const [internalFormula, setInternalFormula] = useState("");
-  const formula = controlledFormula !== undefined ? controlledFormula : internalFormula;
+  const formula =
+    controlledFormula !== undefined ? controlledFormula : internalFormula;
   const setFormula = onFormulaChange ?? setInternalFormula;
   const { addRoll } = useRollToast();
 
@@ -111,10 +112,14 @@ export function QuickRollBar({
         />
       </RollRow>
       {showFeedback && hintInvalidFormat && (
-        <Hint $floating={hintFloating}>Fórmula inválida. Use algo como 2d20+5 ou 4d8.</Hint>
+        <Hint $floating={hintFloating}>
+          Fórmula inválida. Use algo como 2d20+5 ou 4d8.
+        </Hint>
       )}
       {showFeedback && hintInvalidDice && (
-        <Hint $floating={hintFloating}>Use apenas dados do jogo: d3, d4, d6, d8, d10, d12, d20, d100.</Hint>
+        <Hint $floating={hintFloating}>
+          Use apenas dados do jogo: d3, d4, d6, d8, d10, d12, d20, d100.
+        </Hint>
       )}
     </Wrap>
   );

@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
-    setupFiles: ["./tests/setup/next-mocks.tsx", "./tests/setup/browser-mocks.ts", "./vitest.setup.ts"],
+    setupFiles: [
+      "./tests/setup/next-mocks.tsx",
+      "./tests/setup/browser-mocks.ts",
+      "./vitest.setup.ts",
+    ],
     include: ["**/*.test.{ts,tsx}"],
     globals: true,
     coverage: {

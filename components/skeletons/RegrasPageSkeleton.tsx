@@ -7,7 +7,9 @@ const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   max-width: 720px;
   margin: 0 auto;
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
 `;
 
 const Title = styled(SkeletonBox)`

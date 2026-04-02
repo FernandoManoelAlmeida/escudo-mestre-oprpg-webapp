@@ -8,6 +8,8 @@
     "build": "next build --webpack && node scripts/write-version.js",
     "start": "next start",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "yarn lint:fix && yarn prettier --write .",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -45,8 +47,10 @@
     "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "eslint-config-prettier": "^10.1.8",
     "jsdom": "^29.0.0",
     "patch-package": "^8.0.1",
+    "prettier": "^3.8.1",
     "typescript": "^5",
     "vitest": "^4.1.0"
   }

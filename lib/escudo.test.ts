@@ -24,7 +24,9 @@ const fixture: EscudoData = {
     {
       id: "2",
       title: "Criação de personagem",
-      subsections: [{ id: "2.1", title: "Passo a passo", content: "Conceito, atributos." }],
+      subsections: [
+        { id: "2.1", title: "Passo a passo", content: "Conceito, atributos." },
+      ],
     },
   ],
   tables: {
@@ -44,8 +46,16 @@ const fixture: EscudoData = {
     },
   },
   glossary: [
-    { term: "AGI", fullName: "Agilidade", description: "Coordenação e reflexos." },
-    { term: "PD", fullName: "Pontos de Determinação", description: "Energia para habilidades." },
+    {
+      term: "AGI",
+      fullName: "Agilidade",
+      description: "Coordenação e reflexos.",
+    },
+    {
+      term: "PD",
+      fullName: "Pontos de Determinação",
+      description: "Energia para habilidades.",
+    },
   ],
 };
 
@@ -97,7 +107,9 @@ describe("filterRegrasIndex", () => {
 
   it("busca por termo do glossário adiciona item Glossário ao resultado", () => {
     const result = filterRegrasIndex(fixture, { texto: "AGI" });
-    expect(result.some((i) => i.id === "glossario" && i.title === "Glossário")).toBe(true);
+    expect(
+      result.some((i) => i.id === "glossario" && i.title === "Glossário"),
+    ).toBe(true);
   });
 
   it("busca por fullName do glossário adiciona Glossário", () => {
@@ -122,7 +134,9 @@ describe("filterRegrasIndex", () => {
         {
           id: "glossario",
           title: "Glossário",
-          subsections: [{ id: "g.1", title: "Termos", content: "AGI e outros atributos." }],
+          subsections: [
+            { id: "g.1", title: "Termos", content: "AGI e outros atributos." },
+          ],
         },
       ],
     };
@@ -132,7 +146,9 @@ describe("filterRegrasIndex", () => {
 
   it("busca que bate em tabela (header ou key) adiciona item Tabelas", () => {
     const byHeader = filterRegrasIndex(fixture, { texto: "Termo" });
-    expect(byHeader.some((i) => i.id === "tabelas" && i.title === "Tabelas")).toBe(true);
+    expect(
+      byHeader.some((i) => i.id === "tabelas" && i.title === "Tabelas"),
+    ).toBe(true);
     const byKey = filterRegrasIndex(fixture, { texto: "dificuldades_dt" });
     expect(byKey.some((i) => i.id === "tabelas")).toBe(true);
   });
@@ -165,7 +181,7 @@ describe("filterRegrasIndex", () => {
                 { id: "1.9", title: "Dano", formulas: ["4d8+2 perfuração"] },
               ],
             }
-          : s
+          : s,
       ),
     };
     const result = filterRegrasIndex(data, { texto: "perfuração" });
@@ -193,7 +209,11 @@ describe("filterRegrasIndex", () => {
         },
       },
     };
-    expect(filterRegrasIndex(data, { texto: "so_chave" }).some((i) => i.id === "tabelas")).toBe(true);
+    expect(
+      filterRegrasIndex(data, { texto: "so_chave" }).some(
+        (i) => i.id === "tabelas",
+      ),
+    ).toBe(true);
   });
 });
 
@@ -225,7 +245,9 @@ describe("getEscudo", () => {
     });
     await getEscudoFresh();
     await getEscudoFresh();
-    expect((globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls).toHaveLength(1);
+    expect(
+      (globalThis.fetch as ReturnType<typeof vi.fn>).mock.calls,
+    ).toHaveLength(1);
   });
 
   it("lança erro quando fetch não é ok", async () => {

@@ -36,7 +36,10 @@ interface InlineBoldProps {
 /**
  * Componente inline que renderiza ** e * como negrito (para termo, fullName, células de tabela).
  */
-export default function InlineBold({ children, as: Component = "span" }: InlineBoldProps) {
+export default function InlineBold({
+  children,
+  as: Component = "span",
+}: InlineBoldProps) {
   const content = parseAsterisksAsBold(children);
   return <Component>{content}</Component>;
 }

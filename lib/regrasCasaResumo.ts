@@ -19,7 +19,7 @@ export const REGRAS_CASA_RESUMO: RegraCasaItem[] = [
     titulo: "Medo em jogo",
     referencia: "Suplemento p.88",
     descricao:
-      "Regras sobre perda de PD de forma narrativa: situações de medo com DT de Vontade e dano mental; efeitos quando PD chega a 0 (tabela 2d10). \"Sabores\" de medo conforme a cena.",
+      'Regras sobre perda de PD de forma narrativa: situações de medo com DT de Vontade e dano mental; efeitos quando PD chega a 0 (tabela 2d10). "Sabores" de medo conforme a cena.',
   },
   {
     titulo: "Perseguições",
@@ -37,7 +37,7 @@ export const REGRAS_CASA_RESUMO: RegraCasaItem[] = [
     titulo: "Progressão de NEX (com homebrew)",
     referencia: "Suplemento p.100",
     descricao:
-      "Mestre escolhe NEX e Experiência (Nível 1 a 20) ou Evolução por Patentes — uma não funciona em paralelo com a outra. Homebrew Discernimento: NEX como exposição ao invisível; itens \"Conhecimento do Louco\" e \"Sabedoria dos Eminentes\" para alterar NEX; mecânicas para gastar NEX com mercadores.",
+      'Mestre escolhe NEX e Experiência (Nível 1 a 20) ou Evolução por Patentes — uma não funciona em paralelo com a outra. Homebrew Discernimento: NEX como exposição ao invisível; itens "Conhecimento do Louco" e "Sabedoria dos Eminentes" para alterar NEX; mecânicas para gastar NEX com mercadores.',
   },
   {
     titulo: "Jogando sem Sanidade",

@@ -22,19 +22,36 @@ const Wrapper = styled.div`
   }
 
   /* Títulos dentro do conteúdo */
-  h1, h2, h3, h4 {
-    margin: ${({ theme }) => theme.spacing.lg} 0 ${({ theme }) => theme.spacing.sm};
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: ${({ theme }) => theme.spacing.lg} 0
+      ${({ theme }) => theme.spacing.sm};
     font-weight: 600;
     color: ${({ theme }) => theme.colors.text};
     line-height: 1.3;
   }
-  h1 { font-size: ${({ theme }) => theme.typography.fontSize.xl}; }
-  h2 { font-size: ${({ theme }) => theme.typography.fontSize.lg}; }
-  h3, h4 { font-size: ${({ theme }) => theme.typography.fontSize.base}; }
-  h1:first-child, h2:first-child, h3:first-child, h4:first-child { margin-top: 0; }
+  h1 {
+    font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  }
+  h2 {
+    font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  }
+  h3,
+  h4 {
+    font-size: ${({ theme }) => theme.typography.fontSize.base};
+  }
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child {
+    margin-top: 0;
+  }
 
   /* Listas */
-  ul, ol {
+  ul,
+  ol {
     margin: ${({ theme }) => theme.spacing.sm} 0;
     padding-left: 1.5rem;
   }
@@ -63,10 +80,12 @@ const Wrapper = styled.div`
   /* Blockquote */
   blockquote {
     margin: ${({ theme }) => theme.spacing.md} 0;
-    padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => theme.spacing.sm}
+      ${({ theme }) => theme.spacing.md};
     border-left: 4px solid ${({ theme }) => theme.colors.primary};
     background: ${({ theme }) => theme.colors.surface};
-    border-radius: 0 ${({ theme }) => theme.borderRadius} ${({ theme }) => theme.borderRadius} 0;
+    border-radius: 0 ${({ theme }) => theme.borderRadius}
+      ${({ theme }) => theme.borderRadius} 0;
     color: ${({ theme }) => theme.colors.textMuted};
     font-size: ${({ theme }) => theme.typography.fontSize.sm};
   }
@@ -86,9 +105,11 @@ const Wrapper = styled.div`
     border-collapse: collapse;
     font-size: ${({ theme }) => theme.typography.fontSize.sm};
   }
-  th, td {
+  th,
+  td {
     text-align: left;
-    padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => theme.spacing.sm}
+      ${({ theme }) => theme.spacing.md};
     border: 1px solid ${({ theme }) => theme.colors.border};
   }
   th {
@@ -139,7 +160,10 @@ const Wrapper = styled.div`
 `;
 
 /** Envolve tabelas do markdown em um div para scroll horizontal */
-function TableWrapper({ children, ...rest }: React.ComponentPropsWithoutRef<"table">) {
+function TableWrapper({
+  children,
+  ...rest
+}: React.ComponentPropsWithoutRef<"table">) {
   return (
     <div className="md-table-wrap">
       <table {...rest}>{children}</table>

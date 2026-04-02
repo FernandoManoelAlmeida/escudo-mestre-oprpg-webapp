@@ -18,11 +18,23 @@ export default function ClientLayout({
     <ThemeProvider theme={theme}>
       <RollToastProvider>
         <GlobalStyles />
-        <a href="#main-content" style={{ position: "absolute", left: "-9999px", zIndex: 9999, padding: "0.5rem", background: "#0e1419", color: "#00c8e6" }}>
+        <a
+          href="#main-content"
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            zIndex: 9999,
+            padding: "0.5rem",
+            background: "#0e1419",
+            color: "#00c8e6",
+          }}
+        >
           Pular para o conteúdo
         </a>
         <Header />
-        <main id="main-content" role="main">{children}</main>
+        <main id="main-content" role="main">
+          {children}
+        </main>
         <BottomNav />
         <RollToaster />
         <UpdateBanner />

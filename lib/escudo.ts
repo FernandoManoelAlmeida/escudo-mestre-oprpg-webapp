@@ -58,11 +58,17 @@ export async function getEscudo(): Promise<EscudoData> {
   return cached;
 }
 
-export function getSection(escudo: EscudoData, sectionId: string): EscudoSection | undefined {
+export function getSection(
+  escudo: EscudoData,
+  sectionId: string,
+): EscudoSection | undefined {
   return escudo.sections.find((s) => s.id === sectionId);
 }
 
-export function getTable(escudo: EscudoData, tableRef: string): EscudoTable | undefined {
+export function getTable(
+  escudo: EscudoData,
+  tableRef: string,
+): EscudoTable | undefined {
   return escudo.tables[tableRef];
 }
 
@@ -79,7 +85,7 @@ function textoParaBuscaSection(section: EscudoSection): string {
 /** Filtra o índice de regras por texto; busca em seções, tabelas e glossário. */
 export function filterRegrasIndex(
   data: EscudoData,
-  filters: { texto?: string }
+  filters: { texto?: string },
 ): EscudoIndexItem[] {
   const q = filters.texto?.trim();
   if (!q) return data.index;
@@ -98,13 +104,16 @@ export function filterRegrasIndex(
     (g) =>
       g.term.toLowerCase().includes(busca) ||
       g.fullName.toLowerCase().includes(busca) ||
-      g.description.toLowerCase().includes(busca)
+      g.description.toLowerCase().includes(busca),
   );
   const tablesMatch = Object.entries(data.tables ?? {}).some(([key, table]) => {
     const headerText = table.headers.join(" ").toLowerCase();
     if (headerText.includes(busca)) return true;
     for (const row of Array.isArray(table.rows) ? table.rows : []) {
-      if (Object.values(row).some((v) => String(v).toLowerCase().includes(busca))) return true;
+      if (
+        Object.values(row).some((v) => String(v).toLowerCase().includes(busca))
+      )
+        return true;
     }
     return key.toLowerCase().includes(busca);
   });

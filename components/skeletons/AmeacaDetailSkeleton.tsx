@@ -66,7 +66,12 @@ export function AmeacaDetailSkeleton() {
         <Header>
           <HeaderText>
             <HeaderTitleSkeleton aria-hidden />
-            <SkeletonBox $width="50%" $height="0.875rem" $radius="4px" aria-hidden />
+            <SkeletonBox
+              $width="50%"
+              $height="0.875rem"
+              $radius="4px"
+              aria-hidden
+            />
           </HeaderText>
           <SkeletonBox $width="48px" $height="48px" $radius="4px" aria-hidden />
         </Header>

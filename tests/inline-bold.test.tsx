@@ -24,15 +24,13 @@ describe("parseAsterisksAsBold", () => {
 describe("InlineBold", () => {
   it("renderiza como span com strong interno", () => {
     render(<InlineBold>**teste**</InlineBold>);
-    expect(screen.getByText("teste", { selector: "strong" })).toBeInTheDocument();
+    expect(
+      screen.getByText("teste", { selector: "strong" }),
+    ).toBeInTheDocument();
   });
 
   it("aceita elemento semântico via as", () => {
-    render(
-      <InlineBold as="p">
-        *um*
-      </InlineBold>,
-    );
+    render(<InlineBold as="p">*um*</InlineBold>);
     const p = screen.getByText("um", { selector: "strong" }).closest("p");
     expect(p?.tagName).toBe("P");
   });

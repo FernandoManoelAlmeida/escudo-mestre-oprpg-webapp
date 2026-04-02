@@ -11,7 +11,11 @@ type Options = Omit<RenderOptions, "wrapper"> & {
 export function renderWithTheme(ui: React.ReactElement, options?: Options) {
   const { withToast, ...rest } = options ?? {};
   function Wrapper({ children }: { children: React.ReactNode }) {
-    const inner = withToast ? <RollToastProvider>{children}</RollToastProvider> : children;
+    const inner = withToast ? (
+      <RollToastProvider>{children}</RollToastProvider>
+    ) : (
+      children
+    );
     return <ThemeProvider theme={theme}>{inner}</ThemeProvider>;
   }
   return render(ui, { wrapper: Wrapper, ...rest });

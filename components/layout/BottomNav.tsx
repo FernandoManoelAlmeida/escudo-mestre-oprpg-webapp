@@ -23,7 +23,7 @@ export default function BottomNav() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    isActive: boolean
+    isActive: boolean,
   ) => {
     if (isActive) {
       e.preventDefault();

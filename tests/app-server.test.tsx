@@ -16,8 +16,12 @@ describe("app router server exports", () => {
     expect(viewport.colorScheme).toBe("dark");
     expect(Array.isArray(viewport.themeColor)).toBe(true);
     const tc = viewport.themeColor as { media: string; color: string }[];
-    expect(tc.some((x) => x.media.includes("dark") && x.color === "#0e1419")).toBe(true);
-    expect(tc.some((x) => x.media.includes("light") && x.color === "#121920")).toBe(true);
+    expect(
+      tc.some((x) => x.media.includes("dark") && x.color === "#0e1419"),
+    ).toBe(true);
+    expect(
+      tc.some((x) => x.media.includes("light") && x.color === "#121920"),
+    ).toBe(true);
     expect(metadata.other?.["msapplication-TileColor"]).toBe(
       pwaChromeColors.dark.backgroundColor,
     );
@@ -78,7 +82,9 @@ describe("app router server exports", () => {
         text: async () => "",
       })) as typeof fetch,
     );
-    const ui = await RegrasSectionPage({ params: Promise.resolve({ sectionId: "1" }) });
+    const ui = await RegrasSectionPage({
+      params: Promise.resolve({ sectionId: "1" }),
+    });
     renderWithTheme(ui);
     await waitFor(() => {
       expect(screen.getByText(/Mecânica básica/i)).toBeInTheDocument();

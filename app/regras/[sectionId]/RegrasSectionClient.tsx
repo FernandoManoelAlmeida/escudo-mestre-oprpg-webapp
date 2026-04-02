@@ -13,7 +13,9 @@ const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   max-width: 720px;
   margin: 0 auto;
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
 `;
 
 const BackLink = styled(Link)`
@@ -84,7 +86,9 @@ export function RegrasSectionClient({ sectionId }: RegrasSectionClientProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getEscudo().then(setData).finally(() => setLoading(false));
+    getEscudo()
+      .then(setData)
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading || !data) return <RegrasSectionSkeleton />;
@@ -103,10 +107,14 @@ export function RegrasSectionClient({ sectionId }: RegrasSectionClientProps) {
   return (
     <Page>
       <BackLink href="/regras">← Regras</BackLink>
-      <Title>§ {section.id} — {section.title}</Title>
+      <Title>
+        § {section.id} — {section.title}
+      </Title>
       {section.subsections.map((sub) => (
         <Subsection key={sub.id}>
-          <Subtitle>{sub.id} — {sub.title}</Subtitle>
+          <Subtitle>
+            {sub.id} — {sub.title}
+          </Subtitle>
           {sub.content && (
             <ContentWrap>
               <MarkdownContent>{sub.content}</MarkdownContent>
@@ -119,14 +127,18 @@ export function RegrasSectionClient({ sectionId }: RegrasSectionClientProps) {
               ))}
             </FormulaList>
           )}
-          {sub.tableRef && (() => {
-            const table = getTable(data, sub.tableRef!);
-            return table ? (
-              <Accordion id={`${sectionId}-${sub.id}-tabela`} title="Ver tabela">
-                <ResponsiveTable table={table} />
-              </Accordion>
-            ) : null;
-          })()}
+          {sub.tableRef &&
+            (() => {
+              const table = getTable(data, sub.tableRef!);
+              return table ? (
+                <Accordion
+                  id={`${sectionId}-${sub.id}-tabela`}
+                  title="Ver tabela"
+                >
+                  <ResponsiveTable table={table} />
+                </Accordion>
+              ) : null;
+            })()}
         </Subsection>
       ))}
     </Page>

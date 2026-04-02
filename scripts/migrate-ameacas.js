@@ -58,7 +58,8 @@ function parseBlock(content) {
 
   const nomeMatch = content.match(/^##\s+(.+?)$/m);
   let nome = nomeMatch ? nomeMatch[1].trim().replace(/^#+\s*/, "") : "";
-  if (!nome || nome === "Modelo" || nome === "dano mental leva em conta") return null;
+  if (!nome || nome === "Modelo" || nome === "dano mental leva em conta")
+    return null;
   if (nome === "Vulto" && content.includes("VD 40 WIP")) return null;
 
   const vd = getNum(/^VD\s+(\d+)/);
@@ -71,7 +72,15 @@ function parseBlock(content) {
     for (let i = vdIndex + 1; i < lines.length; i++) {
       const line = lines[i];
       if (!line) continue;
-      if (line.startsWith("PRESENÇA") || line.startsWith("DEFESA") || line.startsWith("###") || line.startsWith("PONTOS") || line.startsWith("DESLOCAMENTO") || /^\d+\)/.test(line)) break;
+      if (
+        line.startsWith("PRESENÇA") ||
+        line.startsWith("DEFESA") ||
+        line.startsWith("###") ||
+        line.startsWith("PONTOS") ||
+        line.startsWith("DESLOCAMENTO") ||
+        /^\d+\)/.test(line)
+      )
+        break;
       if (line.includes(" - ") && line.length > 2) {
         carLine = line;
         break;
@@ -86,7 +95,9 @@ function parseBlock(content) {
     : [];
 
   let presencaPerturbadora;
-  const ppMatch = content.match(/PRESENÇA PERTURBADORA\s*\n\s*DT\s+(\d+)\s*-\s*([\dd+\s-]+)\s*mental\s*-\s*NEX\s+(\d+)%\+/i);
+  const ppMatch = content.match(
+    /PRESENÇA PERTURBADORA\s*\n\s*DT\s+(\d+)\s*-\s*([\dd+\s-]+)\s*mental\s*-\s*NEX\s+(\d+)%\+/i,
+  );
   if (ppMatch) {
     presencaPerturbadora = {
       dt: parseInt(ppMatch[1], 10),
@@ -96,7 +107,9 @@ function parseBlock(content) {
   }
 
   const pericias = {};
-  const perSec = content.match(/### Perícias\s*\n([\s\S]*?)(?=\n###|\nDEFESA|\nPRESENÇA|\nPONTOS|$)/i);
+  const perSec = content.match(
+    /### Perícias\s*\n([\s\S]*?)(?=\n###|\nDEFESA|\nPRESENÇA|\nPONTOS|$)/i,
+  );
   if (perSec) {
     const formulaRegex = /-?\d*d\d+([+-]\d+)?/i;
     for (const line of perSec[1].split("\n")) {
@@ -113,19 +126,30 @@ function parseBlock(content) {
 
   const defLine = getLine(/DEFESA/);
   const defesaMatch = defLine?.match(/DEFESA\s+(\d+)/);
-  const defesa = defesaMatch ? parseInt(defesaMatch[1], 10) : (defLine?.includes("-") ? 0 : undefined);
+  const defesa = defesaMatch
+    ? parseInt(defesaMatch[1], 10)
+    : defLine?.includes("-")
+      ? 0
+      : undefined;
   const pvLine = getLine(/PONTOS DE VIDA\s+(\d+)/);
   const pv = pvLine ? parseInt(pvLine.match(/(\d+)/)[1], 10) : undefined;
   const machucadoMatch = content.match(/Machucado\s+(\d+)/);
-  const machucado = machucadoMatch ? parseInt(machucadoMatch[1], 10) : undefined;
+  const machucado = machucadoMatch
+    ? parseInt(machucadoMatch[1], 10)
+    : undefined;
 
   let resistencias, imunidades, vulnerabilidades;
   const resLine = getLine(/^RESISTÊNCIAS?\s*[:]?\s*(.+)/i);
-  if (resLine) resistencias = resLine.replace(/^RESISTÊNCIAS?\s*[:]?\s*/i, "").trim();
+  if (resLine)
+    resistencias = resLine.replace(/^RESISTÊNCIAS?\s*[:]?\s*/i, "").trim();
   const immLine = getLine(/^IMUNIDADES?\s*[:]?\s*(.+)/i);
-  if (immLine) imunidades = immLine.replace(/^IMUNIDADES?\s*[:]?\s*/i, "").trim();
+  if (immLine)
+    imunidades = immLine.replace(/^IMUNIDADES?\s*[:]?\s*/i, "").trim();
   const vulnLine = getLine(/^VULNERABILIDADES?\s*[:]?\s*(.+)/i);
-  if (vulnLine) vulnerabilidades = vulnLine.replace(/^VULNERABILIDADES?\s*[:]?\s*/i, "").trim();
+  if (vulnLine)
+    vulnerabilidades = vulnLine
+      .replace(/^VULNERABILIDADES?\s*[:]?\s*/i, "")
+      .trim();
 
   const attrLine = getLine(/AGI\s+[\d-]+.*FOR.*INT.*PRE.*VIG/);
   const atributos = {};
@@ -144,12 +168,18 @@ function parseBlock(content) {
   const deslocamento = deslMatch ? deslMatch[1].trim() : "";
 
   const habilidades = [];
-  const habSec = content.match(/### Habilidades\s*\n([\s\S]*?)(?=\n### Ações|\n### Enigma|$)/);
+  const habSec = content.match(
+    /### Habilidades\s*\n([\s\S]*?)(?=\n### Ações|\n### Enigma|$)/,
+  );
   if (habSec) {
-    const habParts = habSec[1].split(/\n(?=[A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ\s\-]*$)/m).filter(Boolean);
+    const habParts = habSec[1]
+      .split(/\n(?=[A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ\s\-]*$)/m)
+      .filter(Boolean);
     for (const part of habParts) {
       const p = part.trim();
-      const nameMatch = p.match(/^([A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ\s\-]*)$/m);
+      const nameMatch = p.match(
+        /^([A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ\s\-]*)$/m,
+      );
       if (nameMatch) {
         const nomeHab = nameMatch[1].trim();
         const desc = p.replace(nomeHab, "").trim();
@@ -171,23 +201,31 @@ function parseBlock(content) {
   }
 
   const acoes = [];
-  const acaoSec = content.match(/### Ações\s*\n([\s\S]*?)(?=\n### Enigma|\n### Dados|### Poderes|$)/);
+  const acaoSec = content.match(
+    /### Ações\s*\n([\s\S]*?)(?=\n### Enigma|\n### Dados|### Poderes|$)/,
+  );
   if (acaoSec) {
     const text = acaoSec[1];
     const acaoBlocks = text
       .split(/\n(?=(?:PADRÃO|REAÇÃO|LIVRE|MOVIMENTO|COMPLETA)\s*[-–]\s*[A-Z])/m)
       .filter(Boolean);
     for (const block of acaoBlocks) {
-      const tipoNome = block.match(/^(PADRÃO|REAÇÃO|LIVRE|MOVIMENTO|COMPLETA)\s*[-–]\s*(.+?)(?:\n|$)/m);
+      const tipoNome = block.match(
+        /^(PADRÃO|REAÇÃO|LIVRE|MOVIMENTO|COMPLETA)\s*[-–]\s*(.+?)(?:\n|$)/m,
+      );
       if (!tipoNome) continue;
       const tipo = tipoNome[1].trim();
       const nomeAcao = tipoNome[2].trim().split("\n")[0].trim();
       const ataques = [];
-      const ataqueLines = block.matchAll(/>\s*([^>]+?)\s*\n\s*>\s*TESTE\s+([^|]+?)\s*\|\s*DANO\s+([^\n]+)/g);
+      const ataqueLines = block.matchAll(
+        />\s*([^>]+?)\s*\n\s*>\s*TESTE\s+([^|]+?)\s*\|\s*DANO\s+([^\n]+)/g,
+      );
       for (const atk of ataqueLines) {
         const obsMatch = atk[1].match(/(x\d+)|(crítico[^|]*)/i);
         const testeRaw = atk[2].trim();
-        const testeFormula = (testeRaw.match(/[\dd+\s+-]+/) || [""])[0].replace(/\s/g, "").trim();
+        const testeFormula = (testeRaw.match(/[\dd+\s+-]+/) || [""])[0]
+          .replace(/\s/g, "")
+          .trim();
         ataques.push({
           nome: atk[1]
             .replace(/\s*Corpo a corpo.*$/i, "")
@@ -195,7 +233,7 @@ function parseBlock(content) {
             .trim(),
           teste: testeFormula || testeRaw.replace(/\s/g, "").replace(/\|/g, ""),
           dano: atk[3].trim(),
-          obs: obsMatch ? (obsMatch[1] || obsMatch[2]?.trim()) : null,
+          obs: obsMatch ? obsMatch[1] || obsMatch[2]?.trim() : null,
         });
       }
       const descMatch = block
@@ -205,7 +243,9 @@ function parseBlock(content) {
         .trim();
       const descNormalizada = normalizarDescricaoAcao(descMatch);
       const descricao =
-        descNormalizada.length > 20 ? descNormalizada.slice(0, 8000) : undefined;
+        descNormalizada.length > 20
+          ? descNormalizada.slice(0, 8000)
+          : undefined;
       acoes.push({
         tipo,
         nome: nomeAcao,
@@ -215,12 +255,16 @@ function parseBlock(content) {
     }
   }
 
-  const enigmaMatch = content.match(/### Enigma de Medo\s*\n\s*\*?([\s\S]*?)\*?(?=\n###|$)/);
+  const enigmaMatch = content.match(
+    /### Enigma de Medo\s*\n\s*\*?([\s\S]*?)\*?(?=\n###|$)/,
+  );
   const enigmaMedo = enigmaMatch
     ? enigmaMatch[1].trim().replace(/\s+/g, " ").replace(/\*/g, "")
     : undefined;
 
-  const dadosMatch = content.match(/### Dados Médios\s*\n([\s\S]*?)(?=\n##\s|$)/);
+  const dadosMatch = content.match(
+    /### Dados Médios\s*\n([\s\S]*?)(?=\n##\s|$)/,
+  );
   const dadosMedios = {};
   if (dadosMatch) {
     for (const line of dadosMatch[1].split("\n")) {
@@ -258,11 +302,15 @@ function main() {
   const mdPathArg = args.find((a) => !a.startsWith("--"));
 
   if (!mdPathArg) {
-    console.error("Uso: node scripts/migrate-ameacas.js <caminho/para/ameaças.md>");
+    console.error(
+      "Uso: node scripts/migrate-ameacas.js <caminho/para/ameaças.md>",
+    );
     process.exit(1);
   }
 
-  const mdPath = path.isAbsolute(mdPathArg) ? mdPathArg : path.resolve(process.cwd(), mdPathArg);
+  const mdPath = path.isAbsolute(mdPathArg)
+    ? mdPathArg
+    : path.resolve(process.cwd(), mdPathArg);
 
   if (!fs.existsSync(mdPath)) {
     console.error("Arquivo não encontrado:", mdPath);
@@ -319,19 +367,22 @@ function main() {
       }
     }
   }
-  const caracteristicasUnicas = Array.from(setCar).sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const caracteristicasUnicas = Array.from(setCar).sort((a, b) =>
+    a.localeCompare(b, "pt-BR"),
+  );
 
   fs.writeFileSync(
     OUT_PATH,
     JSON.stringify({ ameacas, caracteristicasUnicas }, null, 2),
-    "utf8"
+    "utf8",
   );
 
   console.log("Migração concluída.");
   console.log("  Total no JSON:", ameacas.length);
   console.log("  Características únicas:", caracteristicasUnicas.length);
   if (added.length) console.log("  Novas:", added.join(", "));
-  if (updated.length) console.log("  Atualizadas a partir do MD:", updated.join(", "));
+  if (updated.length)
+    console.log("  Atualizadas a partir do MD:", updated.join(", "));
 
   writeVersion(PROJECT_ROOT);
 }

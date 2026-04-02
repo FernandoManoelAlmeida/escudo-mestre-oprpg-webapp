@@ -3,7 +3,13 @@ import { theme } from "./theme";
 import { getCreatureSheetTheme } from "./creatureSheetThemes";
 import type { ElementoFicha } from "./ameacas";
 
-const elementos: ElementoFicha[] = ["SANGUE", "MORTE", "ENERGIA", "CONHECIMENTO", "MEDO"];
+const elementos: ElementoFicha[] = [
+  "SANGUE",
+  "MORTE",
+  "ENERGIA",
+  "CONHECIMENTO",
+  "MEDO",
+];
 
 describe("getCreatureSheetTheme", () => {
   it("retorna tema padrão para null", () => {

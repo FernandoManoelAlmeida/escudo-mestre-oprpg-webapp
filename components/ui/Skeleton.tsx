@@ -7,7 +7,11 @@ const shimmer = keyframes`
   100% { background-position: 200% 0; }
 `;
 
-export const SkeletonBox = styled.div<{ $width?: string; $height?: string; $radius?: string }>`
+export const SkeletonBox = styled.div<{
+  $width?: string;
+  $height?: string;
+  $radius?: string;
+}>`
   width: ${({ $width }) => $width ?? "100%"};
   height: ${({ $height }) => $height ?? "1em"};
   border-radius: ${({ $radius, theme }) => $radius ?? theme.borderRadius};

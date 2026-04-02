@@ -40,7 +40,9 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   font-weight: ${({ $active }) => ($active ? 600 : 400)};
   text-decoration: none;
   border-radius: ${({ theme }) => theme.borderRadius};
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
   ${({ theme, $active }) =>
     $active ? `text-shadow: 0 0 12px ${theme.colors.primaryGlow};` : ""}
 
@@ -79,7 +81,10 @@ export const CentralButtonWrap = styled.span`
   box-shadow:
     0 0 0 3px ${({ theme }) => theme.colors.primaryGlow},
     0 4px 12px ${({ theme }) => theme.colors.primaryGlow};
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;
   z-index: 1;
 
   &:hover {

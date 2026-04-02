@@ -14,9 +14,12 @@ describe("RolagensPage", () => {
 
   it("rolagem livre mostra resultado", async () => {
     renderWithTheme(<RolagensPage />);
-    fireEvent.change(screen.getByRole("textbox", { name: /fórmula de dados/i }), {
-      target: { value: "1d20" },
-    });
+    fireEvent.change(
+      screen.getByRole("textbox", { name: /fórmula de dados/i }),
+      {
+        target: { value: "1d20" },
+      },
+    );
     fireEvent.click(screen.getByRole("button", { name: /^rolar dados$/i }));
     await waitFor(() => {
       expect(screen.getByText("[9] = 9")).toBeInTheDocument();
@@ -25,9 +28,12 @@ describe("RolagensPage", () => {
 
   it("fórmula inválida mostra aviso", () => {
     renderWithTheme(<RolagensPage />);
-    fireEvent.change(screen.getByRole("textbox", { name: /fórmula de dados/i }), {
-      target: { value: "não-é-fórmula" },
-    });
+    fireEvent.change(
+      screen.getByRole("textbox", { name: /fórmula de dados/i }),
+      {
+        target: { value: "não-é-fórmula" },
+      },
+    );
     expect(screen.getByText(/Fórmula inválida/i)).toBeInTheDocument();
   });
 
@@ -35,7 +41,9 @@ describe("RolagensPage", () => {
     renderWithTheme(<RolagensPage />);
     const dtInputs = screen.getAllByLabelText(/^dt$/i);
     fireEvent.change(dtInputs[0]!, { target: { value: "5" } });
-    fireEvent.click(screen.getByRole("button", { name: /rolar teste de atributo/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /rolar teste de atributo/i }),
+    );
     await waitFor(() => {
       const ok = screen.queryByText(/Sucesso|Falha/);
       expect(ok).toBeInTheDocument();
@@ -44,9 +52,13 @@ describe("RolagensPage", () => {
 
   it("teste de perícia altera bônus e rola", async () => {
     renderWithTheme(<RolagensPage />);
-    const bonusSelect = screen.getByRole("combobox", { name: /grau de treinamento/i });
+    const bonusSelect = screen.getByRole("combobox", {
+      name: /grau de treinamento/i,
+    });
     fireEvent.change(bonusSelect, { target: { value: "10" } });
-    fireEvent.click(screen.getByRole("button", { name: /rolar teste de perícia/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /rolar teste de perícia/i }),
+    );
     await waitFor(() => {
       expect(screen.getAllByText(/\d+/).length).toBeGreaterThan(3);
     });

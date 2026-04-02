@@ -412,10 +412,7 @@
   ],
   "tables": {
     "termos_importantes": {
-      "headers": [
-        "Termo",
-        "Significado"
-      ],
+      "headers": ["Termo", "Significado"],
       "rows": [
         {
           "termo": "**Personagem / Agente**",
@@ -484,10 +481,7 @@
       ]
     },
     "bonus_por_grau_de_treinamento": {
-      "headers": [
-        "Grau",
-        "Bônus"
-      ],
+      "headers": ["Grau", "Bônus"],
       "rows": [
         {
           "grau": "Destreinado",
@@ -508,12 +502,7 @@
       ]
     },
     "tabela_de_pericias": {
-      "headers": [
-        "Perícia",
-        "Restrições",
-        "Usos principais",
-        "DT / Oposto"
-      ],
+      "headers": ["Perícia", "Restrições", "Usos principais", "DT / Oposto"],
       "rows": [
         {
           "pericia": "**Acrobacia**",
@@ -686,13 +675,7 @@
       ]
     },
     "patente_e_limite_de_itens": {
-      "headers": [
-        "Patente",
-        "Cat. I",
-        "Cat. II",
-        "Cat. III",
-        "Cat. IV"
-      ],
+      "headers": ["Patente", "Cat. I", "Cat. II", "Cat. III", "Cat. IV"],
       "rows": [
         {
           "patente": "Recruta",
@@ -778,11 +761,7 @@
       ]
     },
     "equipamento_geral_e_municoes": {
-      "headers": [
-        "Munição",
-        "Categoria",
-        "Uso típico"
-      ],
+      "headers": ["Munição", "Categoria", "Uso típico"],
       "rows": [
         {
           "municao": "Balas curtas",
@@ -817,11 +796,7 @@
       ]
     },
     "tabela_de_dificuldades_dt": {
-      "headers": [
-        "Tarefa",
-        "DT",
-        "Exemplo"
-      ],
+      "headers": ["Tarefa", "DT", "Exemplo"],
       "rows": [
         {
           "tarefa": "Fácil",
@@ -861,10 +836,7 @@
       ]
     },
     "testes_estendidos": {
-      "headers": [
-        "Complexidade",
-        "Sucessos necessários"
-      ],
+      "headers": ["Complexidade", "Sucessos necessários"],
       "rows": [
         {
           "complexidade": "Baixa",
@@ -881,10 +853,7 @@
       ]
     },
     "investigacao": {
-      "headers": [
-        "Grau de urgência",
-        "Rodadas máximas"
-      ],
+      "headers": ["Grau de urgência", "Rodadas máximas"],
       "rows": [
         {
           "grau-de-urgencia": "Muito baixo",
@@ -909,10 +878,7 @@
       ]
     },
     "interludio": {
-      "headers": [
-        "Atividade",
-        "Efeito mecânico"
-      ],
+      "headers": ["Atividade", "Efeito mecânico"],
       "rows": [
         {
           "atividade": "**Dormir**",
@@ -937,10 +903,7 @@
       ]
     },
     "elementos_e_opressao": {
-      "headers": [
-        "Elemento",
-        "Opressor de"
-      ],
+      "headers": ["Elemento", "Opressor de"],
       "rows": [
         {
           "elemento": "Sangue",
@@ -965,10 +928,7 @@
       ]
     },
     "pontos_de_determinacao_pd": {
-      "headers": [
-        "2d10",
-        "Efeito"
-      ],
+      "headers": ["2d10", "Efeito"],
       "rows": [
         {
           "2d10": "2",
@@ -1049,11 +1009,7 @@
       ]
     },
     "poderes_paranormais_e_rituais": {
-      "headers": [
-        "1d8",
-        "Desastre",
-        "Efeito mecânico"
-      ],
+      "headers": ["1d8", "Desastre", "Efeito mecânico"],
       "rows": [
         {
           "1d8": "1",
@@ -1098,10 +1054,7 @@
       ]
     },
     "regras_opcionais_e_regras_da_casa": {
-      "headers": [
-        "Tipo",
-        "Mecânica resumida"
-      ],
+      "headers": ["Tipo", "Mecânica resumida"],
       "rows": [
         {
           "tipo": "Acólito",
@@ -1122,10 +1075,7 @@
       ]
     },
     "categorias_de_atitude_npc": {
-      "headers": [
-        "Atitude",
-        "Efeito"
-      ],
+      "headers": ["Atitude", "Efeito"],
       "rows": [
         {
           "atitude": "Prestativo",
@@ -1150,11 +1100,7 @@
       ]
     },
     "classe_sobrevivente_suplemento_p3032": {
-      "headers": [
-        "Estatística",
-        "Inicial",
-        "Por estágio"
-      ],
+      "headers": ["Estatística", "Inicial", "Por estágio"],
       "rows": [
         {
           "estatistica": "PV",
@@ -1179,11 +1125,7 @@
       ]
     },
     "medo_em_jogo_suplemento": {
-      "headers": [
-        "Situação",
-        "Dano mental",
-        "Teste Vontade"
-      ],
+      "headers": ["Situação", "Dano mental", "Teste Vontade"],
       "rows": [
         {
           "situacao": "Visão inquietante",
@@ -1223,12 +1165,7 @@
       ]
     },
     "perseguicoes_suplemento": {
-      "headers": [
-        "d20",
-        "Tipo",
-        "Exemplo",
-        "Teste"
-      ],
+      "headers": ["d20", "Tipo", "Exemplo", "Teste"],
       "rows": [
         {
           "d20": "1–8",
@@ -1287,10 +1224,7 @@
       ]
     },
     "furtividade_suplemento": {
-      "headers": [
-        "d20",
-        "Efeito"
-      ],
+      "headers": ["d20", "Efeito"],
       "rows": [
         {
           "d20": "1–2",

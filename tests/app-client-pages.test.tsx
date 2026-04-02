@@ -30,7 +30,9 @@ const asyncPageTimeout = 15_000;
 describe("páginas client", () => {
   it("Home renderiza regras em uso e licença", () => {
     renderWithTheme(<Home />);
-    expect(screen.getByRole("heading", { name: /regras em uso/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /regras em uso/i }),
+    ).toBeInTheDocument();
     expect(
       screen.getByText(
         (_content, el) =>
@@ -60,7 +62,9 @@ describe("páginas client", () => {
 
   it("Rolagens renderiza seções de teste", () => {
     renderWithTheme(<RolagensPage />, { withToast: true });
-    expect(screen.getByRole("heading", { name: /rolagens/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /rolagens/i }),
+    ).toBeInTheDocument();
   });
 
   it(
@@ -85,7 +89,9 @@ describe("páginas client", () => {
       renderWithTheme(<RegrasTabelasPage />);
       await waitFor(
         () => {
-          expect(screen.getByRole("heading", { name: "Tabelas" })).toBeInTheDocument();
+          expect(
+            screen.getByRole("heading", { name: "Tabelas" }),
+          ).toBeInTheDocument();
         },
         { timeout: asyncPageTimeout },
       );
@@ -100,7 +106,9 @@ describe("páginas client", () => {
       renderWithTheme(<RegrasGlossarioPage />);
       await waitFor(
         () => {
-          expect(screen.getByRole("heading", { name: "Glossário" })).toBeInTheDocument();
+          expect(
+            screen.getByRole("heading", { name: "Glossário" }),
+          ).toBeInTheDocument();
           expect(screen.getByText("AGI")).toBeInTheDocument();
         },
         { timeout: asyncPageTimeout },
@@ -113,10 +121,14 @@ describe("páginas client", () => {
     "AmeacaDetailClient mostra ficha quando id existe",
     async () => {
       stubFetchJson(ameacasFixture);
-      renderWithTheme(<AmeacaDetailClient id="teste-ameaca" />, { withToast: true });
+      renderWithTheme(<AmeacaDetailClient id="teste-ameaca" />, {
+        withToast: true,
+      });
       await waitFor(
         () => {
-          expect(screen.getByRole("heading", { name: ameacaMinimal.nome })).toBeInTheDocument();
+          expect(
+            screen.getByRole("heading", { name: ameacaMinimal.nome }),
+          ).toBeInTheDocument();
         },
         { timeout: asyncPageTimeout },
       );
@@ -128,10 +140,14 @@ describe("páginas client", () => {
     "AmeacaDetailClient mostra não encontrada",
     async () => {
       stubFetchJson(ameacasFixture);
-      renderWithTheme(<AmeacaDetailClient id="inexistente" />, { withToast: true });
+      renderWithTheme(<AmeacaDetailClient id="inexistente" />, {
+        withToast: true,
+      });
       await waitFor(
         () => {
-          expect(screen.getByText(/Ameaça não encontrada/i)).toBeInTheDocument();
+          expect(
+            screen.getByText(/Ameaça não encontrada/i),
+          ).toBeInTheDocument();
         },
         { timeout: asyncPageTimeout },
       );

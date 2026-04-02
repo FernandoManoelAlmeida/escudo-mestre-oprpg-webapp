@@ -119,7 +119,10 @@ export function ResponsiveTable({ table }: ResponsiveTableProps) {
         </StyledTable>
       </TableWrap>
 
-      <CardsWrap role="region" aria-label="Conteúdo da tabela em formato de cartões">
+      <CardsWrap
+        role="region"
+        aria-label="Conteúdo da tabela em formato de cartões"
+      >
         {rows.map((row, i) => (
           <Card key={i}>
             {colKeys.map((key, colIndex) => {

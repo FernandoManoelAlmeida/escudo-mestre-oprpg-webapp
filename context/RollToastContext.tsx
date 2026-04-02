@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import type { RollResult } from "@/lib/dice";
 
 /** Máximo de rolagens mantidas no histórico do toaster */
@@ -15,7 +21,10 @@ export type RollEntry = {
 
 type RollToastContextValue = {
   rolls: RollEntry[];
-  addRoll: (result: RollResult, opts?: { suffix?: string; label?: string }) => void;
+  addRoll: (
+    result: RollResult,
+    opts?: { suffix?: string; label?: string },
+  ) => void;
   removeRoll: (id: number) => void;
   clearRolls: () => void;
 };
@@ -27,15 +36,18 @@ let nextId = 1;
 export function RollToastProvider({ children }: { children: React.ReactNode }) {
   const [rolls, setRolls] = useState<RollEntry[]>([]);
 
-  const addRoll = useCallback((result: RollResult, opts?: { suffix?: string; label?: string }) => {
-    const entry: RollEntry = {
-      id: nextId++,
-      result,
-      suffix: opts?.suffix,
-      label: opts?.label,
-    };
-    setRolls((prev) => [entry, ...prev].slice(0, ROLL_TOAST_MAX));
-  }, []);
+  const addRoll = useCallback(
+    (result: RollResult, opts?: { suffix?: string; label?: string }) => {
+      const entry: RollEntry = {
+        id: nextId++,
+        result,
+        suffix: opts?.suffix,
+        label: opts?.label,
+      };
+      setRolls((prev) => [entry, ...prev].slice(0, ROLL_TOAST_MAX));
+    },
+    [],
+  );
 
   const removeRoll = useCallback((id: number) => {
     setRolls((prev) => prev.filter((e) => e.id !== id));
@@ -45,7 +57,7 @@ export function RollToastProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo(
     () => ({ rolls, addRoll, removeRoll, clearRolls }),
-    [rolls, addRoll, removeRoll, clearRolls]
+    [rolls, addRoll, removeRoll, clearRolls],
   );
 
   return (
@@ -57,6 +69,7 @@ export function RollToastProvider({ children }: { children: React.ReactNode }) {
 
 export function useRollToast(): RollToastContextValue {
   const ctx = useContext(RollToastContext);
-  if (!ctx) throw new Error("useRollToast must be used within RollToastProvider");
+  if (!ctx)
+    throw new Error("useRollToast must be used within RollToastProvider");
   return ctx;
 }

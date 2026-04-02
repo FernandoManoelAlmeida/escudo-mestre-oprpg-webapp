@@ -43,7 +43,6 @@ const TitleLink = styled.a`
   }
 `;
 
-
 const HomeLogo = styled(OrdemParanormalDesesperoLogo)`
   width: 100%;
   height: auto;
@@ -151,13 +150,13 @@ export default function Home() {
 
       <Description>
         <p>
-          Este é um <strong>Escudo do Mestre</strong> feito de fã para fã: uma referência rápida para{" "}
-          mestrar sessões de Ordem Paranormal RPG.
+          Este é um <strong>Escudo do Mestre</strong> feito de fã para fã: uma
+          referência rápida para mestrar sessões de Ordem Paranormal RPG.
         </p>
         <p>
-          As regras selecionadas neste{" "}
-          escudo são as do usuário <strong>@progfernando</strong>,{" "}
-          feito sem fins lucrativos, para que todos possam usar.
+          As regras selecionadas neste escudo são as do usuário{" "}
+          <strong>@progfernando</strong>, feito sem fins lucrativos, para que
+          todos possam usar.
         </p>
         <p>
           Aqui você encontra rolagens de dados na hora, consulta às regras{" "}
@@ -165,9 +164,8 @@ export default function Home() {
           ameaças — tudo em um só lugar, pensado para uso durante o jogo.
         </p>
         <p>
-          Apoie o RPG{" "}
-          oficial: compre os livros e acompanhe o conteúdo oficial de Ordem
-          Paranormal.
+          Apoie o RPG oficial: compre os livros e acompanhe o conteúdo oficial
+          de Ordem Paranormal.
         </p>
         <p>
           Todos os direitos de conteúdo e imagem são da{" "}

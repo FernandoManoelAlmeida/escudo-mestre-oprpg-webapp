@@ -3,7 +3,9 @@ import { includeUrlInPrecacheManifest } from "./lib/pwaPrecacheFilter";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = process.env.GITHUB_PAGES === "1";
-const basePath = buildForGitHubPages ? (process.env.NEXT_PUBLIC_BASE_PATH || "/escudo-mestre-oprpg-webapp") : "";
+const basePath = buildForGitHubPages
+  ? process.env.NEXT_PUBLIC_BASE_PATH || "/escudo-mestre-oprpg-webapp"
+  : "";
 
 /** Precache do Workbox às vezes lista `/_next/...` ou URL absoluta sem o segmento do GitHub Pages. */
 function prefixPrecacheUrl(url: string, bp: string): string {
@@ -27,7 +29,11 @@ function prefixPrecacheUrl(url: string, bp: string): string {
     /* URL relativa ao origin do SW */
   }
 
-  if (url.startsWith("/_next/") || url === "/_next" || url.startsWith("/static/")) {
+  if (
+    url.startsWith("/_next/") ||
+    url === "/_next" ||
+    url.startsWith("/static/")
+  ) {
     return `${root}${url}`;
   }
   if (url.startsWith("_next/")) {
@@ -69,7 +75,8 @@ const withPWA = require("@ducanh2912/next-pwa").default({
       /^static\/chunks\//,
       ({ asset }: { asset: { name?: string } }) =>
         Boolean(
-          asset?.name?.includes("static/chunks") || asset?.name?.includes("static\\chunks"),
+          asset?.name?.includes("static/chunks") ||
+          asset?.name?.includes("static\\chunks"),
         ),
     ],
     manifestTransforms: [

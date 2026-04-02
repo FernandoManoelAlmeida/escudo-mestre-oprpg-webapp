@@ -3,15 +3,26 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { getAmeacas, filterAmeacas, getCaracteristicasParaFiltro } from "@/lib/ameacas";
-import type { AmeacasData, Ameaca, OrdenarAmeacasPor, OrdenarSentido } from "@/lib/ameacas";
+import {
+  getAmeacas,
+  filterAmeacas,
+  getCaracteristicasParaFiltro,
+} from "@/lib/ameacas";
+import type {
+  AmeacasData,
+  Ameaca,
+  OrdenarAmeacasPor,
+  OrdenarSentido,
+} from "@/lib/ameacas";
 import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
 import { AmeacasPageSkeleton } from "@/components/skeletons";
 import { theme } from "@/lib/theme";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
   max-width: 720px;
   margin: 0 auto;
 `;
@@ -88,7 +99,9 @@ const SearchInput = styled.input`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.typography.fontSize.base};
   min-height: 44px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
   &::placeholder {
     color: ${({ theme }) => theme.colors.textMuted};
   }
@@ -113,16 +126,24 @@ const OrderBtn = styled.button<{ $active?: boolean }>`
   padding: 0 ${({ theme }) => theme.spacing.sm};
   height: 32px;
   min-width: 32px;
-  background: ${({ theme, $active }) => ($active ? theme.colors.primary : theme.colors.background)};
-  color: ${({ theme, $active }) => ($active ? theme.colors.background : theme.colors.text)};
-  border: 1px solid ${({ theme, $active }) => ($active ? theme.colors.primary : theme.colors.border)};
+  background: ${({ theme, $active }) =>
+    $active ? theme.colors.primary : theme.colors.background};
+  color: ${({ theme, $active }) =>
+    $active ? theme.colors.background : theme.colors.text};
+  border: 1px solid
+    ${({ theme, $active }) =>
+      $active ? theme.colors.primary : theme.colors.border};
   border-radius: 6px;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ $active }) => ($active ? 600 : 400)};
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
   &:hover {
-    background: ${({ theme, $active }) => ($active ? theme.colors.primary : theme.colors.surfaceHover)};
+    background: ${({ theme, $active }) =>
+      $active ? theme.colors.primary : theme.colors.surfaceHover};
     border-color: ${({ theme }) => theme.colors.borderHighlight};
   }
 `;
@@ -145,7 +166,9 @@ const MultiSelectTrigger = styled.button`
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
   &:focus {
     outline: none;
     border-color: ${({ theme }) => theme.colors.primary};
@@ -199,7 +222,10 @@ const MultiSelectClearBtn = styled.button`
   font-size: ${({ theme }) => theme.typography.fontSize.xs};
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
   &:hover {
     background: ${({ theme }) => theme.colors.surfaceHover};
     color: ${({ theme }) => theme.colors.text};
@@ -298,9 +324,7 @@ function FeedbackBlock({
 }) {
   return (
     <FeedbackWrapper>
-      {showIcon && (
-        <FeedbackIcon name="icon-exception" decorative />
-      )}
+      {showIcon && <FeedbackIcon name="icon-exception" decorative />}
       <FeedbackText>{children}</FeedbackText>
     </FeedbackWrapper>
   );
@@ -314,10 +338,34 @@ type OrdenarOpcao = {
   sentido: OrdenarSentido;
 };
 
-const OPCAO_NOME_ASC: OrdenarOpcao = { value: "nome-asc", label: "Nome (A → Z)", shortLabel: "A→Z", por: "nome", sentido: "asc" };
-const OPCAO_NOME_DESC: OrdenarOpcao = { value: "nome-desc", label: "Nome (Z → A)", shortLabel: "Z→A", por: "nome", sentido: "desc" };
-const OPCAO_VD_DESC: OrdenarOpcao = { value: "vd-desc", label: "VD (maior → menor)", shortLabel: "VD ↓", por: "vd", sentido: "desc" };
-const OPCAO_VD_ASC: OrdenarOpcao = { value: "vd-asc", label: "VD (menor → maior)", shortLabel: "VD ↑", por: "vd", sentido: "asc" };
+const OPCAO_NOME_ASC: OrdenarOpcao = {
+  value: "nome-asc",
+  label: "Nome (A → Z)",
+  shortLabel: "A→Z",
+  por: "nome",
+  sentido: "asc",
+};
+const OPCAO_NOME_DESC: OrdenarOpcao = {
+  value: "nome-desc",
+  label: "Nome (Z → A)",
+  shortLabel: "Z→A",
+  por: "nome",
+  sentido: "desc",
+};
+const OPCAO_VD_DESC: OrdenarOpcao = {
+  value: "vd-desc",
+  label: "VD (maior → menor)",
+  shortLabel: "VD ↓",
+  por: "vd",
+  sentido: "desc",
+};
+const OPCAO_VD_ASC: OrdenarOpcao = {
+  value: "vd-asc",
+  label: "VD (menor → maior)",
+  shortLabel: "VD ↑",
+  por: "vd",
+  sentido: "asc",
+};
 
 export default function AmeacasPage() {
   const [data, setData] = useState<AmeacasData | null>(null);
@@ -325,7 +373,8 @@ export default function AmeacasPage() {
   const [error, setError] = useState<string | null>(null);
   const [busca, setBusca] = useState("");
   const [ordenar, setOrdenar] = useState<OrdenarOpcao>(OPCAO_NOME_ASC);
-  const [caracteristicasSelecionadas, setCaracteristicasSelecionadas] = useState<string[]>([]);
+  const [caracteristicasSelecionadas, setCaracteristicasSelecionadas] =
+    useState<string[]>([]);
   const [caracteristicasOpen, setCaracteristicasOpen] = useState(false);
   const caracteristicasRef = useRef<HTMLDivElement>(null);
 
@@ -338,19 +387,23 @@ export default function AmeacasPage() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (caracteristicasRef.current && !caracteristicasRef.current.contains(event.target as Node)) {
+      if (
+        caracteristicasRef.current &&
+        !caracteristicasRef.current.contains(event.target as Node)
+      ) {
         setCaracteristicasOpen(false);
       }
     }
     if (caracteristicasOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [caracteristicasOpen]);
 
   const toggleCaracteristica = (c: string) => {
     setCaracteristicasSelecionadas((prev) =>
-      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]
+      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
     );
   };
 
@@ -359,7 +412,9 @@ export default function AmeacasPage() {
     return (
       <Page>
         <Title>Ameaças</Title>
-        <FeedbackBlock showIcon>{`Não foi possível carregar os dados.\n${error}`}</FeedbackBlock>
+        <FeedbackBlock
+          showIcon
+        >{`Não foi possível carregar os dados.\n${error}`}</FeedbackBlock>
       </Page>
     );
   }
@@ -367,7 +422,9 @@ export default function AmeacasPage() {
     return (
       <Page>
         <Title>Ameaças</Title>
-        <FeedbackBlock showIcon>Nenhuma ameaça disponível no momento.</FeedbackBlock>
+        <FeedbackBlock showIcon>
+          Nenhuma ameaça disponível no momento.
+        </FeedbackBlock>
       </Page>
     );
   }
@@ -377,7 +434,9 @@ export default function AmeacasPage() {
     texto: busca || undefined,
     ordenarPor: ordenar.por,
     ordenarSentido: ordenar.sentido,
-    caracteristicas: caracteristicasSelecionadas.length ? caracteristicasSelecionadas : undefined,
+    caracteristicas: caracteristicasSelecionadas.length
+      ? caracteristicasSelecionadas
+      : undefined,
   });
 
   return (
@@ -409,7 +468,7 @@ export default function AmeacasPage() {
                         ? ordenar.sentido === "asc"
                           ? OPCAO_NOME_DESC
                           : OPCAO_NOME_ASC
-                        : OPCAO_NOME_ASC
+                        : OPCAO_NOME_ASC,
                     )
                   }
                   aria-pressed={ordenar.por === "nome"}
@@ -428,7 +487,11 @@ export default function AmeacasPage() {
                       : "Ordenar por nome (clique para alternar entre A→Z e Z→A)"
                   }
                 >
-                  {ordenar.por === "nome" ? (ordenar.sentido === "asc" ? "A→Z" : "Z→A") : "Nome"}
+                  {ordenar.por === "nome"
+                    ? ordenar.sentido === "asc"
+                      ? "A→Z"
+                      : "Z→A"
+                    : "Nome"}
                 </OrderBtn>
                 <OrderBtn
                   type="button"
@@ -439,7 +502,7 @@ export default function AmeacasPage() {
                         ? ordenar.sentido === "desc"
                           ? OPCAO_VD_ASC
                           : OPCAO_VD_DESC
-                        : OPCAO_VD_DESC
+                        : OPCAO_VD_DESC,
                     )
                   }
                   aria-pressed={ordenar.por === "vd"}
@@ -458,12 +521,18 @@ export default function AmeacasPage() {
                       : "Ordenar por VD (clique para alternar entre maior→menor e menor→maior)"
                   }
                 >
-                  {ordenar.por === "vd" ? (ordenar.sentido === "desc" ? "VD ↓" : "VD ↑") : "VD"}
+                  {ordenar.por === "vd"
+                    ? ordenar.sentido === "desc"
+                      ? "VD ↓"
+                      : "VD ↑"
+                    : "VD"}
                 </OrderBtn>
               </OrderGroup>
             </FilterBlock>
             <FilterBlock>
-              <FilterLabel id="caracteristica-label">Características</FilterLabel>
+              <FilterLabel id="caracteristica-label">
+                Características
+              </FilterLabel>
               <MultiSelectWrap ref={caracteristicasRef}>
                 <MultiSelectTrigger
                   type="button"
@@ -472,7 +541,11 @@ export default function AmeacasPage() {
                   aria-haspopup="listbox"
                   aria-labelledby="caracteristica-label"
                   id="filtro-caracteristicas"
-                  title={caracteristicasSelecionadas.length > 0 ? caracteristicasSelecionadas.join(", ") : undefined}
+                  title={
+                    caracteristicasSelecionadas.length > 0
+                      ? caracteristicasSelecionadas.join(", ")
+                      : undefined
+                  }
                 >
                   <MultiSelectTriggerText>
                     {caracteristicasSelecionadas.length === 0
@@ -521,13 +594,18 @@ export default function AmeacasPage() {
           </FeedbackBlock>
         ) : (
           <>
-            <ResultCount>{filtered.length} ameaça{filtered.length !== 1 ? "s" : ""} encontrada{filtered.length !== 1 ? "s" : ""}</ResultCount>
+            <ResultCount>
+              {filtered.length} ameaça{filtered.length !== 1 ? "s" : ""}{" "}
+              encontrada{filtered.length !== 1 ? "s" : ""}
+            </ResultCount>
             {filtered.map((a: Ameaca) => (
               <Card key={a.id} href={`/ameacas/${a.id}`}>
                 <CardTitle>{a.nome}</CardTitle>
                 <CardMeta>
                   VD {a.vd}
-                  {a.caracteristicas?.length ? ` · ${a.caracteristicas.join(", ")}` : ""}
+                  {a.caracteristicas?.length
+                    ? ` · ${a.caracteristicas.join(", ")}`
+                    : ""}
                 </CardMeta>
               </Card>
             ))}
@@ -535,7 +613,10 @@ export default function AmeacasPage() {
         )}
       </List>
       <FeedbackText style={{ marginTop: theme.spacing.md }}>
-        <small>*dano mental dos Dados Médios leva em conta a regra "Jogando sem sanidade"</small>
+        <small>
+          *dano mental dos Dados Médios leva em conta a regra &quot;Jogando sem
+          sanidade&quot;
+        </small>
       </FeedbackText>
     </Page>
   );

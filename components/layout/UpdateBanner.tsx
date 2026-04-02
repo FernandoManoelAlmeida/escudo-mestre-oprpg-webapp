@@ -67,7 +67,8 @@ export default function UpdateBanner() {
       return;
 
     /** Query string evita resposta do precache/runtime do SW (fetch `no-store` não contorna o SW). */
-    const versionFetchUrl = () => `${assetUrl("/version.json")}?t=${Date.now()}`;
+    const versionFetchUrl = () =>
+      `${assetUrl("/version.json")}?t=${Date.now()}`;
 
     const checkVersion = async () => {
       try {
@@ -95,7 +96,8 @@ export default function UpdateBanner() {
 
     /** URLs absolutas evitam resolução errada do script em subpaths (ex.: GitHub Pages). */
     const scopeUrl = new URL(assetUrl("/"), window.location.origin).href;
-    const swScriptUrl = new URL(assetUrl("/sw.js"), window.location.origin).href;
+    const swScriptUrl = new URL(assetUrl("/sw.js"), window.location.origin)
+      .href;
 
     void navigator.serviceWorker
       .register(swScriptUrl, { scope: scopeUrl })

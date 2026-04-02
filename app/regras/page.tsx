@@ -12,7 +12,9 @@ const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   max-width: 720px;
   margin: 0 auto;
-  padding-bottom: calc(${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl});
+  padding-bottom: calc(
+    ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
+  );
 `;
 
 const Title = styled.h1`
@@ -123,9 +125,7 @@ function FeedbackBlock({
 }) {
   return (
     <FeedbackWrapper>
-      {showIcon && (
-        <FeedbackIcon name="icon-exception" decorative />
-      )}
+      {showIcon && <FeedbackIcon name="icon-exception" decorative />}
       <FeedbackText>{children}</FeedbackText>
     </FeedbackWrapper>
   );
@@ -145,15 +145,34 @@ export default function RegrasPage() {
   }, []);
 
   if (loading) return <RegrasPageSkeleton />;
-  if (error) return <Page><Title>Regras</Title><FeedbackBlock showIcon>{`Não foi possível carregar os dados.\n${error}`}</FeedbackBlock></Page>;
-  if (!data) return <Page><Title>Regras</Title><FeedbackBlock showIcon>Nenhuma regra disponível no momento.</FeedbackBlock></Page>;
+  if (error)
+    return (
+      <Page>
+        <Title>Regras</Title>
+        <FeedbackBlock
+          showIcon
+        >{`Não foi possível carregar os dados.\n${error}`}</FeedbackBlock>
+      </Page>
+    );
+  if (!data)
+    return (
+      <Page>
+        <Title>Regras</Title>
+        <FeedbackBlock showIcon>
+          Nenhuma regra disponível no momento.
+        </FeedbackBlock>
+      </Page>
+    );
 
   const filtered = filterRegrasIndex(data, { texto: busca || undefined });
 
   return (
     <Page>
       <Title>Regras</Title>
-      <Intro>Índice do Escudo do Mestre. Use os atalhos abaixo para tabelas e glossário.</Intro>
+      <Intro>
+        Índice do Escudo do Mestre. Use os atalhos abaixo para tabelas e
+        glossário.
+      </Intro>
       <SearchInput
         type="search"
         placeholder="Buscar nas regras (seções, tabelas, glossário…)"

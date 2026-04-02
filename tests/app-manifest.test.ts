@@ -15,7 +15,9 @@ describe("app/manifest", () => {
     expect(m.start_url).toBe("/meu-repo/");
     expect(m.scope).toBe("/meu-repo/");
     expect(m.icons).toHaveLength(4);
-    expect(m.icons?.filter((i) => i.purpose === "any").map((i) => i.src)).toEqual([
+    expect(
+      m.icons?.filter((i) => i.purpose === "any").map((i) => i.src),
+    ).toEqual([
       "/meu-repo/icons/icon-192.webp",
       "/meu-repo/icons/icon-512.webp",
     ]);

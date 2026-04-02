@@ -23,7 +23,8 @@ const Line = styled(SkeletonBox)`
 const SectionTitle = styled(SkeletonBox)`
   width: 160px;
   height: 1.25rem;
-  margin: ${({ theme }) => theme.spacing.xl} 0 ${({ theme }) => theme.spacing.md};
+  margin: ${({ theme }) => theme.spacing.xl} 0
+    ${({ theme }) => theme.spacing.md};
 `;
 
 const InputRow = styled.div`

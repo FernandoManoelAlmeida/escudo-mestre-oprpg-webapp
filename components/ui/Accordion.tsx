@@ -62,7 +62,12 @@ type AccordionProps = {
   id?: string;
 };
 
-export function Accordion({ title, children, defaultOpen = false, id }: AccordionProps) {
+export function Accordion({
+  title,
+  children,
+  defaultOpen = false,
+  id,
+}: AccordionProps) {
   const [open, setOpen] = useState(defaultOpen);
   const panelId = id ? `${id}-panel` : undefined;
   const headerId = id ? `${id}-header` : undefined;
@@ -79,7 +84,12 @@ export function Accordion({ title, children, defaultOpen = false, id }: Accordio
         <AccordionTitle>{title}</AccordionTitle>
         <Chevron $open={open} aria-hidden />
       </AccordionHeader>
-      <AccordionPanel $open={open} id={panelId} role="region" aria-labelledby={headerId}>
+      <AccordionPanel
+        $open={open}
+        id={panelId}
+        role="region"
+        aria-labelledby={headerId}
+      >
         <AccordionContent>{children}</AccordionContent>
       </AccordionPanel>
     </>

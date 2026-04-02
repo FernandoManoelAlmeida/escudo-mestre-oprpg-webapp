@@ -11,10 +11,15 @@ describe("scripts/write-version", () => {
 
   it("grava version.json com buildId fallback", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv-"));
-    const payload = writeVersion(dir, { now: () => "2020-01-01T00:00:00.000Z" });
+    const payload = writeVersion(dir, {
+      now: () => "2020-01-01T00:00:00.000Z",
+    });
     expect(payload.generatedAt).toBe("2020-01-01T00:00:00.000Z");
     expect(payload.buildId).toMatch(/^build-/);
-    const raw = fs.readFileSync(path.join(dir, "public", "version.json"), "utf8");
+    const raw = fs.readFileSync(
+      path.join(dir, "public", "version.json"),
+      "utf8",
+    );
     expect(JSON.parse(raw).buildId).toBe(payload.buildId);
   });
 
@@ -31,16 +36,30 @@ describe("scripts/write-version", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv3-"));
     fs.mkdirSync(path.join(dir, "public"), { recursive: true });
     fs.mkdirSync(path.join(dir, "out"), { recursive: true });
-    fs.writeFileSync(path.join(dir, "out", "version.json"), '{"buildId":"velho"}\n', "utf8");
-    const payload = writeVersion(dir, { now: () => "2021-01-01T00:00:00.000Z" });
-    const outRaw = fs.readFileSync(path.join(dir, "out", "version.json"), "utf8");
+    fs.writeFileSync(
+      path.join(dir, "out", "version.json"),
+      '{"buildId":"velho"}\n',
+      "utf8",
+    );
+    const payload = writeVersion(dir, {
+      now: () => "2021-01-01T00:00:00.000Z",
+    });
+    const outRaw = fs.readFileSync(
+      path.join(dir, "out", "version.json"),
+      "utf8",
+    );
     expect(JSON.parse(outRaw).buildId).toBe(payload.buildId);
     expect(JSON.parse(outRaw).generatedAt).toBe("2021-01-01T00:00:00.000Z");
   });
 });
 
 describe("scripts/migrate-ameacas", () => {
-  const { normalizarCaracteristica, slug, normalizarDescricaoAcao, parseBlock } = require("../scripts/migrate-ameacas.js");
+  const {
+    normalizarCaracteristica,
+    slug,
+    normalizarDescricaoAcao,
+    parseBlock,
+  } = require("../scripts/migrate-ameacas.js");
 
   it("normalizarCaracteristica", () => {
     expect(normalizarCaracteristica("  a b  ")).toBe("A B");
@@ -107,17 +126,13 @@ describe("scripts/migrate-regras", () => {
 
   it("parseMarkdownTable valida separador e parseia linhas", () => {
     expect(parseMarkdownTable("| a |\n")).toBeNull();
-    const t = parseMarkdownTable(
-      "| Col | DT |\n| --- | --- |\n| x | 12 |\n",
-    );
+    const t = parseMarkdownTable("| Col | DT |\n| --- | --- |\n| x | 12 |\n");
     expect(t?.headers).toEqual(["Col", "DT"]);
     expect(t?.rows[0]).toMatchObject({ col: "x", dt: 12 });
   });
 
   it("parseMarkdownTable rejeita separador inválido", () => {
-    expect(
-      parseMarkdownTable("| a | b |\n| x | y |\n"),
-    ).toBeNull();
+    expect(parseMarkdownTable("| a | b |\n| x | y |\n")).toBeNull();
   });
 
   it("extractFirstTableBlock extrai e rest", () => {
