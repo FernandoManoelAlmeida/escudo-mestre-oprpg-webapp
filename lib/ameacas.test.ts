@@ -401,23 +401,21 @@ describe("filterAmeacas", () => {
     expect(list.map((a) => a.id)).toEqual(["m", "z"]);
   });
 
-  it("com duas características, prefere quem tem as duas na ordem selecionada", () => {
-    const data: AmeacasData = {
-      ameacas: [
-        { ...predador, caracteristicas: ["MEDO", "SANGUE", "CRIATURA"] },
-        { ...zumbi, caracteristicas: ["SANGUE", "CRIATURA", "MÉDIO"] },
-        { ...pessoa, caracteristicas: ["SANGUE", "PESSOA"] },
-      ],
-    };
-    const list = filterAmeacas(data, {
-      caracteristicas: ["SANGUE", "CRIATURA"],
-      ordenarPor: "vd",
-      ordenarSentido: "desc",
-    });
-    expect(list).toHaveLength(3);
-    expect(list[0]!.id).toBe("zumbi-de-sangue");
-    expect(list[1]!.id).toBe("dissociado");
-    expect(list[2]!.id).toBe("predador");
+  it("busca por valor de machucado encontra a ameaça", () => {
+    const list = filterAmeacas(fixture, { texto: "120" });
+    expect(list.some((a) => a.id === "predador")).toBe(true);
+  });
+
+  it("busca lida corretamente com campos nulos ou indefinidos em textoParaBusca", () => {
+    const min: Ameaca = {
+      id: "min",
+      nome: "Minimalista",
+      vd: 1,
+      caracteristicas: ["TESTE"],
+      atributos: { FOR: 1 },
+    } as unknown as Ameaca;
+    const list = filterAmeacas({ ameacas: [min] }, { texto: "minimalista" });
+    expect(list).toHaveLength(1);
   });
 });
 

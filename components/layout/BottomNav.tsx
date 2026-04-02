@@ -24,11 +24,25 @@ export default function BottomNav() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    isActive: boolean,
+    active: boolean,
+    href: string,
   ) => {
-    if (isActive) {
+    if (active) {
+      const isSubRoute = pathname !== href;
+      const isAtTop = window.scrollY === 0;
+
+      // Se estiver no topo e for uma sub-rota, permite navegar para a principal
+      if (isAtTop && isSubRoute) {
+        return;
+      }
+
+      // Caso contrário, previne a navegação padrão
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // Se não estiver no topo, faz scroll suave
+      if (!isAtTop) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 
@@ -47,7 +61,7 @@ export default function BottomNav() {
               href={href}
               aria-label={label}
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-                handleNavClick(e, active)
+                handleNavClick(e, active, href)
               }
             >
               <NavItemWrap>
@@ -66,7 +80,7 @@ export default function BottomNav() {
             href={href}
             aria-label={label}
             onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-              handleNavClick(e, active)
+              handleNavClick(e, active, href)
             }
             $active={active}
           >

@@ -55,7 +55,7 @@ export const NavLink = styled.a<{ $active?: boolean }>`
 
 export const NavIcon = styled(RasterIconSvg).withConfig({
   shouldForwardProp: (prop) => prop !== "$active",
-}) <{ $active?: boolean }>`
+})<{ $active?: boolean }>`
   width: 24px;
   height: 24px;
   display: block;
