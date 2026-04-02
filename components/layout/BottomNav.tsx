@@ -23,9 +23,9 @@ export default function BottomNav() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    isActive: boolean
   ) => {
-    if (pathname === href) {
+    if (isActive) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -44,7 +44,7 @@ export default function BottomNav() {
               key={href}
               href={href}
               aria-label={label}
-              onClick={(e) => handleNavClick(e, href)}
+              onClick={(e) => handleNavClick(e, active)}
             >
               <NavItemWrap>
                 <CentralButtonWrap>
@@ -60,7 +60,7 @@ export default function BottomNav() {
             key={href}
             href={href}
             aria-label={label}
-            onClick={(e) => handleNavClick(e, href)}
+            onClick={(e) => handleNavClick(e, active)}
           >
             <NavItemWrap>
               <NavLink as="span" $active={active}>

@@ -111,7 +111,7 @@ const RegraRef = styled.span`
 const RegraDescricao = styled.p`
   margin: 0;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
-  color: ${({ theme }) => theme.colors.textMuted};
+  color: ${({ theme }) => theme.colors.text};
   line-height: 1.6;
 `;
 

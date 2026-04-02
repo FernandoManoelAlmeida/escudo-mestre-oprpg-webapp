@@ -13,7 +13,6 @@ import RollToaster from "@/components/ui/RollToaster";
 import { useRollToast } from "@/context/RollToastContext";
 import { GlobalStyles } from "@/components/layout/GlobalStyles";
 import { escudoFixture } from "./fixtures/escudo-data";
-import React from "react";
 
 describe("UI components", () => {
   it("SkeletonBox renderiza", () => {
@@ -40,6 +39,7 @@ describe("UI components", () => {
     fireEvent.click(btn);
     expect(screen.getByText("Conteúdo interno")).toBeVisible();
     fireEvent.click(btn);
+    expect(screen.queryByText("Conteúdo interno")).not.toBeVisible();
   });
 
   it("D20RollButton dispara onClick", () => {
