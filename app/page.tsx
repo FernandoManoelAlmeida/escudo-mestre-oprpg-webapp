@@ -11,6 +11,10 @@ const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   max-width: 720px;
   margin: 0 auto;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    max-width: 1000px;
+  }
 `;
 
 const TitleRow = styled.div`
@@ -80,17 +84,40 @@ const RegrasList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: ${({ theme }) => theme.spacing.md};
+    align-items: stretch;
+  }
 `;
 
 const RegraItem = styled.li`
   margin: 0 0 ${({ theme }) => theme.spacing.md};
-  padding: 0 0 ${({ theme }) => theme.spacing.md};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  padding: ${({ theme }) => theme.spacing.md};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background: ${({ theme }) => theme.colors.surface};
+  display: flex;
+  flex-direction: column;
 
   &:last-child {
     margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    height: 100%;
+    transition: border-color 0.2s, background-color 0.2s;
+
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.primary};
+      background: ${({ theme }) => theme.colors.surfaceHover};
+    }
+
+    &:last-child:nth-child(odd) {
+      grid-column: span 2;
+    }
   }
 `;
 
