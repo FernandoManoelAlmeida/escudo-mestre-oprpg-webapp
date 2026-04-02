@@ -10,6 +10,7 @@ import {
   NavItemWrap,
   CentralButtonWrap,
   CentralButtonIcon,
+  CentralLink,
 } from "./BottomNav.styles";
 
 const items: { href: string; label: string; iconName: RasterIconName }[] = [
@@ -40,34 +41,39 @@ export default function BottomNav() {
 
         if (isCentral) {
           return (
-            <Link
+            <CentralLink
+              as={Link}
               key={href}
               href={href}
               aria-label={label}
-              onClick={(e) => handleNavClick(e, active)}
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                handleNavClick(e, active)
+              }
             >
               <NavItemWrap>
                 <CentralButtonWrap>
                   <CentralButtonIcon name={iconName} alt={label} />
                 </CentralButtonWrap>
               </NavItemWrap>
-            </Link>
+            </CentralLink>
           );
         }
 
         return (
-          <Link
+          <NavLink
+            as={Link}
             key={href}
             href={href}
             aria-label={label}
-            onClick={(e) => handleNavClick(e, active)}
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
+              handleNavClick(e, active)
+            }
+            $active={active}
           >
             <NavItemWrap>
-              <NavLink as="span" $active={active}>
-                <NavIcon name={iconName} alt={label} $active={active} />
-              </NavLink>
+              <NavIcon name={iconName} alt={label} $active={active} />
             </NavItemWrap>
-          </Link>
+          </NavLink>
         );
       })}
     </Nav>

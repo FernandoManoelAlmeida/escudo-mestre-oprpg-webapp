@@ -43,6 +43,7 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   transition:
     background 0.15s,
     color 0.15s;
+  -webkit-tap-highlight-color: transparent;
   ${({ theme, $active }) =>
     $active ? `text-shadow: 0 0 12px ${theme.colors.primaryGlow};` : ""}
 
@@ -54,7 +55,7 @@ export const NavLink = styled.a<{ $active?: boolean }>`
 
 export const NavIcon = styled(RasterIconSvg).withConfig({
   shouldForwardProp: (prop) => prop !== "$active",
-})<{ $active?: boolean }>`
+}) <{ $active?: boolean }>`
   width: 24px;
   height: 24px;
   display: block;
@@ -101,4 +102,13 @@ export const CentralButtonIcon = styled(RasterIconSvg)`
   display: block;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
+`;
+
+export const CentralLink = styled.a`
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 `;
