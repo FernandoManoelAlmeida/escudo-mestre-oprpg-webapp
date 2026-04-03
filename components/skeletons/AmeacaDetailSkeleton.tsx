@@ -5,7 +5,7 @@ import { SkeletonBox } from "@/components/ui/Skeleton";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
@@ -23,12 +23,18 @@ const Sheet = styled.article`
 `;
 
 const Header = styled.div`
-  padding: ${({ theme }) => theme.spacing.lg};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.border};
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.lg};
+  background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colors.primary}22 0%,
+    ${({ theme }) => theme.colors.surface} 100%
+  );
+  border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 
 const HeaderText = styled.div`
@@ -39,6 +45,10 @@ const HeaderText = styled.div`
 const Block = styled.section`
   padding: ${({ theme }) => theme.spacing.lg};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `;
 
 const HeaderTitleSkeleton = styled(SkeletonBox)`

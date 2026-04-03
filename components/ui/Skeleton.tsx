@@ -11,9 +11,11 @@ export const SkeletonBox = styled.div<{
   $width?: string;
   $height?: string;
   $radius?: string;
+  $margin?: string;
 }>`
   width: ${({ $width }) => $width ?? "100%"};
   height: ${({ $height }) => $height ?? "1em"};
+  margin: ${({ $margin }) => $margin ?? "0"};
   border-radius: ${({ $radius, theme }) => $radius ?? theme.borderRadius};
   background: linear-gradient(
     90deg,

@@ -8,7 +8,7 @@ const Page = styled.div`
   padding-bottom: calc(
     ${({ theme }) => theme.bottomNavHeight} + ${({ theme }) => theme.spacing.xl}
   );
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
