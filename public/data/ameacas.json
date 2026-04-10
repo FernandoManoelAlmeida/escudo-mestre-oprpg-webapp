@@ -2882,6 +2882,7 @@
       "nome": "Gael",
       "vd": 160,
       "caracteristicas": [
+        "SANGUE",
         "PESSOA",
         "MÉDIO"
       ],
@@ -2898,7 +2899,7 @@
       "machucado": 80,
       "resistencias": "Balístico, impacto e perfuração 5, Sangue 10",
       "imunidades": null,
-      "vulnerabilidades": null,
+      "vulnerabilidades": "Morte",
       "atributos": {
         "AGI": 2,
         "FOR": 4,
