@@ -54,7 +54,7 @@ export function HomePageSkeleton() {
   return (
     <Page>
       <LogoSkeleton aria-hidden />
-      
+
       <DescriptionSkeleton>
         <Line $width="100%" aria-hidden />
         <Line $width="95%" aria-hidden />

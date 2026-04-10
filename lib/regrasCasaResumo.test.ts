@@ -11,7 +11,9 @@ describe("REGRAS_CASA_RESUMO", () => {
   });
 
   it("contém a regra 'Ataque especial nerfado' com texto correto", () => {
-    const r = REGRAS_CASA_RESUMO.find((i) => i.titulo.includes("Ataque especial"));
+    const r = REGRAS_CASA_RESUMO.find((i) =>
+      i.titulo.includes("Ataque especial"),
+    );
     expect(r).toBeDefined();
     expect(r!.descricao).toContain("Combatente");
     expect(r!.descricao).toContain("+2, +4 e +6");

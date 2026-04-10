@@ -104,7 +104,9 @@ const RegraItem = styled.li`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     height: 100%;
-    transition: border-color 0.2s, background-color 0.2s;
+    transition:
+      border-color 0.2s,
+      background-color 0.2s;
 
     &:hover {
       border-color: ${({ theme }) => theme.colors.primary};

@@ -4,7 +4,12 @@
       "id": "predador",
       "nome": "Predador",
       "vd": 140,
-      "caracteristicas": ["MEDO", "SANGUE", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "MEDO",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 25,
         "dano": "4d8 mental",
@@ -102,7 +107,11 @@
       "id": "zumbi-de-sangue",
       "nome": "Zumbi de Sangue",
       "vd": 20,
-      "caracteristicas": ["SANGUE", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "2d6 mental",
@@ -156,7 +165,10 @@
       "id": "dissociado",
       "nome": "Dissociado",
       "vd": 10,
-      "caracteristicas": ["PESSOA", "MÉDIA"],
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "d20",
@@ -326,7 +338,10 @@
       "id": "cacador-de-gente",
       "nome": "Caçador de Gente",
       "vd": 80,
-      "caracteristicas": ["PESSOA", "MÉDIA"],
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "d20+5",
@@ -428,7 +443,10 @@
       "id": "fazendeiro-isolado",
       "nome": "Fazendeiro Isolado",
       "vd": 20,
-      "caracteristicas": ["PESSOA", "MÉDIA"],
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "2d20+5",
@@ -504,7 +522,10 @@
       "id": "soldado-de-aluguel",
       "nome": "Soldado de Aluguel",
       "vd": 40,
-      "caracteristicas": ["PESSOA", "MÉDIA"],
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "d20+5",
@@ -566,7 +587,12 @@
       "id": "prole-de-lobo",
       "nome": "Prole de Lobo",
       "vd": 40,
-      "caracteristicas": ["MORTE", "SANGUE", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "MORTE",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "3d6 mental",
@@ -650,7 +676,12 @@
       "id": "aracnasita",
       "nome": "Aracnasita",
       "vd": 80,
-      "caracteristicas": ["MORTE", "MEDO", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "MORTE",
+        "MEDO",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 20,
         "dano": "4d6 mental",
@@ -730,7 +761,10 @@
       "id": "lobo",
       "nome": "Lobo",
       "vd": 20,
-      "caracteristicas": ["ANIMAL", "MÉDIA"],
+      "caracteristicas": [
+        "ANIMAL",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "d20+5",
@@ -792,7 +826,12 @@
       "id": "nidere",
       "nome": "Nidere",
       "vd": 320,
-      "caracteristicas": ["MORTE", "SANGUE", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "MORTE",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 35,
         "dano": "8d6 mental",
@@ -880,7 +919,11 @@
       "id": "sempiternal-enfraquecido",
       "nome": "Sempiternal Enfraquecido",
       "vd": 100,
-      "caracteristicas": ["MORTE", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 20,
         "dano": "4d6 mental",
@@ -1140,7 +1183,12 @@
       "id": "desperto-brutamontes",
       "nome": "Desperto Brutamontes",
       "vd": 60,
-      "caracteristicas": ["CONHECIMENTO", "ENERGIA", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 20,
         "dano": "3d6 mental",
@@ -1307,7 +1355,11 @@
       "id": "cacadores",
       "nome": "Caçadores",
       "vd": 60,
-      "caracteristicas": ["MORTE", "PESSOA", "MÉDIA"],
+      "caracteristicas": [
+        "MORTE",
+        "PESSOA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "3d20+10",
@@ -1401,7 +1453,12 @@
       "id": "varn",
       "nome": "Varn",
       "vd": 60,
-      "caracteristicas": ["ENERGIA", "MEDO", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "ENERGIA",
+        "MEDO",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 25,
         "dano": "2d6 mental",
@@ -1483,7 +1540,13 @@
       "id": "escutado-controlado",
       "nome": "Escutado Controlado",
       "vd": 80,
-      "caracteristicas": ["MORTE", "ENERGIA", "MEDO", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "MORTE",
+        "ENERGIA",
+        "MEDO",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 20,
         "dano": "4d6 mental",
@@ -1556,7 +1619,12 @@
       "id": "carente-enfraquecido",
       "nome": "Carente Enfraquecido",
       "vd": 40,
-      "caracteristicas": ["SANGUE", "MORTE", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "SANGUE",
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "2d6 mental",
@@ -1635,7 +1703,12 @@
       "id": "succ",
       "nome": "Succ",
       "vd": 40,
-      "caracteristicas": ["MORTE", "ENERGIA", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "MORTE",
+        "ENERGIA",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "3d6 mental",
@@ -1695,7 +1768,11 @@
       "id": "cavalo-de-lodo",
       "nome": "Cavalo de Lodo",
       "vd": 40,
-      "caracteristicas": ["MORTE", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "3d6 mental",
@@ -1768,7 +1845,11 @@
       "id": "luzidio",
       "nome": "Luzidio",
       "vd": 40,
-      "caracteristicas": ["MORTE", "PESSOA", "MÉDIA"],
+      "caracteristicas": [
+        "MORTE",
+        "PESSOA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": null,
       "pericias": {
         "Percepção": "2d20",
@@ -1840,7 +1921,12 @@
       "id": "desperto-sugador",
       "nome": "Desperto Sugador",
       "vd": 40,
-      "caracteristicas": ["CONHECIMENTO", "ENERGIA", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "2d6 mental",
@@ -1909,7 +1995,12 @@
       "id": "desperto",
       "nome": "Desperto",
       "vd": 20,
-      "caracteristicas": ["CONHECIMENTO", "ENERGIA", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 14,
         "dano": "1d6 mental",
@@ -1978,7 +2069,11 @@
       "id": "morcegosa",
       "nome": "Morcegosa",
       "vd": 20,
-      "caracteristicas": ["MORTE", "CRIATURA", "PEQUENO"],
+      "caracteristicas": [
+        "MORTE",
+        "CRIATURA",
+        "PEQUENO"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "2d6 mental",
@@ -2039,7 +2134,12 @@
       "id": "infecticidio",
       "nome": "Infecticídio",
       "vd": 280,
-      "caracteristicas": ["ENERGIA", "SANGUE", "CRIATURA", "ENORME"],
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "ENORME"
+      ],
       "presencaPerturbadora": {
         "dt": 35,
         "dano": "8d6 mental",
@@ -2116,7 +2216,12 @@
       "id": "amalgama-infectada",
       "nome": "Amalgama Infectada",
       "vd": 100,
-      "caracteristicas": ["ENERGIA", "SANGUE", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 20,
         "dano": "4d6 mental",
@@ -2187,7 +2292,12 @@
       "id": "paciente-zero",
       "nome": "Paciente Zero",
       "vd": 60,
-      "caracteristicas": ["ENERGIA", "SANGUE", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "2d8 mental",
@@ -2271,7 +2381,12 @@
       "id": "infectado",
       "nome": "Infectado",
       "vd": 20,
-      "caracteristicas": ["ENERGIA", "SANGUE", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "2d6 mental",
@@ -2336,7 +2451,12 @@
       "id": "enxame-de-ratos-infectados",
       "nome": "Enxame de Ratos Infectados",
       "vd": 20,
-      "caracteristicas": ["ENERGIA", "SANGUE", "CRIATURA (ENXAME)", "MÉDIA"],
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA (ENXAME)",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "1d6 mental",
@@ -2385,7 +2505,12 @@
       "id": "carnical-preto-da-morte",
       "nome": "Carniçal Preto da Morte",
       "vd": 200,
-      "caracteristicas": ["MORTE", "CONHECIMENTO", "CRIATURA", "MÉDIA"],
+      "caracteristicas": [
+        "MORTE",
+        "CONHECIMENTO",
+        "CRIATURA",
+        "MÉDIA"
+      ],
       "presencaPerturbadora": {
         "dt": 30,
         "dano": "6d6 mental",
@@ -2478,7 +2603,11 @@
       "id": "vulto",
       "nome": "Vulto",
       "vd": 40,
-      "caracteristicas": ["CONHECIMENTO", "CRIATURA", "GRANDE"],
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "CRIATURA",
+        "GRANDE"
+      ],
       "presencaPerturbadora": {
         "dt": 15,
         "dano": "3d6 mental",
@@ -2544,7 +2673,11 @@
       "id": "anarquico-descontrolado",
       "nome": "Anárquico Descontrolado",
       "vd": 120,
-      "caracteristicas": ["ENERGIA", "CRIATURA", "MÉDIO"],
+      "caracteristicas": [
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIO"
+      ],
       "presencaPerturbadora": {
         "dt": 21,
         "dano": "4d6 mental",
@@ -2612,7 +2745,11 @@
       "id": "anarquico",
       "nome": "Anárquico",
       "vd": 20,
-      "caracteristicas": ["ENERGIA", "CRIATURA", "MÉDIO"],
+      "caracteristicas": [
+        "ENERGIA",
+        "CRIATURA",
+        "MÉDIO"
+      ],
       "presencaPerturbadora": {
         "dt": 14,
         "dano": "2d6 mental",
@@ -2673,7 +2810,12 @@
       "id": "anomalia",
       "nome": "Anomalia",
       "vd": 380,
-      "caracteristicas": ["ENERGIA", "MEDO", "CRIATURA", "MÉDIO"],
+      "caracteristicas": [
+        "ENERGIA",
+        "MEDO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
       "presencaPerturbadora": {
         "dt": 45,
         "dano": "9d8 mental",
@@ -2733,6 +2875,101 @@
         "Presença Perturbadora": "27 mental*",
         "Livre - Romper consciência": "20 mental*",
         "Livre - Manipular ondas da existência": "12 energia"
+      }
+    },
+    {
+      "id": "gael",
+      "nome": "Gael",
+      "vd": 160,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "3d20+10",
+        "Reflexos": "2d20+5",
+        "Vontade": "3d20+15"
+      },
+      "defesa": 20,
+      "pv": 190,
+      "machucado": 80,
+      "resistencias": "Balístico, impacto e perfuração 5, Sangue 10",
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 4,
+        "INT": 1,
+        "PRE": 3,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [
+        {
+          "nome": "FAGULHAS CAÓTICAS",
+          "descricao": "Se perder mais da metade de sua vida, Gael entra num frenesi caótico e começa a produzir estática e Energia criando raios em pleno ar. Seus ataques de Avanço Sanguinário ganham +5 de dano de Energia."
+        },
+        {
+          "nome": "O TEMPO PASSA DIFERENTE",
+          "descricao": "O corpo de Gael está constantemente sendo influenciado pelo elemento Morte fazendo se curar aceleradamente. Possui Cura Acelerada 20. Se perder mais da metade de sua vida, esta habilidade deixa de funcionar até o fim da cena."
+        },
+        {
+          "nome": "GUERREIRO SANGUINÁRIO",
+          "descricao": "Os ferimentos causados pelas armas de Gael se rasgam além da área acertada. Um ser atingido fica sangrando: No início de seus turnos, o personagem deve fazer um teste de Vigor (DT 20). Se passar, estabiliza e remove essa condição. Se falhar, perde 1d6 pontos de vida e continua sangrando. Sangramento causado é cumulativo — um ser atingido duas vezes sofre 2d6 pontos de dano de sangramento por rodada."
+        },
+        {
+          "nome": "FRENESI DE SANGUE",
+          "descricao": "Gael tem +5 em ataques contra qualquer alvo que esteja com as condições Machucado e/ou Sangrando."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "SANTO JULGAMENTO",
+              "teste": "4d20+10",
+              "dano": "1d10+17 corte",
+              "obs": "x2"
+            },
+            {
+              "nome": "METRALHADORA LEVE Médio",
+              "teste": "2d20+5",
+              "dano": "1d12+6 balístico",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "CANIBALISMO COMPULSIVO",
+          "ataques": null,
+          "descricao": "Uma vez por cena, Gael pode se alimentar das partes de quaisquer cadáveres de seres. Para cada 10 PV totais do personagem devorado, Gael recupera 2d8+2 PV."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "ATAQUE EM MOVIMENTO",
+          "ataques": null,
+          "descricao": "Gael pode percorrer seu deslocamento e atacar em qualquer ponto durante o movimento."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "AVANÇO SANGUINÁRIO",
+          "ataques": null,
+          "descricao": "Ao executar uma Investida, Gael pode usar uma reação para executar um ataque extra."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "22",
+        "Agredir - Santo Julgamento": "22/32/47 corte",
+        "Agredir - Metralhadora Leve": "12/24/42 balístico",
+        "Completa - Canibalismo Compulsivo": "10"
       }
     }
   ],
