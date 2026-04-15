@@ -3058,7 +3058,7 @@
           "tipo": "LIVRE",
           "nome": "REFLEXOS IMPLACÁVEIS",
           "ataques": null,
-          "descricao": "Durante uma Perseguição Implacável e ao chegar numa distância curta de um personagem o Senhor Segurança pode fazer um avanço rápido e encurtar a distância em segundos dando um SOCÃO. O alvo deve fazer um teste de Reflexos DT 20 para tentar fugir do ataque, caso não passe é acertado, sem a necessidade do Senhor Segurança fazer um teste de ataque, caso passe o ele deve fazer o teste de ataque com a penalidade de -d20-d20."
+          "descricao": "Durante uma Perseguição Implacável e ao chegar numa distância curta de um personagem o Senhor Segurança pode fazer um avanço rápido e encurtar a distância em segundos dando um SOCÃO. O alvo deve fazer um teste de Reflexos DT 20 para tentar fugir do ataque, caso não passe é acertado, sem a necessidade do Senhor Segurança fazer um teste de ataque, caso passe, a criatura deve fazer o teste de ataque com a penalidade de -d20-d20."
         },
         {
           "tipo": "LIVRE",
