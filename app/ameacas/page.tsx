@@ -132,7 +132,7 @@ const OrderBtn = styled.button<{ $active?: boolean }>`
     $active ? theme.colors.background : theme.colors.text};
   border: 1px solid
     ${({ theme, $active }) =>
-      $active ? theme.colors.primary : theme.colors.border};
+    $active ? theme.colors.primary : theme.colors.border};
   border-radius: 6px;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ $active }) => ($active ? 600 : 400)};
@@ -143,7 +143,7 @@ const OrderBtn = styled.button<{ $active?: boolean }>`
     color 0.15s ease;
   &:hover {
     background: ${({ theme, $active }) =>
-      $active ? theme.colors.primary : theme.colors.surfaceHover};
+    $active ? theme.colors.primary : theme.colors.surfaceHover};
     border-color: ${({ theme }) => theme.colors.borderHighlight};
   }
 `;
@@ -584,6 +584,12 @@ export default function AmeacasPage() {
             </FilterBlock>
           </FilterRow>
         </FilterSection>
+        <FeedbackText style={{ marginTop: theme.spacing.md }}>
+          <small>
+            *dano mental dos Dados Médios leva em conta a regra &quot;Jogando sem
+            sanidade&quot;
+          </small>
+        </FeedbackText>
       </FilterPanel>
       <List>
         {filtered.length === 0 ? (
@@ -612,12 +618,6 @@ export default function AmeacasPage() {
           </>
         )}
       </List>
-      <FeedbackText style={{ marginTop: theme.spacing.md }}>
-        <small>
-          *dano mental dos Dados Médios leva em conta a regra &quot;Jogando sem
-          sanidade&quot;
-        </small>
-      </FeedbackText>
     </Page>
   );
 }

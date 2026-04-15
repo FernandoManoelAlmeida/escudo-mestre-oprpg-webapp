@@ -164,8 +164,8 @@ function parseBlock(content) {
     }
   }
 
-  const deslMatch = content.match(/DESLOCAMENTO\s+(.+)$/im);
-  const deslocamento = deslMatch ? deslMatch[1].trim() : "";
+  const deslMatch = content.match(/DESLOCAMENTO\s+([\s\S]+?)(?=\n\n|\n###|$)/i);
+  const deslocamento = deslMatch ? deslMatch[1].trim().replace(/\r\n/g, "\n").replace(/\r/g, "\n") : "";
 
   const habilidades = [];
   const habSec = content.match(

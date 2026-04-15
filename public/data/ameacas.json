@@ -2972,6 +2972,108 @@
         "Agredir - Metralhadora Leve": "12/24/42 balístico",
         "Completa - Canibalismo Compulsivo": "10"
       }
+    },
+    {
+      "id": "senhor-seguranca",
+      "nome": "Senhor Segurança",
+      "vd": 120,
+      "caracteristicas": [
+        "ENERGIA",
+        "CONHECIMENTO",
+        "SANGUE",
+        "MORTE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "3d20",
+        "Reflexos": "3d20+10",
+        "Vontade": "3d20+10",
+        "Intimidação": "3d20+15"
+      },
+      "defesa": 23,
+      "pv": 230,
+      "machucado": 115,
+      "resistencias": "Balístico, impacto e perfuração 5",
+      "imunidades": null,
+      "vulnerabilidades": "Variado",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 3,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏\nPerseguindo 12m | 8 ❏",
+      "habilidades": [
+        {
+          "nome": "VARIAÇÃO DE ELEMENTO",
+          "descricao": "O Senhor Segurança é uma criatura produzida em laboratório, ele pode estar imbuído em qualquer um dos elementos paranormais e isso concede características únicas em cada um:\n- Energia: A DT do teste Reflexo na habilidade Reflexos Implacáveis passa a ser 35 e o bônus de reflexos em testes gerais sobe para 20. Adquire vulnerabilidade a Conhecimento.\n- Conhecimento: Desconsidera a condição Sobrecarga e ganha um ponto de Intelecto. Adquire vulnerabilidade a Sangue.\n- Sangue: O dado de dano do SOCÃO sobe em uma categoria (d10 para d12) e o bônus do teste de ataque sobe para 30. Adquire vulnerabilidade a Morte.\n- Morte: O dado de dano mental da Presença Perturbadora sobe em uma categoria (d6 para d8) e o bônus de intimidação em testes gerais sobe para 25. Adquire vulnerabilidade a Energia."
+        },
+        {
+          "nome": "SOBRECARGA",
+          "descricao": "Após uma Perseguição Implacável seguida de um SOCÃO bem sucedido, ou ao executar um golpe crítico ou ser vítima de um golpe crítico, Senhor Segurança fica seu próximo turno com a condição Paralisado, porém imune a ação Golpe de Misericórdia."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "SOCÃO",
+              "teste": "3d20+15",
+              "dano": "2d10+10 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRAR",
+          "ataques": null,
+          "descricao": "Se o Senhor Segurança acertar um ataque em um personagem Médio ou menor, pode substituir o dano por um movimento de agarrar o alvo (AGI+10). No começo de seu turno, dessa forma estrangulando o personagem agarrado, causando 2d6 pontos de dano de impacto. O Senhor Segurança pode manter apenas um personagem agarrado por vez."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "PERSEGUIÇÃO IMPLACÁVEL",
+          "ataques": null,
+          "descricao": "Quando o Senhor Segurança começa a perseguir um personagem nada pode parar ele até que dê seu SOCÃO ou que ele leve um ataque crítico."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "PERSEGUIÇÃO PERTURBADORA",
+          "ataques": null,
+          "descricao": "Ao iniciar uma Perseguição Implacável contra um personagem, Senhor Segurança ativa sua Presença Perturbadora, causando o dano mental correspondente."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "REFLEXOS IMPLACÁVEIS",
+          "ataques": null,
+          "descricao": "Durante uma Perseguição Implacável e ao chegar numa distância curta de um personagem o Senhor Segurança pode fazer um avanço rápido e encurtar a distância em segundos dando um SOCÃO. O alvo deve fazer um teste de Reflexos DT 20 para tentar fugir do ataque, caso não passe é acertado, sem a necessidade do Senhor Segurança fazer um teste de ataque, caso passe o ele deve fazer o teste de ataque com a penalidade de -d20-d20."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "FORÇA PERTURBADORA",
+          "ataques": null,
+          "descricao": "Quando faz um acerto crítico com um SOCÃO, Senhor Segurança pode derrubar o alvo ou empurrá-lo 3m na direção oposta."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "8 mental*",
+        "Agredir - Socão": "20/30/40 impacto",
+        "Livre - Agarrar": "6 impacto"
+      }
     }
   ],
   "caracteristicasUnicas": [
