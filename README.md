@@ -1,52 +1,40 @@
 # Escudo do Mestre — Webapp
 
-Webapp **mobile-first** para consulta das regras do Escudo do Mestre (Ordem Paranormal RPG), rolagens de dados e fichas de ameaças. Inclui **manifest PWA** e prompt de instalação no Chrome (celular e desktop).
+Webapp **mobile-first** para consulta das regras do Escudo do Mestre (Ordem Paranormal RPG), rolagens de dados e fichas de ameaças. Inclui **manifest PWA** e instalação no Chrome (telemóvel e desktop).
 
 - **Regras:** índice de seções (§), tabelas (DT, termos) e glossário com busca.
-- **Rolagens:** teste de atributo, teste de perícia e rolagem livre (fórmulas como 2d20+5, 4d8).
+- **Rolagens:** teste de atributo, teste de perícia e rolagem livre (fórmulas como `2d20+5`, `4d8`).
 - **Ameaças:** listagem com busca por texto nas fichas; ficha detalhada por ameaça.
 
-Dados em `public/data/` (escudo-mestre-casa.json, ameacas.json). Para cache offline completo, é possível usar `@ducanh2912/next-pwa` com `yarn build --webpack`.
+Dados em `public/data/` (`escudo-mestre-casa.json`, `ameacas.json`). O PWA em produção usa `@ducanh2912/next-pwa` com `yarn build --webpack`.
 
-Este projeto usa **Yarn**. Use `yarn` para instalar dependências e rodar scripts.
+Este projeto usa **Yarn** (`yarn install`, `yarn dev`, etc.).
 
-## Getting Started
+## Documentação
 
-First, run the development server:
+Guias completos para **utilizadores** (mesa) e **desenvolvimento** (setup, build, deploy, PWA):
+
+**[docs/README.md](docs/README.md)**
+
+## Início rápido (desenvolvimento)
 
 ```bash
+yarn install
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para build, testes, dados, PWA e GitHub Pages em detalhe, siga a pasta [`docs/desenvolvimento/`](docs/desenvolvimento/).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## GitHub Pages (resumo)
 
-## Learn More
+O workflow [`.github/workflows/nextjs.yml`](.github/workflows/nextjs.yml) define `GITHUB_PAGES=1` e `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`, alinhado ao `basePath` do Next e ao service worker.
 
-To learn more about Next.js, take a look at the following resources:
+**[Guia completo: deploy e troubleshooting](docs/desenvolvimento/deploy-github-pages.md)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Em síntese: é necessário `public/.nojekyll` no export para o GitHub Pages não ignorar `_next/`. Se o service worker ou o precache falharem após um deploy antigo, faça novo deploy, confirme `.nojekyll` no site e, no Chrome, desregiste o service worker e limpe o cache (ou use janela anónima).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Next.js
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## GitHub Pages (subpath)
-
-O workflow em `.github/workflows/nextjs.yml` define `GITHUB_PAGES=1` e `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`. O `next.config.ts` injeta o mesmo valor no cliente, para o **registro do service worker** (`/repo/sw.js`) e o **precache do Workbox** usarem o mesmo prefixo que o `basePath` do Next.
-
-O ficheiro **`public/.nojekyll`** é copiado para a raiz do `out/` no build. Sem ele, o GitHub Pages (Jekyll) **ignora pastas que começam por `_`**, pelo que **`_next/` não é publicado** e pedidos como `.../_next/static/.../_buildManifest.js` devolvem **404** — o Workbox falha no precache e o service worker pode aparecer como `Unknown`.
-
-Se após um deploy antigo você ainda vir erros como `bad-precaching-response` ou `ServiceWorker ... script ('Unknown')`:
-
-1. Faça um **novo deploy** com o workflow atual (ou build local com `GITHUB_PAGES=1` e `NEXT_PUBLIC_BASE_PATH=/nome-do-repo`).
-2. Confirme no site que existe `https://<user>.github.io/<repo>/.nojekyll` (resposta vazia 200).
-3. No Chrome: **DevTools → Application → Service Workers → Unregister**, depois limpe o cache do site e recarregue (ou use uma janela anônima).
+Documentação oficial: [Next.js](https://nextjs.org/docs).
