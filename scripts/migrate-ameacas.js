@@ -169,7 +169,7 @@ function parseBlock(content) {
 
   const habilidades = [];
   const habSec = content.match(
-    /### Habilidades\s*\n([\s\S]*?)(?=\n### Ações|\n### Enigma|$)/,
+    /### Habilidades\s*\n([\s\S]*?)(?=\n### Ações|\n### Enigma|\n### Dados|### Poderes|$)/,
   );
   if (habSec) {
     const habParts = habSec[1]
