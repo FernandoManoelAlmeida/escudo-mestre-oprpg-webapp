@@ -3074,6 +3074,59 @@
         "Agredir - Socão": "20/30/40 impacto",
         "Livre - Agarrar": "6 impacto"
       }
+    },
+    {
+      "id": "empecilho",
+      "nome": "Empecilho",
+      "vd": 20,
+      "caracteristicas": [
+        "ENERGIA",
+        "CRIATURA",
+        "ENORME"
+      ],
+      "presencaPerturbadora": {
+        "dt": 14,
+        "dano": "2d6 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "1d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "1d20",
+        "Reflexos": "1d20",
+        "Vontade": "1d20"
+      },
+      "defesa": 14,
+      "pv": 50,
+      "machucado": 25,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 1,
+        "INT": 2,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "12m | 8 ❏\nescalar 6m | 4 ❏",
+      "habilidades": [
+        {
+          "nome": "ENXAME",
+          "descricao": "Uma aglomeração de criaturas que agem em conjunto. Em termos de regras, pode entrar no espaço ocupado por um ser. No fim do seu turno, o exame usa o poder Desmantelar. Um enxame é imune a manobras de combate e efeitos que afetam apenas uma criatura e não causam dano e sofre apenas metade do dano de ataques com armas. Porém, sofre 50% a mais de dano por efeitos de área."
+        },
+        {
+          "nome": "DESMANTELAR",
+          "descricao": "O enxame de emepecilhos faz uma manobra desarmar (3d20+7) contra todos os seres em seu espaço que estejam empunhando um equipamento tecnológico, como uma arma de fogo ou acessório. Se vencer, o enxame rouba o item e começa a desmonta-lo, causando 1d6 pontos de dano automaticamente ao objeto (ignora RD). É possível recuperar o objeto vencendo uma manobra desarmar contra o enxame.\n\n### Dados Médios\n\nIniciativa: 24\nPresença Perturbadora: 4 mental*\nDesmantelar: 3/6/9 energia"
+        }
+      ],
+      "acoes": [],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "24",
+        "Presença Perturbadora": "4 mental*",
+        "Desmantelar": "3/6/9 energia"
+      }
     }
   ],
   "caracteristicasUnicas": [
