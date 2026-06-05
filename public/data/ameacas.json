@@ -3349,6 +3349,99 @@
         "Agredir - Murro eletrificado e Carga eletrificada": "36/52/68 eletricidade",
         "Ritual - Eletrocussão verdadeiro": "24 energia"
       }
+    },
+    {
+      "id": "limus",
+      "nome": "Limus",
+      "vd": 140,
+      "caracteristicas": [
+        "SANGUE",
+        "PESSOA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "4d20+10",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "4d20+10",
+        "Reflexos": "2d20+5",
+        "Vontade": "4d20+15"
+      },
+      "defesa": 18,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": "Sangue 10",
+      "imunidades": null,
+      "vulnerabilidades": "Morte",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 1,
+        "INT": 1,
+        "PRE": 4,
+        "VIG": 4
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "AURA DA FOME",
+          "descricao": "Qualquer ser que comece seu turno em alcance curto de Limus sofre 3d8+6 pontos de dano de Sangue (Fortitude DT 20 reduz à metade)."
+        },
+        {
+          "nome": "ESPECTRO DA FOME",
+          "descricao": "us manifesta vinhas, raízes e um liquido viscoso parecido com sangue, que atua como uma extensão de seu corpo. Todos os ataques e habilidades de Limus podem ser feitos em alcance curto. Além disso, os alvos devem fazer um teste de Vontade DT 20, caso seja bem sucedido no teste não precisa mais fazer, caso falhe uma vontade incontrolável de comer as vinhas e raízes toma conta do afetado e assim o faz, adquirindo a doença Sangue Quente (pg 291 de OPRPG), para cada vez que consumir sobe em um o estágio da doença."
+        },
+        {
+          "nome": "FRENESI DE SANGUE",
+          "descricao": "Gael tem +5 em ataques contra qualquer alvo que esteja com as condições Machucado e/ou Sangrando."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "SOCO SÉRIO",
+              "teste": "d20+10",
+              "dano": "1d4+2 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "CANIBALISMO COMPULSIVO",
+          "ataques": null,
+          "descricao": "Uma vez por cena, Limus pode se alimentar das partes de quaisquer cadáveres de seres. Para cada 10 PV totais do personagem devorado, Gael recupera 2d8+2 PV."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "TRANSPORTAR PELO SANGUE",
+          "ataques": null,
+          "descricao": "Limus pode se movimentar através do Sangue, inclusive daquele que esteja saindo de dentro de um personagem. Com uma ação de movimento, Limus pode se deslocar para qualquer espaço que tenha uma grande quantidade de sangue exposta ou adjacente a um personagem machucado ou morrendo. É possível usar essa habilidade como reação, porém na rodada que isso acontecer, não poderá ser usada como ação de movimento. É possível levar um ser de tamanho pequeno ou médio adjacente junto, este pode resistir a ser levado com DT sendo um teste de força ou agilidade contra o Limus."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "RAIO DA FOME",
+          "ataques": null,
+          "descricao": "Quando acerta dois ataques de SOCOS SÉRIOS em um mesmo ser, o Limus faz com que um raio de fome seja projetado deste ser em direção a outro alvo em alcance médio. Este alvo sofre 3d8+6 pontos de dano de Sangue (Reflexos DT 25 reduz à metade)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "EXPANDIR A AURA",
+          "ataques": null,
+          "descricao": "Limus concentra energia em volta de si para depois expandi-la como uma explosão de Sangue. Cada ser em alcance longo sofre 4d8+15 pontos de dano de Sangue (Reflexos DT 25 reduz à metade). O próprio Limus perde 20 PV quando usa esta habilidade. A habilidade Espectro de Fome passa a subir em 1 seu alcance."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": {
+        "Iniciativa": "22",
+        "Agredir - Soco sério": "4/6/8 impacto",
+        "Completa - Canibalismo Compulsivo": "10",
+        "Livre - Raio da fome": "18 sangue",
+        "Completa - Expandir a aura": "31 sangue"
+      }
     }
   ],
   "caracteristicasUnicas": [
