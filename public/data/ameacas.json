@@ -3111,7 +3111,7 @@
         },
         {
           "nome": "DESMANTELAR",
-          "descricao": "O enxame de emepecilhos faz uma manobra desarmar (3d20+7) contra todos os seres em seu espaço que estejam empunhando um equipamento tecnológico, como uma arma de fogo ou acessório. Se vencer, o enxame rouba o item e começa a desmonta-lo, causando 1d6 pontos de dano automaticamente ao objeto (ignora RD). É possível recuperar o objeto vencendo uma manobra desarmar contra o enxame.\n\n### Dados Médios\n\nIniciativa: 24\nPresença Perturbadora: 4 mental*\nDesmantelar: 3 automaticamente"
+          "descricao": "O enxame de emepecilhos faz uma manobra desarmar (3d20+7) contra todos os seres em seu espaço que estejam empunhando um equipamento tecnológico, como uma arma de fogo ou acessório. Se vencer, o enxame rouba o item e começa a desmonta-lo, causando 1d6 pontos de dano automaticamente ao objeto (ignora RD). É possível recuperar o objeto vencendo uma manobra desarmar contra o enxame."
         }
       ],
       "acoes": [],
