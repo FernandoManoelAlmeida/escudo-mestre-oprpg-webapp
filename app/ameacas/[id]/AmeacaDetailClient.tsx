@@ -338,41 +338,43 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
             </Block>
           )}
 
-          <Block>
-            <BlockTitle>Ações</BlockTitle>
-            {ameaca.acoes.map((acao, i) => (
-              <AcaoItem key={i}>
-                <Row style={{ alignItems: "center", flexWrap: "wrap" }}>
-                  <Text style={{ marginBottom: 0 }}>
-                    <strong>
-                      {acao.tipo} — {acao.nome}
-                    </strong>
-                  </Text>
-                  {acao.nome.toUpperCase() !== "AGREDIR" &&
-                    acao.descricao &&
-                    extractAllDiceFormulas(acao.descricao).map((formula) => (
-                      <D20RollButton
-                        key={formula}
-                        size="small"
-                        onClick={() => handleRoll(formula, "", acao.nome)}
-                        aria-label={`Rolar ${acao.nome}`}
-                      />
-                    ))}
-                </Row>
-                {acao.ataques?.map((atk, j) => (
-                  <AtaqueBlock
-                    key={j}
-                    ataque={atk}
-                    onRoll={handleRoll}
-                    onRollDanoText={(danoText, label) =>
-                      handleRollDanoText(danoText, label)
-                    }
-                  />
-                ))}
-                {acao.descricao && <Text>{acao.descricao}</Text>}
-              </AcaoItem>
-            ))}
-          </Block>
+          {ameaca.acoes && ameaca.acoes.length > 0 && (
+            <Block>
+              <BlockTitle>Ações</BlockTitle>
+              {ameaca.acoes.map((acao, i) => (
+                <AcaoItem key={i}>
+                  <Row style={{ alignItems: "center", flexWrap: "wrap" }}>
+                    <Text style={{ marginBottom: 0 }}>
+                      <strong>
+                        {acao.tipo} — {acao.nome}
+                      </strong>
+                    </Text>
+                    {acao.nome.toUpperCase() !== "AGREDIR" &&
+                      acao.descricao &&
+                      extractAllDiceFormulas(acao.descricao).map((formula) => (
+                        <D20RollButton
+                          key={formula}
+                          size="small"
+                          onClick={() => handleRoll(formula, "", acao.nome)}
+                          aria-label={`Rolar ${acao.nome}`}
+                        />
+                      ))}
+                  </Row>
+                  {acao.ataques?.map((atk, j) => (
+                    <AtaqueBlock
+                      key={j}
+                      ataque={atk}
+                      onRoll={handleRoll}
+                      onRollDanoText={(danoText, label) =>
+                        handleRollDanoText(danoText, label)
+                      }
+                    />
+                  ))}
+                  {acao.descricao && <Text>{acao.descricao}</Text>}
+                </AcaoItem>
+              ))}
+            </Block>
+          )}
 
           {ameaca.enigmaMedo && (
             <Block>

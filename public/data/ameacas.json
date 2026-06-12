@@ -2485,7 +2485,7 @@
         },
         {
           "nome": "DOENÇA",
-          "descricao": "Um ser que sofra dano do enxame de ratos contrai a doença febre vírus do I-413 (Fortitude DT 15 evita). Um ser que passe no teste de resistência fica imune a essa doença até final da cena.\n\n### Dados Médios\n\nIniciativa: 15\nPresença Perturbadora: 2 mental*\nEnxame: 6 perfuração"
+          "descricao": "Um ser que sofra dano do enxame de ratos contrai a doença febre vírus do I-413 (Fortitude DT 15 evita). Um ser que passe no teste de resistência fica imune a essa doença até final da cena."
         }
       ],
       "acoes": [],
