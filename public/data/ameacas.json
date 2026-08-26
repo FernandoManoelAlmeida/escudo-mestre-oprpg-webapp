@@ -428,13 +428,7 @@
         }
       ],
       "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "22",
-        "Agredir - Pancada": "17/19/21 impacto",
-        "Agredir - Machado": "23/31/39 corte",
-        "Agredir - Motosserra": "24/33/42 corte",
-        "Padrão - Assustar": "8 mental*"
-      }
+      "dadosMedios": null
     },
     {
       "id": "fazendeiro-isolado",
@@ -813,10 +807,7 @@
         }
       ],
       "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "19",
-        "Agredir - Mordida": "7/10/13 corte"
-      }
+      "dadosMedios": null
     },
     {
       "id": "nidere",
@@ -3133,12 +3124,7 @@
         "Percepção": "2d20+5",
         "Iniciativa": "d20+5",
         "Fortitude": "d20+5",
-        "Reflexos": "d20+5",
-        "Vontade": "2d20+5",
-        "Investigação": "3d20+5",
-        "Ocultismo": "3d20+5",
-        "Profissão": "3d20+5",
-        "Tecnologia": "3d20+5"
+        "Ciências": "3d20+5"
       },
       "defesa": 14,
       "pv": 20,
@@ -3157,7 +3143,7 @@
       "habilidades": [
         {
           "nome": "MÁSCARA DE GÁS",
-          "descricao": "Uma máscara com filtro que cobre o rosto inteiro. Fornece +10 em testes de Fortitude contra efeitos que dependam de respiração.\n\nRITUAIS (DT 15)\nO assistente de produção pode conjurar os rituais a seguir sem pagar seu custo de PE, até um limite de 3 PE por conjuração, usando a ação apropriada."
+          "descricao": "+10 Fortitude contra efeitos que dependam de respiração.\n\nRITUAIS (DT 15)\nAté 3 PE: Amaldiçoar Tecnologia, Coincidência Forçada, Eletrocussão."
         }
       ],
       "acoes": [
@@ -3184,7 +3170,19 @@
           "tipo": "PADRÃO",
           "nome": "RITUAL",
           "ataques": null,
-          "descricao": "Amaldiçoar Tecnologia (Energia 1): O assistente de produção imbui 1 acessório ou arma de fogo com Energia, fazendo-o funcionar acima de sua capacidade até o fim da cena. O item recebe uma modificação à escolha dele.\n\nCoincidência Forçada (Energia 1): O assistente de produção manipula os caminhos do caos para que 1 ser em alcance curto tenha mais sorte até o fim da cena. O alvo recebe +2 em testes de perícias.\n\nEletrocussão (Energia 1): O assistente de produção manifesta e dispara uma corrente elétrica contra 1 ser ou objeto em alcance curto. Se usado contra um ser, ele sofre 3d6 pontos de dano de eletricidade e fica vulnerável por uma rodada (Fortitude reduz dano à metade e evita condição). Se usado contra objetos eletrônicos, este ritual causa o dobro de dano e ignora resistência."
+          "descricao": "Amaldiçoar Tecnologia (Energia 1): imbui acessório ou arma de fogo com Energia até fim da cena."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Coincidência Forçada (Energia 1): +2 em testes de perícias em alcance curto até fim da cena."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Eletrocussão (Energia 1): 3d6 eletricidade e vulnerável 1 rodada em ser (Fortitude reduz metade)."
         }
       ],
       "enigmaMedo": null,
@@ -3208,11 +3206,7 @@
         "Percepção": "d20+5",
         "Iniciativa": "2d20+10",
         "Fortitude": "3d20+10",
-        "Reflexos": "2d20+10",
-        "Vontade": "d20+5",
-        "Atletismo": "2d20+10",
-        "Crime": "2d20+10",
-        "Ocultismo": "2d20+5"
+        "Atletismo": "2d20+10"
       },
       "defesa": 20,
       "pv": 100,
@@ -3231,11 +3225,11 @@
       "habilidades": [
         {
           "nome": "MARTELO METEORO USB",
-          "descricao": "O produtor consegue fazer de um celular e um cabo USB uma arma destrutiva de Energia. A arma tem alcance corpo a corpo de 6m, fornece +2 em manobras de combate e pode causar dano de impacto ou Energia à escolha do produtor."
+          "descricao": "Arma corpo a corpo 6m, +2 manobras, dano impacto ou Energia."
         },
         {
           "nome": "MÁSCARA DE GÁS",
-          "descricao": "Uma máscara com filtro que cobre o rosto inteiro. Fornece +10 em testes de Fortitude contra efeitos que dependam de respiração.\n\nRITUAIS (DT 20)\nO produtor pode conjurar os rituais a seguir sem pagar seu custo de PE, até um limite de 6 PE por conjuração, usando a ação apropriada."
+          "descricao": "+10 Fortitude contra efeitos que dependam de respiração.\n\nRITUAIS (DT 20)\nAté 6 PE: Chamas do Caos, Eletrocussão Discente, Tela de Ruído Discente."
         }
       ],
       "acoes": [
@@ -3256,14 +3250,24 @@
           "tipo": "PADRÃO",
           "nome": "RITUAL",
           "ataques": null,
-          "descricao": "Chamas do Caos (Energia 2): O produtor manipula o calor e o fogo em alcance curto até o fim da cena. Ao conjurar o ritual, ele escolhe um dos vários efeitos para usar. O uso mais comum do produtor é para Chamejar: uma arma corpo a corpo causa +1d6 pontos de dano de fogo. Mas ele pode fazer outras coisas (veja OPRPG, p. 126).\n\nEletrocussão Discente (Energia 1): O produtor dispara um poderoso raio que causa 6d6 pontos de dano de Energia em todos os seres e objetos livres em uma linha de 30m (Fortitude reduz o dano à metade).\n\nTela de Ruído Discente (Energia 2): O produtor cria uma película de Energia que recobre seu corpo e absorve energia cinética até o fim da cena. Ele recebe 60 PV temporários, mas apenas contra dano balístico, de corte, de impacto ou de perfuração. Alternativamente, ele pode conjurar este ritual como uma reação quando sofrer dano, recebendo resistência 30 apenas contra esse dano. O produtor só pode usar esse ritual três vezes por cena."
+          "descricao": "Chamas do Caos (Energia 2): efeitos de fogo em alcance curto (Chamejar +1d6 fogo em arma corpo a corpo)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Eletrocussão Discente (Energia 1): linha 30m, 6d6 Energia (Fortitude reduz metade)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Tela de Ruído Discente (Energia 2): 60 PV temporários vs dano físico ou resistência 30 como reação (3x/cena)."
         }
       ],
       "enigmaMedo": null,
       "dadosMedios": {
-        "Iniciativa": "22",
-        "Agredir - Martelo Meteoro Usb": "16/22/28 impacto",
-        "Padrão - Ritual": "18 Energia"
+        "Iniciativa": "22"
       }
     },
     {
@@ -3279,33 +3283,26 @@
         "Percepção": "4d20+15",
         "Iniciativa": "3d20+10",
         "Fortitude": "3d20+15",
-        "Reflexos": "3d20+10",
-        "Vontade": "4d20+15",
-        "Atletismo": "3d20+15",
-        "Crime": "3d20+10",
-        "Enganação": "4d20+15",
-        "Intimidação": "4d20+15",
-        "Ocultismo": "3d20+10",
-        "Tecnologia": "3d20+10"
+        "Atletismo": "3d20+15"
       },
-      "defesa": 20,
-      "pv": 100,
-      "machucado": 50,
+      "defesa": 28,
+      "pv": 280,
+      "machucado": 140,
       "resistencias": null,
       "imunidades": null,
       "vulnerabilidades": null,
       "atributos": {
-        "AGI": 2,
-        "FOR": 2,
-        "INT": 2,
-        "PRE": 1,
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 3,
+        "PRE": 4,
         "VIG": 3
       },
       "deslocamento": "9m | 6 ❏",
       "habilidades": [
         {
           "nome": "MÁSCARA DE GÁS",
-          "descricao": "Uma máscara com filtro que cobre o rosto inteiro. Fornece +10 em testes de Fortitude contra efeitos que dependam de respiração.\n\nRITUAIS (DT 29)\nO diretor pode conjurar os rituais a seguir sem pagar seu custo de PE, até um limite de 10 PE por conjuração, usando a ação apropriada."
+          "descricao": "+10 Fortitude contra efeitos que dependam de respiração.\n\nRITUAIS (DT 29)\nAté 10 PE por conjuração."
         }
       ],
       "acoes": [
@@ -3314,14 +3311,14 @@
           "nome": "AGREDIR",
           "ataques": [
             {
-              "nome": "MURRO ELETRIFICADO USB",
+              "nome": "MURRO ELETRIFICADO",
               "teste": "3d20+20",
               "dano": "4d8+20 eletricidade",
               "obs": "x3"
             },
             {
-              "nome": "CARGA ELETRIFICADA Curto x3",
-              "teste": "3d20",
+              "nome": "CARGA ELETRIFICADA",
+              "teste": "3d20+20",
               "dano": "4d8+20 eletricidade",
               "obs": "x3"
             }
@@ -3332,15 +3329,36 @@
           "tipo": "PADRÃO",
           "nome": "RITUAL",
           "ataques": null,
-          "descricao": "Coincidência Forçada Verdadeiro (Energia 1): O diretor manipula os caminhos do caos para que aliados à sua escolha em alcance curto tenham mais sorte até o fim da cena. Os alvos recebe +5 em testes de perícias.\n\nDissonância Acústica (Energia 2): O diretor manipula a vibração do ar, criando uma esfera de dissonância sonora com 6m de raio em alcance médio. Enquanto estiverem na área, todos os seres ficam surdos. Essa dissonância impede que seres dentro da área conjurem rituais.\n\nEletrocussão Verdadeiro (Energia 1): O diretor dispara poderosos relâmpagos que causam 8d6 pontos de dano de Energia (Fortitude reduz o dano à metade). Ele pode atingir um relâmpago em cada ser à sua escolha em alcance curto.\n\nSalto Fantasma (Energia 3): O corpo do diretor se transforma momentaneamente em Energia pura e viaja até outro ponto em alcance médio. Ele não precisa perceber nem ter linha de efeito ao seu destino, podendo apenas imaginá-lo, desde que já tenha observado o local de alguma forma (em pessoa, por fotografia, por vídeo…). Por exemplo, pode se transportar 3m adiante para ultrapassar uma porta fechada. Uma vez transportado, ele não pode agir pelo resto do seu turno. Este ritual não permite que ele apareça dentro de um corpo sólido; se o ponto de chegada não tem espaço livre, ele ressurge na área vazia mais próxima.\n\nTela de Ruído Discente (Energia 2): O diretor cria uma película de Energia que recobre seu corpo e absorve energia cinética até o fim da cena. Ele recebe 60 PV temporários, mas apenas contra dano balístico, de corte, de impacto ou de perfuração. Alternativamente, ele pode conjurar este ritual como uma reação quando sofrer dano, recebendo resistência 30 apenas contra esse dano. O diretor só pode usar esse ritual três vezes por cena."
+          "descricao": "Coincidência Forçada Verdadeiro (Energia 1): +5 em testes de perícias em alcance curto."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Dissonância Acústica (Energia 2): esfera 6m surdos, impede rituais na área."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Eletrocussão Verdadeiro (Energia 1): 8d6 Energia em alcance curto (Fortitude reduz metade)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Salto Fantasma (Energia 3): transporte paranormal até alcance médio."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Tela de Ruído Discente (Energia 2): como Produtor (3x/cena)."
         }
       ],
       "enigmaMedo": null,
       "dadosMedios": {
-        "Iniciativa": "24",
-        "Agredir - Murro Eletrificado Usb": "36/52/68 eletricidade",
-        "Agredir - Carga Eletrificada Curto X3": "36/52/68 eletricidade",
-        "Padrão - Ritual": "24 Energia"
+        "Iniciativa": "24"
       }
     },
     {
@@ -6686,3621 +6704,75 @@
     {
       "id": "investido",
       "nome": "Investido",
-      "vd": 40,
+      "vd": 80,
       "caracteristicas": [
         "PESSOA",
         "MÉDIA"
       ],
       "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "2d20+5",
-        "Iniciativa": "2d20+5"
-      },
-      "defesa": 17,
-      "pv": 35,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17"
-      }
-    },
-    {
-      "id": "lider-de-culto",
-      "nome": "Líder de culto",
-      "vd": 140,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "3d20+10",
-        "Iniciativa": "2d20+10"
-      },
-      "defesa": 27,
-      "pv": 150,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "22"
-      }
-    },
-    {
-      "id": "policial",
-      "nome": "Policial",
-      "vd": 20,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "2d20+5"
-      },
-      "defesa": 19,
-      "pv": 15,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17"
-      }
-    },
-    {
-      "id": "policial-de-elite",
-      "nome": "Policial de elite",
-      "vd": 60,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+10",
-        "Iniciativa": "3d20+15"
-      },
-      "defesa": 27,
-      "pv": 40,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "29"
-      }
-    },
-    {
-      "id": "chefe-de-policia",
-      "nome": "Chefe de polícia",
-      "vd": 100,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "3d20+15",
-        "Iniciativa": "2d20+10"
-      },
-      "defesa": 25,
-      "pv": 105,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "22"
-      }
-    },
-    {
-      "id": "cao-de-guarda",
-      "nome": "Cão de guarda",
-      "vd": 10,
-      "caracteristicas": [
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+10",
-        "Iniciativa": "2d20+5"
-      },
-      "defesa": 14,
-      "pv": 12,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17",
-        "Agredir - Mordida": "5/8/11 corte"
-      }
-    },
-    {
-      "id": "enxame-de-abelhas",
-      "nome": "Enxame de abelhas",
-      "vd": 10,
-      "caracteristicas": [
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "d20+5"
-      },
-      "defesa": 15,
-      "pv": 10,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "3m, voo 9m. Enxame: entra em espaço ocupado, causa 2d6 dano perfuração automático no fim do turno. Imune a manobras, sofre metade dano de armas, +50% dano de área. Zumbido Nauseante: quem sofrer dano fica enjoado 1 rodada (Fortitude DT 15 evita).",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "15",
-        "Constrição": "6 perfuração"
-      }
-    },
-    {
-      "id": "enxame-de-ratos",
-      "nome": "Enxame de ratos",
-      "vd": 10,
-      "caracteristicas": [
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "d20+5"
-      },
-      "defesa": 13,
-      "pv": 15,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "9m, escalar/nadar 6m. Enxame (mesmo). Doença: febre hemorrágica (Fortitude DT 15).",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "15"
-      }
-    },
-    {
-      "id": "jacare",
-      "nome": "Jacaré",
-      "vd": 40,
-      "caracteristicas": [
-        "PESSOA",
-        "GRANDE"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "d20+5"
-      },
-      "defesa": 16,
-      "pv": 40,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "6m, nadar 9m. Giro da Morte: se agarrar na água e fizer manobra agarrar para dano, +2d8. Ataques: Mordida (3d20+5, 1d8+8 corte), Cauda (3d20+5, 1d12 impacto). Agarrão (se acertar mordida).",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "15",
-        "Agredir - Mordida": "12/16/20 corte",
-        "Agredir - Cauda": "6/12/18 impacto"
-      }
-    },
-    {
-      "id": "javaporco",
-      "nome": "Javaporco",
-      "vd": 20,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "d20+5"
-      },
-      "defesa": 14,
-      "pv": 35,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "15",
-        "Agredir - Mordida": "8/12/16 corte"
-      }
-    },
-    {
-      "id": "onca-pintada",
-      "nome": "Onça pintada",
-      "vd": 40,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+10",
-        "Iniciativa": "3d20+10"
-      },
-      "defesa": 16,
-      "pv": 55,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "12m, escalar/nadar 6m. Ataques: Mordida (3d20+10, 1d8+5 corte), Garras (corpo a corpo x2, 3d20+10, crítico 19, 1d6+5 corte). Agarrão (se mordida acertar). Bote (completa: investida e ataca com mordida e garras no mesmo alvo).",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "24",
-        "Agredir - Mordida": "9/13/17 corte",
-        "Agredir - Garras": "8/11/14 corte"
-      }
-    },
-    {
-      "id": "sucuri",
-      "nome": "Sucuri",
-      "vd": 40,
-      "caracteristicas": [
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "2d20+5"
-      },
-      "defesa": 16,
-      "pv": 68,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "6m, escalar/nadar 9m. Ataque: Mordida (3d20+10, 1d6+8 corte). Agarrão (se mordida acertar). Constrição (livre: no início do turno, causa 2d6+8 dano impacto em quem agarra).",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17",
-        "Agredir - Mordida": "11/14/17 corte",
-        "Constrição": "14 impacto"
-      }
-    },
-    {
-      "id": "aberracao-de-carne",
-      "nome": "Aberração de Carne",
-      "vd": 40,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 15,
-        "dano": "3d6 mental",
-        "nexImune": 30
-      },
-      "pericias": {
-        "Percepção": "1d20+5",
-        "Iniciativa": "2d20+5",
-        "Fortitude": "3d20+10",
-        "Reflexos": "3d20",
-        "Vontade": "3d20"
-      },
-      "defesa": 19,
-      "pv": 70,
-      "machucado": 35,
-      "resistencias": "Balístico, impacto, perfuração 5, Sangue 10",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 1,
-        "FOR": 3,
-        "INT": 0,
-        "PRE": 1,
-        "VIG": 3
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PANCADA",
-              "teste": "3d20+10",
-              "dano": "2d6+6 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "AGARRÃO",
-          "ataques": null,
-          "descricao": "Se acertar um ataque de pancada, pode tentar agarrar o alvo (teste 3d20+12). Pode manter até dois personagens agarrados por vez."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ABOCANHAR",
-          "ataques": null,
-          "descricao": "Leva até dois personagens agarrados para dentro de sua boca central. Quando é abocanhado, e no início de cada turno da aberração em que continuar agarrado, o personagem sofre 3d6 dano de perfuração (Fortitude DT 15 reduz à metade). Qualquer personagem adjacente pode gastar uma ação padrão e fazer um teste de Atletismo (DT 20) para tentar tirar outro personagem de dentro da boca."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17",
-        "Presença Perturbadora": "6 mental*",
-        "Agredir - Pancada": "12/18/24 impacto",
-        "Movimento - Abocanhar": "9 perfuração"
-      }
-    },
-    {
-      "id": "aniquilacao",
-      "nome": "Aniquilação",
-      "vd": 380,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 45,
-        "dano": "9d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "4d20+20",
-        "Iniciativa": "4d20+20",
-        "Fortitude": "5d20+30",
-        "Reflexos": "4d20+25",
-        "Vontade": "4d20+20",
-        "Atletismo": "5d20+20"
-      },
-      "defesa": 58,
-      "pv": 1200,
-      "machucado": 600,
-      "resistencias": "Dano 50",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 5,
-        "INT": 3,
-        "PRE": 4,
-        "VIG": 5
-      },
-      "deslocamento": "15m | 10 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "GARRAS",
-              "teste": "5d20+40",
-              "dano": "4d10+30 Sangue",
-              "obs": "x2"
-            },
-            {
-              "nome": "TENTÁCULOS ESPINHENTOS",
-              "teste": "5d20+40",
-              "dano": "2d12+30 Sangue",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "DISPARO DE ESPINHOS Distância x3, médio",
-              "teste": "4d20+40",
-              "dano": "2d10+20 Sangue",
-              "obs": "x3"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "AGARRÃO",
-          "ataques": null,
-          "descricao": "Se acertar um ataque de tentáculos espinhentos, pode tentar agarrar o alvo (teste 5d20+50). Pode manter até quatro personagens agarrados por vez."
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "INSTINTO ANIQUILADOR",
-          "ataques": null,
-          "descricao": "Sempre que um personagem em alcance curto se movimenta mais do que 3m, a Aniquilação realiza um ataque de tentáculos espinhentos contra ele."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "APERTAR E DESTRUIR",
-          "ataques": null,
-          "descricao": "No início de seu turno, aperta os personagens agarrados, causando 40 pontos de dano de Sangue."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "BATER AS ASAS",
-          "ataques": null,
-          "descricao": "Cria um som ensurdecedor. Cada personagem em alcance longo sofre 8d6 dano mental, é empurrado 6m para longe e fica atordoado por uma rodada (Fortitude DT 40 reduz o dano à metade e evita os efeitos)."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ESTRANGULAMENTO FINAL",
-          "ataques": null,
-          "descricao": "Desloca-se 15m enquanto agarra e estrangula personagens no caminho. Cada personagem que ficar adjacente durante esse deslocamento fica agarrado e asfixiado (Reflexos DT 30 evita). Um personagem agarrado pode escapar gastando uma ação padrão e passando em um teste de Reflexos (DT 30)."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "TEMPESTADE DE ESPINHOS",
-          "ataques": null,
-          "descricao": "Lança todos os seus espinhos. Todos os personagens em alcance médio sofrem 20d6+20 dano de Sangue (Reflexos DT 40 reduz à metade). Uma vez por cena. Quando usa, perde seu disparo de espinhos até o fim da cena."
-        }
-      ],
-      "enigmaMedo": "Desconhecido. Quando resolvido, a Aniquilação perde sua resistência a dano e sua habilidade Tempestade de Espinhos.",
-      "dadosMedios": {
-        "Iniciativa": "36",
-        "Presença Perturbadora": "27 mental*",
-        "Agredir - Garras": "50/70/90 Sangue",
-        "Agredir - Tentáculos Espinhentos": "42/54/66 Sangue",
-        "Agredir - Disparo De Espinhos": "30/40/50 Sangue",
-        "Completa - Tempestade De Espinhos": "80 Sangue"
-      }
-    },
-    {
-      "id": "carente",
-      "nome": "Carente",
-      "vd": 300,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 35,
-        "dano": "7d8 mental",
-        "nexImune": 90
-      },
-      "pericias": {
-        "Percepção": "3d20+10",
-        "Iniciativa": "4d20+15",
-        "Fortitude": "4d20+25",
-        "Reflexos": "4d20+25",
-        "Vontade": "3d20+15",
-        "Atletismo": "4d20+20",
-        "Enganação": "3d20+15"
-      },
-      "defesa": 40,
-      "pv": 700,
-      "machucado": 350,
-      "resistencias": "Balístico, impacto, perfuração e Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 4,
-        "INT": 2,
-        "PRE": 3,
-        "VIG": 4
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "CARÊNCIA",
-          "descricao": "Qualquer ser que já esteve envolvido na gestação de outro ser recebe +1d20 em ataques contra o carente, porém o carente também recebe +1d20 em ataques contra esse ser."
-        },
-        {
-          "nome": "REGENERAÇÃO DE SANGUE",
-          "descricao": "Cura Acelerada 20. Se ficar inconsciente ou sofrer dano de Energia, esta habilidade deixa de funcionar até o fim da cena."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "GARRAS DE SANGUE",
-              "teste": "4d20+35",
-              "dano": "2d8+20 Sangue",
-              "obs": "x2"
-            },
-            {
-              "nome": "FERRÃO DE SANGUE",
-              "teste": "4d20+35",
-              "dano": "2d12+20 Sangue",
-              "obs": null
-            },
-            {
-              "nome": "TENTÁCULO",
-              "teste": "4d20+35",
-              "dano": "2d8+20 Sangue",
-              "obs": null
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "FORMA INFANTIL",
-          "ataques": null,
-          "descricao": "Se contorce de volta para o corpo da pequena criança para passar em espaços pequenos. Além disso, não consegue abrir a primeira porta para entrar em um lugar. Uma vez que essa porta é aberta e ele deixa de estar na forma infantil, pode ignorar essa restrição."
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "RASTEIRA DE TENTÁCULO",
-          "ataques": null,
-          "descricao": "Uma vez por rodada, quando fica adjacente a dois ou mais seres, faz um ataque de tentáculo contra um deles. Se acertar, a vítima fica caída e é empurrada 6m para longe."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "SUGADA MORTAL",
-          "ataques": null,
-          "descricao": "Usando seu ferrão, consegue sugar fluidos e apodrecer os órgãos internos. Um ser atingido pelo ferrão fica debilitado e enjoado até o fim da cena (Fortitude DT 35 evita)."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "VOCÊ É MINHA MAMÃE?",
-          "ataques": null,
-          "descricao": "Usa a parte que simula o corpo de uma criança para abraçar um ser adjacente, que fica paralisado até ser solto (Reflexos DT 25 evita). Pode manter o abraço indefinidamente, mas será forçado a soltar o alvo se sofrer dano de Energia."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "31",
-        "Presença Perturbadora": "21 mental*",
-        "Agredir - Garras De Sangue": "28/36/44 Sangue",
-        "Agredir - Ferrão De Sangue": "32/44/56 Sangue",
-        "Agredir - Tentáculo": "28/36/44 Sangue"
-      }
-    },
-    {
-      "id": "dama-de-sangue",
-      "nome": "Dama de Sangue",
-      "vd": 60,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 20,
-        "dano": "3d6 mental",
-        "nexImune": 35
-      },
       "pericias": {
         "Percepção": "2d20+10",
-        "Iniciativa": "2d20",
+        "Iniciativa": "3d20+5",
         "Fortitude": "2d20+10",
-        "Reflexos": "2d20+5",
-        "Vontade": "2d20"
-      },
-      "defesa": 20,
-      "pv": 105,
-      "machucado": 52,
-      "resistencias": "Balístico, impacto e perfuração 10, Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 2,
-        "FOR": 3,
-        "INT": 1,
-        "PRE": 2,
-        "VIG": 2
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "CONSUMIR",
-          "descricao": "Quando invocada, não possui as habilidades listadas. Sempre que consome um corpo, recebe uma das habilidades, na ordem: Arremessar, Chuva de Ácido, Espinhos, Grito Devastador, Miasma Fétido, Prisão de Tentáculos, Visão Macabra. Para consumir um corpo, precisa estar adjacente ao cadáver e gastar uma ação padrão. No começo de seu turno, se não tiver consumido sete corpos, irá se deslocar na direção de um corpo e consumi-lo."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "TENTÁCULO",
-              "teste": "3d20+10",
-              "dano": "2d6+5 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ARREMESSAR (FLOR ROSA)",
-          "ataques": null,
-          "descricao": "Ergue um personagem em alcance curto e o arremessa a um ponto também em alcance curto. O personagem sofre 2d6 dano de impacto e fica caído (Reflexos DT 15 evita todo o efeito). A flor rosa murcha se a dama entrar em contato com fertilizante. Isso faz a dama perder esta habilidade e sofrer –1d20 em Luta."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "CHUVA DE ÁCIDO (FLOR VERMELHA)",
-          "ataques": null,
-          "descricao": "Espirra ácido. Todos em alcance curto sofrem 4d4 dano químico (Fortitude DT 15 reduz à metade). A flor vermelha murcha se a dama entrar em contato com agrotóxico. Isso faz a dama perder esta habilidade e reduz suas resistências a dano em 5."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ESPINHOS (FLOR AMARELA)",
-          "ataques": null,
-          "descricao": "Dispara espinhos em até três alvos em alcance médio. Cada alvo sofre 2d8 dano de perfuração (Reflexos DT 15 reduz à metade). A flor amarela murcha se a dama sofrer 10 pontos de dano de fogo de um único efeito. Isso faz a dama perder esta habilidade e sofrer –1d20 em Reflexos."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "GRITO DEVASTADOR (FLOR ROXA)",
-          "ataques": null,
-          "descricao": "Emite um grito agudo. Todos em alcance curto ficam confusos (Vontade DT 15 evita). Um personagem que falhe pode repetir o teste no final do seu turno. A flor roxa murcha se a dama entrar em contato com o bulbo de bravo purpulis. Isso faz a dama perder esta habilidade e sofrer –1d20 em Vontade."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "MIASMA FÉTIDO (FLOR AZUL)",
-          "ataques": null,
-          "descricao": "Expele um miasma fétido. Todos em alcance curto ficam enjoados por 1d4+1 rodadas (Fortitude DT 15 reduz para 1 rodada). A flor azul murcha se a dama sofrer dano de eletricidade ou Energia. Isso faz a dama perder esta habilidade e reduz seu deslocamento em 6m."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "PRISÃO DE TENTÁCULOS (FLOR VERDE)",
-          "ataques": null,
-          "descricao": "Penetra o solo com seus tentáculos e escolhe um personagem em alcance curto. Esse personagem fica agarrado até que os tentáculos sejam destruídos (acertados automaticamente, 20 PV). A flor verde murcha se for molhada em água corrente. Isso faz a dama perder esta habilidade e reduz sua Defesa em 5."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "VISÃO MACABRA (FLOR LARANJA)",
-          "ataques": null,
-          "descricao": "Movimento hipnotizante da flor. Todos em alcance médio sofrem 1d6 dano mental (Vontade DT 15 reduz à metade). A flor laranja murcha se a dama sofrer 10 pontos de dano de corte de um único efeito. Isso faz a dama perder esta habilidade e reduz seus PV totais em 20."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "12",
-        "Presença Perturbadora": "6 mental*",
-        "Agredir - Tentáculo": "11/17/23 impacto",
-        "Movimento - Arremessar (flor Rosa)": "6 impacto",
-        "Movimento - Espinhos (flor Amarela)": "8 perfuração"
-      }
-    },
-    {
-      "id": "enpap-x",
-      "nome": "Enpap X",
-      "vd": 180,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 25,
-        "dano": "6d6 mental",
-        "nexImune": 60
-      },
-      "pericias": {
-        "Percepção": "2d20+10",
-        "Iniciativa": "2d20+10",
-        "Fortitude": "3d20+15",
-        "Reflexos": "2d20+15",
-        "Vontade": "2d20+10"
-      },
-      "defesa": 36,
-      "pv": 360,
-      "machucado": 180,
-      "resistencias": "Balístico, impacto e perfuração 10, Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 2,
-        "FOR": 4,
-        "INT": 1,
-        "PRE": 2,
-        "VIG": 3
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "TRANSFORMAÇÃO",
-          "descricao": "Começa o combate como um existido comum. Quando é reduzido a 0 PV, em vez de morrer, se transforma: passa a usar esta ficha (incluindo a Presença Perturbadora) e recupera todos os PV."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "SOCÃO",
-              "teste": "4d20+20",
-              "dano": "2d10+10 impacto",
-              "obs": "x4"
-            },
-            {
-              "nome": "CORRENTES Distância x3, curto",
-              "teste": "2d20+15",
-              "dano": "2d8+10 impacto",
-              "obs": "x3"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "ACORRENTAR",
-          "ataques": null,
-          "descricao": "Se acertar um ataque de correntes em um personagem Médio ou menor, pode tentar agarrar o alvo à distância (teste 2d20+17). No começo do seu turno, estrangula cada personagem agarrado, causando 4d6 dano de impacto. Pode manter até dois personagens agarrados."
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "FORMA DESENCADEADA",
-          "ataques": null,
-          "descricao": "Quando faz um acerto crítico com um socão ou corrente, pode derrubar o alvo ou empurrá-lo 3m."
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "CRESCER",
-          "ataques": null,
-          "descricao": "Sempre que acertar um personagem com seu socão, recebe um bônus cumulativo de +1d6 em suas próximas rolagens de dano até o fim do turno."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "MARCAS DO TERROR",
-          "ataques": null,
-          "descricao": "Faz com que as marcas em seu corpo brilhem com uma luz dourada. Todos os personagens em alcance curto sofrem 4d6 dano mental (Vontade DT 25 reduz à metade). Um personagem que passe no teste fica imune a esta habilidade até o final da cena."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "22",
-        "Presença Perturbadora": "12 mental*",
-        "Agredir - Socão": "20/30/40 impacto",
-        "Agredir - Correntes": "18/26/34 impacto",
-        "Livre - Acorrentar": "12 impacto"
-      }
-    },
-    {
-      "id": "kerberos",
-      "nome": "Kerberos",
-      "vd": 340,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 35,
-        "dano": "10d6 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "3d20+20",
-        "Iniciativa": "4d20+15",
-        "Fortitude": "5d20+25",
-        "Reflexos": "4d20+20",
-        "Vontade": "3d20+15",
-        "Atletismo": "5d20+25"
-      },
-      "defesa": 46,
-      "pv": 1150,
-      "machucado": 575,
-      "resistencias": "Balístico, impacto, perfuração e Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 5,
-        "INT": 0,
-        "PRE": 3,
-        "VIG": 5
-      },
-      "deslocamento": "18m | 12 ❏",
-      "habilidades": [
-        {
-          "nome": "ATAQUE FLEXÍVEL",
-          "descricao": "Pode executar até quatro ataques por rodada, combinando ataques corpo a corpo e à distância. Nunca pode executar o mesmo ataque mais de três vezes na mesma rodada."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "MORDIDA",
-              "teste": "5d20+40",
-              "dano": "4d12+30 Sangue",
-              "obs": null
-            },
-            {
-              "nome": "DISPARO DE ESPINHOS Distância, médio",
-              "teste": "4d20+35",
-              "dano": "4d8+20 Sangue",
-              "obs": null
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "DEVORAR",
-          "ataques": null,
-          "descricao": "Uma vez por cena, quando reduz os PV de um personagem a 0 com sua mordida, pode devorá-lo, matando-o instantaneamente e recuperando PV iguais à metade dos PV totais da vítima (Fortitude DT 40 evita)."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "DERRUBAR E DEVORAR",
-          "ataques": null,
-          "descricao": "Usa a manobra derrubar em um personagem a até 3m (teste 5d20+45). Se vencer, desfere três ataques de mordida contra o personagem. O dano destes ataques aumenta para 4d12+40."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "31",
-        "Presença Perturbadora": "20 mental*",
-        "Agredir - Mordida": "54/78/102 Sangue",
-        "Agredir - Disparo De Espinhos": "36/52/68 Sangue"
-      }
-    },
-    {
-      "id": "minotauro",
-      "nome": "Minotauro",
-      "vd": 280,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 35,
-        "dano": "8d6 mental",
-        "nexImune": 80
-      },
-      "pericias": {
-        "Percepção": "3d20+20",
-        "Iniciativa": "4d20+15",
-        "Fortitude": "5d20+20",
-        "Reflexos": "4d20+15",
-        "Vontade": "3d20+10",
-        "Atletismo": "5d20+20"
-      },
-      "defesa": 44,
-      "pv": 750,
-      "machucado": 375,
-      "resistencias": "Balístico, impacto, perfuração e Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 5,
-        "INT": 1,
-        "PRE": 3,
-        "VIG": 5
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "CHIFRES",
-              "teste": "5d20+30",
-              "dano": "6d12+20 perfuração",
-              "obs": null
-            },
-            {
-              "nome": "MACHADO",
-              "teste": "5d20+32",
-              "dano": "4d12+20 corte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "CRAVAR CHIFRES",
-          "ataques": null,
-          "descricao": "Se fizer uma investida com seus chifres e acertar o ataque, crava seus chifres no alvo, que fica agarrado. Enquanto mantém um ser agarrado, não pode atacar com seus chifres. No final de cada turno da vítima enquanto ainda estiver agarrada, ela sofre 4d12+20 dano de Sangue."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "31",
-        "Presença Perturbadora": "16 mental*",
-        "Agredir - Chifres": "56/92/128 perfuração",
-        "Agredir - Machado": "44/68/92 corte",
-        "Livre - Cravar Chifres": "44 Sangue"
-      }
-    },
-    {
-      "id": "mulher-afogada",
-      "nome": "Mulher Afogada",
-      "vd": 140,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 25,
-        "dano": "4d8 mental",
-        "nexImune": 50
-      },
-      "pericias": {
-        "Percepção": "2d20+5",
-        "Iniciativa": "4d20+10",
-        "Fortitude": "3d20+10",
-        "Reflexos": "4d20+10",
-        "Vontade": "2d20+5"
-      },
-      "defesa": 28,
-      "pv": 240,
-      "machucado": 120,
-      "resistencias": "Balístico, Energia, impacto e perfuração 10, Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 3,
-        "INT": 2,
-        "PRE": 2,
-        "VIG": 3
-      },
-      "deslocamento": "9m (6 quadrados); forma líquida 36m | 24 ❏",
-      "habilidades": [
-        {
-          "nome": "FORMA DE SANGUE",
-          "descricao": "Por padrão, é encontrada na forma de líquido. Nesta forma, possui resistência a balístico, corte, impacto, perfuração e Sangue 20; deslocamento 36m; e recebe as habilidades Afogar em Sangue, Arrancar Sangue e Invadir Órgãos (ações marcadas com ◇). Perde esta habilidade quando é invocada em sua forma física (após seu Enigma de Medo ser desvendado)."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "MORDIDA",
-              "teste": "3d20+15",
-              "dano": "4d8+8 perfuração",
-              "obs": null
-            },
-            {
-              "nome": "GARRAS",
-              "teste": "3d20+15",
-              "dano": "4d6+6 corte",
-              "obs": "x2"
-            },
-            {
-              "nome": "JATO DE SANGUE Distância, curto",
-              "teste": "4d20+10",
-              "dano": "4d8+8 Sangue",
-              "obs": null
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "SUGAR SANGUE",
-          "ataques": null,
-          "descricao": "Devora o corpo de um personagem adjacente que tenha morrido nesta cena, recuperando 40 PV.\n\n◇ PADRÃO – AFOGAR EM SANGUE\nInvade os orifícios do nariz e da boca de um personagem em alcance curto, afogando-o com Sangue. O personagem fica asfixiado. No início de cada um de seus turnos, pode fazer um teste de Fortitude (DT 24). Se passar, encerra a condição e a mulher afogada é expelida na forma líquida.\n\n◇ REAÇÃO – ARRANCAR SANGUE\nToda vez que é arrancada de um corpo que ela esteja asfixiando, causa 6d6 dano de Sangue e deixa a vítima fraca.\n\n◇ MOVIMENTO – INVADIR ÓRGÃOS\nInvade órgãos vitais de um personagem que esteja asfixiando. O personagem sofre 6d6 dano de Sangue e fica enjoado."
-        }
-      ],
-      "enigmaMedo": "Quando assombra um local, todas as fontes de água se tornam armadilhas. A única maneira de derrotá-la é bloquear todas as saídas de água e fechar o registro hidráulico do local, e então abrir todas as torneiras, forçando sua manifestação física.",
-      "dadosMedios": {
-        "Iniciativa": "26",
-        "Presença Perturbadora": "12 mental*",
-        "Agredir - Mordida": "24/40/56 perfuração",
-        "Agredir - Garras": "18/30/42 corte",
-        "Agredir - Jato De Sangue": "24/40/56 Sangue",
-        "Movimento - Sugar Sangue": "18 Sangue"
-      }
-    },
-    {
-      "id": "tita-de-sangue",
-      "nome": "Titã de Sangue",
-      "vd": 220,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 30,
-        "dano": "7d6 mental",
-        "nexImune": 70
-      },
-      "pericias": {
-        "Percepção": "1d20+15",
-        "Iniciativa": "2d20+10",
-        "Fortitude": "4d20+15",
-        "Reflexos": "2d20+10",
-        "Vontade": "1d20+10"
-      },
-      "defesa": 35,
-      "pv": 550,
-      "machucado": 275,
-      "resistencias": "Balístico, impacto, perfuração e Sangue 20",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 2,
-        "FOR": 5,
-        "INT": 1,
-        "PRE": 1,
-        "VIG": 4
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "SEDE DE SANGUE",
-          "descricao": "Os ataques do titã causam +4d6 pontos de dano de Sangue em personagens que estejam machucados ou sangrando."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "MORDIDA",
-              "teste": "5d20+25",
-              "dano": "4d12+10 perfuração",
-              "obs": null
-            },
-            {
-              "nome": "GARRAS",
-              "teste": "5d20+25",
-              "dano": "4d8+10 corte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "ESTRAÇALHAR",
-          "ataques": null,
-          "descricao": "Se acertar um ser com sua mordida, estraçalha o alvo, que sofre 4d12+10 dano de perfuração e fica sangrando até final da cena (Reflexos DT 30 reduz o dano à metade e evita a condição)."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "22",
-        "Presença Perturbadora": "14 mental*",
-        "Agredir - Mordida": "34/58/82 perfuração",
-        "Agredir - Garras": "26/42/58 corte",
-        "Livre - Estraçalhar": "34 perfuração"
-      }
-    },
-    {
-      "id": "zumbi-de-sangue-bestial",
-      "nome": "Zumbi de Sangue Bestial",
-      "vd": 100,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 20,
-        "dano": "4d6 mental",
-        "nexImune": 45
-      },
-      "pericias": {
-        "Percepção": "2d20+10",
-        "Iniciativa": "2d20+15",
-        "Fortitude": "3d20+10",
-        "Reflexos": "2d20+5",
-        "Vontade": "2d20+5",
-        "Furtividade": "2d20+13"
-      },
-      "defesa": 23,
-      "pv": 200,
-      "machucado": 100,
-      "resistencias": "Balístico, impacto e perfuração 5, Sangue 10",
-      "imunidades": null,
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 2,
-        "FOR": 3,
-        "INT": 0,
-        "PRE": 2,
-        "VIG": 3
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "FURTIVO E LETAL",
-          "descricao": "Quando ataca um personagem desprevenido, recebe +1d20 nos testes de ataque e, se acertar, cada ataque causa dois dados de dano adicional do mesmo tipo."
-        },
-        {
-          "nome": "INSTINTO PREDATÓRIO",
-          "descricao": "Não sofre penalidade em Furtividade por se mover seu deslocamento normal."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "MORDIDA DE SANGUE",
-              "teste": "3d20+15",
-              "dano": "2d10+5 perfuração",
-              "obs": null
-            },
-            {
-              "nome": "GARRAS DE SANGUE",
-              "teste": "3d20+15",
-              "dano": "2d6+5 corte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "27",
-        "Presença Perturbadora": "8 mental*",
-        "Agredir - Mordida De Sangue": "15/25/35 perfuração",
-        "Agredir - Garras De Sangue": "11/17/23 corte"
-      }
-    },
-    {
-      "id": "o-diabo",
-      "nome": "O Diabo",
-      "vd": 400,
-      "caracteristicas": [
-        "SANGUE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 45,
-        "dano": "10d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "6d20+25",
-        "Iniciativa": "6d20+35",
-        "Fortitude": "6d20+35",
-        "Reflexos": "6d20+35",
-        "Vontade": "6d20+35"
-      },
-      "defesa": 66,
-      "pv": 1666,
-      "machucado": 833,
-      "resistencias": "Balístico, impacto e perfuração 20",
-      "imunidades": "Atordoado, condições de paralisia, dano e efeitos de Sangue",
-      "vulnerabilidades": "Morte",
-      "atributos": {
-        "AGI": 6,
-        "FOR": 6,
-        "INT": 6,
-        "PRE": 6,
-        "VIG": 6
-      },
-      "deslocamento": "18m | 12 ❏",
-      "habilidades": [
-        {
-          "nome": "ARDILOSO",
-          "descricao": "Gosta de fazer pactos. Pode escolher não ativar sua Presença Perturbadora quando encontra um personagem."
-        },
-        {
-          "nome": "DECEPAR MÁSCARA",
-          "descricao": "A intensidade dos sentimentos do Diabo é a única coisa capaz de romper a calmaria do Equilíbrio e resolver o Enigma de Medo da Máscara do Desespero."
-        },
-        {
-          "nome": "POTÊNCIA DE SANGUE",
-          "descricao": "Recupera 50 PV no início de cada um de seus turnos. Seu modificador para todos os testes de perícia baseados em Força, Vigor ou Presença é +35, e para testes baseados nos demais atributos é +25."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "ARMA SANGRENTA",
-              "teste": "6d20+45",
-              "dano": "2d10+50 Sangue",
-              "obs": "x2"
-            },
-            {
-              "nome": "CHIFRE DO DIABO",
-              "teste": "6d20+45",
-              "dano": "2d8+50 Sangue",
-              "obs": null
-            },
-            {
-              "nome": "ARMA SANGRENTA Distância x2, médio",
-              "teste": "6d20+45",
-              "dano": "2d10+50 Sangue",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "EXPLODIR EM SANGUE",
-          "ataques": null,
-          "descricao": "Se causar dano em um personagem usando sua arma sangrenta, ou tocar diretamente em uma ferida, causa 10d6 dano de Sangue. Pode usar duas vezes por turno."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "SANGRAR",
-          "ataques": null,
-          "descricao": "Se acertar um ataque com seu chifre, pode deixá-lo preso no personagem. Um personagem com um chifre preso sofre vulnerabilidade a Sangue até removê-lo (ação padrão, causa 8d8 dano de Sangue). O chifre sempre cresce de volta no começo do seu turno."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "TRANSPORTAR PELO SANGUE",
-          "ataques": null,
-          "descricao": "Pode se movimentar através do Sangue. Com uma ação de movimento, pode se deslocar para qualquer espaço que tenha uma grande quantidade de sangue exposta ou adjacente a um personagem machucado ou morrendo."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "SENHOR DO SANGUE",
-          "ataques": null,
-          "descricao": "Uma vez por cena, pode invocar e controlar uma ou mais criaturas de Sangue cujo VD total somado seja até 400. Aparecem em alcance médio e agem a partir da próxima rodada."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "PACTO",
-          "ataques": null,
-          "descricao": "Oferece ao alvo um pacto de Sangue. Se aceito, cumpre o prometido (de forma distorcida). Em troca, o alvo sofre 10d6 dano mental e, se enlouquecer, se torna um servo obcecado."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "DESEJOS DE SANGUE",
-          "ataques": null,
-          "descricao": "Todos os personagens em alcance médio entram em fúria de Sangue e atacam outro personagem em alcance curto a escolha do Diabo (Vontade DT 45 evita). Um personagem afetado deve usar sua ação com o maior potencial de dano, mas não pode conjurar rituais. Quem passa no teste fica imune até final da cena."
-        }
-      ],
-      "enigmaMedo": "Ninguém sabe como derrotar o Diabo. Sabe-se que a Morte é a entidade opressora do Sangue. Talvez a resposta esteja no Lodo da Morte. Quando o Enigma de Medo for resolvido, ele perde sua imunidade a dano e seus bônus de testes de resistência são reduzidos para +25.",
-      "dadosMedios": {
-        "Iniciativa": "55",
-        "Presença Perturbadora": "30 mental*",
-        "Agredir - Arma Sangrenta": "60/70/80 Sangue",
-        "Agredir - Chifre Do Diabo": "58/66/74 Sangue",
-        "Livre - Explodir Em Sangue": "30 Sangue",
-        "Livre - Sangrar": "32 Sangue"
-      }
-    },
-    {
-      "id": "ceifador-espiral",
-      "nome": "Ceifador Espiral",
-      "vd": 380,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 45,
-        "dano": "9d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+20",
-        "Iniciativa": "5d20+20",
-        "Fortitude": "5d20+25",
-        "Reflexos": "5d20+25",
-        "Vontade": "5d20+25"
-      },
-      "defesa": 58,
-      "pv": 999,
-      "machucado": 499,
-      "resistencias": "Dano 50",
-      "imunidades": "Condições de paralisia, efeitos e dano de Morte",
-      "vulnerabilidades": "Energia",
-      "atributos": {
-        "AGI": 5,
-        "FOR": 5,
-        "INT": 5,
-        "PRE": 5,
-        "VIG": 5
-      },
-      "deslocamento": "15m | 10 ❏",
-      "habilidades": [
-        {
-          "nome": "DECEPAR",
-          "descricao": "Se faz um acerto crítico com sua foice da Morte, o alvo é reduzido a 25 PV e perde 1 ponto de Força, Agilidade ou Vigor permanentemente (aleatório). Caso o alvo tenha 25 PV ou menos, morre. Toda vez que mata um ser, recebe 50 PV temporários e seus ataques de foice causam +1d10 dano até o final da cena."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "FOICE DA MORTE",
-              "teste": "5d20+40",
-              "dano": "5d10+20 Morte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "TRANSPORTE PELO PÓ",
-          "ataques": null,
-          "descricao": "Enquanto estiver dentro da área criada por sua habilidade Cinzas das Terras Desoladas, pode usar uma ação de movimento para se transportar para outro espaço dentro dessa área. Ao terminar, pode fazer um ataque com sua Foice da Morte como ação livre."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "CONTEMPLAR A ESPIRAL",
-          "ataques": null,
-          "descricao": "Manifesta a verdadeira espiral da Morte. Todos os seres em alcance médio que consigam vê-lo sofrem 10d10+30 dano mental (Vontade DT 43 reduz à metade). Imune após sofrer dano até final da cena."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "CINZAS DAS TERRAS DESOLADAS",
-          "ataques": null,
-          "descricao": "Usa seus muitos braços para realizar um rito. Uma área de alcance longo em volta de si é tomada pelas cinzas. Cada ser dentro da área sofre 10d10+20 dano de Morte e fica enjoado (Fortitude DT 43 reduz o dano à metade e evita a condição). Um ser que termine seu turno dentro dessa área sofre 20 dano de Morte."
-        }
-      ],
-      "enigmaMedo": "Transformar a espiral em linha. Quando resolvido, o Ceifador perde sua resistência a dano e qualquer área de Terras Desoladas se torna terreno normal no final do seu próximo turno.",
-      "dadosMedios": {
-        "Iniciativa": "38",
-        "Presença Perturbadora": "27 mental*",
-        "Agredir - Foice Da Morte": "45/70/95 Morte",
-        "Completa - Cinzas Das Terras Desoladas": "70 Morte"
-      }
-    },
-    {
-      "id": "enraizado",
-      "nome": "Enraizado",
-      "vd": 120,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 20,
-        "dano": "4d6 mental",
-        "nexImune": 50
-      },
-      "pericias": {
-        "Percepção": "1d20+10",
-        "Iniciativa": "3d20+10",
-        "Fortitude": "3d20+10",
-        "Reflexos": "3d20+10",
-        "Vontade": "1d20+5",
         "Atletismo": "3d20+10"
       },
-      "defesa": 28,
-      "pv": 140,
-      "machucado": 70,
-      "resistencias": "Corte, impacto e perfuração 10, Morte 20",
-      "imunidades": null,
-      "vulnerabilidades": "Energia",
-      "atributos": {
-        "AGI": 3,
-        "FOR": 3,
-        "INT": 1,
-        "PRE": 1,
-        "VIG": 3
-      },
-      "deslocamento": "9m | 6 ❏",
-      "habilidades": [
-        {
-          "nome": "IMORTALIDADE",
-          "descricao": "Quando morre, se desfaz em uma poça de Lodo, galhos e raízes. Retorna após 1d2 rodadas com 70 PV. Se sofrer 20 pontos de dano de fogo ou de Energia somados enquanto estiver na forma de poça, será permanentemente destruído."
-        },
-        {
-          "nome": "VENENO PÚTRIDO",
-          "descricao": "A primeira vez que um personagem sofre dano do punho espinhento em uma cena, fica envenenado. No início de cada um de seus turnos, deve fazer um teste de Fortitude (DT 23). Se falhar, sofre 4d12 dano de Morte. Se passar, se cura do veneno."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PUNHO ESPINHENTO",
-              "teste": "3d20+15",
-              "dano": "2d8+8 impacto mais 2d12 Morte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "24",
-        "Presença Perturbadora": "8 mental*",
-        "Agredir - Punho Espinhento": "16/24/32 impacto",
-        "Veneno Pútrido": "24 Morte"
-      }
-    },
-    {
-      "id": "escutado",
-      "nome": "Escutado",
-      "vd": 160,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 25,
-        "dano": "4d8 mental",
-        "nexImune": 55
-      },
-      "pericias": {
-        "Percepção": "2d20+10",
-        "Iniciativa": "4d20+10",
-        "Fortitude": "3d20+10",
-        "Reflexos": "4d20+10",
-        "Vontade": "2d20+5"
-      },
-      "defesa": 29,
-      "pv": 290,
-      "machucado": 145,
-      "resistencias": null,
-      "imunidades": "Dano",
-      "vulnerabilidades": null,
-      "atributos": {
-        "AGI": 4,
-        "FOR": 3,
-        "INT": 1,
-        "PRE": 2,
-        "VIG": 3
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "MULTIPLICAÇÃO MELÓDICA",
-          "descricao": "No início do turno do escutado, se ele estiver ouvindo a melodia de sua criação, manifesta uma cópia sua em alcance curto. A cópia possui 145 PV, não tem imunidade a dano e age junto com o original."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "MORDIDA",
-              "teste": "3d20+20",
-              "dano": "3d6+10 perfuração",
-              "obs": "x2"
-            },
-            {
-              "nome": "CABEÇA ARREMESSADA Distância x2, curto",
-              "teste": "4d20+15",
-              "dano": "1d10+10 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "VOMITAR LODO",
-          "ataques": null,
-          "descricao": "Uma vez por cena, na primeira rodada após ser manifestada, cada cópia despeja um jorro de Lodo em um ser em alcance curto. O alvo sofre 4d10+10 dano de Morte e fica lento até o fim da cena (Reflexos DT 25 reduz o dano à metade e evita condição)."
-        }
-      ],
-      "enigmaMedo": "Tocar a melodia exige gastar uma ação padrão e passar em um teste de Artes (DT 25) por rodada, ou ligar um aparelho que possua essa música. Se escutar a melodia por 4 rodadas ininterruptas, perde sua imunidade a dano até o fim da cena.",
-      "dadosMedios": {
-        "Iniciativa": "26",
-        "Presença Perturbadora": "12 mental*",
-        "Agredir - Mordida": "19/28/37 perfuração",
-        "Agredir - Cabeça Arremessada": "15/20/25 impacto",
-        "Movimento - Vomitar Lodo": "30 Morte"
-      }
-    },
-    {
-      "id": "esqueleto-de-lodo",
-      "nome": "Esqueleto de Lodo",
-      "vd": 20,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 14,
-        "dano": "2d4 mental",
-        "nexImune": 25
-      },
-      "pericias": {
-        "Percepção": "1d20",
-        "Iniciativa": "2d20",
-        "Fortitude": "1d20",
-        "Reflexos": "2d20+5",
-        "Vontade": "1d20"
-      },
-      "defesa": 14,
-      "pv": 40,
-      "machucado": 20,
-      "resistencias": "Corte, impacto e perfuração 5, Morte 10",
-      "imunidades": null,
-      "vulnerabilidades": "Energia",
-      "atributos": {
-        "AGI": 2,
-        "FOR": 2,
-        "INT": 0,
-        "PRE": 1,
-        "VIG": 1
-      },
-      "deslocamento": "6m | 4 ❏",
-      "habilidades": [
-        {
-          "nome": "IMORTALIDADE",
-          "descricao": "Quando morre, se desfaz em uma poça de Lodo e ossos. Retorna após 1d3 rodadas com 20 PV. Se sofrer dano de fogo ou de Energia enquanto estiver na forma de poça, será permanentemente destruído."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "GARRAS",
-              "teste": "2d20+5",
-              "dano": "2d6+2 corte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "ESPIRAL DE LODO",
-          "ataques": null,
-          "descricao": "Se transforma em uma poça de Lodo e se lança para frente como uma espiral perfurante que percorre até 9m em linha reta. Qualquer ser no caminho sofre 2d10 dano de Morte (Reflexos DT 14 reduz à metade). Se reforma no fim do trajeto."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "12",
-        "Presença Perturbadora": "2 mental*",
-        "Agredir - Garras": "8/14/20 corte",
-        "Completa - Espiral De Lodo": "10 Morte"
-      }
-    },
-    {
-      "id": "marionete",
-      "nome": "Marionete",
-      "vd": 280,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 35,
-        "dano": "8d6 mental",
-        "nexImune": 85
-      },
-      "pericias": {
-        "Percepção": "5d20+15",
-        "Iniciativa": "3d20+15",
-        "Fortitude": "2d20+10",
-        "Reflexos": "3d20+15",
-        "Vontade": "5d20+20"
-      },
-      "defesa": 40,
-      "pv": 700,
-      "machucado": 350,
-      "resistencias": "Corte, impacto, perfuração e Morte 20",
-      "imunidades": null,
-      "vulnerabilidades": "Energia",
-      "atributos": {
-        "AGI": 3,
-        "FOR": 5,
-        "INT": 1,
-        "PRE": 5,
-        "VIG": 2
-      },
-      "deslocamento": "6m | 4 ❏",
-      "habilidades": [
-        {
-          "nome": "MOMENTO PASSIVO",
-          "descricao": "Não pode ter seu deslocamento reduzido e ignora qualquer tipo de terreno difícil. Não sofre dano ou efeitos que dependam que ela toque no chão."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "FOICE ÓSSEA",
-              "teste": "5d20+30",
-              "dano": "10d8+10 Morte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "REAÇÃO",
-          "nome": "REFLEXOS GUIADOS POR CORDA",
-          "ataques": null,
-          "descricao": "Uma vez por rodada, quando um ser se aproxima a ponto de ficar adjacente, pode fazer um ataque de foice óssea contra esse ser."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "IRONIA DO DESTINO",
-          "ataques": null,
-          "descricao": "Executa dois ataques com sua foice óssea em um ser adjacente. Se acertar o segundo, agarra a vítima com a arma e pode se deslocar 6m carregando-a. Enquanto estiver agarrando um ser, pode transferir parte de sua dor para ele — sempre que sofrer dano, o dano é dividido entre ela e o ser agarrado."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "29",
-        "Presença Perturbadora": "16 mental*",
-        "Agredir - Foice Óssea": "50/90/130 Morte"
-      }
-    },
-    {
-      "id": "mumia-xipofaga",
-      "nome": "Múmia Xipófaga",
-      "vd": 240,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 30,
-        "dano": "6d8 mental",
-        "nexImune": 75
-      },
-      "pericias": {
-        "Percepção": "3d20+10",
-        "Iniciativa": "5d20+15",
-        "Fortitude": "4d20+15",
-        "Reflexos": "5d20+15",
-        "Vontade": "3d20+10"
-      },
-      "defesa": 35,
-      "pv": 400,
-      "machucado": 200,
-      "resistencias": "Corte, impacto e perfuração 10, Morte 20",
-      "imunidades": null,
-      "vulnerabilidades": "Energia, fogo",
-      "atributos": {
-        "AGI": 5,
-        "FOR": 4,
-        "INT": 2,
-        "PRE": 3,
-        "VIG": 4
-      },
-      "deslocamento": "9m | 6 ❏",
-      "habilidades": [
-        {
-          "nome": "FAIXAS DA PERMANÊNCIA",
-          "descricao": "Reduzida a 0 PV não é destruída. Pode continuar agindo até o final do seu próximo turno. Se não terminar esse turno com pelo menos 1 PV, morrerá."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "GARRA ENFAIXADA",
-              "teste": "4d20+30",
-              "dano": "4d8+30 corte",
-              "obs": "x2"
-            },
-            {
-              "nome": "VOMITAR LODO Distância x2, curto",
-              "teste": "5d20+25",
-              "dano": "3d6+30 Morte mais 3d8 mental",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "AGARRADA MUMIFICADORA",
-          "ataques": null,
-          "descricao": "Se acertar um ataque de garra enfaixada, pode agarrar o alvo (teste 4d20+30). Enquanto agarrado, a vítima sofre 4d8+30 dano de Morte no início de cada um de seus turnos e a múmia recupera essa mesma quantidade de PV. Caso o ser seja reduzido a 0 PV dessa forma, se torna um esqueleto de Lodo."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "AMALGAMAR",
-          "ataques": null,
-          "descricao": "Enquanto está com 0 PV, pode amalgamar um ser morto ou uma criatura de Morte adjacente. Recupera 200 PV, passa a atacar três vezes com suas garras enfaixadas e causa +5 dano cada. Pode amalgamar uma segunda vez, recuperando mais 200 PV, atacando quatro vezes e aumentando o bônus de dano para +10."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "33",
-        "Presença Perturbadora": "18 mental*",
-        "Agredir - Garra Enfaixada": "46/62/78 corte",
-        "Agredir - Vomitar Lodo": "39/48/57 Morte",
-        "Livre - Agarrada Mumificadora": "46 Morte"
-      }
-    },
-    {
-      "id": "sempiternal",
-      "nome": "Sempiternal",
-      "vd": 360,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "8d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+20",
-        "Iniciativa": "5d20+25",
-        "Fortitude": "4d20+20",
-        "Reflexos": "5d20+30",
-        "Vontade": "5d20+25"
-      },
-      "defesa": 53,
-      "pv": 990,
-      "machucado": 445,
-      "resistencias": "Corte, impacto e perfuração 20",
-      "imunidades": "Condições de paralisia, e dano e efeitos de Morte",
-      "vulnerabilidades": "Energia",
-      "atributos": {
-        "AGI": 5,
-        "FOR": 5,
-        "INT": 4,
-        "PRE": 5,
-        "VIG": 4
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "TOQUE ACELERADOR",
-          "descricao": "Sempre que um ser sofre dano dos dedos alongados, envelhece 1d10 anos. Se envelhecer 20 anos ou mais, fica fraco; 40 anos ou mais, fica debilitado; 60 anos ou mais, morre. Seres com afinidade com Morte são imunes."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "DEDOS ALONGADOS",
-              "teste": "5d20+40",
-              "dano": "4d10 Morte mais envelhecimento",
-              "obs": "x4"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "CORRENTES DE LODO",
-          "ataques": null,
-          "descricao": "Projeta vinhas de Lodo pelo chão, ocupando toda a área em alcance médio. Todos os seres na área sofrem 20d6 dano de Morte (Fortitude DT 40 reduz à metade). Um ser que fique machucado devido a este dano é infectado com o Lodo e recebe vulnerabilidade a Morte até o fim da cena. Um ser reduzido a 0 PV se torna um enraizado."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "43",
-        "Presença Perturbadora": "24 mental*",
-        "Agredir - Dedos Alongados": "20/40/60 Morte",
-        "Movimento - Correntes De Lodo": "60 Morte"
-      }
-    },
-    {
-      "id": "o-deus-da-morte",
-      "nome": "O Deus da Morte",
-      "vd": 400,
-      "caracteristicas": [
-        "MORTE",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 45,
-        "dano": "10d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+30",
-        "Iniciativa": "6d20+30",
-        "Fortitude": "7d20+35",
-        "Reflexos": "6d20+35",
-        "Vontade": "5d20+35"
-      },
-      "defesa": 60,
-      "pv": 2000,
-      "machucado": 1000,
-      "resistencias": "Corte, impacto e perfuração 20",
-      "imunidades": "Atordoado, condições de paralisia, dano e efeitos de Morte",
-      "vulnerabilidades": "Energia",
-      "atributos": {
-        "AGI": 6,
-        "FOR": 6,
-        "INT": 5,
-        "PRE": 5,
-        "VIG": 7
-      },
-      "deslocamento": "15m | 10 ❏",
-      "habilidades": [
-        {
-          "nome": "CICLO INFINITO",
-          "descricao": "Recupera 50 PV no início de cada turno. Quando é reduzido a 0 PV ou menos, se transforma em uma poça de Lodo. No começo do seu próximo turno, se manifesta no cadáver mais próximo (ou no corpo com maior NEX), recuperando todos os PV e se curando de todas as condições. Quando seu Enigma de Medo for resolvido, perde a regeneração e essa capacidade de se manifestar em um corpo próximo."
-        },
-        {
-          "nome": "DESTRUIR O DIABO",
-          "descricao": "É a única coisa capaz de causar a solução do Enigma de Medo do Diabo."
-        },
-        {
-          "nome": "POTÊNCIA DE MORTE",
-          "descricao": "Modificador para todos os testes de perícia baseados em Força, Vigor ou Presença é +35; para os demais atributos é +25."
-        },
-        {
-          "nome": "SENHOR DO TEMPO",
-          "descricao": "No início de cada rodada, rola 1d20 e recebe um turno adicional na contagem de iniciativa correspondente ao resultado."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "SOCO ESPIRAL",
-              "teste": "6d20+45",
-              "dano": "5d10+50 Morte",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "AGARRÃO",
-          "ataques": null,
-          "descricao": "Se acertar um soco espiral em um ser Médio ou menor, pode tentar agarrar o alvo (teste 6d20+47)."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "CONTROLAR RELÓGIO INTERNO",
-          "ataques": null,
-          "descricao": "No início de cada um de seus turnos, encerra até duas condições que o estejam afetando."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "CONTROLAR MORTOS",
-          "ataques": null,
-          "descricao": "Controla qualquer criatura de Morte em alcance longo, fazendo-as percorrer seu deslocamento e realizar um ataque."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ESPIRAL DESCENDENTE",
-          "ataques": null,
-          "descricao": "Acelera o tempo de um ser que esteja agarrando, mas ele sente cada segundo passando, paralisado. O ser envelhece 3d20 anos. Para cada ano envelhecido, sofre 1 ponto de dano mental."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "ESPIRAL DESTRUTIVA",
-          "ataques": null,
-          "descricao": "Cria uma enorme espiral de Morte com 12m de raio em alcance longo. Todos na área sofrem 10d10+50 dano de Morte (Fortitude DT 45 reduz à metade)."
-        }
-      ],
-      "enigmaMedo": "Ninguém sabe como destruí-lo, mas a resposta está em outra entidade. Caso resolvido, perde Ciclo Infinito e Senhor do Tempo.",
-      "dadosMedios": {
-        "Iniciativa": "50",
-        "Presença Perturbadora": "30 mental*",
-        "Agredir - Soco Espiral": "75/100/125 Morte",
-        "Padrão - Espiral Destrutiva": "100 Morte"
-      }
-    },
-    {
-      "id": "anjo",
-      "nome": "Anjo",
-      "vd": 380,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "10d6 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+25",
-        "Iniciativa": "4d20+25",
-        "Fortitude": "5d20+25",
-        "Reflexos": "4d20+25",
-        "Vontade": "5d20+30"
-      },
-      "defesa": 57,
-      "pv": 1111,
-      "machucado": 555,
-      "resistencias": "Dano 50",
-      "imunidades": "Condições de paralisia, dano e efeitos de Conhecimento",
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 5,
-        "INT": 5,
-        "PRE": 5,
-        "VIG": 5
-      },
-      "deslocamento": "Voo 24m | 16 ❏",
-      "habilidades": [
-        {
-          "nome": "JULGAMENTO",
-          "descricao": "Sempre que um ser sofre dano de Conhecimento das asas do Conhecimento ou dos olhares do saber do Anjo, sofre também dano mental igual à metade do dano de Conhecimento sofrido. Um ser reduzido a Sanidade 0 desta forma tem sua mente colapsada e inexiste, morrendo."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "ASAS DO CONHECIMENTO",
-              "teste": "5d20+40",
-              "dano": "4d10+40 Conhecimento",
-              "obs": "x2"
-            },
-            {
-              "nome": "OLHARES DO SABER Distância x2, longo",
-              "teste": "4d20+40",
-              "dano": "6d8+20 Conhecimento",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "FAIXAS DETENTORAS",
-          "ataques": null,
-          "descricao": "Se acertar um ataque de asas do Conhecimento em um ser Médio ou menor, pode tentar agarrar o alvo (teste 5d20+45) usando as faixas que prendem suas asas. Um ser agarrado também fica fascinado. Pode manter um ser agarrado por vez."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "CHAMAS REVELADORAS",
-          "ataques": null,
-          "descricao": "Manifesta um círculo de chamas douradas que se expande em alcance médio. Todos na área sofrem 10d8 dano de Conhecimento (Vontade DT 43 reduz à metade). Quem sofrer dano fica com uma auréola reveladora. Até o final da cena, o anjo sabe exatamente onde estão todos com auréola."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "RAIO DOURADO",
-          "ataques": null,
-          "descricao": "Uma vez por cena, dispara um raio dourado de seu olho central. Todos os seres em uma linha de 3m em alcance longo sofrem 15d8+50 dano de Conhecimento (Reflexos DT 43 reduz à metade)."
-        }
-      ],
-      "enigmaMedo": "Seres puros de Conhecimento podem ser enganados por seu alinhamento de Justiça Perfeita. Um anjo que falhe em julgar corretamente pode cair. Quando resolvido, perde sua resistência a dano, seu deslocamento de voo e sua habilidade Julgamento.",
-      "dadosMedios": {
-        "Iniciativa": "41",
-        "Presença Perturbadora": "20 mental*",
-        "Agredir - Asas Do Conhecimento": "60/80/100 Conhecimento",
-        "Agredir - Olhares Do Saber": "44/68/92 Conhecimento",
-        "Padrão - Chamas Reveladoras": "40 Conhecimento",
-        "Completa - Raio Dourado": "110 Conhecimento"
-      }
-    },
-    {
-      "id": "bicho-papao",
-      "nome": "Bicho papão",
-      "vd": 300,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 35,
-        "dano": "7d8 mental",
-        "nexImune": 90
-      },
-      "pericias": {
-        "Percepção": "5d20+20",
-        "Iniciativa": "5d20+20",
-        "Fortitude": "4d20+15",
-        "Reflexos": "5d20+25",
-        "Vontade": "5d20+20",
-        "Atletismo": "4d20+15",
-        "Furtividade": "5d20+18"
-      },
-      "defesa": 41,
-      "pv": 750,
-      "machucado": 375,
-      "resistencias": "Balístico, corte, impacto e Conhecimento 20",
-      "imunidades": null,
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 5,
-        "FOR": 4,
-        "INT": 3,
-        "PRE": 5,
-        "VIG": 4
-      },
-      "deslocamento": "15m | 10 ❏",
-      "habilidades": [
-        {
-          "nome": "TAMANHO ADAPTÁVEL",
-          "descricao": "Consegue se esconder em locais menores que ele, reduzindo seu corpo para qualquer categoria de tamanho menor. Seu deslocamento não é reduzido por andar furtivamente ou escalar."
-        },
-        {
-          "nome": "TORMENTO INFANTIL",
-          "descricao": "Fica desprevenido se estiver ouvindo uma cantiga de ninar ou outra canção infantil. Se estiver ouvindo o choro de uma criança, usará todas as suas ações para encontrar e silenciar a fonte do choro."
-        },
-        {
-          "nome": "DESTRUIR MENTE",
-          "descricao": "Sempre que acerta um alvo perturbado com suas garras atormentadoras, causa também 1d8 dano mental por acerto."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "GARRAS ATORMENTADORAS",
-              "teste": "5d20+35",
-              "dano": "4d10+10 Conhecimento",
-              "obs": "x3"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ATORMENTAR",
-          "ataques": null,
-          "descricao": "Envia sussurros e perturbações para um ser em alcance curto. O alvo sofre 3d8 dano mental (Vontade DT 30 reduz à metade). Caso o bicho-papão esteja escondido do alvo, este dano aumenta em +3d8."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "SALTAR E ASSUSTAR",
-          "ataques": null,
-          "descricao": "Se estiver escondido de um ser em alcance curto, pode sair do esconderijo e se aproximar. Seu corpo aumenta e se retorce, assumindo uma forma assustadora. O ser do qual estava escondido sofre 10d8 dano mental (Vontade DT 35 reduz à metade)."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "38",
-        "Presença Perturbadora": "21 mental*",
-        "Agredir - Garras Atormentadoras": "30/50/70 Conhecimento"
-      }
-    },
-    {
-      "id": "espreitador",
-      "nome": "Espreitador",
-      "vd": 220,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 30,
-        "dano": "7d6 mental",
-        "nexImune": 70
-      },
-      "pericias": {
-        "Percepção": "3d20+15",
-        "Iniciativa": "4d20+15",
-        "Fortitude": "2d20+10",
-        "Reflexos": "4d20+15",
-        "Vontade": "3d20+15",
-        "Furtividade": "4d20+20"
-      },
-      "defesa": 34,
-      "pv": 500,
-      "machucado": 250,
-      "resistencias": null,
-      "imunidades": "Dano",
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 2,
-        "INT": 3,
-        "PRE": 3,
-        "VIG": 2
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PANCADA",
-              "teste": "2d20+10",
-              "dano": "1d6+2 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "CORRER PELAS FRESTAS",
-          "ataques": null,
-          "descricao": "Pode se teletransportar para qualquer espaço em alcance longo, desde que exista uma pequena fresta em seu caminho."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "ESPREITAR",
-          "ataques": null,
-          "descricao": "Uma vez por cena, se estiver adjacente a um ser que esteja dormindo, causa 10d6 dano mental (Vontade DT 30 reduz à metade). Se a vítima ficar enlouquecendo, pode criar uma cópia observada dela."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "CÓPIA OBSERVADA",
-          "ataques": null,
-          "descricao": "Manifesta uma cópia de um ser que tenha deixado enlouquecendo com Espreitar. A cópia usa a mesma ficha do ser, mas causa dano de Conhecimento em vez de seu dano normal, não pode conjurar rituais ou usar habilidades paranormais, e dura até o fim da cena."
-        }
-      ],
-      "enigmaMedo": "Para derrotá-lo, o alvo que está sendo espreitado deve atraí-lo para fora de seu esconderijo simulando estar dormindo na escuridão, especificamente no horário das 2h11. Quando sair, a porta do esconderijo deve ser fechada antes que ele retorne. Quando encurralado, perde sua imunidade a dano.",
-      "dadosMedios": {
-        "Iniciativa": "31",
-        "Presença Perturbadora": "14 mental*",
-        "Agredir - Pancada": "5/8/11 impacto"
-      }
-    },
-    {
-      "id": "estrangeiro",
-      "nome": "Estrangeiro",
-      "vd": 340,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "10d6 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+25",
-        "Iniciativa": "3d20+20",
-        "Fortitude": "3d20+15",
-        "Reflexos": "3d20+20",
-        "Vontade": "5d20+25",
-        "Ciência": "5d20+20",
-        "Ocultismo": "5d20+20",
-        "Furtividade": "3d20+20"
-      },
-      "defesa": 50,
-      "pv": 750,
-      "machucado": 375,
-      "resistencias": null,
-      "imunidades": "Dano",
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 3,
-        "FOR": 5,
-        "INT": 5,
-        "PRE": 5,
-        "VIG": 3
-      },
-      "deslocamento": "Voo 15m | 10 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "TOQUE SUTIL",
-              "teste": "5d20+35",
-              "dano": "4d8+10 Conhecimento",
-              "obs": "x3"
-            },
-            {
-              "nome": "RAJADA PSÍQUICA Distância x2, extremo",
-              "teste": "5d20+35",
-              "dano": "4d10+20 Conhecimento",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "COMANDAR",
-          "ataques": null,
-          "descricao": "Sempre que causa dano com sua rajada psíquica, pode dominar a mente do alvo. O alvo deve passar em um teste de Vontade (DT 35) ou será forçado a cumprir uma ordem (Atacar um aliado, Render-se, Fugir). Seres com Intelecto 5 ou mais são imunes."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "APAGAR MEMÓRIA",
-          "ataques": null,
-          "descricao": "Um ser que fique insano por conta dos ataques do Estrangeiro tem a mente completamente controlada por ele. Alternativamente, pode apagar a memória da vítima e devolver 1d4 de Sanidade, fazendo-a duvidar da existência do Estrangeiro."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "OBLÍVIO",
-          "ataques": null,
-          "descricao": "Um ser que sofra dano do Toque Sutil esquece momentaneamente a existência do Estrangeiro (Vontade DT 30 evita). A vítima o considera invisível e esquece qualquer interação. No final de cada turno, repete o teste. Se passar, volta a percebê-lo, mas sofre 6d6 dano mental. Uma vítima incubando uma larva não tem direito a repetir o teste."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "INCUBAR",
-          "ataques": null,
-          "descricao": "Toca um ser adjacente que esteja alheio a sua presença e coloca uma larva dentro dele. Enquanto incuba, o Estrangeiro tem total acesso à sua mente. A larva consome 1d6 de Sanidade no início de cada cena. Quando a Sanidade é reduzida a 0, um novo Estrangeiro eclode de sua cabeça."
-        }
-      ],
-      "enigmaMedo": "Suas intenções são complexas e devem ser decifradas. Investigar os sinais e aprender sua linguagem é a única forma de tentar se comunicar e compreender a maneira de utilizar suas tecnologias paranormais para derrotá-lo. Quando suas intenções forem decifradas, perde sua imunidade a dano (mas permanece imune a dano de Conhecimento) e não pode usar a ação Incubar.",
-      "dadosMedios": {
-        "Iniciativa": "34",
-        "Presença Perturbadora": "20 mental*",
-        "Agredir - Toque Sutil": "26/42/58 Conhecimento",
-        "Agredir - Rajada Psíquica": "40/60/80 Conhecimento"
-      }
-    },
-    {
-      "id": "existido",
-      "nome": "Existido",
-      "vd": 20,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 14,
-        "dano": "1d6 mental",
-        "nexImune": 25
-      },
-      "pericias": {
-        "Percepção": "2d20+5",
-        "Iniciativa": "1d20+5",
-        "Fortitude": "2d20",
-        "Reflexos": "1d20",
-        "Vontade": "2d20+10",
-        "Ciências": "4d20+10",
-        "Ocultismo": "4d20+10"
-      },
-      "defesa": 13,
-      "pv": 36,
-      "machucado": 18,
-      "resistencias": "Balístico, corte e impacto 5, Conhecimento 10",
-      "imunidades": null,
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 1,
-        "FOR": 1,
-        "INT": 4,
-        "PRE": 2,
-        "VIG": 2
-      },
-      "deslocamento": "9m | 6 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PANCADA",
-              "teste": "1d20+5",
-              "dano": "1d4+1 impacto",
-              "obs": null
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "BRILHO ENLOUQUECEDOR",
-          "ataques": null,
-          "descricao": "Uma vez por rodada, faz suas marcas douradas brilharem. Todos os seres em alcance médio capazes de vê-lo sofrem 1d6 dano mental (Vontade DT 14 reduz à metade)."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "FORTALECIMENTO PARANORMAL",
-          "ataques": null,
-          "descricao": "Até o fim da cena, recebe +1d20 em todos os testes baseados em Agilidade, Força e Vigor e suas pancadas causam +2d4 dano de Conhecimento. Só pode usar se tiver causado dano mental a algum personagem com seu Brilho Enlouquecedor nesta cena."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "15",
-        "Presença Perturbadora": "2 mental*",
-        "Agredir - Pancada": "3/5/7 impacto"
-      }
-    },
-    {
-      "id": "lembrado",
-      "nome": "Lembrado",
-      "vd": 100,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 20,
-        "dano": "4d6 mental",
-        "nexImune": 45
-      },
-      "pericias": {
-        "Percepção": "2d20+10",
-        "Iniciativa": "2d20+10",
-        "Fortitude": "2d20+5",
-        "Reflexos": "2d20",
-        "Vontade": "2d20+10",
-        "Ciências": "4d20+10",
-        "Ocultismo": "4d20+10"
-      },
-      "defesa": 22,
-      "pv": 180,
-      "machucado": 90,
-      "resistencias": "Balístico, corte e impacto 10, Conhecimento 20",
-      "imunidades": null,
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 2,
-        "FOR": 2,
-        "INT": 4,
-        "PRE": 2,
-        "VIG": 2
-      },
-      "deslocamento": "9m | 6 ❏",
-      "habilidades": [
-        {
-          "nome": "AURA MANIFESTADA",
-          "descricao": "Cercado por uma aura dourada de faces flutuantes que gritam. Personagens em alcance curto sofrem –2d20 em todos os testes."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PANCADA",
-              "teste": "2d20+5",
-              "dano": "2d4+7 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "EXPANDIR AURA",
-          "ataques": null,
-          "descricao": "Expande sua aura. Seres em alcance curto sofrem 6d6 dano mental (Vontade DT 20 reduz à metade)."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "22",
-        "Presença Perturbadora": "8 mental*",
-        "Agredir - Pancada": "11/15/19 impacto"
-      }
-    },
-    {
-      "id": "ocioso",
-      "nome": "Ocioso",
-      "vd": 260,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 35,
-        "dano": "8d6 mental",
-        "nexImune": 80
-      },
-      "pericias": {
-        "Percepção": "5d20+15",
-        "Iniciativa": "1d20",
-        "Fortitude": "3d20+15",
-        "Reflexos": "1d20",
-        "Vontade": "5d20+20"
-      },
-      "defesa": 37,
-      "pv": 390,
-      "machucado": 195,
-      "resistencias": "Balístico, corte, impacto e Conhecimento 20",
-      "imunidades": null,
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 1,
-        "FOR": 5,
-        "INT": 1,
-        "PRE": 5,
-        "VIG": 3
-      },
-      "deslocamento": "Voo 0m | 0 ❏",
-      "habilidades": [
-        {
-          "nome": "SEMPRE PRESENTE",
-          "descricao": "No começo de uma cena, escolhe um personagem que possa ver para ser seu alvo. O alvo é o único que consegue enxergar o ocioso."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "REAÇÃO",
-          "nome": "RETALIAÇÃO",
-          "ataques": null,
-          "descricao": "Toda vez que for atacado ou alvo de uma habilidade, se teletransporta para ficar adjacente ao atacante e faz um ataque corpo a corpo (teste 5d20+30, dano 4d10+20 impacto não letal)."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "PERMANECER PRÓXIMO",
-          "ataques": null,
-          "descricao": "Uma vez por rodada, pode se teletransportar para qualquer ponto dentro do campo de visão do alvo."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "ATERRORIZAR",
-          "ataques": null,
-          "descricao": "O ocioso fica parado, mas seu olhar parece entrar na alma do alvo, que sofre 4d10+10 dano mental se estiver adjacente."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "10",
-        "Presença Perturbadora": "16 mental*"
-      }
-    },
-    {
-      "id": "rastejador-sombrio",
-      "nome": "Rastejador Sombrio",
-      "vd": 180,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 25,
-        "dano": "6d6 mental",
-        "nexImune": 60
-      },
-      "pericias": {
-        "Percepção": "3d20+15",
-        "Iniciativa": "4d20+15",
-        "Fortitude": "3d20+15",
-        "Reflexos": "4d20+15",
-        "Vontade": "3d20+10",
-        "Furtividade": "4d20+15",
-        "Ocultismo": "3d20+15"
-      },
-      "defesa": 41,
-      "pv": 330,
-      "machucado": 165,
-      "resistencias": "Balístico, corte e impacto 10, Conhecimento 20",
-      "imunidades": null,
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 3,
-        "INT": 3,
-        "PRE": 3,
-        "VIG": 3
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "VULNERABILIDADE A LUZ",
-          "descricao": "Enquanto estiver exposto diretamente a uma fonte de luz forte, sofre –10 em Defesa e perde as habilidades Desespero, Rastejar e Tentáculos das Sombras."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "TOQUE DA DOR",
-              "teste": "4d20+20",
-              "dano": "4d8+5 Conhecimento",
-              "obs": "x3"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "DESESPERO",
-          "ataques": null,
-          "descricao": "Sempre que um ser sofre dano do toque da dor, sofre a mesma quantidade de dano mental (Vontade DT 25 reduz o dano mental à metade)."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "RASTEJAR",
-          "ataques": null,
-          "descricao": "Usa as sombras para se aproximar. Até o início do seu próximo turno, se estiver sob cobertura ou camuflagem, recebe +10 em Furtividade e não terá o deslocamento reduzido por se mover furtivamente."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "TENTÁCULOS DAS SOMBRAS",
-          "ataques": null,
-          "descricao": "Coloca suas garras no chão e projeta fibras pelas sombras a até três seres em alcance médio, que ficam agarrados (Reflexos DT 28 evita). Com uma ação de movimento, pode arrastar até três vítimas agarradas para outros pontos em alcance médio. No final de cada um de seus turnos, um ser agarrado sofre 4d6 dano mental."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "31",
-        "Presença Perturbadora": "12 mental*",
-        "Agredir - Toque Da Dor": "21/37/53 Conhecimento"
-      }
-    },
-    {
-      "id": "silhueta",
-      "nome": "Silhueta",
-      "vd": 360,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "8d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+25",
-        "Iniciativa": "4d20+20",
-        "Fortitude": "4d20+20",
-        "Reflexos": "4d20+20",
-        "Vontade": "5d20+25"
-      },
-      "defesa": 55,
-      "pv": 500,
-      "machucado": 250,
-      "resistencias": "Dano 30",
-      "imunidades": "Condições de paralisia, efeitos e dano de Conhecimento, manobras de combate",
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 4,
-        "INT": 5,
-        "PRE": 5,
-        "VIG": 4
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "AURA TANGÍVEL",
-          "descricao": "Qualquer ser ou item que tocar na silhueta sofre 20d12 dano de Conhecimento (Fortitude DT 42 reduz à metade) e, se reduzido a 0 PV, é instantaneamente desintegrado. Um ser ou item só sofre esse dano uma vez por turno."
-        },
-        {
-          "nome": "CONHECIMENTO VERDADEIRO",
-          "descricao": "Faz testes baseados em Intelecto e Presença com +25 e testes baseados em Agilidade, Força e Vigor com +20."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "LIVRE",
-          "nome": "REESCREVER A REALIDADE",
-          "ataques": null,
-          "descricao": "Enquanto estiver se deslocando, pode reescrever e mudar a Realidade com seus sigilos. Todos os objetos em alcance curto podem ser transformados em outros, desde que conservem o mesmo tamanho. Seres vivos e equipamento vestido ou portado não são afetados."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "TOQUE DEVASTADOR",
-          "ataques": null,
-          "descricao": "Raramente age de forma agressiva, mas quando precisa remover algo de seu caminho, simplesmente o toca, causando o dano de sua aura tangível. Pode tocar até dois seres e/ou objetos."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "36",
-        "Presença Perturbadora": "24 mental*",
-        "Aura Tangível": "120 Conhecimento"
-      }
-    },
-    {
-      "id": "mascara-do-desespero",
-      "nome": "Máscara do Desespero",
-      "vd": 400,
-      "caracteristicas": [
-        "CONHECIMENTO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 45,
-        "dano": "10d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "6d20+35",
-        "Iniciativa": "4d20+25",
-        "Fortitude": "5d20+35",
-        "Reflexos": "4d20+25",
-        "Vontade": "6d20+35",
-        "Ciência": "6d20+35",
-        "Ocultismo": "6d20+35",
-        "Religião": "6d20+35"
-      },
-      "defesa": 55,
-      "pv": 1200,
-      "machucado": 600,
-      "resistencias": null,
-      "imunidades": "Condições, dano",
-      "vulnerabilidades": "Sangue",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 4,
-        "INT": 6,
-        "PRE": 6,
-        "VIG": 5
-      },
-      "deslocamento": "Voo 12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "DESTRONAR O ANFITRIÃO",
-          "descricao": "É a única que consegue resolver o Enigma de Medo do Anfitrião."
-        },
-        {
-          "nome": "POTÊNCIA DO CONHECIMENTO",
-          "descricao": "Modificador para testes baseados em Intelecto, Presença e Vigor é +35; para os demais atributos é +25."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "LIVRE",
-          "nome": "CONJURAÇÃO VERDADEIRA",
-          "ataques": null,
-          "descricao": "Uma vez por turno, pode conjurar um ritual de Conhecimento de qualquer círculo (execução máxima ação completa, custo máximo 20 PE). DT 45."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "ONIPRESENÇA",
-          "ataques": null,
-          "descricao": "Pode se deslocar para qualquer local da Realidade desde que haja sombra ou escuridão. Sabe exatamente tudo que está acontecendo na Realidade ao mesmo tempo. Nenhum personagem pode se esconder dela."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "REESCREVER REALIDADE",
-          "ataques": null,
-          "descricao": "Tem o poder de reescrever a Realidade por completo, alterando propriedades de seres e objetos em alcance médio. Contra objetos (até 1 tonelada): pode mudar composição, posição e estado da matéria (Reflexos do portador DT 45 evita se vestido/empunhado). Contra seres: causa 10d6 dano de Conhecimento, 10d6 dano mental e uma condição qualquer (exceto morrendo e enlouquecendo) – Vontade DT 45 reduz cada dano à metade e evita a condição."
-        }
-      ],
-      "enigmaMedo": "É indestrutível, e seu portador também. Seria possível neutralizar alguém portando a Máscara abalando o Equilíbrio através do Medo, ou devastando sua razão através da brutalidade do portador da Relíquia de Sangue (o Diabo). Quando resolvido, perde sua imunidade a dano e sua habilidade de Onipresença.",
-      "dadosMedios": {
-        "Iniciativa": "41",
-        "Presença Perturbadora": "30 mental*",
-        "Padrão - Reescrever Realidade": "30 Conhecimento"
-      }
-    },
-    {
-      "id": "anomiatico",
-      "nome": "Anomiático",
-      "vd": 240,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 30,
-        "dano": "6d8 mental",
-        "nexImune": 75
-      },
-      "pericias": {
-        "Percepção": "4d20+10",
-        "Iniciativa": "5d20+15",
-        "Fortitude": "3d20+10",
-        "Reflexos": "5d20+20",
-        "Vontade": "4d20+15"
-      },
-      "defesa": 41,
-      "pv": 600,
-      "machucado": 300,
-      "resistencias": "Balístico, corte e perfuração 10, Energia 20",
-      "imunidades": null,
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 5,
-        "FOR": 3,
-        "INT": 1,
-        "PRE": 4,
-        "VIG": 3
-      },
-      "deslocamento": "18m | 12 ❏",
-      "habilidades": [
-        {
-          "nome": "COMPORTAMENTO ERRÁTICO",
-          "descricao": "No começo do seu turno, executa três comportamentos aleatórios (role 1d6 três vezes). Executa na ordem rolada. Se não puder executar uma ação, fica parado se contorcendo e perde aquela ação, mas aumenta suas resistências a dano em 10 até seu próximo turno.\n\n - 1-2: Salta até 18m em direção ao ser mais próximo. Se ficar adjacente, faz uma ação agredir com suas garras desintegradoras.\n\n - 3: Transforma-se em um facho de Energia e move-se até ficar adjacente a um ser escolhido aleatoriamente.\n\n - 4: Uma parte do corpo explode, causando dano de Energia: 4d12+20 para alcance médio, 6d12+20 para curto, 8d12+20 para adjacente. Seres em médio/curto têm Reflexos DT 30 para metade. Perde 50 PV.\n\n - 5: Riso descontrolado. Fica desprevenido até o início do próximo turno. Seus ataques ficam imprevisíveis e o defensor não pode se esquivar.\n\n - 6: Toca um ser adjacente. O alvo acumula Energia e sofre 10d12+20 dano de Energia (Fortitude DT 30 reduz à metade)."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "GARRA DESINTEGRADORA",
-              "teste": "5d20+30",
-              "dano": "4d12+20 Energia",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "33",
-        "Presença Perturbadora": "18 mental*",
-        "Agredir - Garra Desintegradora": "44/68/92 Energia",
-        "Comportamento Errático - 6": "Toca Um Ser Adjacente: 80 Energia"
-      }
-    },
-    {
-      "id": "ciborgue",
-      "nome": "Ciborgue",
-      "vd": 80,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 15,
-        "dano": "2d6 mental",
-        "nexImune": 40
-      },
-      "pericias": {
-        "Percepção": "2d20+5",
-        "Iniciativa": "3d20+10",
-        "Fortitude": "3d20+10",
-        "Reflexos": "3d20+5",
-        "Vontade": "2d20"
-      },
-      "defesa": 25,
-      "pv": 160,
-      "machucado": 80,
-      "resistencias": "Balístico, corte e perfuração 10, Energia 20",
-      "imunidades": "Condições de paralisia",
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 3,
-        "FOR": 3,
-        "INT": 2,
-        "PRE": 2,
-        "VIG": 3
-      },
-      "deslocamento": "9m | 6 ❏",
-      "habilidades": [
-        {
-          "nome": "ESTADO DE COMBATE",
-          "descricao": "No começo do turno, assume um estado de combate disponível (Alpha, Beta, Gama, Delta). Um estado deixa de estar disponível quando sua fraqueza é resolvida (veja Enigma de Medo). O estado define quais ações ele pode fazer."
-        },
-        {
-          "nome": "REGENERAÇÃO ENERGÉTICA",
-          "descricao": "No começo do turno, recupera 20 PV. Se perder três ou mais estados, perde esta habilidade."
-        }
-      ],
-      "acoes": [],
-      "enigmaMedo": "Cada estado possui uma fraqueza específica (ex.: sofrer 15 pontos de dano de um tipo específico em um único ataque, ou ser exposto a uma substância/material específico). Quando a fraqueza for resolvida, ele não poderá assumir mais aquele estado. Quando ficar sem nenhum estado, se desativa: Defesa 10, deslocamento 0m.",
-      "dadosMedios": {
-        "Iniciativa": "24",
-        "Presença Perturbadora": "4 mental*"
-      }
-    },
-    {
-      "id": "perturbado-de-energia",
-      "nome": "Perturbado de Energia",
-      "vd": 40,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 15,
-        "dano": "2d8 mental",
-        "nexImune": 30
-      },
-      "pericias": {
-        "Percepção –": "2d20",
-        "Iniciativa": "4d20+10",
-        "Fortitude –": "2d20",
-        "Reflexos": "4d20+10",
-        "Vontade –": "2d20"
-      },
-      "defesa": 19,
-      "pv": 60,
-      "machucado": 30,
-      "resistencias": "Balístico, corte e perfuração 5, Energia 10",
-      "imunidades": null,
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 1,
-        "INT": 0,
-        "PRE": 0,
-        "VIG": 0
-      },
-      "deslocamento": "9m | 6 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "TOQUE PLASMÁTICO",
-              "teste": "4d20+10",
-              "dano": "2d12 Energia",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "IMPLANTAR CONFUSÃO",
-          "ataques": null,
-          "descricao": "Uma vez por rodada, tenta agarrar um personagem que acabou de sofrer dano de seu toque plasmático (teste 4d20+10). Se conseguir, o personagem sofre 2d8 dano mental (Vontade DT 15 reduz à metade) e recebe vulnerabilidade a dano de Energia até o fim da cena."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "26",
-        "Presença Perturbadora": "6 mental*",
-        "Agredir - Toque Plasmático": "12/24/36 Energia"
-      }
-    },
-    {
-      "id": "sukkalgir",
-      "nome": "Sukkalgir",
-      "vd": 160,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 25,
-        "dano": "4d8 mental",
-        "nexImune": 55
-      },
-      "pericias": {
-        "Percepção": "3d20+10",
-        "Iniciativa": "3d20+10",
-        "Fortitude": "2d20+5",
-        "Reflexos": "3d20+10",
-        "Vontade": "3d20+15"
-      },
-      "defesa": 34,
-      "pv": 220,
-      "machucado": 110,
-      "resistencias": "Impacto e Energia 10",
-      "imunidades": "Dano balístico, de corte e de perfuração",
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 3,
-        "FOR": 2,
-        "INT": 3,
-        "PRE": 3,
-        "VIG": 2
-      },
-      "deslocamento": "Voo 18m | 12 ❏",
-      "habilidades": [
-        {
-          "nome": "AURA DESESPERADA",
-          "descricao": "Qualquer ser que comece seu turno em alcance curto sofre 2d12 dano mental (Vontade DT 25 reduz à metade)."
-        },
-        {
-          "nome": "ESPÍRITO PLASMÁTICO",
-          "descricao": "Parcialmente intangível, pode atravessar obstáculos sólidos."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "MORDIDA DO OUTRO LADO",
-              "teste": "3d20+15",
-              "dano": "2d12 mental",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "AGARRÃO",
-          "ataques": null,
-          "descricao": "Se acertar um ataque com sua mordida em um ser Médio ou menor, pode agarrar o alvo (teste 3d20+15)."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "GRITO DE DESESPERO",
-          "ataques": null,
-          "descricao": "Grita em desespero. Cada ser em alcance médio sofre 3d12 dano mental (Vontade DT 20 reduz à metade; estar sob cobertura fornece +5)."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "24",
-        "Presença Perturbadora": "12 mental*",
-        "Agredir - Mordida Do Outro Lado": "10 mental*"
-      }
-    },
-    {
-      "id": "telopsia",
-      "nome": "Telopsia",
-      "vd": 340,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "10d6 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+25",
-        "Iniciativa": "4d20+20",
-        "Fortitude": "2d20+15",
-        "Reflexos": "4d20+20",
-        "Vontade": "5d20+25",
-        "Furtividade": "4d20+20"
-      },
-      "defesa": 48,
-      "pv": 560,
-      "machucado": 280,
-      "resistencias": "Balístico, corte, perfuração e Energia 20",
-      "imunidades": "Condições de paralisia",
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 2,
-        "INT": 3,
-        "PRE": 5,
-        "VIG": 2
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "TOQUE DESINTEGRADOR",
-              "teste": "4d20+35",
-              "dano": "6d12+30 Energia",
-              "obs": "x3"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "VIAJAR PELA TELA",
-          "ataques": null,
-          "descricao": "Pode se desmaterializar e se materializar em outra tela ou visor em alcance longo. Em seguida, se desloca 9m."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "TELA ZUMBIFICADORA",
-          "ataques": null,
-          "descricao": "Projeta imagens enlouquecedoras. Todos em alcance médio sofrem 6d6 dano mental e ficam confusos até o final da cena (Vontade DT 30 reduz o dano à metade e evita a condição). Um ser já confuso que falhe fica também fascinado."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "PRENDER NA TELA",
-          "ataques": null,
-          "descricao": "Usa ondas de Energia para desintegrar um ser em alcance curto e materializá-lo dentro de sua tela (Fortitude DT 30 evita). Um ser dentro da tela fica paralisado e sofre 2d12 dano mental no início de cada turno. Cada vez que o telopsia sofre 50 ou mais dano em um turno, o ser preso pode repetir o teste; se passar, escapa e se materializa adjacente."
-        }
-      ],
-      "enigmaMedo": "A única maneira teorizada de derrotá-lo é destruir a própria fita amaldiçoada. Se a fita for destruída, o telopsia tem seus PV reduzidos a 0 e também é destruído. Caso contrário, mesmo que derrotado em combate, retornará.",
-      "dadosMedios": {
-        "Iniciativa": "36",
-        "Presença Perturbadora": "20 mental*",
-        "Agredir - Toque Desintegrador": "66/102/138 Energia"
-      }
-    },
-    {
-      "id": "tempestuoso",
-      "nome": "Tempestuoso",
-      "vd": 360,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "8d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "5d20+20",
-        "Iniciativa": "5d20+25",
-        "Fortitude": "4d20+20",
-        "Reflexos": "5d20+30",
-        "Vontade": "5d20+25"
-      },
-      "defesa": 56,
-      "pv": 950,
-      "machucado": 475,
-      "resistencias": "Balístico, corte, perfuração e Energia 20",
-      "imunidades": "Condições de paralisia",
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 5,
-        "FOR": 4,
-        "INT": 2,
-        "PRE": 5,
-        "VIG": 4
-      },
-      "deslocamento": "24m | 12 ❏",
-      "habilidades": [
-        {
-          "nome": "AURA RADIOATIVA",
-          "descricao": "Qualquer ser que comece seu turno em alcance curto sofre 2d20+20 dano de Energia (Fortitude DT 40 reduz à metade)."
-        },
-        {
-          "nome": "ESPECTRO RADIOATIVO",
-          "descricao": "Manifesta um espectro de radiação à sua volta. Todos os ataques e habilidades corpo a corpo podem ser feitos em alcance curto."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": null,
-          "descricao": "Garras radioativas (corpo a corpo x2)* – Teste 5d20+40, Dano 4d20+20 Energia. *Podem atingir alvos em alcance curto."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "RAIO DE ENERGIA RADIOATIVA",
-          "ataques": null,
-          "descricao": "Quando acerta dois ataques de garras radioativas em um mesmo ser, projeta um raio deste ser em direção a outro alvo em alcance médio. O alvo sofre 4d20+20 dano de Energia (Reflexos DT 40 reduz à metade)."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "EXPANDIR EM RADIAÇÃO",
-          "ataques": null,
-          "descricao": "Concentra energia radioativa e expande como uma explosão. Cada ser em alcance longo sofre 10d20+20 dano de Energia (Reflexos DT 40 reduz à metade). O tempestuoso perde 100 PV quando usa esta habilidade."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "43",
-        "Presença Perturbadora": "24 mental*",
-        "Aura Radioativa": "40 Energia",
-        "Livre - Raio De Energia Radioativa": "60 Energia",
-        "Completa - Expandir Em Radiação": "120 Energia"
-      }
-    },
-    {
-      "id": "viajante",
-      "nome": "Viajante",
-      "vd": 200,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 20,
-        "dano": "6d6 mental",
-        "nexImune": 60
-      },
-      "pericias": {
-        "Percepção": "4d20+15",
-        "Iniciativa": "4d20+15",
-        "Fortitude": "2d20+10",
-        "Reflexos": "4d20+15",
-        "Vontade": "4d20+15"
-      },
-      "defesa": 34,
-      "pv": 360,
-      "machucado": 180,
-      "resistencias": "Balístico, corte e perfuração 10, Energia 20",
-      "imunidades": null,
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 4,
-        "FOR": 2,
-        "INT": 3,
-        "PRE": 4,
-        "VIG": 2
-      },
-      "deslocamento": "9m (6 quadrados); escalada 9m | 6 ❏",
-      "habilidades": [
-        {
-          "nome": "INVISIBILIDADE PERMANENTE",
-          "descricao": "Invisível. Recebe camuflagem total, +15 em Furtividade e seres que não possam vê-lo ficam desprevenidos contra seus ataques."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PANCADA",
-              "teste": "4d20+15",
-              "dano": "2d12+10 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "AGARRÃO",
-          "ataques": null,
-          "descricao": "Se acertar um ataque com sua pancada em um ser Médio ou menor, pode tentar agarrar o alvo (teste 2d20+15)."
-        },
-        {
-          "tipo": "COMPLETA",
-          "nome": "DEVORAR MEMÓRIA",
-          "ataques": null,
-          "descricao": "Entra na mente de um ser que esteja agarrando e começa a devorar suas memórias. A vítima sofre 4d12 dano mental e esquece completamente de uma pessoa (Vontade DT 29 reduz o dano à metade e evita o efeito). Para cada ser que o viajante deixar perturbado com esta habilidade, seu dano de pancada aumenta em +1d12 até o fim da cena."
-        }
-      ],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "31",
-        "Presença Perturbadora": "12 mental*",
-        "Agredir - Pancada": "22/34/46 impacto"
-      }
-    },
-    {
-      "id": "anfitriao",
-      "nome": "Anfitrião",
-      "vd": 413,
-      "caracteristicas": [
-        "ENERGIA",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 45,
-        "dano": "10d8 mental",
-        "nexImune": 99
-      },
-      "pericias": {
-        "Percepção": "6d20+25",
-        "Iniciativa": "7d20+35",
-        "Fortitude": "5d20+25",
-        "Reflexos": "7d20+35",
-        "Vontade": "6d20+25"
-      },
-      "defesa": 59,
-      "pv": 1413,
-      "machucado": 706,
-      "resistencias": null,
-      "imunidades": "Condições de paralisia, dano e efeitos de Energia",
-      "vulnerabilidades": "Conhecimento",
-      "atributos": {
-        "AGI": 7,
-        "FOR": 5,
-        "INT": 6,
-        "PRE": 6,
-        "VIG": 5
-      },
-      "deslocamento": "12m | 8 ❏",
-      "habilidades": [
-        {
-          "nome": "TRANSFORMAR A MORTE",
-          "descricao": "O caos ilógico do Anfitrião é a única coisa capaz de enfrentar a onipresença temporal do Deus da Morte e resolver o seu Enigma de Medo."
-        },
-        {
-          "nome": "POTÊNCIA DE ENERGIA",
-          "descricao": "Modificador para testes baseados em Agilidade e Intelecto é +35; para os demais atributos é +25.\n\nATO 1\nInicia combatendo dividido em 5 facetas. Cada uma tem 250 PV, RD 20, e só pode usar habilidades com seu nome. Quando todas destruídas, retorna na forma única (Ato 2) com todos os PV.\n\nATO 2\nRetorna com todos os PV. Pode usar todas as habilidades da ficha e executar 3 ações padrão por rodada (desde que diferentes).\n\nTRILHA SONORA (ATO 2)\nNo início de cada turno do Anfitrião, cada ser em alcance longo sofre 2d10 dano mental.\n\nROLETA MALUCA (ATO 2)\nNo começo do turno do Anfitrião, cada ser em alcance longo sofre um efeito aleatório (role 1d6). Efeitos iguais acumulam: 1) –5 Defesa até final da cena; 2) deve usar ação completa fazendo coisas sem sentido ou sofre 4d10 dano mental no final do turno; 3) sofre 4d20 dano de Energia; 4) –1d20 em Pontaria; 5) –1d20 em Luta; 6) nada."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "TEATRO (AMPHITRUO)",
-          "ataques": null,
-          "descricao": "Envia um texto incompreensível para a mente do alvo. Ele deve decorá-lo e recitá-lo com perfeição ou sofre 10d6 dano mental (Artes DT 35 ou Vontade DT 45 evita)."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "QUEIMAR (AENEAS)",
-          "ataques": null,
-          "descricao": "Dispara chamas em cone em alcance médio. Todos na área sofrem 10d6+20 dano de Energia (Reflexos DT 45 reduz à metade)."
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "CORTE CAÓTICO",
-              "teste": "7d20+45",
-              "dano": "3d12+20 Energia. *Livre – Romance Forçado (Liber):* Se acertar, pode escolher outro ser que consiga ver. Os dois decidem entre si quem sofrerá o dano",
-              "obs": null
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "LANÇA E ADAGA",
-              "teste": "7d20+45",
-              "dano": "2d12+20 Energia. *Livre – Eu sou o Caos (Plautus):* Se acertar um ataque contra um ser desprevenido ou flanqueado, causa +4d12 dano de Energia",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "CORTE DE ÁGUA",
-              "teste": "7d20+45",
-              "dano": "5d12+20 Energia",
-              "obs": null
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "TELETRANSPORTE",
-          "ataques": null,
-          "descricao": "Transporta-se para outro ponto em alcance médio."
-        }
-      ],
-      "enigmaMedo": "A única maneira possível de enfrentá-lo de forma justa é sob a proteção soberana do Equilíbrio, que apenas a Máscara do Desespero pode oferecer. Resolver remove a imunidade a dano do Anfitrião.",
-      "dadosMedios": {
-        "Iniciativa": "57",
-        "Presença Perturbadora": "30 mental*",
-        "Agredir - Corte Caótico": "38/56/74 Energia",
-        "Agredir - Lança E Adaga": "32/44/56 Energia",
-        "Agredir - Corte De Água": "50/80/110 Energia",
-        "Ato 2": "40 Energia",
-        "Padrão - Queimar (aeneas)": "50 Energia"
-      }
-    },
-    {
-      "id": "degolificada",
-      "nome": "Degolificada",
-      "vd": 320,
-      "caracteristicas": [
-        "MEDO",
-        "CRIATURA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": {
-        "dt": 40,
-        "dano": "9d6 mental",
-        "nexImune": 95
-      },
-      "pericias": {
-        "Percepção": "4d20+15",
-        "Iniciativa": "3d20",
-        "Fortitude": "4d20+20",
-        "Reflexos": "3d20+15",
-        "Vontade": "4d20+25"
-      },
-      "defesa": 45,
-      "pv": 850,
-      "machucado": 425,
-      "resistencias": null,
-      "imunidades": "Dano",
-      "vulnerabilidades": null,
-      "atributos": {
-        "AGI": 3,
-        "FOR": 5,
-        "INT": 3,
-        "PRE": 4,
-        "VIG": 4
-      },
-      "deslocamento": "6m | 4 ❏",
-      "habilidades": [
-        {
-          "nome": "CRIATURA DE MEDO",
-          "descricao": "Imune a dano até que se resolva o mistério da sua origem."
-        },
-        {
-          "nome": "METAMORFOSE DA DEGOLIFICADA",
-          "descricao": "Pode assumir formas mais poderosas baseadas em elementos, conforme circunstâncias:\n\n - *Devoradora (Sangue):* Se matar um alvo e mantê-lo agarrado até seu próximo turno, ganha ataque adicional de mordida (5d20+35, 10d10+20 Sangue) e resistência a Sangue 20.\n\n - *Decrépita (Morte):* Após 3 erros consecutivos em ataques contra ela, deslocamento aumenta para 12m, recebe resistência a Morte 20. Cabelos viram Lodo que pode agarrar (ação de movimento, Reflexos DT 35 evita).\n\n - *Conturbada (Energia):* Se enlouquecer um alvo, torna-se espectro de Energia: pode atravessar paredes, ignorar coberturas, dano vira Energia, resistência a Energia 20.\n\n - *Gnóstica (Conhecimento):* Se receber a resposta errada ao tentarem resolver seu enigma, sigilos de Conhecimento brilham. Ao final de cada turno, o alvo visível mais próximo sofre alucinação: 4d6 dano mental e atordoado até final do próximo turno (Vontade DT 35 reduz à metade e evita a condição)."
-        }
-      ],
-      "acoes": [
-        {
-          "tipo": "PADRÃO",
-          "nome": "AGREDIR",
-          "ataques": [
-            {
-              "nome": "PANCADA",
-              "teste": "5d20+35",
-              "dano": "8d8+20 impacto",
-              "obs": "x2"
-            }
-          ],
-          "descricao": null
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "AGARRAR E ESTRANGULAR",
-          "ataques": null,
-          "descricao": "Se acertar um ataque de pancada em um ser Médio ou menor, pode tentar agarrar o alvo (teste 5d20+35). Enquanto agarrado, o ser também fica asfixiado. Pode manter até duas criaturas agarradas."
-        },
-        {
-          "tipo": "LIVRE",
-          "nome": "GRITO RASGADO",
-          "ataques": null,
-          "descricao": "Uma vez por cena, rompe a vedação da boca e emite um grito ensurdecedor. Cada ser em alcance médio sofre 4d10+10 dano mental e um efeito aleatório (1d4): 1) surdo permanente de dois ouvidos; 2) surdo permanente de um ouvido; 3) surdo de dois ouvidos até final da cena; 4) surdo de um ouvido até final da cena (Vontade DT 35 reduz o dano à metade e evita o efeito)."
-        },
-        {
-          "tipo": "MOVIMENTO",
-          "nome": "DESFIGURAMENTO CAPILAR",
-          "ataques": null,
-          "descricao": "Usa seus longos cabelos para penetrar orifícios faciais. Cada ser agarrado sofre 10d6+20 dano de perfuração (Fortitude DT 35 reduz à metade) e 6d10 dano mental (Vontade DT 35 reduz à metade)."
-        }
-      ],
-      "enigmaMedo": "Deve ser confrontada com a causa de sua morte, de modo que não possa escapar desse confronto. Se for confrontada dessa forma, perde sua imunidade a dano.",
-      "dadosMedios": {
-        "Iniciativa": "14",
-        "Presença Perturbadora": "18 mental*",
-        "Agredir - Pancada": "52/84/116 impacto",
-        "Movimento - Desfiguramento Capilar": "50 perfuração"
-      }
-    },
-    {
-      "id": "bandido",
-      "nome": "Bandido",
-      "vd": 10,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20",
-        "Iniciativa": "2d20+5"
-      },
-      "defesa": 14,
-      "pv": 8,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17"
-      }
-    },
-    {
-      "id": "capanga",
-      "nome": "Capanga",
-      "vd": 20,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "d20+5",
-        "Iniciativa": "d20+5"
-      },
-      "defesa": 13,
-      "pv": 17,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "15"
-      }
-    },
-    {
-      "id": "assassino",
-      "nome": "Assassino",
-      "vd": 80,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "3d20+10",
-        "Iniciativa": "4d20+15"
-      },
-      "defesa": 26,
+      "defesa": 23,
       "pv": 90,
-      "machucado": null,
+      "machucado": 45,
       "resistencias": null,
       "imunidades": null,
       "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "31"
-      }
-    },
-    {
-      "id": "comandante-mercenario",
-      "nome": "Comandante mercenário",
-      "vd": 120,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "2d20+10",
-        "Iniciativa": "3d20+15"
+      "atributos": {
+        "AGI": 1,
+        "FOR": 3,
+        "INT": 2,
+        "PRE": 2,
+        "VIG": 2
       },
-      "defesa": 29,
-      "pv": 145,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
+      "deslocamento": "9m | 6 ❏",
       "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "29"
-      }
-    },
-    {
-      "id": "iniciado",
-      "nome": "Iniciado",
-      "vd": 20,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "CUTELO",
+              "teste": "4d20+15",
+              "dano": "1d6+15 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Armadura de Sangue Discente (SANGUE 1): +10 Defesa e RD 5 balístico/corte/impacto/perfuração até fim da cena."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Esfolar Discente (SANGUE 1): explosão 6m, 5d4+5 corte e sangrando (Reflexos DT 20)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Descarnar Discente (SANGUE 2): toque, 10d8 (metade corte metade Sangue) e hemorragia (Fortitude DT 20)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Transfusão Vital (SANGUE 2): perde até 50 PV, aliado tocado recupera a mesma quantidade."
+        }
       ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "2d20+5",
-        "Iniciativa": "d20"
-      },
-      "defesa": 16,
-      "pv": 15,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
       "enigmaMedo": null,
       "dadosMedios": {
-        "Iniciativa": "10"
-      }
-    },
-    {
-      "id": "investido",
-      "nome": "Investido",
-      "vd": 40,
-      "caracteristicas": [
-        "PESSOA",
-        "MÉDIA"
-      ],
-      "presencaPerturbadora": null,
-      "pericias": {
-        "Percepção": "2d20+5",
-        "Iniciativa": "2d20+5"
-      },
-      "defesa": 17,
-      "pv": 35,
-      "machucado": null,
-      "resistencias": null,
-      "imunidades": null,
-      "vulnerabilidades": null,
-      "atributos": {},
-      "deslocamento": "",
-      "habilidades": [],
-      "acoes": [],
-      "enigmaMedo": null,
-      "dadosMedios": {
-        "Iniciativa": "17"
+        "Iniciativa": "18"
       }
     },
     {
@@ -12557,7 +9029,2242 @@
           "tipo": "LIVRE",
           "nome": "AGARRÃO",
           "ataques": null,
+          "descricao": "%% Arquivos Secretos — AS-06 Infecticídio %%"
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "hikikomori",
+      "nome": "Hikikomori",
+      "vd": 20,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 14,
+        "dano": "2d6 mental",
+        "nexImune": 25
+      },
+      "pericias": {
+        "Percepção": "d20",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20"
+      },
+      "defesa": 16,
+      "pv": 35,
+      "machucado": 17,
+      "resistencias": "Energia 5",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 1,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CASULO VOLTAICO",
+          "descricao": "Enquanto não estiver machucada, o hikikomori drena a energia dos eletrônicos que cobrem seu corpo, recebendo cura acelerada 5. Além disso, sempre que for alvo de um ataque corpo a corpo, projeta uma pequena onda elétrica contra o atacante, causando 2d4 pontos de dano de Energia. Enquanto estiver machucado, perde essa habilidade."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "DISPARO INFECTADO",
+              "teste": "2d20+5",
+              "dano": "2d12 eletricidade",
+              "obs": null
+            },
+            {
+              "nome": "ESBARRÃO INFECTADO",
+              "teste": "2d20+5",
+              "dano": "2d12 eletricidade",
+              "obs": null
+            }
+          ],
           "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "RICOCHETE",
+          "ataques": null,
+          "descricao": "Ao acertar um ataque de esbarrão, o hikikomori pode fazer uma ação de movimento para se deslocar."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "INFECÇÃO",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano do disparo ou do esbarrão é infectado pelo vírus do infecticídio (Fortitude DT 14 evita; veja OPRPG, p. 292). Um ser que passe no teste fica imune a essa doença até o final da cena."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "FRENESI ELETRÔNICO",
+          "ataques": null,
+          "descricao": "Quando um ser em alcance curto do hikikomori usa um poder de Energia, ritual de Energia, equipamento eletrônico ou item amaldiçoado de Energia, o hikikomori entra em surto, se movendo até ficar adjacente ao ser. No fim do movimento extremamente veloz, ele causa uma explosão que causa 4d6+5 pontos de dano de Energia em todos os seres em um raio de 6m a partir dele (Reflexos DT 20 reduz o dano à metade)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "marca-passo",
+      "nome": "Marca Passo",
+      "vd": 80,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "3d8 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "2d20",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5"
+      },
+      "defesa": 23,
+      "pv": 140,
+      "machucado": 70,
+      "resistencias": "Balístico, corte e perfuração 10, Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "TRILHA DIGITAL",
+          "descricao": "O marca-passo consegue captar vibrações elétricas e do elemento de Energia em alcance extremo. Qualquer agente que carregue consigo algum aparelho eletrônico ou equipamento amaldiçoado com o elemento de Energia é automaticamente percebido pelo marca-passo e fica vulnerável contra a criatura até que se livre de todos os objetos."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GOLPE INFECTADO",
+              "teste": "3d20+10",
+              "dano": "2d12+5 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "INFECÇÃO DE EQUIPAMENTO",
+          "ataques": null,
+          "descricao": "Um ser que sofra dano do golpe deve rolar 1d100. Se o resultado for 51 ou maior, um equipamento que o ser está carregando se torna um item amaldiçoado de Energia. Se o resultado for 50 ou menor, um equipamento é infectado pelo vírus do infecticídio. Qualquer ser que toque o item pode se contaminar (Fortitude DT 20 evita; veja OPRPG, p. 292)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "GLITCH",
+          "ataques": null,
+          "descricao": "O marca-passo desaparece e aparece, distorcendo a percepção de realidade de todos os seres em um raio de 9m. Os alvos devem fazer testes contra a presença perturbadora do marca-passo novamente."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "estimulo",
+      "nome": "Estímulo",
+      "vd": 320,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "5d20+20",
+        "Iniciativa": "5d20+20",
+        "Fortitude": "4d20+15"
+      },
+      "defesa": 50,
+      "pv": 800,
+      "machucado": 400,
+      "resistencias": null,
+      "imunidades": "Dano (exceto Conhecimento) e todas as condições",
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 5,
+        "FOR": 0,
+        "INT": 5,
+        "PRE": 5,
+        "VIG": 4
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [
+        {
+          "nome": "PRESENÇA PERTURBADORA",
+          "descricao": "DT 8d10 - 9d6 mental - NEX 95%+ é imune. Um ser que falhe no teste contra a presença perturbadora do Estímulo é automaticamente infectado pelo vírus infecticídio (veja OPRPG, p. 292). Qualquer ser que tocar no Estímulo também é infectado automaticamente."
+        },
+        {
+          "nome": "COGITO ERGO SUM",
+          "descricao": "Ver habilidade Presença Perturbadora acima."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "SEQUESTRAR SINAL",
+          "ataques": null,
+          "descricao": "O Estímulo pode se teletransportar para qualquer espaço em alcance médio, desde que fique adjacente a um aparelho eletrônico."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "GARRAS",
+              "teste": "3d20+20",
+              "dano": "4d12+10 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RODAR SIMULAÇÃO",
+          "ataques": null,
+          "descricao": "O Estímulo distorce a natureza física de um ser em alcance curto até o final da cena. O maior atributo do ser troca de lugar com o menor atributo (Vontade DT 8d10 evita)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "IMERGIR",
+          "ataques": null,
+          "descricao": "O Estímulo aprofunda sua infecção em um ser em alcance curto que está sob efeito do infecticídio. A doença no alvo avança automaticamente em 1 estágio e ele sofre 10d12 pontos de dano de Energia (Fortitude DT 8d10 reduz o dano à metade e evita o avanço da doença)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "SEQUESTRO DE ATENÇÃO",
+          "ataques": null,
+          "descricao": "O Estímulo projeta uma imagem hipnotizante para todos os seres infectados em um raio de 30m. Um ser que falhe em um teste de Vontade (DT 35) deve gastar todas as ações durante o seu próximo turno para se mover em direção à criatura e tocá-la."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "experimento-ssabaka",
+      "nome": "Experimento Ssabáka",
+      "vd": 180,
+      "caracteristicas": [
+        "MORTE",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 28,
+        "dano": "6d6 mental",
+        "nexImune": 60
+      },
+      "pericias": {
+        "Percepção": "2d20+10",
+        "Iniciativa": "3d20+15",
+        "Fortitude": "4d20+15"
+      },
+      "defesa": 36,
+      "pv": 360,
+      "machucado": 180,
+      "resistencias": "Balístico, impacto e perfuração 10, Sangue 20",
+      "imunidades": null,
+      "vulnerabilidades": "Energia",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 2,
+        "VIG": 4
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [
+        {
+          "nome": "FUGITIVO DO TEMPO",
+          "descricao": "O experimento Ssabáka é imune a qualquer efeito negativo relacionado ao tempo, sejam naturais ou paranormais."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA",
+              "teste": "3d20+20",
+              "dano": "4d12+20 perfuração",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "MASTIGAR",
+          "ataques": null,
+          "descricao": "Se acertar um ataque com sua mordida em um alvo Grande ou menor, o experimento Ssabáka pode agarrá-lo (teste 3d20+20)."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "SOFRIMENTO DURADOURO",
+          "ataques": null,
+          "descricao": "O experimento Ssabáka despeja Lodo de Morte em um alvo agarrado. O alvo recupera 3d8+3 PV atuais, mas perde 1d8+1 PV máximos permanentemente."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "GIRO DE CAUDA",
+          "ataques": null,
+          "descricao": "O experimento Ssabáka gira sua cauda, atingindo todos os seres adjacentes (4d10+10 impacto, caídos; Reflexos DT 28 reduz à metade e evita condição)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "seguranca-da-panacea",
+      "nome": "Segurança da Panacea",
+      "vd": 80,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "2d20",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5",
+        "Atletismo": "3d20+10"
+      },
+      "defesa": 21,
+      "pv": 80,
+      "machucado": 40,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "BEM PAGO",
+          "descricao": "Se estiver presente no mesmo ambiente que um manda-chuva da Panacea, os testes do segurança recebem +5."
+        },
+        {
+          "nome": "MUNIÇÃO NÃO LETAL",
+          "descricao": "A menos que receba ordem de atirar para matar, sempre usa munição não letal."
+        },
+        {
+          "nome": "OSSOS DO OFÍCIO",
+          "descricao": "O segurança recebe +5 em testes de resistência contra efeitos paranormais."
+        },
+        {
+          "nome": "TRAJE DE CAMPO",
+          "descricao": "Fornece RD 5 e máscara de gás (+10 em Fortitude contra efeitos que dependam de respiração)."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "3d20+10",
+              "dano": "2d6+10 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "PISTOLA",
+              "teste": "3d20+10",
+              "dano": "1d12+10 balístico",
+              "obs": "x2"
+            },
+            {
+              "nome": "SUBMETRALHADORA",
+              "teste": "3d20+10",
+              "dano": "3d6+10 balístico",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRAR",
+          "ataques": null,
+          "descricao": "Se acertar pancada, pode tentar agarrar (teste 3d20+10)."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "DERRUBAR / IMOBILIZAR",
+          "ataques": null,
+          "descricao": "Manobras com teste 3d20+10 enquanto agarra."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "ATORDOAMENTO / FRAGMENTAÇÃO / GÁS LACRIMOGÊNEO / INCENDIÁRIA",
+          "ataques": null,
+          "descricao": "Uma vez por cena, granadas em alcance curto (Fortitude DT 20)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RAJADAS",
+          "ataques": null,
+          "descricao": "Dois ataques com submetralhadora (–d20 no teste, +1 dado de dano).\n\n%% Arquivos Secretos — AS-07 %%"
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "incinerado",
+      "nome": "Incinerado",
+      "vd": 60,
+      "caracteristicas": [
+        "ENERGIA",
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 19,
+        "dano": "3d6 mental",
+        "nexImune": 35
+      },
+      "pericias": {
+        "Percepção –": "2d20",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5"
+      },
+      "defesa": 21,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": "Balístico, corte e perfuração 5, Sangue 10, Energia 20",
+      "imunidades": "Fogo",
+      "vulnerabilidades": "Balístico, fogo e Morte",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 0,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "COMBUSTÃO CAÓTICA",
+          "descricao": "No início dos turnos, perde 10 PV. Machucado: duas ações padrões."
+        },
+        {
+          "nome": "CONSUMIDO PELO CAOS",
+          "descricao": "Ser com SAN 0 ou 0 PV em chamas em alcance curto é transformado em incinerado na rodada seguinte."
+        },
+        {
+          "nome": "NATUREZA INCENDIÁRIA",
+          "descricao": "Prioriza incendiar combustíveis e explosivos."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "DISPARO DE LABAREDAS",
+              "teste": "3d20+10",
+              "dano": "2d8+5 fogo e fica em chamas",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "INSTABILIDADE ÍGNEA",
+          "ataques": null,
+          "descricao": "Ao ficar com 0 PV, explosão 6m (5d10 metade mental metade Energia, em chamas; Reflexos DT 19)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGONIA INCANDESCENTE",
+          "ataques": null,
+          "descricao": "Berro em raio de 18m (3d6 mental; Vontade DT 19). Alvos em chamas –5 no teste."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "ALIMENTAR AS CHAMAS",
+          "ataques": null,
+          "descricao": "Recupera metade do dano que seres em chamas sofrem em alcance curto."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "stryzga",
+      "nome": "Stryzga",
+      "vd": 120,
+      "caracteristicas": [
+        "SANGUE",
+        "MORTE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 23,
+        "dano": "4d6 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "4d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5",
+        "Acrobacia": "3d20+10"
+      },
+      "defesa": 28,
+      "pv": 240,
+      "machucado": 120,
+      "resistencias": "Balístico, impacto e perfuração 10, químico e Sangue 20",
+      "imunidades": null,
+      "vulnerabilidades": "Balístico, fogo e Morte",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 3,
+        "PRE": 4,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏, Escalar 12m | 8 ❏, Voo 12m | 8 ❏",
+      "habilidades": [
+        {
+          "nome": "ABSORVER ESSÊNCIA",
+          "descricao": "Após alimentar-se três vezes do mesmo alvo, +d20 em testes contra ele."
+        },
+        {
+          "nome": "DOIS CORAÇÕES",
+          "descricao": "Se não morta e queimada em 1d4+3 dias após matar uma pessoa, nova stryzga surge na sepultura mais próxima."
+        },
+        {
+          "nome": "ECOS DE ESSÊNCIA",
+          "descricao": "+ d20 em testes contra seres relacionados a pessoas das quais absorveu essência."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDA E GARRAS",
+              "teste": "3d20+15",
+              "dano": "4d10+10 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "IMITAR VOZ",
+          "ataques": null,
+          "descricao": "4d6 mental em alcance curto (Vontade DT 23 reduz à metade)."
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "ALIMENTAR-SE / CONSTRIÇÃO / QUEBRA-OSSOS / RASANTE SILENCIOSO",
+          "ataques": null,
+          "descricao": "Após mordida e garras: alimentar-se, agarrar (3d20+15), constrição ou quebra-ossos."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "apostata",
+      "nome": "Apóstata",
+      "vd": 80,
+      "caracteristicas": [
+        "CONHECIMENTO",
+        "MORTE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "3d8 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "2d20",
+        "Fortitude": "2d20+5"
+      },
+      "defesa": 23,
+      "pv": 111,
+      "machucado": 55,
+      "resistencias": "Balístico, corte, impacto e Morte 5, Conhecimento 20",
+      "imunidades": "Dano e todas as condições",
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 3,
+        "PRE": 4,
+        "VIG": 2
+      },
+      "deslocamento": "0m | 0 ❏",
+      "habilidades": [
+        {
+          "nome": "MENTEM CORRUMPERE",
+          "descricao": "Contaminação por falha na PP (estágios I–IV; AS-07). VD escala com ritos: 160, 240, 320.\n\nMURUS IDOLORUM / RITUS / ENIGMA DE MEDO\nConforme AS-07 pp. 69–72."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "FLAGELLUM",
+              "teste": "3d20+10",
+              "dano": "6d10 mental",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "GNOSIS IMPLICATA / POTENTIAM ABSORBERE / FUNES LIGANTES",
+          "ataques": null,
+          "descricao": "Reações conforme VD (160+, 240+, 320+).\n\n%% Arquivos Secretos — AS-05 %%"
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "interflorado",
+      "nome": "Interflorado",
+      "vd": 40,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "PEQUENO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d8 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20"
+      },
+      "defesa": 19,
+      "pv": 70,
+      "machucado": 35,
+      "resistencias": "Balístico, corte, impacto e perfuração 5, Conhecimento, Energia e químico 10",
+      "imunidades": null,
+      "vulnerabilidades": "Fogo, frio e Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "CONTORCER PERTURBADOR",
+          "ataques": null,
+          "descricao": "2d8 mental, apavorado e trêmulo (Vontade DT 15)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "GUINCHO GUTURAL",
+          "ataques": null,
+          "descricao": "5d10 (metade Conhecimento metade Energia) em raio 9m."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "INVESTIDA SUFOCANTE",
+          "ataques": null,
+          "descricao": "Investida e parasitação (agarrar 2d20+10)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "INCUBAR",
+          "ataques": null,
+          "descricao": "Ovos de interflorado no hospedeiro."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "hospedeiro-aflorado",
+      "nome": "Hospedeiro Aflorado",
+      "vd": 60,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 19,
+        "dano": "3d6 mental",
+        "nexImune": 35
+      },
+      "pericias": {
+        "Percepção": "2d20",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "3d20+10"
+      },
+      "defesa": 25,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": "Balístico, corte, impacto e perfuração 5, Conhecimento, Energia e químico 10",
+      "imunidades": null,
+      "vulnerabilidades": "Fogo, frio e Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "AFLORADO",
+          "descricao": "Matá-lo mata o interflorado parasita."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "2d20+10",
+              "dano": "1d6+5 impacto + 2d6 químico",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "DISPARADA ERRANTE",
+          "ataques": null,
+          "descricao": "Dobra deslocamento (Acrobacia DT 20)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "GUINCHO GUTURAL",
+          "ataques": null,
+          "descricao": "5d10 em raio 9m (metade Conhecimento metade Energia)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "fummu",
+      "nome": "Fummu",
+      "vd": 100,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 21,
+        "dano": "4d6 mental",
+        "nexImune": 45
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20",
+        "Atletismo": "2d20+10"
+      },
+      "defesa": 25,
+      "pv": 200,
+      "machucado": 100,
+      "resistencias": "Balístico, corte, impacto e perfuração 10, Conhecimento, Energia e químico 20",
+      "imunidades": "Fogo",
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 2,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CAMUFLAGEM ALHEIA",
+          "descricao": "Invisível (camuflagem total, +15 Furtividade contra ouvir, +2d20 ataques vs não cegos). Em fumaça/gás: camuflagem leve."
+        },
+        {
+          "nome": "CHAMAS FERVENTES",
+          "descricao": "Agarrando fummu: 2d10 fogo por rodada."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "TOQUE ÁCIDO",
+              "teste": "3d20+15",
+              "dano": "2d10+10 químico",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "CINTILAÇÃO ESTELAR",
+          "ataques": null,
+          "descricao": "Teletransporte 9m se não agarrado."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "ACIONAR EXPLOSÃO / CHAMA VIRIDENTE",
+          "ataques": null,
+          "descricao": "Combustão de objetos ou 4d10+20 fogo em alcance médio."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "doppelganger-civil",
+      "nome": "Doppelganger Civil",
+      "vd": 20,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "1d6 mental",
+        "nexImune": 20
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "d20",
+        "Fortitude": "d20",
+        "Atualidades": "3d20+5"
+      },
+      "defesa": 14,
+      "pv": 14,
+      "machucado": 7,
+      "resistencias": "Balístico, corte, impacto e perfuração 5, Conhecimento e Energia 10",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 1,
+        "FOR": 1,
+        "INT": 3,
+        "PRE": 2,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "DISFARCE ALHEIO",
+          "descricao": "Enganação: rola duas vezes e fica com o melhor."
+        },
+        {
+          "nome": "SOMOS TODOS UM",
+          "descricao": "Sabe onde está outro doppelganger."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "d20+5",
+              "dano": "1d4+2 impacto",
+              "obs": null
+            },
+            {
+              "nome": "PISTOLA DE PLASMA",
+              "teste": "d20+5",
+              "dano": "2d6+2 Energia",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "ASSUMIR FORMA MONSTRUOSA",
+          "ataques": null,
+          "descricao": "Revela forma monstruosa (veja Doppelganger-Monstruoso)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "doppelganger-combatente",
+      "nome": "Doppelganger Combatente",
+      "vd": 60,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "3d6 mental",
+        "nexImune": 35
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20+5",
+        "Atletismo": "2d20+5"
+      },
+      "defesa": 19,
+      "pv": 70,
+      "machucado": 35,
+      "resistencias": "Balístico, corte, impacto e perfuração 10, Conhecimento e Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 3,
+        "PRE": 2,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CLOSE QUARTER COMBAT",
+          "descricao": "+d20 corpo a corpo, manobras; mirar/recarregar/sacar como livre."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "2d20+10",
+              "dano": "1d10+5 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "PISTOLA DE PLASMA",
+              "teste": "2d20+10",
+              "dano": "2d6+5 Energia",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "PROTEGER",
+          "ataques": null,
+          "descricao": "Substitui aliado adjacente em dano/efeito."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "ESPECIALISTA EM MANOBRAS",
+          "ataques": null,
+          "descricao": "Agarrar/derrubar/desarmar após ataque desarmado."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "doppelganger-cultista",
+      "nome": "Doppelganger Cultista",
+      "vd": 160,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 25,
+        "dano": "4d8 mental",
+        "nexImune": 55
+      },
+      "pericias": {
+        "Percepção": "4d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5",
+        "Artes": "4d20+10"
+      },
+      "defesa": 28,
+      "pv": 240,
+      "machucado": 120,
+      "resistencias": "Balístico, corte, impacto e perfuração 10, Conhecimento e Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 3,
+        "PRE": 4,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "2d20+10",
+              "dano": "1d4+5 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "PISTOLA DE PLASMA",
+              "teste": "3d20+10",
+              "dano": "2d6+10 Energia",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Rituais de Conhecimento e Energia conforme AS-05."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "doppelganger-monstruoso",
+      "nome": "Doppelganger Monstruoso",
+      "vd": 20,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "1d6 mental",
+        "nexImune": 20
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "d20+5",
+        "Fortitude": "d20+5"
+      },
+      "defesa": 16,
+      "pv": 24,
+      "machucado": 12,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 1,
+        "FOR": 1,
+        "INT": 3,
+        "PRE": 2,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "d20+10",
+              "dano": "1d4+7 impacto",
+              "obs": null
+            },
+            {
+              "nome": "PISTOLA DE PLASMA",
+              "teste": "d20+10",
+              "dano": "2d6+7 Energia",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "bilu",
+      "nome": "Bilu",
+      "vd": 42,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "1d4 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "d20",
+        "Artes": "3d20+10"
+      },
+      "defesa": 12,
+      "pv": 42,
+      "machucado": 21,
+      "resistencias": "Balístico, corte, impacto e perfuração 5, Conhecimento, Energia e químico 10",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 3,
+        "PRE": 4,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "REAÇÃO",
+          "nome": "ATÉ BREVE / EMBARALHAMENTO MENTAL",
+          "ataques": null,
+          "descricao": "Teletransporte extradimensional ou 4d10 mental (Vontade DT 20)."
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "COMER CIMENTO / SALTO PARA A FRENTE",
+          "ataques": null,
+          "descricao": "Recupera 10 PV ou salto 12m."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "FALA ENIGMÁTICA / LUZ PRÓPRIA",
+          "ataques": null,
+          "descricao": "3d6 mental ou manipula eletrônicos em raio 9m."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "memofligico",
+      "nome": "Memoflígico",
+      "vd": 200,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 29,
+        "dano": "6d6 mental",
+        "nexImune": 65
+      },
+      "pericias": {
+        "Percepção": "4d20+15",
+        "Iniciativa": "3d20+15",
+        "Fortitude": "2d20+10"
+      },
+      "defesa": 38,
+      "pv": 400,
+      "machucado": 200,
+      "resistencias": "Balístico, corte, impacto e perfuração 10, Conhecimento e Energia 20",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 3,
+        "INT": 3,
+        "PRE": 4,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CAMUFLAGEM ALHEIA",
+          "descricao": "Invisível (camuflagem total). Incorpóreo até revelar forma."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "RAIO PSICÔNICO",
+              "teste": "3d20+25",
+              "dano": "6d6 mental",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "TELETRANSPORTE PSICÔNICO",
+          "ataques": null,
+          "descricao": "Teletransporte 18m incorpóreo."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "MANIPULAÇÃO PSICÔNICA",
+          "ataques": null,
+          "descricao": "Efeitos psicônicos em alcance médio (AS-05)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "rastropoda",
+      "nome": "Rastropoda",
+      "vd": 140,
+      "caracteristicas": [
+        "TRANSMISSÃO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 24,
+        "dano": "4d8 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "4d20+10"
+      },
+      "defesa": 31,
+      "pv": 200,
+      "machucado": 100,
+      "resistencias": "Balístico, corte, impacto e perfuração 10, Conhecimento, Energia, fogo e químico 20",
+      "imunidades": null,
+      "vulnerabilidades": "Sangue",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 1,
+        "PRE": 3,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "TOQUE ÁCIDO",
+              "teste": "2d20+15",
+              "dano": "5d8+15 químico",
+              "obs": "x2"
+            },
+            {
+              "nome": "GOSMA PLASMÁTICA",
+              "teste": "2d20+15",
+              "dano": "4d10+15 Energia",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRÃO CORROSIVO / RASTRO PESTILENTO",
+          "ataques": null,
+          "descricao": "Agarrar após toque ácido; rastro 2d10 químico.\n\n%% Arquivos Secretos — AS-01 %%"
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "anulado",
+      "nome": "Anulado",
+      "vd": 100,
+      "caracteristicas": [
+        "SANGUE",
+        "CONHECIMENTO",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "4d6 mental",
+        "nexImune": 45
+      },
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "3d20+10"
+      },
+      "defesa": 25,
+      "pv": 190,
+      "machucado": 95,
+      "resistencias": "Balístico, impacto e perfuração 5, Conhecimento e Sangue 10",
+      "imunidades": null,
+      "vulnerabilidades": "Morte",
+      "atributos": {
+        "AGI": 2,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CORPO OSCILANTE",
+          "descricao": "Na primeira vez que um ser olhar diretamente para o anulado, sofre 2d6 mental."
+        },
+        {
+          "nome": "GOLPES ANULADOS",
+          "descricao": "Distribui ataques em até três alvos."
+        },
+        {
+          "nome": "QUERO O SEU CORPO",
+          "descricao": "Ataque errado: Reflexos DT 25 ou agarrado; sugar 4d10 Sangue, anulado recupera metade."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "BRAÇOS GROTESCOS",
+              "teste": "3d20+15",
+              "dano": "1d8+10 impacto",
+              "obs": "x2"
+            },
+            {
+              "nome": "MORDIDA ASQUEROSA",
+              "teste": "3d20+15",
+              "dano": "1d10+10 Sangue",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "assecla",
+      "nome": "Assecla",
+      "vd": 40,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "d20+5",
+        "Fortitude": "2d20+5",
+        "Atletismo": "2d20+5"
+      },
+      "defesa": 18,
+      "pv": 30,
+      "machucado": 15,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 1,
+        "FOR": 2,
+        "INT": 2,
+        "PRE": 1,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CORRENTE FARPADA",
+          "descricao": "Alcance 3m, +2 desarmar e derrubar.\n\nRITUAIS (DT 15)\nArmadura de Sangue, Esfolar Discente — até 3 PE."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "CORRENTE FARPADA",
+              "teste": "2d20+5",
+              "dano": "1d8+10 corte",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Armadura de Sangue (SANGUE 1): +5 Defesa até fim da cena."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Esfolar Discente (SANGUE 1): explosão 6m, 5d4+5 corte e sangrando (Reflexos DT 15)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "apostolo-do-sangue",
+      "nome": "Apóstolo do Sangue",
+      "vd": 200,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "3d20+15",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "3d20+15",
+        "Atletismo": "4d20+15"
+      },
+      "defesa": 30,
+      "pv": 300,
+      "machucado": 150,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 4,
+        "INT": 2,
+        "PRE": 3,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "MARRETA TRANSTORNADA",
+          "descricao": "Crítico com marreta: fraco ou debilitado (Fortitude DT 29).\n\nRITUAIS (DT 29)\nAté 10 PE por conjuração."
+        },
+        {
+          "nome": "LIVRE - RITUAIS ACELERADOS",
+          "descricao": "Uma vez por rodada, ritual completa ou menor vira livre."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MARRETA SANGUINÁRIA",
+              "teste": "4d20+20",
+              "dano": "4d10+30 impacto, perfuração ou Sangue",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Armadura de Sangue Discente, Descarnar Discente, Esfolar Verdadeiro, Hemofagia Discente, Transfusão Vital, Vomitar Pestes — conforme AS-01."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "giovanni-opspor",
+      "nome": "Giovanni Opspor",
+      "vd": 80,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "3d20+10",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "d20+5",
+        "Crime": "2d20+10"
+      },
+      "defesa": 23,
+      "pv": 70,
+      "machucado": 35,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 1,
+        "INT": 4,
+        "PRE": 3,
+        "VIG": 1
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "REVÓLVER",
+              "teste": "2d20+5",
+              "dano": "2d6+10 balístico",
+              "obs": "x2"
+            },
+            {
+              "nome": "FACA",
+              "teste": "2d20+5",
+              "dano": "1d4+10 perfuração",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "RITUAL",
+          "ataques": null,
+          "descricao": "Rituais de Sangue e Conhecimento conforme AS-01."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "mosto",
+      "nome": "Mosto",
+      "vd": 60,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIA"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "3d20+10",
+        "Atletismo": "4d20+10"
+      },
+      "defesa": 20,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 1,
+        "FOR": 4,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "ROSTO DESFIGURADO",
+          "descricao": "Sem saco no rosto: furioso (+1d8 dano, Trocação Justa)."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "CUTELO",
+              "teste": "4d20+10",
+              "dano": "1d6+10 corte",
+              "obs": null
+            },
+            {
+              "nome": "REVÓLVER",
+              "teste": "2d20+5",
+              "dano": "2d6+10 balístico",
+              "obs": null
+            }
+          ],
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "simulacro",
+      "nome": "Simulacro",
+      "vd": 32,
+      "caracteristicas": [
+        "ENERGIA",
+        "CONHECIMENTO",
+        "CRIATURA",
+        "MINÚSCULO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 15,
+        "dano": "2d6 mental",
+        "nexImune": 30
+      },
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "d20+5",
+        "Fortitude": "d20+5"
+      },
+      "defesa": 10,
+      "pv": 70,
+      "machucado": 35,
+      "resistencias": null,
+      "imunidades": "Dano (exceto Conhecimento)",
+      "vulnerabilidades": "Conhecimento",
+      "atributos": {
+        "AGI": 1,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 1
+      },
+      "deslocamento": "0m | 0 ❏",
+      "habilidades": [
+        {
+          "nome": "INTANGIBILIDADE DIGITAL",
+          "descricao": "Incorpóreo; só Conhecimento afeta. Perceber em aparelho: Ocultismo DT 4d10."
+        },
+        {
+          "nome": "FORMA EVOLUTIVA",
+          "descricao": "Estágios Krypto VD 64, Vvorm VD 128, Botnetz VD 256 — conforme AS-04."
+        },
+        {
+          "nome": "EXORCISMO DIGITAL",
+          "descricao": "Liturgia paranormal (Ocultismo DT 4d10, 3 sucessos) para prender em objeto analógico."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "SALTAR",
+          "ataques": null,
+          "descricao": "Transporta-se para aparelho eletrônico (alcance curto; evoluções aumentam alcance)."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "PERTURBAÇÃO DIGITAL",
+          "ataques": null,
+          "descricao": "2d6 mental via tela (Vontade DT 3d10); evoluções aumentam dano, DT e alvos.\n\n%% Arquivos Secretos — AS-02 %%"
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "arara-devorada",
+      "nome": "Arara Devorada",
+      "vd": 80,
+      "caracteristicas": [
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "3d8 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5"
+      },
+      "defesa": 21,
+      "pv": 120,
+      "machucado": 60,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "E DO NADA",
+          "descricao": "Primeira rodada: desprevenidos contra arara-devorada."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "BICADA",
+              "teste": "3d20+5",
+              "dano": "1d8+5 perfuração + 1d8 Sangue",
+              "obs": null
+            },
+            {
+              "nome": "GARRAS",
+              "teste": "3d20+5",
+              "dano": "1d6+5 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "AGARRÃO",
+          "ataques": null,
+          "descricao": "Após garras (teste 3d20+7)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "PENAS AFIADAS",
+          "ataques": null,
+          "descricao": "Rajada 9m (Reflexos DT 20)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "arara-infernal",
+      "nome": "Arara Infernal",
+      "vd": 120,
+      "caracteristicas": [
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 23,
+        "dano": "4d6 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "2d20+5",
+        "Iniciativa": "4d20+10",
+        "Fortitude": "3d20+10"
+      },
+      "defesa": 26,
+      "pv": 220,
+      "machucado": 110,
+      "resistencias": "Balístico, impacto e perfuração 10, Sangue 20",
+      "imunidades": null,
+      "vulnerabilidades": "Morte",
+      "atributos": {
+        "AGI": 4,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 2,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8 ❏, Voo 15m | 10 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "BICADA",
+              "teste": "4d20+10",
+              "dano": "1d10+10 perfuração + 1d10 Sangue",
+              "obs": null
+            },
+            {
+              "nome": "GARRAS",
+              "teste": "4d20+10",
+              "dano": "1d8+10 corte",
+              "obs": "x4"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "MASTIGAR",
+          "ataques": null,
+          "descricao": "6d10 Sangue em agarrado (Fortitude DT 23)."
+        },
+        {
+          "tipo": "COMPLETA",
+          "nome": "PENAS AFIADAS",
+          "ataques": null,
+          "descricao": "Rajada 9m (Reflexos DT 23)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "felino-devorado",
+      "nome": "Felino Devorado",
+      "vd": 80,
+      "caracteristicas": [
+        "SANGUE",
+        "CRIATURA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": {
+        "dt": 20,
+        "dano": "3d8 mental",
+        "nexImune": 40
+      },
+      "pericias": {
+        "Percepção": "2d20+10",
+        "Iniciativa": "3d20+10",
+        "Fortitude": "2d20+5"
+      },
+      "defesa": 23,
+      "pv": 140,
+      "machucado": 70,
+      "resistencias": "Balístico, impacto e perfuração 5, Sangue 10",
+      "imunidades": null,
+      "vulnerabilidades": "Morte",
+      "atributos": {
+        "AGI": 3,
+        "FOR": 2,
+        "INT": 0,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [
+        {
+          "nome": "CAMUFLAGEM PERVERSA",
+          "descricao": "Camuflagem leve; ignora crítico 1x/cena; –d20 percepção/rastros."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDAS",
+              "teste": "3d20+10",
+              "dano": "1d8+5 perfuração + 1d8 Sangue",
+              "obs": "x2"
+            },
+            {
+              "nome": "GARRAS",
+              "teste": "3d20+10",
+              "dano": "1d6+5 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "PULO DO FELINO",
+          "ataques": null,
+          "descricao": "+1d8 dano se agredir no mesmo turno; livre se desprevenido."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "CHICOTADA PERFURANTE",
+          "ataques": null,
+          "descricao": "4d8 Sangue, caído, movimento (Reflexos DT 20)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "felino-infernal",
+      "nome": "Felino Infernal",
+      "vd": 120,
+      "caracteristicas": [
+        "SANGUE",
+        "CRIATURA",
+        "GRANDE"
+      ],
+      "presencaPerturbadora": {
+        "dt": 23,
+        "dano": "4d6 mental",
+        "nexImune": 50
+      },
+      "pericias": {
+        "Percepção": "2d20+10",
+        "Iniciativa": "4d20+10",
+        "Fortitude": "3d20+10"
+      },
+      "defesa": 28,
+      "pv": 230,
+      "machucado": 125,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 4,
+        "FOR": 3,
+        "INT": 0,
+        "PRE": 2,
+        "VIG": 3
+      },
+      "deslocamento": "12m | 8 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MORDIDAS",
+              "teste": "4d20+10",
+              "dano": "2d6+5 perfuração + Sangue",
+              "obs": "x2"
+            },
+            {
+              "nome": "GARRAS",
+              "teste": "4d20+10",
+              "dano": "2d6+5 corte",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "MOVIMENTO",
+          "nome": "PULO DO FELINO",
+          "ataques": null,
+          "descricao": "Como felino-devorado."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "jonas-aguiar",
+      "nome": "Jonas Aguiar",
+      "vd": 80,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "2d20+5",
+        "Fortitude": "2d20+5",
+        "Adestramento": "2d20+5"
+      },
+      "defesa": 21,
+      "pv": 80,
+      "machucado": 40,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 2,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MACHADO",
+              "teste": "3d20+10",
+              "dano": "1d8+10 corte + 1d8 Sangue",
+              "obs": "x2"
+            },
+            {
+              "nome": "REVÓLVER",
+              "teste": "2d20+10",
+              "dano": "2d6+10 balístico",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "REVIDAR",
+          "ataques": null,
+          "descricao": "Contra-ataque corpo a corpo se ataque erra."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "GOLPE CRUEL",
+          "ataques": null,
+          "descricao": "+5 ataque e dano 1x/rodada."
+        },
+        {
+          "tipo": "PADRÃO",
+          "nome": "INTENÇÃO ASSASSINA / PREDADOR DE SANGUE",
+          "ataques": null,
+          "descricao": "Conforme AS-02 (Mutilador Noturno)."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "mutilador-noturno",
+      "nome": "Mutilador Noturno",
+      "vd": 140,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "2d20+10",
+        "Fortitude": "2d20+10",
+        "Adestramento": "2d20+10"
+      },
+      "defesa": 31,
+      "pv": 100,
+      "machucado": 50,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 3,
+        "FOR": 3,
+        "INT": 1,
+        "PRE": 2,
+        "VIG": 2
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "PREDADOR PERFEITO",
+          "descricao": "Ação padrão adicional por rodada."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "MACHADO",
+              "teste": "3d20+15",
+              "dano": "1d8+20 corte + 2d8 Sangue",
+              "obs": "x2"
+            },
+            {
+              "nome": "REVÓLVER",
+              "teste": "2d20+15",
+              "dano": "3d6+20 balístico",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "REVIDAR VIOLENTO",
+          "ataques": null,
+          "descricao": "Duas contra-ataques corpo a corpo se erram."
+        },
+        {
+          "tipo": "LIVRE",
+          "nome": "GOLPE MUTILADOR",
+          "ataques": null,
+          "descricao": null
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "dalmo-magno",
+      "nome": "Dalmo Magno",
+      "vd": 80,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+5",
+        "Iniciativa": "d20+5",
+        "Fortitude": "3d20+10",
+        "Atletismo": "4d20+10"
+      },
+      "defesa": 23,
+      "pv": 90,
+      "machucado": 45,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 4,
+        "FOR": 4,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "LUTADOR DE ARENA",
+          "descricao": "+5 manobras de combate."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "4d20+10",
+              "dano": "2d6+10 impacto + 1d10 Energia",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "CORPO FECHADO / PRESSÃO ATMOSFÉRICA",
+          "ataques": null,
+          "descricao": "RD 10 ou +1d10 Energia e atordoado em agarrado."
+        }
+      ],
+      "enigmaMedo": null,
+      "dadosMedios": null
+    },
+    {
+      "id": "colosso",
+      "nome": "Colosso",
+      "vd": 140,
+      "caracteristicas": [
+        "PESSOA",
+        "MÉDIO"
+      ],
+      "presencaPerturbadora": null,
+      "pericias": {
+        "Percepção": "d20+10",
+        "Iniciativa": "d20+10",
+        "Fortitude": "3d20+15",
+        "Atletismo": "4d20+15"
+      },
+      "defesa": 33,
+      "pv": 110,
+      "machucado": 55,
+      "resistencias": null,
+      "imunidades": null,
+      "vulnerabilidades": null,
+      "atributos": {
+        "AGI": 4,
+        "FOR": 4,
+        "INT": 1,
+        "PRE": 1,
+        "VIG": 3
+      },
+      "deslocamento": "9m | 6 ❏",
+      "habilidades": [
+        {
+          "nome": "CAMPEÃO DE ARENA",
+          "descricao": "+10 manobras, RD 10."
+        }
+      ],
+      "acoes": [
+        {
+          "tipo": "PADRÃO",
+          "nome": "AGREDIR",
+          "ataques": [
+            {
+              "nome": "PANCADA",
+              "teste": "4d20+15",
+              "dano": "4d6+20 impacto",
+              "obs": "x2"
+            }
+          ],
+          "descricao": null
+        },
+        {
+          "tipo": "REAÇÃO",
+          "nome": "IMPLOSÃO ATMOSFÉRICA / CAMPO DE PRESSÃO",
+          "ataques": null,
+          "descricao": "Pressão destruidora ou RD 15."
         }
       ],
       "enigmaMedo": null,
@@ -12577,9 +11284,11 @@
     "MÉDIO",
     "MEDO",
     "MINÚSCULA",
+    "MINÚSCULO",
     "MORTE",
     "PEQUENO",
     "PESSOA",
-    "SANGUE"
+    "SANGUE",
+    "TRANSMISSÃO"
   ]
 }
