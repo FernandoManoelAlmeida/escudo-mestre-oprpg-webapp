@@ -16,6 +16,7 @@
     "icons:pwa": "npx --yes sharp-cli -i public/icons/pwa-icon-source.png -o public/icons/icon-192.webp resize 192 192 --fit contain --background rgb(14,20,25) -f webp -q 90 --effort 6 && npx --yes sharp-cli -i public/icons/pwa-icon-source.png -o public/icons/icon-512.webp resize 512 512 --fit contain --background rgb(14,20,25) -f webp -q 90 --effort 6 && npx --yes sharp-cli -i public/icons/pwa-icon-source.png -o public/icons/header-icon.webp resize 50 50 --fit contain --background rgb(14,20,25) -f webp -q 90 --effort 6",
     "migrate:ameacas": "node scripts/migrate-ameacas.js",
     "migrate:regras": "node scripts/migrate-regras.js",
+    "migrate:from-opd": "node scripts/migrate-from-opd.js",
     "build:android:twa:init": "node scripts/init-twa.js",
     "build:android:twa": "cd android-twa && npx @bubblewrap/cli build",
     "build:capacitor": "cross-env BUILD_ANDROID_CAPACITOR=1 next build --webpack",

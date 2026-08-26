@@ -29,6 +29,7 @@ O build estático do Next.js (**pasta `out/`**) não publica automaticamente est
 | [Requisitos e setup](desenvolvimento/requisitos-e-setup.md) | Node, Yarn, `yarn dev` |
 | [Build e testes](desenvolvimento/build-e-testes.md) | `yarn build`, testes, lint |
 | [Dados e migrações](desenvolvimento/dados-e-migracoes.md) | JSON em `public/data/`, scripts |
+| [Integração hub TTRPG](desenvolvimento/integracao-hub-ttrpg.md) | Layout `repos/`, `migrate:from-opd`, fluxo OPD → PWA |
 | [Deploy GitHub Pages](desenvolvimento/deploy-github-pages.md) | Workflow, `basePath`, troubleshooting |
 | [PWA e basePath](desenvolvimento/pwa-e-basepath.md) | Service worker, `version.json`, URLs |
 | [Android (opcional)](desenvolvimento/android-opcional.md) | TWA / Capacitor, scripts |

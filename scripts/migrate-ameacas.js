@@ -6,7 +6,8 @@
  *
  * Uso:
  *   node scripts/migrate-ameacas.js <caminho/para/ameaças.md>
- *   yarn migrate:ameacas ../../Referências e Regras/Fichas/Ameaças.md
+ *   yarn migrate:ameacas ../../Referências/Fichas/Ameaças.md
+ *   yarn migrate:ameacas ../ordem-paranormal-desespero/Referências/Fichas/Ameaças.md
  */
 const fs = require("fs");
 const path = require("path");

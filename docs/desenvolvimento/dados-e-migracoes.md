@@ -15,6 +15,23 @@ Pode editar o JSON directamente com cuidado para manter o schema esperado pelos 
 
 ## Migração a partir de Markdown
 
+### Layout hub TTRPG (recomendado)
+
+Com o vault OPD clonado em `repos/ordem-paranormal-desespero/` (irmão deste repo):
+
+```bash
+yarn migrate:from-opd
+```
+
+Detalhes: [Integração hub TTRPG](integracao-hub-ttrpg.md)
+
+Comandos explícitos a partir de `repos/escudo-mestre-oprpg-webapp/`:
+
+```bash
+yarn migrate:regras -- ../ordem-paranormal-desespero/Referências/Escudo\ do\ Mestre\ da\ Casa.md --update
+yarn migrate:ameacas -- ../ordem-paranormal-desespero/Referências/Fichas/Ameaças.md
+```
+
 ### Regras — `scripts/migrate-regras.js`
 
 ```bash
@@ -49,5 +66,6 @@ Os scripts de migração podem invocar `writeVersion` para alinhar metadados de 
 
 ## Documentação relacionada
 
+- [Integração hub TTRPG](integracao-hub-ttrpg.md) — layout `repos/`, `migrate:from-opd`
 - [PWA e basePath](pwa-e-basepath.md) — cache de `/data/`
 - [Build e testes](build-e-testes.md)

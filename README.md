@@ -10,6 +10,10 @@ Dados em `public/data/` (`escudo-mestre-casa.json`, `ameacas.json`). O PWA em pr
 
 Este projeto usa **Yarn** (`yarn install`, `yarn dev`, etc.).
 
+## Agentes de IA
+
+Instruções para Cursor, Claude, Gemini e Trae: **[AGENTS.md](AGENTS.md)**. Skills Cursor em [`.cursor/skills/`](.cursor/skills/) (`escudo-migrate-opd`, `escudo-dev`, `escudo-deploy`, `escudo-data`, `escudo-features`).
+
 ## Documentação
 
 Guias completos para **utilizadores** (mesa) e **desenvolvimento** (setup, build, deploy, PWA):
