@@ -1,9 +1,14 @@
 ---
 name: escudo-features
-description: Implementar features no Escudo — rotas app/, UI components/, lib/dice.ts, ameaças, rolagens. Use para novas páginas, melhorias UX mobile-first, ou lógica de dados.
+description: >-
+  Implementa páginas, BottomNav, QuickRollBar, rolagens e UX mesa no Escudo
+  (styled-components, mobile-first). Use when adding a route, changing mesa
+  navigation, dice UX, or visible UI. Do not use for yarn dev/test-only or OPD migrate.
 ---
 
 # escudo-features
+
+Implementação de UI e lógica de mesa. Ambiente/QA: skill `escudo-dev`.
 
 ## Áreas comuns
 
@@ -22,7 +27,16 @@ description: Implementar features no Escudo — rotas app/, UI components/, lib/
 2. Implementar com mudança mínima
 3. `yarn test:run`
 4. `yarn dev` para verificar UX
-5. Actualizar `docs/usuario/` ou `docs/desenvolvimento/` se UX visível mudar
+5. Actualizar `docs/usuario/` (ou `docs/desenvolvimento/`) se UX visível mudar
+
+## Quando NÃO usar
+
+| Pedido | Skill |
+|--------|--------|
+| Só instalar, `yarn dev`, testes ou lint | `escudo-dev` |
+| Dados canónicos de regras/ameaças (MD OPD) | `escudo-migrate-opd` |
+| Ajuste pontual de JSON sem mudar UI | `escudo-data` |
+| GitHub Pages, service worker, produção | `escudo-deploy` |
 
 ## Guardrails
 
@@ -35,3 +49,4 @@ description: Implementar features no Escudo — rotas app/, UI components/, lib/
 
 - [AGENTS.md](../../AGENTS.md)
 - [docs/README.md](../../docs/README.md)
+- [docs/usuario/](../../docs/usuario/)

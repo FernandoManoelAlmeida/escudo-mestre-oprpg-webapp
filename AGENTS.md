@@ -21,10 +21,10 @@ Fonte única para agentes que trabalham neste webapp. Stubs (`CLAUDE.md`, `GEMIN
 | Objetivo | Acção | Skill |
 |----------|-------|-------|
 | Actualizar regras/ameaças no PWA | `yarn migrate:from-opd` | `escudo-migrate-opd` |
-| Dev local, testes, lint | `yarn dev`, `yarn test:run` | `escudo-dev` |
-| GitHub Pages, PWA, cache SW | push `master` ou build `GITHUB_PAGES=1` | `escudo-deploy` |
+| Dev local, testes, lint | `yarn install`, `yarn dev`, `yarn test:run`, `yarn lint` | `escudo-dev` |
+| GitHub Pages, PWA web, cache SW | push `master` ou build `GITHUB_PAGES=1` | `escudo-deploy` |
 | Editar JSON manualmente | `public/data/*.json` + testes | `escudo-data` |
-| Nova rota, UI, rolagens | `app/`, `components/`, `lib/` | `escudo-features` |
+| Nova página, BottomNav, QuickRollBar, UX mesa | `app/`, `components/`, `lib/dice.ts` | `escudo-features` |
 | Uso na mesa (como jogar) | Não alterar código | `docs/usuario/` |
 
 ### Regras operacionais
@@ -60,6 +60,8 @@ Fonte única para agentes que trabalham neste webapp. Stubs (`CLAUDE.md`, `GEMIN
 
 ```bash
 yarn migrate:from-opd
+# regras sem mesclar JSON existente:
+# yarn migrate:from-opd -- --no-update
 # ou:
 yarn migrate:regras -- ../ordem-paranormal-desespero/Referências/Escudo\ do\ Mestre\ da\ Casa.md --update
 yarn migrate:ameacas -- ../ordem-paranormal-desespero/Referências/Fichas/Ameaças.md
@@ -75,15 +77,17 @@ Docs: [`docs/desenvolvimento/integracao-hub-ttrpg.md`](docs/desenvolvimento/inte
 
 - Não editar campanhas OPD a partir deste repo
 - Não commitar `repos/` no hub pai
-- Não editar JSON sem validar schema (`lib/escudo.ts`, `lib/ameacas.ts`)
+- Não editar JSON sem manter o formato esperado por `lib/escudo.ts` / `lib/ameacas.ts` e correr `yarn test:run`
 - Actualizar `docs/` se mudar rotas ou UX visível
 
 ---
 
 ## 6. Skills Cursor
 
-- `.cursor/skills/escudo-migrate-opd/` — migração OPD
-- `.cursor/skills/escudo-dev/` — desenvolvimento
-- `.cursor/skills/escudo-deploy/` — deploy PWA
-- `.cursor/skills/escudo-data/` — JSON em `public/data/`
-- `.cursor/skills/escudo-features/` — features UI/código
+Canónicas neste repo. Com o vault aberto na raiz do hub, o Cursor indexa **proxies** em `ttrpg/.cursor/skills/` — a fonte de verdade continua aqui.
+
+- `.cursor/skills/escudo-migrate-opd/` — migração OPD → JSON
+- `.cursor/skills/escudo-dev/` — ambiente local, testes, lint
+- `.cursor/skills/escudo-deploy/` — deploy web Pages/PWA
+- `.cursor/skills/escudo-data/` — hotfix JSON em `public/data/`
+- `.cursor/skills/escudo-features/` — páginas, BottomNav, QuickRollBar, UX mesa
