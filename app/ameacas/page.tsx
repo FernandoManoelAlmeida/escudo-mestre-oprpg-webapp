@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import {
@@ -17,6 +17,9 @@ import type {
 import { RasterIconSvg } from "@/components/ui/RasterIconSvg";
 import { AmeacasPageSkeleton } from "@/components/skeletons";
 import { theme } from "@/lib/theme";
+import { joinCsv, splitCsv } from "@/lib/listFilterQuery";
+import { useListFiltersInUrl } from "@/hooks/useListFiltersInUrl";
+import { FilterClearButton } from "@/components/ui/FilterClearButton";
 
 const Page = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
@@ -367,14 +370,36 @@ const OPCAO_VD_ASC: OrdenarOpcao = {
   sentido: "asc",
 };
 
+const ORDENAR_BY_VALUE: Record<string, OrdenarOpcao> = {
+  "nome-asc": OPCAO_NOME_ASC,
+  "nome-desc": OPCAO_NOME_DESC,
+  "vd-desc": OPCAO_VD_DESC,
+  "vd-asc": OPCAO_VD_ASC,
+};
+
+const OPRPG_AMEACAS_FILTER_DEFAULTS = {
+  q: "",
+  ord: "nome-asc",
+  car: "",
+};
+
+const ClearRow = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: ${({ theme }) => theme.spacing.md};
+`;
+
 export default function AmeacasPage() {
   const [data, setData] = useState<AmeacasData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [busca, setBusca] = useState("");
-  const [ordenar, setOrdenar] = useState<OrdenarOpcao>(OPCAO_NOME_ASC);
-  const [caracteristicasSelecionadas, setCaracteristicasSelecionadas] =
-    useState<string[]>([]);
+  const filterDefaults = useMemo(() => OPRPG_AMEACAS_FILTER_DEFAULTS, []);
+  const { values, setField, clear, hasActive } =
+    useListFiltersInUrl(filterDefaults);
+  const ordenar =
+    ORDENAR_BY_VALUE[values.ord] ?? OPCAO_NOME_ASC;
+  const caracteristicasSelecionadas = splitCsv(values.car);
   const [caracteristicasOpen, setCaracteristicasOpen] = useState(false);
   const caracteristicasRef = useRef<HTMLDivElement>(null);
 
@@ -402,9 +427,14 @@ export default function AmeacasPage() {
   }, [caracteristicasOpen]);
 
   const toggleCaracteristica = (c: string) => {
-    setCaracteristicasSelecionadas((prev) =>
-      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
-    );
+    const next = caracteristicasSelecionadas.includes(c)
+      ? caracteristicasSelecionadas.filter((x) => x !== c)
+      : [...caracteristicasSelecionadas, c];
+    setField("car", joinCsv(next));
+  };
+
+  const setOrdenar = (opcao: OrdenarOpcao) => {
+    setField("ord", opcao.value);
   };
 
   if (loading) return <AmeacasPageSkeleton />;
@@ -431,7 +461,7 @@ export default function AmeacasPage() {
 
   const caracteristicasLista = getCaracteristicasParaFiltro(data);
   const filtered = filterAmeacas(data, {
-    texto: busca || undefined,
+    texto: values.q || undefined,
     ordenarPor: ordenar.por,
     ordenarSentido: ordenar.sentido,
     caracteristicas: caracteristicasSelecionadas.length
@@ -448,11 +478,64 @@ export default function AmeacasPage() {
             <SearchInput
               type="search"
               placeholder="Buscar por nome, VD, características…"
-              value={busca}
-              onChange={(e) => setBusca(e.target.value)}
+              value={values.q}
+              onChange={(e) => setField("q", e.target.value)}
               aria-label="Buscar texto nas fichas"
             />
           </SearchWrap>
+        </FilterSection>
+        <FilterSection>
+          <FilterBlock>
+            <FilterLabel id="caracteristica-label">Características</FilterLabel>
+            <MultiSelectWrap ref={caracteristicasRef}>
+              <MultiSelectTrigger
+                type="button"
+                onClick={() => setCaracteristicasOpen((o) => !o)}
+                aria-expanded={caracteristicasOpen}
+                aria-haspopup="listbox"
+                aria-labelledby="caracteristica-label"
+                id="filtro-caracteristicas"
+                title={
+                  caracteristicasSelecionadas.length > 0
+                    ? caracteristicasSelecionadas.join(", ")
+                    : undefined
+                }
+              >
+                <MultiSelectTriggerText>
+                  {caracteristicasSelecionadas.length === 0
+                    ? "Todas"
+                    : caracteristicasSelecionadas.join(", ")}
+                </MultiSelectTriggerText>
+              </MultiSelectTrigger>
+              {caracteristicasOpen && (
+                <MultiSelectPanel role="listbox" aria-multiselectable>
+                  {caracteristicasSelecionadas.length > 0 && (
+                    <MultiSelectClearBtn
+                      type="button"
+                      onClick={() => {
+                        setField("car", "");
+                        setCaracteristicasOpen(false);
+                      }}
+                      aria-label="Limpar seleção de características"
+                    >
+                      Limpar seleção
+                    </MultiSelectClearBtn>
+                  )}
+                  {caracteristicasLista.map((c) => (
+                    <MultiSelectOption key={c}>
+                      <input
+                        type="checkbox"
+                        checked={caracteristicasSelecionadas.includes(c)}
+                        onChange={() => toggleCaracteristica(c)}
+                        aria-label={c}
+                      />
+                      {c}
+                    </MultiSelectOption>
+                  ))}
+                </MultiSelectPanel>
+              )}
+            </MultiSelectWrap>
+          </FilterBlock>
         </FilterSection>
         <FilterSection>
           <FilterRow>
@@ -529,61 +612,11 @@ export default function AmeacasPage() {
                 </OrderBtn>
               </OrderGroup>
             </FilterBlock>
-            <FilterBlock>
-              <FilterLabel id="caracteristica-label">
-                Características
-              </FilterLabel>
-              <MultiSelectWrap ref={caracteristicasRef}>
-                <MultiSelectTrigger
-                  type="button"
-                  onClick={() => setCaracteristicasOpen((o) => !o)}
-                  aria-expanded={caracteristicasOpen}
-                  aria-haspopup="listbox"
-                  aria-labelledby="caracteristica-label"
-                  id="filtro-caracteristicas"
-                  title={
-                    caracteristicasSelecionadas.length > 0
-                      ? caracteristicasSelecionadas.join(", ")
-                      : undefined
-                  }
-                >
-                  <MultiSelectTriggerText>
-                    {caracteristicasSelecionadas.length === 0
-                      ? "Todas"
-                      : caracteristicasSelecionadas.join(", ")}
-                  </MultiSelectTriggerText>
-                </MultiSelectTrigger>
-                {caracteristicasOpen && (
-                  <MultiSelectPanel role="listbox" aria-multiselectable>
-                    {caracteristicasSelecionadas.length > 0 && (
-                      <MultiSelectClearBtn
-                        type="button"
-                        onClick={() => {
-                          setCaracteristicasSelecionadas([]);
-                          setCaracteristicasOpen(false);
-                        }}
-                        aria-label="Limpar seleção de características"
-                      >
-                        Limpar seleção
-                      </MultiSelectClearBtn>
-                    )}
-                    {caracteristicasLista.map((c) => (
-                      <MultiSelectOption key={c}>
-                        <input
-                          type="checkbox"
-                          checked={caracteristicasSelecionadas.includes(c)}
-                          onChange={() => toggleCaracteristica(c)}
-                          aria-label={c}
-                        />
-                        {c}
-                      </MultiSelectOption>
-                    ))}
-                  </MultiSelectPanel>
-                )}
-              </MultiSelectWrap>
-            </FilterBlock>
           </FilterRow>
         </FilterSection>
+        <ClearRow>
+          <FilterClearButton onClick={clear} disabled={!hasActive} />
+        </ClearRow>
         <FeedbackText style={{ marginTop: theme.spacing.md }}>
           <small>
             *dano mental dos Dados Médios leva em conta a regra &quot;Jogando sem
