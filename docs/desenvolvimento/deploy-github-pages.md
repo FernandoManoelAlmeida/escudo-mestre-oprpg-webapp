@@ -4,6 +4,8 @@
 
 O workflow [`.github/workflows/nextjs.yml`](../../.github/workflows/nextjs.yml) faz **build estático** do Next e publica a pasta **`out/`** no GitHub Pages.
 
+O passo **Setup Pages** usa `configure-pages@v5` **sem** `static_site_generator: next`: esse preset altera o `next.config` e o `withPWA` deixa de emitir `sw.js` no runner (build rápido, sem linhas `(pwa)` no log). O `basePath` e `output: export` ficam só no nosso `next.config.ts`.
+
 ## Variáveis de ambiente no CI
 
 No job de build:

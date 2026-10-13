@@ -59,6 +59,7 @@
     "patch-package": "^8.0.1",
     "prettier": "^3.8.1",
     "typescript": "^5",
-    "vitest": "^4.1.0"
+    "vitest": "^4.1.0",
+    "webpack": "^5.99.0"
   }
 }
