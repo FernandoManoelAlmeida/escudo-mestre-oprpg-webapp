@@ -53,11 +53,71 @@ function writeVersion(projectRoot = path.resolve(__dirname, ".."), opts = {}) {
     fs.writeFileSync(outVersionPath, body, "utf8");
   }
 
+  syncPwaArtifactsToOut(projectRoot);
+
+  if (!opts.skipPagesSwCheck) {
+    assertPagesServiceWorker(projectRoot);
+  }
+
   return payload;
+}
+
+/**
+ * Falha o build Pages se o export existir mas o next-pwa não gerou SW.
+ * @param {string} projectRoot
+ * @param {string} [basePath]
+ */
+function assertPagesServiceWorker(
+  projectRoot,
+  basePath = process.env.NEXT_PUBLIC_BASE_PATH,
+) {
+  const { isGitHubPagesBuildEnv } = require("./pages-build-env.js");
+  const {
+    findExistingSwPath,
+    formatSwDiagnostic,
+  } = require("./pwa-artifact-paths.js");
+  if (!isGitHubPagesBuildEnv(basePath)) return;
+  const outDir = path.join(projectRoot, "out");
+  if (!fs.existsSync(outDir)) return;
+
+  if (!findExistingSwPath(projectRoot, basePath)) {
+    console.error(
+      "write-version: sw.js em falta após build GitHub Pages (next build --webpack + @ducanh2912/next-pwa).",
+    );
+    console.error(formatSwDiagnostic(projectRoot, basePath));
+    process.exit(1);
+  }
+}
+
+/**
+ * O export estático pode copiar `public/sw.js` para `out/` antes do next-pwa
+ * regenerar o SW com precache prefixado. Garantir que o deploy usa o SW final.
+ */
+function syncPwaArtifactsToOut(projectRoot, basePath = process.env.NEXT_PUBLIC_BASE_PATH) {
+  const {
+    findExistingSwPath,
+    listPublicWorkboxFiles,
+  } = require("./pwa-artifact-paths.js");
+  const outDir = path.join(projectRoot, "out");
+  if (!fs.existsSync(outDir)) return;
+
+  const swSource = findExistingSwPath(projectRoot, basePath);
+  const swOut = path.join(outDir, "sw.js");
+  if (swSource && swSource !== swOut) {
+    fs.copyFileSync(swSource, swOut);
+  }
+
+  for (const wb of listPublicWorkboxFiles(projectRoot, basePath)) {
+    fs.copyFileSync(wb, path.join(outDir, path.basename(wb)));
+  }
 }
 
 if (require.main === module) {
   writeVersion();
 }
 
-module.exports = { writeVersion };
+module.exports = {
+  writeVersion,
+  syncPwaArtifactsToOut,
+  assertPagesServiceWorker,
+};

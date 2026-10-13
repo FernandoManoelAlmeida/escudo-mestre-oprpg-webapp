@@ -10,15 +10,17 @@ description: >-
 
 Deploy **web** (GitHub Pages + PWA). Android: [docs/desenvolvimento/android-opcional.md](../../docs/desenvolvimento/android-opcional.md).
 
+Antes do push: skill **`escudo-pages-pre-entrega`** (`yarn build:pages:ci-simulate`).
+
 ## Build de produção
 
 `yarn build` já corre `next build --webpack` e depois `node scripts/write-version.js` (`public/version.json`).
 
 ```bash
-GITHUB_PAGES=1 NEXT_PUBLIC_BASE_PATH=/escudo-mestre-oprpg-webapp yarn build
+yarn build:pages:ci-simulate
 ```
 
-Em CI: workflow [`.github/workflows/nextjs.yml`](../../.github/workflows/nextjs.yml) define `GITHUB_PAGES=1` e `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`.
+Em CI: workflow [`.github/workflows/nextjs.yml`](../../.github/workflows/nextjs.yml) — build + verify PWA.
 
 ## Checklist deploy
 

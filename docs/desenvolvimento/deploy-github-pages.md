@@ -8,7 +8,7 @@ O workflow [`.github/workflows/nextjs.yml`](../../.github/workflows/nextjs.yml) 
 
 No job de build:
 
-- `GITHUB_PAGES=1` — activa `output: "export"` e `basePath` em `next.config.ts`.
+- `GITHUB_PAGES=1` (local) ou `true` (CI) — activa `output: "export"` e `basePath` em `next.config.ts` (`lib/githubPagesEnv.ts`).
 - `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}` — prefixo do site (ex.: `/escudo-mestre-oprpg-webapp`).
 
 O `next.config.ts` também injecta `NEXT_PUBLIC_BASE_PATH` no cliente em builds GitHub Pages, para URLs de ícones, dados e **service worker** ficarem alinhadas.
@@ -24,6 +24,21 @@ Após deploy, confirme que existe:
 ## Monorepo
 
 No workflow, `env.APP_DIR` está como `.` (raiz do webapp). Se o app estiver noutra pasta do mono-repo, ajuste `APP_DIR` e os caminhos de `cache-dependency-path` / `path` do artefacto.
+
+## Build local (smoke)
+
+```bash
+yarn test:run
+yarn build:pages:ci-simulate
+```
+
+Linux (runner ubuntu):
+
+```bash
+docker run --rm -v "$PWD":/app -w /app node:20-bookworm bash scripts/simulate-github-pages-ci.sh
+```
+
+O workflow apaga `.next` antes do build, corre verify PWA após o build e falha em `write-version` se faltar `sw.js`.
 
 ## Resolução de problemas (service worker / cache)
 

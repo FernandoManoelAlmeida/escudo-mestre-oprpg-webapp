@@ -23,6 +23,7 @@ Fonte única para agentes que trabalham neste webapp. Stubs (`CLAUDE.md`, `GEMIN
 | Actualizar regras/ameaças no PWA | `yarn migrate:from-opd` | `escudo-migrate-opd` |
 | Dev local, testes, lint | `yarn install`, `yarn dev`, `yarn test:run`, `yarn lint` | `escudo-dev` |
 | GitHub Pages, PWA web, cache SW | push `master` ou build `GITHUB_PAGES=1` | `escudo-deploy` |
+| Gate antes de entregar / push Pages | `yarn build:pages:ci-simulate` | `escudo-pages-pre-entrega` |
 | Editar JSON manualmente | `public/data/*.json` + testes | `escudo-data` |
 | Nova página, BottomNav, QuickRollBar, UX mesa | `app/`, `components/`, `lib/dice.ts` | `escudo-features` |
 | Uso na mesa (como jogar) | Não alterar código | `docs/usuario/` |

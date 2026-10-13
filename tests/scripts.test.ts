@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { createRequire } from "node:module";
 import fs from "node:fs";
 import path from "node:path";
@@ -7,7 +7,19 @@ import os from "node:os";
 const require = createRequire(import.meta.url);
 
 describe("scripts/write-version", () => {
-  const { writeVersion } = require("../scripts/write-version.js");
+  const {
+    writeVersion,
+    assertPagesServiceWorker,
+  } = require("../scripts/write-version.js");
+
+  beforeEach(() => {
+    vi.stubEnv("GITHUB_PAGES", "");
+    vi.stubEnv("NEXT_PUBLIC_BASE_PATH", "");
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
 
   it("grava version.json com buildId fallback", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv-"));
@@ -43,6 +55,7 @@ describe("scripts/write-version", () => {
     );
     const payload = writeVersion(dir, {
       now: () => "2021-01-01T00:00:00.000Z",
+      skipPagesSwCheck: true,
     });
     const outRaw = fs.readFileSync(
       path.join(dir, "out", "version.json"),
@@ -51,15 +64,49 @@ describe("scripts/write-version", () => {
     expect(JSON.parse(outRaw).buildId).toBe(payload.buildId);
     expect(JSON.parse(outRaw).generatedAt).toBe("2021-01-01T00:00:00.000Z");
   });
+
+  it("assertPagesServiceWorker termina build Pages sem sw.js", () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv6-"));
+    fs.mkdirSync(path.join(dir, "out"), { recursive: true });
+    vi.stubEnv("GITHUB_PAGES", "1");
+    vi.stubEnv("NEXT_PUBLIC_BASE_PATH", "/repo");
+    const exit = vi
+      .spyOn(process, "exit")
+      .mockImplementation((code: number | null | undefined) => {
+        throw new Error(`exit:${code}`);
+      });
+    expect(() => assertPagesServiceWorker(dir)).toThrow("exit:1");
+    exit.mockRestore();
+  });
+
+  it("copia public/sw.js para out/ após o build PWA", () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv4-"));
+    fs.mkdirSync(path.join(dir, "public"), { recursive: true });
+    fs.mkdirSync(path.join(dir, "out"), { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, "public", "sw.js"),
+      'precacheAndRoute([{url:"/repo/data/x.json"}])',
+      "utf8",
+    );
+    fs.writeFileSync(
+      path.join(dir, "out", "sw.js"),
+      'precacheAndRoute([{url:"/data/x.json"}])',
+      "utf8",
+    );
+    writeVersion(dir, { skipPagesSwCheck: true });
+    expect(fs.readFileSync(path.join(dir, "out", "sw.js"), "utf8")).toContain(
+      "/repo/data/x.json",
+    );
+  });
 });
 
-describe("scripts/migrate-ameacas", () => {
+describe("scripts/migrate-ameacas-oprpg", () => {
   const {
     normalizarCaracteristica,
     slug,
     normalizarDescricaoAcao,
     parseBlock,
-  } = require("../scripts/migrate-ameacas.js");
+  } = require("../scripts/migrate-ameacas-oprpg.js");
 
   it("normalizarCaracteristica", () => {
     expect(normalizarCaracteristica("  a b  ")).toBe("A B");
@@ -95,14 +142,14 @@ PADRÃO - Mordida
   });
 });
 
-describe("scripts/migrate-regras", () => {
+describe("scripts/migrate-regras-oprpg", () => {
   const {
     slug,
     anchor,
     parseMeta,
     parseMarkdownTable,
     extractFirstTableBlock,
-  } = require("../scripts/migrate-regras.js");
+  } = require("../scripts/migrate-regras-oprpg.js");
 
   it("slug e anchor", () => {
     expect(slug("Teste A")).toBe("teste-a");
