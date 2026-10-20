@@ -7,6 +7,7 @@ export const theme = {
     background: "#181f26",
     surface: "#0e1419",
     surfaceHover: "#141c24",
+    sheetBody: "#0e1419",
     text: "#e8ecf0",
     textMuted: "#6b7a8c",
     primary: "#00c8e6",

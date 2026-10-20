@@ -29,7 +29,7 @@ const Page = styled.div`
 `;
 
 const CreatureSheetContainer = styled.article`
-  background: ${({ theme }) => theme.colors.surface};
+  background: ${({ theme }) => theme.colors.sheetBody};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 8px;
   overflow: hidden;
@@ -43,9 +43,9 @@ const SheetHeader = styled.header`
   gap: ${({ theme }) => theme.spacing.md};
   padding: ${({ theme }) => theme.spacing.lg};
   background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary}22 0%,
-    ${({ theme }) => theme.colors.surface} 100%
+    90deg,
+    color-mix(in srgb, ${({ theme }) => theme.colors.surface} 95%, black) 0%,
+    ${({ theme }) => theme.colors.primary}22 100%
   );
   border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
 `;
@@ -65,7 +65,7 @@ const ELEMENTO_ICON: Record<string, RasterIconName> = {
 
 const ElementIcon = styled(RasterIconSvg)`
   flex-shrink: 0;
-  height: 48px;
+  height: 96px;
   width: auto;
   display: block;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));

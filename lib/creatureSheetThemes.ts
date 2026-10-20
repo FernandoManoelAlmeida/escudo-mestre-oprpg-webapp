@@ -3,24 +3,34 @@ import type { Theme } from "@/lib/theme";
 import type { ElementoFicha } from "@/lib/ameacas";
 
 /**
+ * Paletas dos cinco elementos clareadas em 15% (cada canal RGB misturado
+ * com branco nessa proporção; alfa preservado) sobre as referências originais.
+ * sheetBody: cor de fundo do corpo da ficha — cor-identidade do elemento
+ * misturada com a surface até o texto branco ter contraste >= 4,5:1
+ * (Sangue: #792626, conforme referência visual do utilizador; Morte:
+ * cinza escuro #303030, o background do próprio tema).
+ */
+
+/**
  * Esquema de cores Sangue (referência: ficha Aberração de Carne):
  * vermelho carmim como destaque, fundo preto, texto branco/cinza.
  */
 const sangueColors = {
-  background: "#000000",
-  surface: "#0a0a0a",
-  surfaceHover: "#141414",
-  text: "#ffffff",
-  textMuted: "#a0a0a0",
-  primary: "#990000",
-  primaryHover: "#b30000",
-  primaryGlow: "rgba(153, 0, 0, 0.35)",
-  rollButton: "#8B0000",
-  rollButtonHover: "#a00",
-  border: "#3d0a0a",
-  borderHighlight: "rgba(153, 0, 0, 0.5)",
-  success: "#22c55e",
-  danger: "#cc0000",
+  background: "#262626",
+  surface: "#2F2F2F",
+  surfaceHover: "#373737",
+  sheetBody: "#792626",
+  text: "#FFFFFF",
+  textMuted: "#AEAEAE",
+  primary: "#A82626",
+  primaryHover: "#BE2626",
+  primaryGlow: "rgba(168, 38, 38, 0.35)",
+  rollButton: "#9C2626",
+  rollButtonHover: "#B72626",
+  border: "#5A2F2F",
+  borderHighlight: "rgba(168, 38, 38, 0.5)",
+  success: "#43CE76",
+  danger: "#D42626",
 } as const;
 
 /** Tema da ficha para o elemento Sangue. */
@@ -34,24 +44,25 @@ const sangueTheme: Theme = {
 
 /**
  * Esquema de cores Morte (referências: Aracnasita, O Deus da Morte):
- * fundo cinza quase preto (#0B0B0B), monocromático (branco/cinza), vermelho oxblood
- * (#8B1A1A) só na barra de vida e em um destaque pontual. Minimalista e sóbrio.
+ * fundo cinza quase preto (#303030), monocromático (branco/cinza), vermelho oxblood
+ * (#9C3C3C) só na barra de vida e em um destaque pontual. Minimalista e sóbrio.
  */
 const morteColors = {
-  background: "#0B0B0B",
-  surface: "#111111",
-  surfaceHover: "#1a1a1a",
-  text: "#ffffff",
-  textMuted: "#a0a0a0",
-  primary: "#ffffff",
-  primaryHover: "#e0e0e0",
+  background: "#303030",
+  surface: "#353535",
+  surfaceHover: "#3C3C3C",
+  sheetBody: "#303030",
+  text: "#FFFFFF",
+  textMuted: "#AEAEAE",
+  primary: "#FFFFFF",
+  primaryHover: "#E5E5E5",
   primaryGlow: "rgba(255, 255, 255, 0.15)",
-  rollButton: "#8B1A1A",
-  rollButtonHover: "#a02020",
-  border: "#1e1e1e",
+  rollButton: "#9C3C3C",
+  rollButtonHover: "#AE4141",
+  border: "#404040",
   borderHighlight: "rgba(255, 255, 255, 0.2)",
-  success: "#22c55e",
-  danger: "#8B1A1A",
+  success: "#43CE76",
+  danger: "#9C3C3C",
 } as const;
 
 /** Tema da ficha para o elemento Morte. */
@@ -69,20 +80,21 @@ const morteTheme: Theme = {
  * fundo escuro, barra de vida vermelha.
  */
 const energiaColors = {
-  background: "#0A0A0A",
-  surface: "#121212",
-  surfaceHover: "#1a1a1a",
-  text: "#ffffff",
-  textMuted: "#b0b0b0",
-  primary: "#A033FF",
-  primaryHover: "#B84DFF",
-  primaryGlow: "rgba(160, 51, 255, 0.4)",
-  rollButton: "#A033FF",
-  rollButtonHover: "#B84DFF",
-  border: "rgba(160, 51, 255, 0.5)",
-  borderHighlight: "rgba(0, 204, 255, 0.5)",
-  success: "#22c55e",
-  danger: "#A01A1A",
+  background: "#2F2F2F",
+  surface: "#363636",
+  surfaceHover: "#3C3C3C",
+  sheetBody: "#7E47AF",
+  text: "#FFFFFF",
+  textMuted: "#BCBCBC",
+  primary: "#AE52FF",
+  primaryHover: "#C368FF",
+  primaryGlow: "rgba(174, 82, 255, 0.4)",
+  rollButton: "#AE52FF",
+  rollButtonHover: "#C368FF",
+  border: "rgba(174, 82, 255, 0.5)",
+  borderHighlight: "rgba(38, 212, 255, 0.5)",
+  success: "#43CE76",
+  danger: "#AE3C3C",
 } as const;
 
 /** Tema da ficha para o elemento Energia. */
@@ -100,20 +112,21 @@ const energiaTheme: Theme = {
  * fundo carvão/preto, barra de vida vermelho carmim.
  */
 const conhecimentoColors = {
-  background: "#0D0D0D",
-  surface: "#141414",
-  surfaceHover: "#1a1a1a",
-  text: "#ffffff",
-  textMuted: "#a0a0a0",
-  primary: "#D4AF37",
-  primaryHover: "#E5C158",
-  primaryGlow: "rgba(212, 175, 55, 0.35)",
-  rollButton: "#D4AF37",
-  rollButtonHover: "#E5C158",
-  border: "rgba(212, 175, 55, 0.4)",
-  borderHighlight: "rgba(212, 175, 55, 0.6)",
-  success: "#22c55e",
-  danger: "#8B0000",
+  background: "#313131",
+  surface: "#373737",
+  surfaceHover: "#3C3C3C",
+  sheetBody: "#786C43",
+  text: "#FFFFFF",
+  textMuted: "#AEAEAE",
+  primary: "#DABB55",
+  primaryHover: "#E9CA71",
+  primaryGlow: "rgba(218, 187, 85, 0.35)",
+  rollButton: "#DABB55",
+  rollButtonHover: "#E9CA71",
+  border: "rgba(218, 187, 85, 0.4)",
+  borderHighlight: "rgba(218, 187, 85, 0.6)",
+  success: "#43CE76",
+  danger: "#9C2626",
 } as const;
 
 /** Tema da ficha para o elemento Conhecimento. */
@@ -131,20 +144,21 @@ const conhecimentoTheme: Theme = {
  * para alertas. Texto off-white, atmosfera fria e tensa.
  */
 const medoColors = {
-  background: "#0c0c0e",
-  surface: "#1b1b1f",
-  surfaceHover: "#252528",
-  text: "#e8e6e3",
-  textMuted: "#a7acb1",
-  primary: "#4D96EB",
-  primaryHover: "#67E5F1",
-  primaryGlow: "rgba(77, 150, 235, 0.35)",
-  rollButton: "#4D96EB",
-  rollButtonHover: "#67E5F1",
-  border: "#2d2d30",
-  borderHighlight: "rgba(77, 150, 235, 0.5)",
-  success: "#3d9e3d",
-  danger: "#8a1a1a",
+  background: "#303032",
+  surface: "#3D3D41",
+  surfaceHover: "#464648",
+  sheetBody: "#5577A0",
+  text: "#EBEAE7",
+  textMuted: "#B4B8BD",
+  primary: "#68A6EE",
+  primaryHover: "#7EE9F3",
+  primaryGlow: "rgba(104, 166, 238, 0.35)",
+  rollButton: "#68A6EE",
+  rollButtonHover: "#7EE9F3",
+  border: "#4D4D4F",
+  borderHighlight: "rgba(104, 166, 238, 0.5)",
+  success: "#5AAD5A",
+  danger: "#9C3C3C",
 } as const;
 
 /** Tema da ficha para o elemento Medo. */
