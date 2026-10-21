@@ -107,6 +107,7 @@ export function QuickRollBar({
         />
         <D20RollButton
           size="small"
+          formula={validDice ? formula : undefined}
           onClick={handleRoll}
           aria-label="Rolar dados"
         />

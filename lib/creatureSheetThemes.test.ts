@@ -42,6 +42,14 @@ describe("getCreatureSheetTheme", () => {
     expect(t.colors.primary).toBe("#68A6EE");
   });
 
+  it("retorna tema verde para TRANSMISSAO (distinto de Conhecimento)", () => {
+    const t = getCreatureSheetTheme("TRANSMISSAO");
+    expect(t.colors.primary).toBe("#4CC38A");
+    expect(t.colors.sheetBody).toBe("#0E4D3C");
+    expect(t.colors.rollButton).toBe("#1E7A4C");
+    expect(t).not.toBe(getCreatureSheetTheme("CONHECIMENTO"));
+  });
+
   it("expõe sheetBody (corpo da ficha) por elemento", () => {
     expect(getCreatureSheetTheme("SANGUE").colors.sheetBody).toBe("#792626");
     expect(getCreatureSheetTheme("MORTE").colors.sheetBody).toBe("#303030");
@@ -50,6 +58,9 @@ describe("getCreatureSheetTheme", () => {
       "#786C43",
     );
     expect(getCreatureSheetTheme("MEDO").colors.sheetBody).toBe("#5577A0");
+    expect(getCreatureSheetTheme("TRANSMISSAO").colors.sheetBody).toBe(
+      "#0E4D3C",
+    );
     expect(getCreatureSheetTheme(null).colors.sheetBody).toBe("#0e1419");
   });
 });

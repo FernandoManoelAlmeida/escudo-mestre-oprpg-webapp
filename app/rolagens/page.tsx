@@ -123,7 +123,7 @@ export default function RolagensPage() {
             placeholder="ex: 4d8+8"
             aria-label="Fórmula de dados"
           />
-          <D20RollButton onClick={handleRollFree} aria-label="Rolar dados" />
+          <D20RollButton formula={parseFormula(formula) ? formula : undefined} onClick={handleRollFree} aria-label="Rolar dados" />
         </Row>
         {freeResult && (
           <Result>
@@ -173,6 +173,7 @@ export default function RolagensPage() {
             aria-label="DT"
           />
           <D20RollButton
+            formula={atributo <= 0 ? "2d20" : `${Math.max(1, atributo)}d20`}
             onClick={handleRollAtributo}
             aria-label="Rolar teste de atributo"
           />
@@ -240,6 +241,7 @@ export default function RolagensPage() {
             aria-label="DT"
           />
           <D20RollButton
+            formula={`${periciaAtributo <= 0 ? 2 : Math.max(1, periciaAtributo)}d20${periciaBonus ? `+${periciaBonus}` : ""}`}
             onClick={handleRollPericia}
             aria-label="Rolar teste de perícia"
           />

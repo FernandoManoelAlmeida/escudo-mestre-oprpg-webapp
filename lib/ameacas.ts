@@ -111,6 +111,26 @@ export function getElementoFromAmeaca(ameaca: Ameaca): ElementoFicha | null {
   return null;
 }
 
+/** Ameaças de Transmissão (característica TRANSMISSÃO, ex.: Memoflígico). */
+export function isAmeacaTransmissao(ameaca: Ameaca): boolean {
+  return (ameaca.caracteristicas ?? []).some(
+    (c) => normalizarParaElemento(c) === "TRANSMISSAO",
+  );
+}
+
+/** Ícone do cabeçalho da ficha: um dos cinco elementos, ou Transmissão. */
+export type IconeFicha = ElementoFicha | "TRANSMISSAO";
+
+/**
+ * Ícone que aparece no cabeçalho da ficha. Transmissão não é um dos cinco
+ * elementos: tem ícone próprio (elemento-transmissao-icon) e cores próprias
+ * (verdes — ver getCreatureSheetTheme("TRANSMISSAO")).
+ */
+export function getIconeFichaFromAmeaca(ameaca: Ameaca): IconeFicha | null {
+  if (isAmeacaTransmissao(ameaca)) return "TRANSMISSAO";
+  return getElementoFromAmeaca(ameaca);
+}
+
 /** Monta um texto único com todo o conteúdo da ficha para busca. */
 function textoParaBusca(a: Ameaca): string {
   const partes: string[] = [

@@ -6,6 +6,8 @@ import {
   getAmeacas,
   getAmeacaById,
   getElementoFromAmeaca,
+  getIconeFichaFromAmeaca,
+  isAmeacaTransmissao,
 } from "@/lib/ameacas";
 import { getCreatureSheetTheme } from "@/lib/creatureSheetThemes";
 import {
@@ -61,6 +63,7 @@ const ELEMENTO_ICON: Record<string, RasterIconName> = {
   MORTE: "elemento-morte-icon",
   SANGUE: "elemento-sangue-icon",
   MEDO: "elemento-medo-icon",
+  TRANSMISSAO: "elemento-transmissao-icon",
 };
 
 const ElementIcon = styled(RasterIconSvg)`
@@ -214,7 +217,12 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
   const hasPericias =
     ameaca.pericias && Object.keys(ameaca.pericias).length > 0;
   const elemento = getElementoFromAmeaca(ameaca);
-  const sheetTheme = getCreatureSheetTheme(elemento);
+  // Transmissão: ícone e tema próprios (tema em tons de verde).
+  const transmissao = isAmeacaTransmissao(ameaca);
+  const sheetTheme = getCreatureSheetTheme(
+    transmissao ? "TRANSMISSAO" : elemento,
+  );
+  const iconeFicha = getIconeFichaFromAmeaca(ameaca);
 
   const handleRollAtributo = (nome: string, valor: number) => {
     const r = rollTesteAtributo(valor);
@@ -227,7 +235,7 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
       <ThemeProvider theme={sheetTheme}>
         <CreatureSheetContainer
           className="creature-sheet-container"
-          data-elemento={elemento ?? undefined}
+          data-elemento={transmissao ? "TRANSMISSAO" : (elemento ?? undefined)}
         >
           <SheetHeader>
             <SheetHeaderText>
@@ -236,8 +244,8 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
                 VD {ameaca.vd} · {ameaca.caracteristicas.join(" · ")}
               </Meta>
             </SheetHeaderText>
-            {elemento && ELEMENTO_ICON[elemento] && (
-              <ElementIcon name={ELEMENTO_ICON[elemento]} decorative />
+            {iconeFicha && ELEMENTO_ICON[iconeFicha] && (
+              <ElementIcon name={ELEMENTO_ICON[iconeFicha]} decorative />
             )}
           </SheetHeader>
 
@@ -251,6 +259,7 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
                 {extractDiceFormula(pp.dano) && (
                   <D20RollButton
                     size="small"
+                    formula={extractDiceFormula(pp.dano) ?? undefined}
                     onClick={() =>
                       handleRollDanoText(
                         pp.dano,
@@ -318,6 +327,7 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
                   {parseFormula(formula) !== null && (
                     <D20RollButton
                       size="small"
+                      formula={formula}
                       onClick={() => handleRoll(formula, "", `${nome} (Teste)`)}
                       aria-label={`Rolar ${nome}`}
                     />
@@ -355,6 +365,7 @@ export function AmeacaDetailClient({ id }: AmeacaDetailClientProps) {
                         <D20RollButton
                           key={formula}
                           size="small"
+                          formula={formula}
                           onClick={() => handleRoll(formula, "", acao.nome)}
                           aria-label={`Rolar ${acao.nome}`}
                         />
@@ -422,6 +433,7 @@ function AtaqueBlock({ ataque, onRoll, onRollDanoText }: AtaqueBlockProps) {
         {testeValido && (
           <D20RollButton
             size="small"
+            formula={ataque.teste}
             onClick={() => onRoll(ataque.teste, "", `${ataque.nome} (Teste)`)}
             aria-label={`Rolar teste ${ataque.nome}`}
           />
@@ -432,6 +444,7 @@ function AtaqueBlock({ ataque, onRoll, onRollDanoText }: AtaqueBlockProps) {
         {danoFormula && (
           <D20RollButton
             size="small"
+            formula={danoFormula ?? undefined}
             onClick={() => onRollDanoText(ataque.dano, `${ataque.nome} (Dano)`)}
             aria-label={`Rolar dano ${ataque.nome}`}
           />

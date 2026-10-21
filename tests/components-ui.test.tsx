@@ -45,6 +45,28 @@ describe("UI components", () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
+  it("D20RollButton usa um único ícone local do tipo de dado, sem PNG externo", () => {
+    const { container } = renderWithTheme(
+      <D20RollButton formula="2d6+3" aria-label="Rolar dano" />,
+    );
+    const srcs = [...container.querySelectorAll("img")].map((img) =>
+      img.getAttribute("src"),
+    );
+    // Um só ícone, do dado da fórmula — sem repetir por quantidade nem mostrar bónus
+    expect(srcs).toHaveLength(1);
+    expect(srcs[0]).toContain("/icons/dice/d6.svg");
+    expect(container.textContent).not.toContain("+3");
+    expect(container.innerHTML).not.toContain("crisordemparanormal.com");
+  });
+
+  it("D20RollButton sem fórmula mostra um único d20 local", () => {
+    const { container } = renderWithTheme(
+      <D20RollButton aria-label="Rolar d20" />,
+    );
+    const img = container.querySelector("img");
+    expect(img?.getAttribute("src")).toContain("/icons/dice/d20.svg");
+  });
+
   it("RasterIconSvg referencia webp no SVG", () => {
     const { container } = renderWithTheme(
       <RasterIconSvg name="home-icon" alt="Início" />,

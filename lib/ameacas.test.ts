@@ -5,6 +5,8 @@ import {
   getAmeacas,
   getCaracteristicasParaFiltro,
   getElementoFromAmeaca,
+  getIconeFichaFromAmeaca,
+  isAmeacaTransmissao,
 } from "./ameacas";
 import type { AmeacasData, Ameaca } from "./ameacas";
 
@@ -78,6 +80,33 @@ describe("getElementoFromAmeaca", () => {
         caracteristicas: undefined,
       } as unknown as Ameaca),
     ).toBeNull();
+  });
+});
+
+describe("Transmissão (isAmeacaTransmissao / getIconeFichaFromAmeaca)", () => {
+  const memofligico: Ameaca = {
+    ...pessoa,
+    id: "memofligico",
+    nome: "Memoflígico",
+    caracteristicas: ["TRANSMISSÃO", "CRIATURA", "MÉDIA"],
+  };
+
+  it("detecta a característica TRANSMISSÃO (com normalização)", () => {
+    expect(isAmeacaTransmissao(memofligico)).toBe(true);
+    expect(
+      isAmeacaTransmissao({ ...memofligico, caracteristicas: ["transmissão"] }),
+    ).toBe(true);
+    expect(isAmeacaTransmissao(zumbi)).toBe(false);
+  });
+
+  it("usa o ícone próprio de Transmissão nessas ameaças", () => {
+    expect(getElementoFromAmeaca(memofligico)).toBeNull();
+    expect(getIconeFichaFromAmeaca(memofligico)).toBe("TRANSMISSAO");
+  });
+
+  it("mantém o ícone do próprio elemento nas restantes", () => {
+    expect(getIconeFichaFromAmeaca(zumbi)).toBe("SANGUE");
+    expect(getIconeFichaFromAmeaca(pessoa)).toBeNull();
   });
 });
 

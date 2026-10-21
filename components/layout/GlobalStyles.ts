@@ -7,12 +7,11 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const fallback = {
   typography: { fontFamily: '"Inter", system-ui, sans-serif' },
   colors: {
-    background: "#181f26",
+    background: "#26313D",
     text: "#e8ecf0",
     primary: "#00c8e6",
     primaryHover: "#00e5ff",
   },
-  headerHeight: "124px",
   bottomNavHeight: "56px",
 };
 
@@ -57,9 +56,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme?.colors?.primaryHover ?? fallback.colors.primaryHover};
   }
   main {
-    padding-top: var(--header-height, 124px);
+    padding-top: 0;
     padding-bottom: ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight};
-    min-height: calc(100vh - var(--header-height, 124px) - ${({ theme }) => theme?.bottomNavHeight ?? fallback.bottomNavHeight});
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   /* Personalização Global do Scrollbar */

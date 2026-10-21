@@ -1,21 +1,23 @@
 /**
  * Identidade visual inspirada em estética arcana/mística:
- * base escura (azul-marinho/preto), destaque em azul elétrico/ciano.
+ * base ardósia azulada (fundo #26313D, cartões mais claros que o fundo),
+ * destaque em azul elétrico/ciano. Cartões mais claros que o fundo para
+ * não ficar "tudo preto"; as fichas têm temas próprios por elemento.
  */
 export const theme = {
   colors: {
-    background: "#181f26",
-    surface: "#0e1419",
-    surfaceHover: "#141c24",
+    background: "#26313D",
+    surface: "#303D4A",
+    surfaceHover: "#394857",
     sheetBody: "#0e1419",
     text: "#e8ecf0",
-    textMuted: "#6b7a8c",
+    textMuted: "#9DB0C3",
     primary: "#00c8e6",
     primaryHover: "#00e5ff",
     primaryGlow: "rgba(0, 200, 230, 0.35)",
     rollButton: "#00899e",
     rollButtonHover: "#00a8c4",
-    border: "#1a2530",
+    border: "#46586B",
     borderHighlight: "rgba(0, 200, 230, 0.4)",
     success: "#22c55e",
     danger: "#ef4444",
@@ -44,7 +46,6 @@ export const theme = {
     },
   },
   bottomNavHeight: "56px",
-  headerHeight: "124px",
   borderRadius: "4px",
 } as const;
 

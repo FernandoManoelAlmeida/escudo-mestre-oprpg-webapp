@@ -139,6 +139,39 @@ const conhecimentoTheme: Theme = {
 };
 
 /**
+ * Esquema de cores Transmissão (referência: página "Poderes de Transmissão"
+ * enviada pelo utilizador): verde-petróleo profundo como corpo da ficha,
+ * painéis verde-escuros, destaque verde vivo. Não é um dos cinco elementos:
+ * tem ícone próprio (elemento-transmissao-icon) e estes tons de verde.
+ */
+const transmissaoColors = {
+  background: "#182420",
+  surface: "#1F2E28",
+  surfaceHover: "#27382F",
+  sheetBody: "#0E4D3C",
+  text: "#FFFFFF",
+  textMuted: "#B9CFC4",
+  primary: "#4CC38A",
+  primaryHover: "#63D6A4",
+  primaryGlow: "rgba(76, 195, 138, 0.35)",
+  rollButton: "#1E7A4C",
+  rollButtonHover: "#25965E",
+  border: "#2A4A3C",
+  borderHighlight: "rgba(76, 195, 138, 0.5)",
+  success: "#43CE76",
+  danger: "#C93B3B",
+} as const;
+
+/** Tema da ficha para ameaças de Transmissão (ícone próprio, cores verdes). */
+const transmissaoTheme: Theme = {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    ...transmissaoColors,
+  },
+};
+
+/**
  * Esquema de cores Medo (referência: murder board / luz de lanterna):
  * fundos muito escuros (preto/azulado), azul/ciano no foco e hover, vermelho sangue apagado
  * para alertas. Texto off-white, atmosfera fria e tensa.
@@ -170,19 +203,23 @@ const medoTheme: Theme = {
   },
 };
 
-const themesByElemento: Partial<Record<ElementoFicha, Theme>> = {
+/** Identidade visual da ficha: os cinco elementos, mais Transmissão. */
+export type SheetThemeId = ElementoFicha | "TRANSMISSAO";
+
+const themesByElemento: Partial<Record<SheetThemeId, Theme>> = {
   SANGUE: sangueTheme,
   MORTE: morteTheme,
   ENERGIA: energiaTheme,
   CONHECIMENTO: conhecimentoTheme,
   MEDO: medoTheme,
+  TRANSMISSAO: transmissaoTheme,
 };
 
 /**
- * Retorna o tema da ficha para o elemento da ameaça.
+ * Retorna o tema da ficha para o elemento da ameaça (ou "TRANSMISSAO").
  * Se o elemento ainda não tiver tema implementado, retorna o tema padrão.
  */
-export function getCreatureSheetTheme(elemento: ElementoFicha | null): Theme {
+export function getCreatureSheetTheme(elemento: SheetThemeId | null): Theme {
   if (elemento && themesByElemento[elemento]) {
     return themesByElemento[elemento]!;
   }

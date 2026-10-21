@@ -51,13 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.style.setProperty('--header-height','48px');`,
-          }}
-        />
-      </head>
+      <head />
       <body suppressHydrationWarning>
         <StyledComponentsRegistry>
           <ClientLayout>{children}</ClientLayout>

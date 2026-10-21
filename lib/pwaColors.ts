@@ -12,8 +12,8 @@ export const pwaChromeColors = {
   },
   /** Sistema em modo claro: ainda escuro, tom ligeiramente mais claro para contraste com UI do SO */
   light: {
-    themeColor: "#121920",
-    backgroundColor: "#1c2430",
+    themeColor: "#394857",
+    backgroundColor: "#2E3B48",
   },
 } as const;
 

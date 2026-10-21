@@ -1,55 +1,34 @@
 "use client";
 
-import styled from "styled-components";
+import { DiceRollIconButton } from "@/components/ui/DiceRollIconButton";
 
-const D20_ICON_URL =
-  "https://crisordemparanormal.com/assets/d20-icon-TtjmS7-Z.png";
-
-const RoundButton = styled.button<{ $size?: "default" | "small" }>`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: ${({ $size }) => ($size === "small" ? "1.5em" : "44px")};
-  height: ${({ $size }) => ($size === "small" ? "1.5em" : "44px")};
-  padding: 0;
-  background: ${({ theme }) => theme.colors.rollButton};
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-size: ${({ theme, $size }) =>
-    $size === "small" ? theme.typography.fontSize.sm : "1rem"};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.rollButtonHover};
-  }
-`;
-
-const Icon = styled.img<{ $size?: "default" | "small" }>`
-  width: ${({ $size }) => ($size === "small" ? "1em" : "28px")};
-  height: ${({ $size }) => ($size === "small" ? "1em" : "28px")};
-  display: block;
-  object-fit: contain;
-`;
-
-type D20RollButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  size?: "default" | "small";
+type D20RollButtonProps = {
+  onClick?: () => void;
+  size?: "small" | "default";
+  /**
+   * Fórmula da rolagem (ex.: "2d20+5", "3d6"): os ícones passam a reflectir
+   * os dados reais em vez do d20 genérico. Sem fórmula, mostra um d20.
+   */
+  formula?: string;
+  "aria-label"?: string;
 };
 
+/**
+ * Invólucro fino sobre DiceRollIconButton: mesmo nome/props de antes, para
+ * os call sites existentes. Elimina o PNG externo anterior.
+ */
 export function D20RollButton({
-  "aria-label": ariaLabel,
+  onClick,
   size = "default",
-  ...props
+  formula,
+  "aria-label": ariaLabel,
 }: D20RollButtonProps) {
   return (
-    <RoundButton
-      type="button"
-      $size={size}
-      aria-label={ariaLabel ?? "Rolar dados"}
-      {...props}
-    >
-      <Icon src={D20_ICON_URL} alt="" $size={size} />
-    </RoundButton>
+    <DiceRollIconButton
+      onClick={onClick}
+      size={size}
+      formula={formula}
+      aria-label={ariaLabel}
+    />
   );
 }

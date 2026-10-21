@@ -17,10 +17,10 @@ describe("app router server exports", () => {
     expect(Array.isArray(viewport.themeColor)).toBe(true);
     const tc = viewport.themeColor as { media: string; color: string }[];
     expect(
-      tc.some((x) => x.media.includes("dark") && x.color === "#0e1419"),
+      tc.some((x) => x.media.includes("dark") && x.color === "#303D4A"),
     ).toBe(true);
     expect(
-      tc.some((x) => x.media.includes("light") && x.color === "#121920"),
+      tc.some((x) => x.media.includes("light") && x.color === "#394857"),
     ).toBe(true);
     expect(metadata.other?.["msapplication-TileColor"]).toBe(
       pwaChromeColors.dark.backgroundColor,

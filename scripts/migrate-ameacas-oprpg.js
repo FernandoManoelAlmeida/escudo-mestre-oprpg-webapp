@@ -8,6 +8,10 @@
  *   node scripts/migrate-ameacas.js <caminho/para/ameaças.md>
  *   yarn migrate:ameacas ../../Referências/Fichas/Ameaças.md
  *   yarn migrate:ameacas ../ordem-paranormal-desespero/Referências/Fichas/Ameaças.md
+ *
+ * Flags:
+ *   --only id1,id2  Só insere/atualiza os ids listados; os restantes ficam intactos.
+ *   --dry-run       Relata novas/atualizadas/ignoradas sem escrever o JSON.
  */
 const fs = require("fs");
 const path = require("path");
@@ -19,7 +23,15 @@ const OUT_PATH = path.join(PROJECT_ROOT, "public/data/ameacas.json");
 /** Normaliza uma característica para o JSON: trim, maiúsculas, unifica variações. */
 function normalizarCaracteristica(c) {
   if (!c || typeof c !== "string") return "";
-  return c.trim().toUpperCase().replace(/\s+/g, " ").trim();
+  const v = c.trim().toUpperCase().replace(/\s+/g, " ").trim();
+  // O tamanho é uma só categoria: o livro escreve MÉDIO ou MÉDIA conforme o
+  // género da criatura, mas nas fichas/filtros vale sempre MÉDIA.
+  if (v === "MÉDIO") return "MÉDIA";
+  // Enxame é uma só categoria, escreva o livro "ENXAME", "(ENXAME)" ou
+  // "CRIATURA (ENXAME)": nas fichas/filtros fica apenas ENXAME.
+  if (v === "ENXAME" || v === "(ENXAME)" || v === "CRIATURA (ENXAME)")
+    return "ENXAME";
+  return v;
 }
 
 function slug(nome) {
@@ -50,6 +62,10 @@ function normalizarDescricaoAcao(text) {
 }
 
 function parseBlock(content) {
+  // Comentários Obsidian (%% … %%) são metadados de proveniência no MD —
+  // nunca fazem parte da ficha (sem isto, um marcador entre fichas colava-se
+  // à descrição da última habilidade da ficha anterior).
+  content = content.replace(/%%[\s\S]*?%%/g, "");
   const lines = content.split("\n").map((l) => l.trim());
   const getLine = (pat) => lines.find((l) => l.match(pat));
   const getNum = (pat) => {
@@ -89,10 +105,15 @@ function parseBlock(content) {
     }
   }
   const caracteristicas = carLine
-    ? carLine
-        .split(/\s*-\s*/)
-        .map((c) => normalizarCaracteristica(c.trim()))
-        .filter(Boolean)
+    ? [
+        // Sem duplicados após a normalização (ex.: MÉDIO+MÉDIA na mesma linha)
+        ...new Set(
+          carLine
+            .split(/\s*-\s*/)
+            .map((c) => normalizarCaracteristica(c.trim()))
+            .filter(Boolean),
+        ),
+      ]
     : [];
 
   let presencaPerturbadora;
@@ -117,11 +138,22 @@ function parseBlock(content) {
       const trimmed = line.trim();
       if (!trimmed) continue;
       if (/cegas|Penumbra|escuro|^Faro,|^Visão\s/i.test(trimmed)) continue;
-      const formulaMatch = trimmed.match(formulaRegex);
-      if (!formulaMatch) continue;
-      const formula = formulaMatch[0].replace(/\s/g, "");
-      const name = trimmed.slice(0, formulaMatch.index).trim();
-      if (name && formula) pericias[name] = formula;
+      // Linhas podem trazer várias perícias separadas por "|" ou "•"
+      // (ex.: "Fortitude 3d20+10 | Reflexos: 2d20+5", "Percepção d20 • Iniciativa d20").
+      for (const segmentRaw of trimmed.split(/\s*[|•]\s*/)) {
+        const segment = segmentRaw.replace(/[–—]/g, "-").trim();
+        if (!segment) continue;
+        if (/cegas|penumbra|escuro|^faro\b|^visão\b/i.test(segment)) continue;
+        const formulaMatch = segment.match(formulaRegex);
+        if (!formulaMatch) continue;
+        const formula = formulaMatch[0].replace(/\s/g, "");
+        const name = segment
+          .slice(0, formulaMatch.index)
+          .trim()
+          .replace(/[:：]\s*$/, "")
+          .trim();
+        if (name && formula) pericias[name] = formula;
+      }
     }
   }
 
@@ -157,16 +189,16 @@ function parseBlock(content) {
   if (attrLine) {
     const parts = attrLine.split(/\s*\|\s*/);
     for (const p of parts) {
-      const m = p.trim().match(/^([A-Z]+)\s+([-]?\d+|[-])$/);
+      const m = p.trim().match(/^([A-Z]+)\s+([-]?\d+|[-—–])$/);
       if (m) {
-        const val = m[2] === "-" ? 0 : parseInt(m[2], 10);
+        const val = /^[-—–]$/.test(m[2]) ? 0 : parseInt(m[2], 10);
         atributos[m[1]] = val;
       }
     }
   }
 
   const deslMatch = content.match(/DESLOCAMENTO\s+([\s\S]+?)(?=\n\n|\n###|$)/i);
-  const deslocamento = deslMatch ? deslMatch[1].trim().replace(/\r\n/g, "\n").replace(/\r/g, "\n") : "";
+  let deslocamento = deslMatch ? deslMatch[1].trim().replace(/\r\n/g, "\n").replace(/\r/g, "\n") : "";
 
   const habilidades = [];
   const habSec = content.match(
@@ -174,12 +206,14 @@ function parseBlock(content) {
   );
   if (habSec) {
     const habParts = habSec[1]
-      .split(/\n(?=[A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ\s\-]*$)/m)
+      .split(
+        /\n(?=[A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ0-9\s\-()\/]*$)/m,
+      )
       .filter(Boolean);
     for (const part of habParts) {
       const p = part.trim();
       const nameMatch = p.match(
-        /^([A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ\s\-]*)$/m,
+        /^([A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ][A-ZÀ-ÚÃÕÂÊÎÔÛÁÉÍÓÚÇ0-9\s\-()\/]*)$/m,
       );
       if (nameMatch) {
         const nomeHab = nameMatch[1].trim();
@@ -254,6 +288,152 @@ function parseBlock(content) {
         descricao: descricao || null,
       });
     }
+    // Fallback: fichas com ações por estado (ex.: Ciborgue — "ESTADO ALPHA\n<texto>")
+    // não usam cabeçalhos PADRÃO/REAÇÃO/...; cada estado vira uma ação com a descrição.
+    if (!acoes.length) {
+      const estadoBlocks = text
+        .split(/\n(?=ESTADO\s+[A-ZÀ-Ú]+\s*$)/m)
+        .filter(Boolean);
+      for (const block of estadoBlocks) {
+        const m = block.match(/^ESTADO\s+([A-ZÀ-Ú]+)\s*\n([\s\S]*)$/);
+        if (!m) continue;
+        const desc = normalizarDescricaoAcao(m[2]);
+        if (desc.length > 10)
+          acoes.push({
+            tipo: "ESTADO",
+            nome: m[1].trim(),
+            ataques: null,
+            descricao: desc.slice(0, 8000),
+          });
+      }
+    }
+  }
+
+  // Fichas compactas do livro: os dados mecânicos que faltam nas secções
+  // estruturadas estão em prosa em "### Descrição (livro)". Extrai só o que
+  // a prosa traz (atributos, deslocamento, RD, ataques, perícias d20 e
+  // habilidades), sem inventar: a primeira frase é flavour e é ignorada.
+  const descLivroMatch = content.match(
+    /### Descrição \(livro\)\s*\n([\s\S]*?)(?=\n###|\n##\s|$)/,
+  );
+  if (descLivroMatch) {
+    const prosa = descLivroMatch[1].replace(/\s+/g, " ").trim();
+    const frases = prosa
+      .split(/\.\s+(?=[A-ZÀ-Ú])/)
+      .map((f) => f.trim().replace(/\.$/, ""))
+      .filter(Boolean);
+
+    if (!Object.keys(atributos).length) {
+      for (const m of prosa.matchAll(
+        /\b(Agi|For|Int|Pre|Vig)\s+(-?\d+|—|–)/gi,
+      )) {
+        const key = { agi: "AGI", for: "FOR", int: "INT", pre: "PRE", vig: "VIG" }[
+          m[1].toLowerCase()
+        ];
+        if (key) atributos[key] = /^\d/.test(m[2]) || /^-\d/.test(m[2]) ? parseInt(m[2], 10) : 0;
+      }
+    }
+    {
+      const dm = prosa.match(/Deslocamento\s+([^.;]+)/i);
+      // O regex estrutural pode ter capturado a frase inteira da prosa;
+      // nesse caso (texto com frases) vale a captura curta do livro.
+      if (dm && (!deslocamento || deslocamento.includes(".")))
+        deslocamento = dm[1].trim();
+    }
+    if (!resistencias) {
+      const rd = prosa.match(/\bRD\s+([^.;]+)/);
+      if (rd) resistencias = `RD ${rd[1].trim()}`;
+    }
+
+    const ataquesLivro = [];
+    const atkMatch = prosa.match(/Ataques?:\s*([\s\S]*?)(?=\.\s+[A-ZÀ-Ú][a-zà-ú]+\s|$)/);
+    if (atkMatch && !acoes.length) {
+      const lista = atkMatch[1];
+      for (const m of lista.matchAll(
+        /([A-ZÀ-Ú][A-Za-zÀ-ú ]*?)\s*\(([^)]+)\)/g,
+      )) {
+        const partes = m[2].split(",").map((s) => s.trim());
+        const teste = partes.find((p) => /^-?\d*d\d+/.test(p));
+        const danoParte = partes.find(
+          (p) => /^\d+d\d+/.test(p) && p !== teste,
+        );
+        if (!teste || !danoParte) continue;
+        const crit = partes.find((p) => /crítico/i.test(p));
+        ataquesLivro.push({
+          nome: m[1].trim(),
+          teste: teste.replace(/\s/g, ""),
+          dano: danoParte,
+          obs: crit || null,
+        });
+      }
+      if (ataquesLivro.length)
+        acoes.push({
+          tipo: "PADRÃO",
+          nome: "AGREDIR",
+          ataques: ataquesLivro,
+          descricao: null,
+        });
+    }
+
+    frases.forEach((frase, idx) => {
+      if (idx === 0) return; // flavour
+      if (/^(Percepção|Iniciativa|Defesa|PV)\b/.test(frase)) return;
+      if (/^(Agi|For|Int|Pre|Vig)\b/.test(frase)) return;
+      if (/^Deslocamento\b/i.test(frase)) return;
+      if (/^Ataques?:/.test(frase)) return;
+      // Perícias d20 em prosa ("Crime 2d20+5, Furtividade 2d20+5",
+      // "Sobrevivência O+10" — O é o d20 do livro).
+      for (const seg of frase.split(/,\s+(?=[A-ZÀ-Ú])/)) {
+        const pm = seg.match(
+          /^([A-ZÀ-Ú][A-Za-zÀ-ú ]+?)\s+(-?\d*d20(?:[+-]\d+)?|O(?:[+-]\d+)?)$/,
+        );
+        if (pm && !/^(Ataque|Agi|For|Int|Pre|Vig)$/i.test(pm[1].trim())) {
+          const nomePer = pm[1].trim();
+          const formula = pm[2].startsWith("O")
+            ? `d20${pm[2].slice(1)}`
+            : pm[2];
+          if (!(nomePer in pericias)) pericias[nomePer] = formula;
+        }
+      }
+      {
+        const hm = frase.match(/^([^:]{3,45}):\s*(.+)$/);
+        if (hm) {
+          const nomeHab = hm[1].split("(")[0].trim().toUpperCase();
+          if (
+            !habilidades.some((h) => h.nome === nomeHab) &&
+            hm[2].trim().length > 5
+          )
+            habilidades.push({
+              nome: nomeHab,
+              descricao: hm[2].trim().replace(/\)$/, ""),
+            });
+          return;
+        }
+        const paren = frase.match(
+          /^([A-ZÀ-Ú][A-Za-zÀ-ú ]{3,35})\s*\((.+)\)$/,
+        );
+        if (paren) {
+          const nomeHab = paren[1].trim().toUpperCase();
+          if (!habilidades.some((h) => h.nome === nomeHab))
+            habilidades.push({ nome: nomeHab, descricao: paren[2].trim() });
+          return;
+        }
+        const bonus = frase.match(
+          /^([A-ZÀ-Ú][A-Za-zÀ-ú ]{3,35})\s+([+-].+)$/,
+        );
+        if (bonus) {
+          const nomeHab = bonus[1].trim().toUpperCase();
+          if (!habilidades.some((h) => h.nome === nomeHab))
+            habilidades.push({ nome: nomeHab, descricao: frase });
+          return;
+        }
+        // Continuação da habilidade anterior (frase sem nome próprio).
+        if (habilidades.length) {
+          const ultima = habilidades[habilidades.length - 1];
+          ultima.descricao = `${ultima.descricao}. ${frase}`;
+        }
+      }
+    });
   }
 
   const enigmaMatch = content.match(
@@ -298,13 +478,33 @@ function parseBlock(content) {
   };
 }
 
+function parseOnlyArg(args) {
+  const idx = args.indexOf("--only");
+  if (idx < 0) return null;
+  const val = args[idx + 1];
+  if (!val || val.startsWith("--")) {
+    console.error("Erro: --only requer uma lista de ids separados por vírgula.");
+    process.exit(1);
+  }
+  return new Set(
+    val
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
+  );
+}
+
 function main() {
   const args = process.argv.slice(2).filter((a) => a && a !== "");
-  const mdPathArg = args.find((a) => !a.startsWith("--"));
+  const dryRun = args.includes("--dry-run");
+  const only = parseOnlyArg(args);
+  const mdPathArg = args.find(
+    (a, i) => !a.startsWith("--") && args[i - 1] !== "--only",
+  );
 
   if (!mdPathArg) {
     console.error(
-      "Uso: node scripts/migrate-ameacas.js <caminho/para/ameaças.md>",
+      "Uso: node scripts/migrate-ameacas.js <caminho/para/ameaças.md> [--only id1,id2] [--dry-run]",
     );
     process.exit(1);
   }
@@ -342,18 +542,36 @@ function main() {
   const existingById = new Map(existing.ameacas.map((a) => [a.id, a]));
   const added = [];
   const updated = [];
+  const changed = [];
+  const ignored = [];
 
   for (const ameaca of parsedFromMd) {
     const id = ameaca.id;
     if (!id) continue;
+    if (only && !only.has(id)) {
+      ignored.push(id);
+      continue;
+    }
 
-    if (existingById.has(id)) {
+    const prev = existingById.get(id);
+    if (prev) {
+      if (JSON.stringify(prev) !== JSON.stringify(ameaca)) changed.push(id);
       existingById.set(id, ameaca);
       updated.push(id);
     } else {
       existingById.set(id, ameaca);
       added.push(id);
     }
+  }
+
+  if (only) {
+    const parsedIds = new Set(parsedFromMd.map((a) => a.id));
+    const missingOnly = [...only].filter((id) => !parsedIds.has(id));
+    if (missingOnly.length)
+      console.log(
+        "  Aviso: ids em --only sem ficha parseável no MD:",
+        missingOnly.join(", "),
+      );
   }
 
   const ameacas = Array.from(existingById.values());
@@ -372,6 +590,18 @@ function main() {
     a.localeCompare(b, "pt-BR"),
   );
 
+  if (dryRun) {
+    console.log("Dry-run (nada foi escrito).");
+    console.log("  Total no JSON após migração:", ameacas.length);
+    console.log("  Características únicas:", caracteristicasUnicas.length);
+    if (added.length) console.log("  Novas:", added.join(", "));
+    if (changed.length)
+      console.log("  Atualizadas com diferenças:", changed.join(", "));
+    if (ignored.length)
+      console.log(`  Ignoradas (fora de --only): ${ignored.length}`);
+    return;
+  }
+
   fs.writeFileSync(
     OUT_PATH,
     JSON.stringify({ ameacas, caracteristicasUnicas }, null, 2),
@@ -384,6 +614,8 @@ function main() {
   if (added.length) console.log("  Novas:", added.join(", "));
   if (updated.length)
     console.log("  Atualizadas a partir do MD:", updated.join(", "));
+  if (ignored.length)
+    console.log(`  Ignoradas (fora de --only): ${ignored.length}`);
 
   writeVersion(PROJECT_ROOT);
 }
@@ -397,4 +629,5 @@ module.exports = {
   slug,
   normalizarDescricaoAcao,
   parseBlock,
+  parseOnlyArg,
 };

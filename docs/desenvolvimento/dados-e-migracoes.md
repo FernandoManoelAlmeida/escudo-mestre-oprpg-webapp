@@ -60,6 +60,21 @@ yarn migrate:ameacas <caminho/para/ameacas.md>
 
 Saída: `public/data/ameacas.json`.
 
+#### Migração seletiva (`--only`) e relatório (`--dry-run`)
+
+Para reimportar só algumas fichas (por exemplo, após corrigir o `Ameaças.md` ou o parser), sem tocar nas restantes:
+
+```bash
+yarn migrate:ameacas-oprpg -- ../ordem-paranormal-desespero/Referências/Fichas/Ameaças.md --only bandido,lobo --dry-run
+yarn migrate:ameacas-oprpg -- ../ordem-paranormal-desespero/Referências/Fichas/Ameaças.md --only bandido,lobo
+```
+
+- `--only id1,id2` — insere/atualiza apenas esses ids; as outras fichas do JSON ficam byte-a-byte intactas. Ids sem ficha parseável no MD são avisados.
+- `--dry-run` — não escreve nada; relata Novas, Atualizadas (com as diferenças) e Ignoradas. Combinar com `--only` para pré-visualizar uma reimportação seletiva.
+- Sem flags, o comportamento é o de sempre (migração completa).
+
+O parser também lê as fichas compactas do livro: atributos, deslocamento, ataques e habilidades escritos em prosa na secção `### Descrição (livro)` são extraídos para os campos estruturados.
+
 ## Versão após migração
 
 Os scripts de migração podem invocar `writeVersion` para alinhar metadados de versão; em fluxo normal, o `yarn build` volta a gerar `version.json`.

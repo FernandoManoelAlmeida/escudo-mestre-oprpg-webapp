@@ -106,11 +106,28 @@ describe("scripts/migrate-ameacas-oprpg", () => {
     slug,
     normalizarDescricaoAcao,
     parseBlock,
+    parseOnlyArg,
   } = require("../scripts/migrate-ameacas-oprpg.js");
 
   it("normalizarCaracteristica", () => {
     expect(normalizarCaracteristica("  a b  ")).toBe("A B");
     expect(normalizarCaracteristica("")).toBe("");
+  });
+
+  it("normalizarCaracteristica unifica o tamanho MÉDIO como MÉDIA", () => {
+    expect(normalizarCaracteristica("MÉDIO")).toBe("MÉDIA");
+    expect(normalizarCaracteristica(" médio ")).toBe("MÉDIA");
+    expect(normalizarCaracteristica("MÉDIA")).toBe("MÉDIA");
+    // Outros valores não são tocados
+    expect(normalizarCaracteristica("CRIATURA")).toBe("CRIATURA");
+    expect(normalizarCaracteristica("MINÚSCULO")).toBe("MINÚSCULO");
+  });
+
+  it("normalizarCaracteristica unifica Enxame apenas como ENXAME", () => {
+    expect(normalizarCaracteristica("ENXAME")).toBe("ENXAME");
+    expect(normalizarCaracteristica("(Enxame)")).toBe("ENXAME");
+    expect(normalizarCaracteristica("Criatura (Enxame)")).toBe("ENXAME");
+    expect(normalizarCaracteristica("CRIATURA")).toBe("CRIATURA");
   });
 
   it("slug", () => {
@@ -139,6 +156,80 @@ PADRÃO - Mordida
     `;
     const result = parseBlock(md);
     expect(result.deslocamento).toBe("9m | 6 ❏");
+  });
+
+  it("parseBlock extrai atributos, ataques e habilidades da Descrição (livro)", () => {
+    const md = `
+## Bandido
+VD 10
+PESSOA - MÉDIA
+### Perícias
+Percepção d20
+Iniciativa 2d20+5
+DEFESA 14
+PONTOS DE VIDA 8
+### Descrição (livro)
+Criminoso típico, ladrão ou assaltante. Percepção O, Iniciativa 2d20+5. Defesa 14. PV 8. Agi 2, For 2. Crime 2d20+5, Furtividade 2d20+5. Ataque: Faca (corpo a corpo, 2d20+5, 1d4+2 perfuração). Ataque Furtivo +1d6.
+    `;
+    const result = parseBlock(md);
+    expect(result.atributos).toMatchObject({ AGI: 2, FOR: 2 });
+    expect(result.pericias.Crime).toBe("2d20+5");
+    const agredir = result.acoes.find(
+      (a: { tipo: string; nome: string }) =>
+        a.tipo === "PADRÃO" && a.nome === "AGREDIR",
+    );
+    expect(agredir.ataques[0].nome).toBe("Faca");
+    expect(agredir.ataques[0].dano).toContain("1d4+2");
+    expect(
+      result.habilidades.some((h: { nome: string }) =>
+        h.nome.toUpperCase().includes("ATAQUE FURTIVO"),
+      ),
+    ).toBe(true);
+  });
+
+  it("parseBlock trata atributo — como 0 e várias perícias na mesma linha", () => {
+    const md = `
+## Animal de Teste
+VD 5
+ANIMAL - PEQUENO
+DEFESA 12
+PONTOS DE VIDA 10
+AGI 2 | FOR — | INT 0 | PRE 1 | VIG 1
+DESLOCAMENTO 9m
+### Perícias
+Atletismo: 2d20 • Percepção 2d20+5 | Sobrevivência d20+10
+    `;
+    const result = parseBlock(md);
+    expect(result.atributos.FOR).toBe(0);
+    expect(result.pericias.Atletismo).toBe("2d20");
+    expect(result.pericias["Percepção"]).toBe("2d20+5");
+    expect(result.pericias["Sobrevivência"]).toBe("d20+10");
+  });
+
+  it("parseBlock ignora comentários Obsidian %% %% (proveniência)", () => {
+    const md = `
+## Criatura de Teste
+VD 10
+CRIATURA - MÉDIA
+DEFESA 12
+PONTOS DE VIDA 10
+AGI 1 | FOR 1 | INT 0 | PRE 1 | VIG 1
+DESLOCAMENTO 9m
+### Habilidades
+VISÃO NO ESCURO
+Enxerga no escuro.
+%% Arquivos Secretos — AS-01 %%
+    `;
+    const result = parseBlock(md);
+    expect(JSON.stringify(result)).not.toContain("%%");
+    expect(JSON.stringify(result)).not.toContain("Arquivos Secretos");
+    expect(result.habilidades[0].descricao).toContain("Enxerga no escuro.");
+  });
+
+  it("parseOnlyArg devolve null sem --only e o conjunto de ids com --only", () => {
+    expect(parseOnlyArg(["ficheiro.md"])).toBeNull();
+    const only = parseOnlyArg(["ficheiro.md", "--only", "bandido, lobo ,,"]);
+    expect([...only].sort()).toEqual(["bandido", "lobo"]);
   });
 });
 

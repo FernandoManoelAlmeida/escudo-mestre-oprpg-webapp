@@ -11,6 +11,7 @@ export const RASTER_ICON_META = {
   "elemento-medo-icon": { w: 250, h: 250 },
   "elemento-morte-icon": { w: 250, h: 250 },
   "elemento-sangue-icon": { w: 250, h: 250 },
+  "elemento-transmissao-icon": { w: 250, h: 250 },
   "header-icon": { w: 50, h: 50 },
   "home-icon": { w: 512, h: 512 },
   "icon-192": { w: 192, h: 192 },

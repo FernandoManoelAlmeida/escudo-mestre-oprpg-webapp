@@ -4,7 +4,7 @@ import RootLayout from "@/app/layout";
 import React from "react";
 
 describe("app/layout RootLayout", () => {
-  it("contém metadados e script de --header-height no HTML gerado", () => {
+  it("contém estrutura html/body e children, sem script de --header-height", () => {
     const html = renderToString(
       <RootLayout>
         <div data-testid="child">página</div>
@@ -14,9 +14,8 @@ describe("app/layout RootLayout", () => {
     // Verifica se os filhos estão presentes
     expect(html).toContain("página");
 
-    // Verifica a presença do CSS custom property no script inline
-    expect(html).toContain("--header-height");
-    expect(html).toContain("48px");
+    // Sem header global: nenhum script inline de --header-height
+    expect(html).not.toContain("--header-height");
 
     // Verifica as tags básicas estruturais
     expect(html).toContain("<html");
