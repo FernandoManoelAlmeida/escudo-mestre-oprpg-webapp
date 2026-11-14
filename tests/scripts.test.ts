@@ -48,9 +48,15 @@ describe("scripts/write-version", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "em-wv3-"));
     fs.mkdirSync(path.join(dir, "public"), { recursive: true });
     fs.mkdirSync(path.join(dir, "out"), { recursive: true });
+    fs.mkdirSync(path.join(dir, "out", "data"), { recursive: true });
     fs.writeFileSync(
       path.join(dir, "out", "version.json"),
       '{"buildId":"velho"}\n',
+      "utf8",
+    );
+    fs.writeFileSync(
+      path.join(dir, "out", "data", "ameacas.json"),
+      "[]\n",
       "utf8",
     );
     const payload = writeVersion(dir, {
@@ -63,6 +69,14 @@ describe("scripts/write-version", () => {
     );
     expect(JSON.parse(outRaw).buildId).toBe(payload.buildId);
     expect(JSON.parse(outRaw).generatedAt).toBe("2021-01-01T00:00:00.000Z");
+
+    const manifestRaw = fs.readFileSync(
+      path.join(dir, "out", "offline-manifest.json"),
+      "utf8",
+    );
+    const manifest = JSON.parse(manifestRaw) as { paths: string[] };
+    expect(manifest.paths).toContain("/data/ameacas.json");
+    expect(manifest.paths).not.toContain("/version.json");
   });
 
   it("assertPagesServiceWorker termina build Pages sem sw.js", () => {

@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { isGitHubPagesBuild } from "./lib/githubPagesEnv";
 import { includeUrlInPrecacheManifest } from "./lib/pwaPrecacheFilter";
 import { prefixPrecacheUrl } from "./lib/pwaPrefixPrecacheUrl";
+import { subpathRuntimeCachingEntries } from "./lib/pwaWorkboxPatterns";
 
 const buildForCapacitor = process.env.BUILD_ANDROID_CAPACITOR === "1";
 const buildForGitHubPages = isGitHubPagesBuild();
@@ -56,6 +57,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
       },
     ],
     runtimeCaching: [
+      ...subpathRuntimeCachingEntries(basePath),
       {
         urlPattern: dataCachePattern,
         handler: "CacheFirst",
