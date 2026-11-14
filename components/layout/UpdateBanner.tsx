@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { assetUrl } from "@/lib/basePath";
+import { clearStoredRevisions } from "@/lib/offlineWarmState";
 
 const APP_VERSION_KEY = "app-version";
 
@@ -138,6 +139,7 @@ export default function UpdateBanner() {
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg) await reg.unregister();
     localStorage.removeItem(APP_VERSION_KEY);
+    clearStoredRevisions();
     window.location.reload();
   };
 
