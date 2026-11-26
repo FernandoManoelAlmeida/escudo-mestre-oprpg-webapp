@@ -47,6 +47,15 @@ yarn migrate:ameacas-oprpg -- ../ordem-paranormal-desespero/Referências/Fichas/
 4. Opcional: `yarn dev` para smoke test
 5. Utilizadores do PWA em produção podem precisar de **novo deploy** — o SW faz cache de `/data/`
 
+## Delegar via Task (`escudo-migrate-opd`)
+
+Offload de migrate + `yarn test:run`. O **pai** decide commit/push/deploy.
+
+1. No hub: template `.cursor/skills/hub-subagentes/SKILL.md` (`escudo-migrate-opd`).
+2. Task `generalPurpose` com cwd = este webapp.
+3. Com o relatório: rever `public/data/`; seguir com `escudo-pre-entrega` se for entrega Pages.
+4. Worker **não** faz commit/push nem AskQuestion.
+
 ## Guardrails
 
 - Editar MD **no OPD**, não no JSON directamente (excepto hotfix documentado)

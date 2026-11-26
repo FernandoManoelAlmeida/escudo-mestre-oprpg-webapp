@@ -30,6 +30,17 @@ Alterações em `app/`, `components/`, `lib/`, `public/`, `next.config.ts`, `.gi
 docker run --rm -v "$PWD":/app -w /app node:20-bookworm bash scripts/simulate-github-pages-ci.sh
 ```
 
+## Delegar via Task (`escudo-pre-entrega`)
+
+Offload de `test:run` + `build:pages:ci-simulate` (logs densos). O **pai** decide commit/push e comunica o resumo ao user.
+
+1. No hub: template `.cursor/skills/hub-subagentes/SKILL.md` (`escudo-pre-entrega`).
+2. Task `generalPurpose` com cwd = este webapp.
+3. Com pass/fail: corrigir falhas no pai ou pedir sync/deploy só se OK + pedido explícito.
+4. Worker **não** faz commit/push.
+
+Pode correr em paralelo com o gate do Escudo Shadowdark após migrates independentes.
+
 ## Referências
 
 - [deploy-github-pages.md](../../docs/desenvolvimento/deploy-github-pages.md)
